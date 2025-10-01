@@ -1,5 +1,15 @@
 /* Mobile-specific styles */
 @media screen and (max-width: 768px) {
+  /* Force everything to stay within viewport */
+  * {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  
+  body.mobile-device * {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
   /* Force mobile layout with higher specificity */
   body.mobile-device .loadout-layout {
     display: flex !important;
@@ -7,11 +17,13 @@
     width: 100vw !important;
     max-width: 100vw !important;
     overflow-x: hidden !important;
-    gap: 0.3rem !important;
-    padding: 0.1rem !important;
+    gap: 0.2rem !important;
+    padding: 0.05rem !important;
     align-items: center !important;
     justify-content: center !important;
     box-sizing: border-box !important;
+    /* Force strict containment */
+    contain: layout !important;
     /* DEBUG: Add visible border to see layout container */
     border: 3px solid red !important;
     background-color: rgba(255, 0, 0, 0.1) !important;
@@ -39,14 +51,16 @@
   body.mobile-device .slot-row {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 0.1rem !important;
+    gap: 0.05rem !important;
     width: 100% !important;
     max-width: 100% !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0.1rem 0 !important;
+    padding: 0.05rem 0 !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
+    /* Force strict containment */
+    contain: layout !important;
     /* DEBUG: Add visible border to see slot rows */
     border: 2px solid blue !important;
     background-color: rgba(0, 0, 255, 0.1) !important;
@@ -66,11 +80,13 @@
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    min-width: 40px !important;
-    max-width: 50px !important;
+    min-width: 30px !important;
+    max-width: 40px !important;
     flex: 0 0 auto !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
+    /* Force strict containment */
+    contain: layout !important;
     /* DEBUG: Add visible border to see individual slots */
     border: 1px solid green !important;
     background-color: rgba(0, 255, 0, 0.1) !important;
@@ -83,8 +99,12 @@
   
   /* Downscale slot cards on mobile */
   body.mobile-device .slot-card {
-    width: 35px !important;
-    height: 35px !important;
+    width: 30px !important;
+    height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    box-sizing: border-box !important;
+    contain: layout !important;
   }
   
   .slot-label {
