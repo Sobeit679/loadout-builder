@@ -1375,22 +1375,23 @@ body {
     background-size: 60% auto;
   }
   
-  /* Equipment slots - make them horizontal and scrollable */
+  /* All slot rows - make them horizontal and scrollable */
   .slot-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     width: 100%;
-    overflow-x: auto;
+    justify-content: center;
     padding: 0.5rem 0;
+    grid-column: unset !important;
   }
   
   .slot {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 60px;
+    min-width: 70px;
+    flex: 0 0 auto;
   }
   
   .slot-card {
@@ -1406,6 +1407,28 @@ body {
   .slot-label {
     font-size: 0.7rem;
     margin-top: 0.25rem;
+    text-align: center;
+  }
+  
+  /* Ability bar - make it horizontal and scrollable */
+  .ability-bar {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 1rem 0;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  .ability-slot {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+  
+  .ability-key {
+    font-size: 0.7rem;
   }
   
   /* Basic attributes - stack vertically on very small screens */
@@ -1498,8 +1521,11 @@ body {
   }
   
   .slot-row {
-    grid-template-columns: repeat(4, 1fr);
     gap: 0.25rem;
+  }
+  
+  .slot {
+    min-width: 60px;
   }
   
   .slot-card {
@@ -1513,6 +1539,20 @@ body {
   }
   
   .slot-label {
+    font-size: 0.6rem;
+  }
+  
+  .ability-bar {
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+  }
+  
+  .ability-slot {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ability-key {
     font-size: 0.6rem;
   }
   
