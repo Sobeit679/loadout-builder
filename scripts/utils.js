@@ -1,8 +1,8 @@
 // Data sources for GitHub Pages deployment
 const DATA_SOURCES = {
-  drifters: './data/drifters.json?v=20', // Force refresh for Astral Magus stats update
+          drifters: './data/drifters.json?v=30', // Force refresh for Auri support effects
   weapons: './data/weapons.json',
-  skills: './data/skills.json?v=4', // Updated cache-busting for Astral Magus skills
+  skills: './data/skills.json?v=7', // Updated cache-busting for Blade skills
   helmets: './data/armor/helmets.json',
   chests: './data/armor/chests.json',
   boots: './data/armor/boots.json',
@@ -79,6 +79,7 @@ function processDrifters(drifters, skills) {
     description: drifter.description || buildDrifterDescription(drifter),
     stats: drifter.stats || {},
     basicAttributes: drifter.basicAttributes || {},
+    baseHp: drifter.baseHp || 1000,
     masteryBonuses: drifter.masteryBonuses || {},
     icon: drifter.icon || '',
     portrait: drifter.portrait || '',

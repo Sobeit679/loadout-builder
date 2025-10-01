@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warborne Loadout Builder</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=1" />
 </head>
 <body>
   
@@ -42,6 +42,7 @@
 
         <section class="loadout-avatar" aria-label="Selected drifter" style="grid-column: 2;">
           <h3 class="avatar-title" id="avatarTitle"></h3>
+          <div class="avatar-description" id="avatarDescription"></div>
           <button type="button" class="avatar-trigger" id="drifterTrigger">
             <div class="avatar-text" id="avatarText">Select Drifter</div>
           </button>
@@ -65,6 +66,11 @@
             <div class="slot-card"></div>
           </div>
         </section>
+      </div>
+
+      <div class="support-effects" id="supportEffects" style="display: none;">
+        <h4 class="support-title">Support Effects</h4>
+        <div class="support-list" id="supportList"></div>
       </div>
 
       <div class="drifter-abilities">
@@ -202,22 +208,21 @@
             <span class="stat-value" id="tenacityPenetration">0</span>
           </div>
           <div class="stat-item">
-            <span class="stat-name">Base Damage & Healing</span>
-            <span class="stat-value" id="baseDamageHealing">0%</span>
-          </div>
-          <div class="stat-item">
             <span class="stat-name">Movement Speed</span>
             <span class="stat-value" id="movementSpeed">0 m/sec</span>
           </div>
         </div>
 
-        <div class="mastery-controls">
-          <div class="mastery-level">
-            <span class="mastery-label">Mastery Level:</span>
-            <span class="mastery-value" id="masteryLevel">1</span>
-          </div>
-          <button type="button" class="mastery-button" id="masteryButton" disabled>+</button>
-        </div>
+            <div class="mastery-controls">
+              <div class="mastery-level">
+                <span class="mastery-label">Mastery Level:</span>
+                <span class="mastery-value" id="masteryLevel">1</span>
+              </div>
+              <div class="mastery-buttons">
+                <button type="button" class="mastery-button" id="masteryButton" disabled>+</button>
+                <button type="button" class="mastery-reset-button" id="masteryResetButton" disabled>Reset</button>
+              </div>
+            </div>
       </div>
     </section>
   </main>

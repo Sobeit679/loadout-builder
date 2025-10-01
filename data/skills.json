@@ -410,7 +410,7 @@
           "duration": "4s"
         }
       ],
-      "icon": "./assets/icons/skill-null-pulse.png"
+      "icon": "./assets/icons/skill-astral-gate.png"
     },
     {
       "id": "celestial-rotation",
@@ -427,7 +427,139 @@
           "cooldown": "0.5s"
         }
       ],
+      "icon": "./assets/icons/passive-celestial-rotation.png"
+    },
+    {
+      "id": "skyward-leap",
+      "name": "Skyward Leap",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "hard_control", "buff", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "castingRange": "16 m",
+      "description": "Creates a protection zone at the target location that grants allies within +30% Damage Resistance, +40% Healing Received, +40% Dodge and heals for [Healing Rate: 60%] HP every second. Then leaps to the target location, dealing [Damage Rate: 250%] Physical Damage to those hit and knocking them up for 1s. Immune to control during prep and leap",
+      "effects": [
+        {
+          "type": "damage_resistance",
+          "value": "30%",
+          "target": "allies",
+          "area": "zone"
+        },
+        {
+          "type": "healing_received",
+          "value": "40%",
+          "target": "allies",
+          "area": "zone"
+        },
+        {
+          "type": "dodge",
+          "value": "40%",
+          "target": "allies",
+          "area": "zone"
+        },
+        {
+          "type": "healing",
+          "value": "60%",
+          "target": "allies",
+          "area": "zone",
+          "duration": "continuous"
+        },
+        {
+          "type": "damage",
+          "value": "250%",
+          "damageType": "physical",
+          "target": "enemies",
+          "area": "leap"
+        },
+        {
+          "type": "knockup",
+          "value": "1s",
+          "target": "enemies",
+          "area": "leap"
+        }
+      ],
+      "icon": "./assets/icons/skill-null-pulse.png"
+    },
+    {
+      "id": "healing-guardian",
+      "name": "Healing Guardian",
+      "type": "passive",
+      "category": "support",
+      "tags": ["shield", "healing"],
+      "description": "Gains 25% Damage Resistance for 6s if HP is below 75%. Sends healing radiation waves in all directions, healing allies in range for [Healing Rate: 60%] HP. (Cooldown: 20s)",
+      "effects": [
+        {
+          "type": "damage_resistance",
+          "value": "25%",
+          "duration": "6s",
+          "condition": "hp_below_75%"
+        },
+        {
+          "type": "healing",
+          "value": "60%",
+          "target": "allies",
+          "area": "all_directions",
+          "cooldown": "20s"
+        }
+      ],
       "icon": "./assets/icons/passive-overclocking-reflex.png"
+    },
+    {
+      "id": "tempest-slash",
+      "name": "Tempest Slash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "physical", "area", "control_immunity", "damage_immunity", "critical"],
+      "mpCost": 27,
+      "cooldown": "28s",
+      "range": "8m",
+      "description": "Launches a flurry of slashes at the target and nearby enemies, each dealing [Damage Rate: 120%] Physical Damage. Damage reduces to 50% after the first hit on the same target. Flurry for 4s with control immunity and damage immunity. Can Critical Hit. Higher Attack Speed increases attack count.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "120%",
+          "damageType": "Physical",
+          "target": "enemies",
+          "area": "nearby"
+        },
+        {
+          "type": "buff",
+          "value": "Control Immunity + Damage Immunity",
+          "duration": "4s",
+          "target": "self"
+        },
+        {
+          "type": "damage_reduction",
+          "value": "50%",
+          "target": "same_target_after_first_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-tempest-slash.png"
+    },
+    {
+      "id": "cyclone-reap",
+      "name": "Cyclone Reap",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "physical", "area", "critical", "cooldown"],
+      "description": "Critical hits have a 25% chance to trigger Cyclone Reap, dealing [Damage Rate: 80%] Physical Damage to all nearby enemies. Cooldown: 3s.",
+      "effects": [
+        {
+          "type": "trigger",
+          "condition": "critical_hit",
+          "chance": "25%",
+          "cooldown": "3s"
+        },
+        {
+          "type": "damage",
+          "value": "80%",
+          "damageType": "Physical",
+          "target": "nearby_enemies",
+          "area": "all_directions"
+        }
+      ],
+      "icon": "./assets/icons/passive-cyclone-reap.png"
     }
   ]
 }

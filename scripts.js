@@ -8,6 +8,23 @@ const SLOT_MAPPINGS = {
   chestMod: { key: 'chestMod', title: 'Select Chest Mod', type: 'armorMod' },
   bootsMod: { key: 'bootsMod', title: 'Select Boots Mod', type: 'armorMod' }
 };
+
+// DOM References
+const drifterTrigger = document.getElementById('drifterTrigger');
+const selectionOverlay = document.getElementById('selectionOverlay');
+const selectionGrid = document.getElementById('selectionGrid');
+const selectionTitle = document.getElementById('selectionTitle');
+const closeSelectionBtn = document.getElementById('closeSelectionBtn');
+const overlayContent = document.getElementById('overlayContent');
+const loadoutSlots = document.querySelectorAll('.slot');
+const drifterGrid = document.getElementById('drifterGrid'); // This might not exist
+const gearGrid = document.getElementById('gearGrid'); // This might not exist
+const gearCategorySelect = document.getElementById('gearCategorySelect');
+const avatarTitle = document.getElementById('avatarTitle');
+const avatarDescription = document.getElementById('avatarDescription');
+const masterySection = document.getElementById('masterySection');
+const supportEffects = document.getElementById('supportEffects');
+const supportList = document.getElementById('supportList');
 import { loadDataSets, renderCards, updateSummary, bindCopy } from './scripts/utils.js';
 
 const STATE = {
@@ -35,26 +52,11 @@ const STATE = {
 };
 
 const CARD_TEMPLATE = document.getElementById('card-template');
-const drifterGrid = document.getElementById('drifterGrid');
-const gearGrid = document.getElementById('gearGrid');
 const summaryEl = document.getElementById('summary');
-const gearCategorySelect = document.getElementById('gearCategory');
-const loadoutSlots = document.querySelectorAll('.slot');
-const avatarArt = document.querySelector('.avatar-art');
-const avatarName = document.querySelector('.avatar-name');
-const avatarRole = document.querySelector('.avatar-role');
-const avatarTitle = document.getElementById('avatarTitle');
-const drifterTrigger = document.getElementById('drifterTrigger');
-const selectionOverlay = document.getElementById('selectionOverlay');
-const selectionGrid = document.getElementById('selectionGrid');
-const selectionTitle = document.getElementById('selection-title');
-const closeSelectionBtn = document.getElementById('closeSelection');
 const abilitySlots = document.querySelectorAll('.ability-slot');
 let activeSelection = null;
-const overlayContent = selectionOverlay.querySelector('.selection-dialog');
 
 // Mastery system elements
-const masterySection = document.getElementById('masterySection');
 const strengthValue = document.getElementById('strengthValue');
 const agilityValue = document.getElementById('agilityValue');
 const intelligenceValue = document.getElementById('intelligenceValue');
@@ -63,6 +65,7 @@ const agilityBonus = document.getElementById('agilityBonus');
 const intelligenceBonus = document.getElementById('intelligenceBonus');
 const masteryLevel = document.getElementById('masteryLevel');
 const masteryButton = document.getElementById('masteryButton');
+const masteryResetButton = document.getElementById('masteryResetButton');
 
 // Additional stat elements
 const maxHpBonus = document.getElementById('maxHpBonus');
@@ -79,11 +82,136 @@ const magicResistance = document.getElementById('magicResistance');
 const controlResistance = document.getElementById('controlResistance');
 const block = document.getElementById('block');
 const tenacityPenetration = document.getElementById('tenacityPenetration');
-const baseDamageHealing = document.getElementById('baseDamageHealing');
 const movementSpeed = document.getElementById('movementSpeed');
 
 function resolvePortraitPath(drifter) {
   return ''; // No external images
+}
+
+function renderDrifters() {
+  // Drifters are selected through a modal, not displayed in a grid
+  // This function just ensures the UI is updated with any pre-selected drifter
+  updateAvatar();
+  updateSupportEffects(STATE.selected.drifters[0]);
+}
+
+function showOverlay(title, key) {
+  if (!selectionOverlay) return;
+  
+  selectionOverlay.style.display = 'grid';
+  selectionOverlay.hidden = false;
+  
+  if (selectionTitle) selectionTitle.textContent = title;
+  
+  if (key === 'drifters') {
+    renderDrifterSelection();
+  } else {
+    renderGear();
+  }
+}
+
+function hideOverlay() {
+  if (selectionOverlay) {
+    selectionOverlay.style.display = 'none';
+    selectionOverlay.hidden = true;
+  }
+}
+
+function renderDrifterSelection() {
+  if (!selectionGrid) return;
+  
+  // Clear existing content
+  selectionGrid.innerHTML = '';
+  
+  // Create document fragment for better performance
+  const fragment = document.createDocumentFragment();
+  
+  STATE.drifters.forEach((drifter, index) => {
+    const card = document.createElement('div');
+    card.className = 'drifter-select-card';
+    card.dataset.gameId = drifter.gameId;
+    
+    // Create card content
+    const img = document.createElement('img');
+    img.src = drifter.cardIcon || drifter.icon;
+    img.alt = drifter.name;
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.borderRadius = '4px';
+    
+    const name = document.createElement('div');
+    name.textContent = drifter.name;
+    name.style.fontWeight = 'bold';
+    name.style.textAlign = 'center';
+    name.style.marginTop = '0.5rem';
+    
+    const role = document.createElement('div');
+    role.textContent = drifter.role;
+    role.style.fontSize = '0.9rem';
+    role.style.color = 'var(--text-muted)';
+    role.style.textAlign = 'center';
+    role.style.marginTop = '0.25rem';
+    
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(role);
+    
+    // Add click handler
+    card.addEventListener('click', () => {
+      const existing = STATE.selected.drifters.findIndex((sel) => sel.gameId === drifter.gameId);
+      if (existing >= 0) {
+        STATE.selected.drifters.splice(existing, 1);
+        updateSupportEffects(null);
+      } else {
+        STATE.selected.drifters.length = 0;
+        STATE.selected.drifters.push(drifter);
+      }
+      updateAvatar();
+      updateSupportEffects(STATE.selected.drifters[0]);
+      clearGearSlots();
+      revealSlots();
+      hideOverlay();
+    });
+    
+    fragment.appendChild(card);
+  });
+  
+  selectionGrid.appendChild(fragment);
+}
+
+
+function clearGearSlots() {
+  loadoutSlots.forEach((slot) => {
+    const card = slot.querySelector('.slot-card');
+    card.classList.add('empty');
+    card.innerHTML = '<span class="slot-empty-label">Empty Slot</span>';
+    slot.classList.remove('slot--visible');
+  });
+  STATE.selected.gear = {};
+  STATE.selected.mods = {};
+}
+
+function disableEquipmentSlots(disabled) {
+  loadoutSlots.forEach(slot => {
+    slot.style.pointerEvents = disabled ? 'none' : 'auto';
+    slot.style.opacity = disabled ? '0.5' : '1';
+  });
+}
+
+function revealSlots() {
+  // Enable equipment slots when drifter is selected
+  disableEquipmentSlots(false);
+}
+
+function bindSlotTriggers() {
+  loadoutSlots.forEach(slot => {
+    slot.addEventListener('click', () => {
+      const key = slot.dataset.key;
+      if (key && SLOT_MAPPINGS[key]) {
+        showOverlay(SLOT_MAPPINGS[key].title, key);
+      }
+    });
+  });
 }
 
 async function init() {
@@ -102,34 +230,28 @@ async function init() {
   bindSlotTriggers();
   clearGearSlots();
   disableEquipmentSlots(true); // Start with equipment slots disabled
+  renderDrifters();
+  
+  // Update UI with any pre-selected drifter
+  updateAvatar();
+  updateSupportEffects(STATE.selected.drifters[0]);
+
+  // Bind drifter trigger
+  if (drifterTrigger) {
+    drifterTrigger.addEventListener('click', () => showOverlay('Select a Drifter', 'drifters'));
+  }
 
   // Ensure overlay can close and never sticks
-  closeSelectionBtn?.addEventListener('click', () => hideOverlay());
-  selectionOverlay?.addEventListener('click', (e) => {
-    if (e.target === selectionOverlay || e.target === overlayContent) hideOverlay();
-  });
+  if (closeSelectionBtn) {
+    closeSelectionBtn.addEventListener('click', () => hideOverlay());
+  }
+  if (selectionOverlay) {
+    selectionOverlay.addEventListener('click', (e) => {
+      if (e.target === selectionOverlay || e.target === overlayContent) hideOverlay();
+    });
+  }
 }
 
-function renderDrifters() {
-  renderCards({
-    items: STATE.drifters,
-    grid: drifterGrid,
-    template: CARD_TEMPLATE,
-    isSelected: (item) => STATE.selected.drifters.some((sel) => sel.gameId === item.gameId),
-    onToggle: (item) => {
-      const existing = STATE.selected.drifters.findIndex((sel) => sel.gameId === item.gameId);
-      if (existing >= 0) {
-        STATE.selected.drifters.splice(existing, 1);
-      } else {
-        STATE.selected.drifters.length = 0;
-        STATE.selected.drifters.push(item);
-      }
-      updateAvatar();
-      clearGearSlots();
-      revealSlots();
-    }
-  });
-}
 
 function renderGear() {
   const key = gearCategorySelect.value;
@@ -156,24 +278,6 @@ function renderGear() {
 }
 
 
-function clearGearSlots() {
-  loadoutSlots.forEach((slot) => {
-    const card = slot.querySelector('.slot-card');
-    card.classList.add('empty');
-    card.innerHTML = '<span class="slot-empty-label">Empty Slot</span>';
-    slot.classList.remove('slot--visible');
-  });
-  STATE.selected.gear = {};
-  STATE.selected.mods = {};
-  
-  // Clear ability slot W
-  const wSlot = document.querySelector('[data-key="W"]');
-  const wIcon = wSlot.querySelector('.ability-icon');
-  wIcon.style.backgroundImage = '';
-  wSlot.classList.add('empty');
-  
-  populateLoadoutBoard();
-}
 
 function populateLoadoutBoard() {
   const mapping = {
@@ -248,10 +352,13 @@ function updateAvatar() {
   if (!drifter) {
     loadoutLayout.style.backgroundImage = '';
     avatarTitle.textContent = '';
+    avatarDescription.textContent = '';
     avatarText.textContent = 'Select Drifter';
     avatarText.style.display = 'grid';
     clearDrifterAbilities();
     disableEquipmentSlots(true);
+    hideMasterySection();
+    updateSupportEffects(null);
     return;
   }
   
@@ -271,9 +378,17 @@ function updateAvatar() {
   }
   
   avatarTitle.textContent = drifter.name;
+  avatarDescription.textContent = drifter.description || '';
   avatarText.style.display = 'none';
   updateDrifterAbilities(drifter);
   disableEquipmentSlots(false);
+  
+  // Show mastery section and update support effects
+  showMasterySection();
+  STATE.mastery.currentDrifter = drifter;
+  STATE.mastery.level = 1;
+  updateMasteryDisplay();
+  updateSupportEffects(drifter);
 }
 
 function updateDrifterAbilities(drifter) {
@@ -321,7 +436,8 @@ function updateAbilityTooltips(drifter) {
     if (drifter.skill.tags && drifter.skill.tags.length > 0) {
       const allTags = drifter.skill.tags.map(tag => {
         const tagClass = getTagClass(tag);
-        return `<span class="ability-tag ${tagClass}">${tag}</span>`;
+        const displayTag = tag === 'cooldown_reduction' ? 'cooldown' : tag;
+        return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
       }).join(' ');
       skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
     }
@@ -348,7 +464,8 @@ function updateAbilityTooltips(drifter) {
     if (drifter.passive.tags && drifter.passive.tags.length > 0) {
       const allTags = drifter.passive.tags.map(tag => {
         const tagClass = getTagClass(tag);
-        return `<span class="ability-tag ${tagClass}">${tag}</span>`;
+        const displayTag = tag === 'cooldown_reduction' ? 'cooldown' : tag;
+        return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
       }).join(' ');
       skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
     }
@@ -511,6 +628,10 @@ function getTagClass(tag) {
       return 'tag-defense';
     case 'utility':
       return 'tag-utility';
+    case 'cooldown_reduction':
+      return 'tag-cooldown';
+    case 'cooldown':
+      return 'tag-cooldown';
     default:
       return 'tag-default';
   }
@@ -596,158 +717,11 @@ function clearDrifterAbilities() {
   eSlot.parentElement.classList.add('empty');
 }
 
-function disableEquipmentSlots(disabled) {
-  loadoutSlots.forEach((slot) => {
-    const card = slot.querySelector('.slot-card');
-    if (disabled) {
-      card.classList.add('disabled');
-    } else {
-      card.classList.remove('disabled');
-    }
-  });
-}
 
-function revealSlots() {
-  loadoutSlots.forEach((slot, index) => {
-    setTimeout(() => {
-      slot.classList.add('slot--visible');
-    }, index * 60);
-  });
-}
 
-function showOverlay(title) {
-  console.log('showOverlay called with title:', title);
-  if (!selectionOverlay) {
-    console.error('selectionOverlay not found');
-    return;
-  }
-  selectionTitle.textContent = title || 'Select Item';
-  selectionOverlay.hidden = false;
-  console.log('Overlay should now be visible');
-  
-  // Debug overlay visibility
-  const rect = selectionOverlay.getBoundingClientRect();
-  console.log('Overlay element:', selectionOverlay);
-  console.log('Overlay rect:', rect);
-  console.log('Overlay computed styles:', {
-    display: getComputedStyle(selectionOverlay).display,
-    visibility: getComputedStyle(selectionOverlay).visibility,
-    opacity: getComputedStyle(selectionOverlay).opacity,
-    zIndex: getComputedStyle(selectionOverlay).zIndex,
-    hidden: selectionOverlay.hidden
-  });
-}
 
-function hideOverlay() {
-  if (!selectionOverlay) return;
-  selectionOverlay.hidden = true;
-  selectionGrid.innerHTML = '';
-  activeSelection = null;
-}
 
-function bindSlotTriggers() {
-  // Drifter trigger opens drifter selection
-  drifterTrigger?.addEventListener('click', () => {
-    console.log('Drifter trigger clicked');
-    activeSelection = 'drifter';
-    showOverlay('Select a Drifter');
-    renderDrifterSelection();
-  });
 
-  // Equipment/mod slots
-  loadoutSlots.forEach((slot) => {
-    slot.addEventListener('click', () => {
-      // Don't allow slot interaction if no drifter is selected
-      if (!STATE.selected.drifters.length) return;
-      
-      const slotKey = slot.dataset.slot;
-      const map = SLOT_MAPPINGS[slotKey];
-      if (!map) return;
-      activeSelection = slotKey;
-      showOverlay(map.title);
-
-      let items = [];
-      if (map.type === 'weapon') items = STATE.gear['weapons'];
-      else if (map.type === 'armor') items = STATE.gear[map.key];
-      else if (map.type === 'weaponMod') items = STATE.mods.weapon;
-      else if (map.type === 'armorMod') items = STATE.mods.armor;
-
-      renderCards({
-        items,
-        grid: selectionGrid,
-        template: CARD_TEMPLATE,
-        isSelected: () => false,
-        onToggle: (item) => {
-          if (map.type === 'weapon') STATE.selected.gear['weapons'] = item;
-          else if (map.type === 'armor') STATE.selected.gear[map.key] = item;
-          else if (map.type === 'weaponMod') STATE.selected.mods['weaponMod'] = item;
-          else if (map.type === 'armorMod') STATE.selected.mods[slotKey] = item;
-          populateLoadoutBoard();
-          hideOverlay();
-        }
-      });
-    });
-  });
-}
-
-function renderDrifterSelection() {
-  console.log('renderDrifterSelection called, drifters count:', STATE.drifters.length);
-  console.log('selectionGrid element:', selectionGrid);
-  selectionGrid.innerHTML = '';
-  const fragment = document.createDocumentFragment();
-
-  STATE.drifters.forEach((drifter, index) => {
-    console.log(`Creating card for drifter ${index}:`, drifter.name);
-    const card = document.createElement('article');
-    card.className = 'drifter-select-card';
-
-    const name = document.createElement('h4');
-    name.className = 'drifter-select-name';
-    name.textContent = drifter.name || '';
-    card.appendChild(name);
-
-    // Handle drifter selection images - use cardIcon for selection modal
-    if (drifter.cardIcon) {
-      const img = document.createElement('img');
-      img.className = 'drifter-select-art';
-      img.alt = drifter.name || 'Drifter';
-      img.src = drifter.cardIcon;
-      card.appendChild(img);
-    }
-
-    card.addEventListener('click', () => {
-      STATE.selected.drifters = [drifter];
-      STATE.mastery.currentDrifter = drifter;
-      STATE.mastery.level = 1; // Reset mastery level when selecting new drifter
-      updateAvatar();
-      updateMasteryDisplay();
-      showMasterySection();
-      hideOverlay();
-    });
-
-    fragment.appendChild(card);
-    console.log(`Card created for ${drifter.name}, added to fragment`);
-  });
-
-  console.log('Fragment children count:', fragment.children.length);
-  selectionGrid.appendChild(fragment);
-  console.log('Fragment appended to selectionGrid, grid children count:', selectionGrid.children.length);
-  
-  // Check if cards are visible
-  const cards = selectionGrid.querySelectorAll('.drifter-select-card');
-  console.log('Cards found in DOM:', cards.length);
-  cards.forEach((card, index) => {
-    const rect = card.getBoundingClientRect();
-    console.log(`Card ${index} (${card.querySelector('.drifter-select-name')?.textContent}):`, {
-      visible: rect.width > 0 && rect.height > 0,
-      width: rect.width,
-      height: rect.height,
-      display: getComputedStyle(card).display,
-      visibility: getComputedStyle(card).visibility,
-      opacity: getComputedStyle(card).opacity
-    });
-  });
-}
 
 
 function createToast() {
@@ -789,6 +763,7 @@ function updateMasteryDisplay() {
   const level = STATE.mastery.level;
   
   // Calculate current attribute values with mastery bonuses
+  
   const strengthBonusValue = (drifter.masteryBonuses?.strength || 0) * (level - 1);
   const agilityBonusValue = (drifter.masteryBonuses?.agility || 0) * (level - 1);
   const intelligenceBonusValue = (drifter.masteryBonuses?.intelligence || 0) * (level - 1);
@@ -839,7 +814,6 @@ function updateMasteryDisplay() {
   const controlResistanceIncrease = strengthIncrease * 0.1; // +0.1 per strength point
   const blockIncrease = strengthIncrease * 0.5; // +0.5 per strength point
   const pveDamageIncrease = strengthIncrease * 0.1; // +0.1% per strength point
-  const baseDamageHealingIncrease = strengthIncrease * 0.05; // +0.05% per strength point
 
   const tenacityPenetrationIncrease = agilityIncrease * 0.15; // +0.15 per agility point
   const criticalRateIncrease = agilityIncrease * 0.05; // +0.05% per agility point
@@ -868,10 +842,10 @@ function updateMasteryDisplay() {
   const totalControlResistance = (parseFloat(drifter.stats?.controlResistance || '0') + controlResistanceIncrease).toFixed(2);
   const totalBlock = (parseFloat(drifter.stats?.block || '0') + blockIncrease).toFixed(2);
   const totalTenacityPenetration = (parseFloat(drifter.stats?.tenacityPenetration || '0') + tenacityPenetrationIncrease).toFixed(2);
-  const totalBaseDamageHealing = (parseFloat(drifter.stats?.baseDamageHealing?.replace('%', '') || '0') + baseDamageHealingIncrease).toFixed(2);
 
   // Update all other stats with calculated totals
   if (maxHpBonus) maxHpBonus.textContent = totalMaxHpBonus + '%';
+  
   if (attackSpeedBonus) attackSpeedBonus.textContent = totalAttackSpeedBonus + '%';
   if (criticalRate) criticalRate.textContent = totalCriticalRate + '%';
   if (castingSpeedBonus) castingSpeedBonus.textContent = totalCastingSpeedBonus + '%';
@@ -885,16 +859,19 @@ function updateMasteryDisplay() {
   if (controlResistance) controlResistance.textContent = totalControlResistance;
   if (block) block.textContent = totalBlock;
   if (tenacityPenetration) tenacityPenetration.textContent = totalTenacityPenetration;
-  if (baseDamageHealing) baseDamageHealing.textContent = totalBaseDamageHealing + '%';
   if (movementSpeed) movementSpeed.textContent = drifter.stats?.movementSpeed || '0 m/sec';
 
   // Update mastery level
   if (masteryLevel) masteryLevel.textContent = level;
 
-  // Update button state
+  // Update button states
   if (masteryButton) {
     masteryButton.disabled = level >= STATE.mastery.maxLevel;
     masteryButton.textContent = level >= STATE.mastery.maxLevel ? 'MAX' : '+';
+  }
+  
+  if (masteryResetButton) {
+    masteryResetButton.disabled = level <= 1;
   }
 }
 
@@ -907,9 +884,102 @@ function increaseMasteryLevel() {
   updateMasteryDisplay();
 }
 
-// Bind mastery button event
+function resetMasteryLevel() {
+  if (!STATE.mastery.currentDrifter) {
+    return;
+  }
+
+  STATE.mastery.level = 1;
+  updateMasteryDisplay();
+}
+
+// Bind mastery button events
 if (masteryButton) {
   masteryButton.addEventListener('click', increaseMasteryLevel);
+}
+
+if (masteryResetButton) {
+  masteryResetButton.addEventListener('click', resetMasteryLevel);
+}
+
+
+
+
+
+
+
+
+
+
+
+function updateSupportEffects(drifter) {
+  if (!supportEffects || !supportList) return;
+  
+  // Clear existing support effects
+  supportList.innerHTML = '';
+  
+  if (!drifter || !drifter.support) {
+    supportEffects.style.display = 'none';
+    return;
+  }
+  
+  // Show support effects section
+  supportEffects.style.display = 'block';
+  
+  // Add support effects
+  if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
+    // Handle effects array structure
+    drifter.support.effects.forEach(effect => {
+      const supportItem = document.createElement('div');
+      supportItem.className = 'support-item';
+      
+      const supportName = document.createElement('span');
+      supportName.className = 'support-name';
+      supportName.textContent = effect.name;
+      
+      const supportValue = document.createElement('span');
+      supportValue.className = 'support-value';
+      supportValue.textContent = effect.value;
+      
+      // Add type-based styling if needed
+      if (effect.type === 'negative') {
+        supportValue.style.color = '#ff6b6b'; // Red for negative effects
+      } else if (effect.type === 'positive') {
+        supportValue.style.color = '#51cf66'; // Green for positive effects
+      }
+      
+      supportItem.appendChild(supportName);
+      supportItem.appendChild(supportValue);
+      supportList.appendChild(supportItem);
+    });
+  } else {
+    // Handle simple key-value structure (fallback)
+    Object.entries(drifter.support).forEach(([key, value]) => {
+      const supportItem = document.createElement('div');
+      supportItem.className = 'support-item';
+      
+      const supportName = document.createElement('span');
+      supportName.className = 'support-name';
+      supportName.textContent = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+      
+      const supportValue = document.createElement('span');
+      supportValue.className = 'support-value';
+      supportValue.textContent = typeof value === 'string' ? value : `+${value}%`;
+      
+      supportItem.appendChild(supportName);
+      supportItem.appendChild(supportValue);
+      supportList.appendChild(supportItem);
+    });
+  }
+}
+
+// Bind mastery button events
+if (masteryButton) {
+  masteryButton.addEventListener('click', increaseMasteryLevel);
+}
+
+if (masteryResetButton) {
+  masteryResetButton.addEventListener('click', resetMasteryLevel);
 }
 
 init();
