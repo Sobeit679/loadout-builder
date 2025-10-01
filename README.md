@@ -23,33 +23,6 @@ The application uses a modular JSON data structure:
 | `data/armor/` | Armor pieces (helmets, chests, boots) |
 | `data/mods/` | Weapon and armor modifications |
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- A modern web browser
-- Local web server (for development)
-
-### Local Development
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd loadout-builder
-   ```
-
-2. **Start a local server**
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Or using Node.js
-   npx http-server -p 8000
-   ```
-
-3. **Open in browser**
-   Navigate to `http://localhost:8000`
-
 ## 🔧 Development
 
 ### Adding New Content
