@@ -616,6 +616,36 @@ function updateDrifterAbilities(drifter) {
   console.log('Drifter passive:', drifter.passive);
   console.log('Drifter skill:', drifter.skill);
   
+  // Create debug panel for mobile
+  let debugPanel = document.getElementById('debug-panel');
+  if (!debugPanel) {
+    debugPanel = document.createElement('div');
+    debugPanel.id = 'debug-panel';
+    debugPanel.style.cssText = `
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 10000;
+      max-width: 200px;
+      word-wrap: break-word;
+    `;
+    document.body.appendChild(debugPanel);
+  }
+  
+  debugPanel.innerHTML = `
+    <strong>Debug Info:</strong><br>
+    Drifter: ${drifter.name}<br>
+    Passive: ${drifter.passive ? 'Yes' : 'No'}<br>
+    Passive Icon: ${drifter.passive?.icon || 'None'}<br>
+    Skill: ${drifter.skill ? 'Yes' : 'No'}<br>
+    Skill Icon: ${drifter.skill?.icon || 'None'}
+  `;
+  
   // Handle passive skill
   if (drifter.passive && drifter.passive.icon) {
     console.log('Setting passive icon:', drifter.passive.icon);
