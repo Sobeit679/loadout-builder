@@ -1365,3 +1365,233 @@ body {
   font-weight: 600;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Main layout adjustments */
+  .loadout-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-size: 60% auto;
+  }
+  
+  /* Equipment slots - make them horizontal and scrollable */
+  .slot-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+  }
+  
+  .slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+  }
+  
+  .slot-card {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .slot-card img {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .slot-label {
+    font-size: 0.7rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* Basic attributes - stack vertically on very small screens */
+  .attributes-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .attribute-card {
+    padding: 8px;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .attribute-icon {
+    margin-right: 12px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .attribute-info {
+    flex: 1;
+    align-items: flex-start;
+  }
+  
+  .attribute-name {
+    font-size: 0.9rem !important;
+  }
+  
+  .attribute-value {
+    font-size: 1.1rem !important;
+  }
+  
+  .attribute-bonus {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Support effects - make more compact */
+  .support-effects {
+    padding: 0.75rem;
+  }
+  
+  .support-item {
+    font-size: 0.85rem;
+    padding: 0.25rem 0;
+  }
+  
+  /* Selection overlay adjustments */
+  .selection-overlay {
+    padding: 1rem;
+  }
+  
+  .selection-dialog {
+    width: 95vw;
+    max-height: 90vh;
+  }
+  
+  .selection-dialog .selector-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .drifter-select-card {
+    width: 100%;
+    height: 200px;
+  }
+  
+  /* Stats section adjustments */
+  .stats-section {
+    padding: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .stat-item {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Very small screens (phones in portrait) */
+@media (max-width: 480px) {
+  .loadout-layout {
+    padding: 0.5rem;
+  }
+  
+  .slot-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.25rem;
+  }
+  
+  .slot-card {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .slot-card img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slot-label {
+    font-size: 0.6rem;
+  }
+  
+  .attributes-grid {
+    gap: 6px;
+  }
+  
+  .attribute-card {
+    padding: 6px;
+  }
+  
+  .attribute-icon {
+    margin-right: 8px;
+  }
+  
+  .attribute-name {
+    font-size: 0.8rem !important;
+  }
+  
+  .attribute-value {
+    font-size: 1rem !important;
+  }
+  
+  .attribute-bonus {
+    font-size: 0.7rem !important;
+  }
+  
+  .support-effects {
+    padding: 0.5rem;
+  }
+  
+  .support-item {
+    font-size: 0.8rem;
+  }
+  
+  .selection-dialog {
+    width: 98vw;
+    max-height: 95vh;
+  }
+  
+  .selection-dialog .selector-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .drifter-select-card {
+    height: 180px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .loadout-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .slot-row {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  
+  .attributes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .attribute-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .attribute-icon {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+  
+  .attribute-info {
+    align-items: center;
+  }
+}
+
