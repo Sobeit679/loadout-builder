@@ -246,6 +246,19 @@ body {
   overflow: hidden;
 }
 
+/* Grid positioning for desktop */
+.equipment-slots {
+  grid-column: 1;
+}
+
+.loadout-avatar {
+  grid-column: 2;
+}
+
+.mod-slots {
+  grid-column: 3;
+}
+
 .loadout-overlay {
   position: absolute;
   inset: 0;

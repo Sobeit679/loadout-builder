@@ -25,7 +25,7 @@
   }
   
   /* Equipment slots on the left */
-  body.mobile-device .slot-row[aria-label="Equipment slots"] {
+  body.mobile-device .equipment-slots {
     grid-column: 1 !important;
     grid-row: 1 !important;
     display: flex !important;
@@ -35,7 +35,7 @@
   }
   
   /* Mod slots on the right */
-  body.mobile-device .slot-row[aria-label="Mod slots"] {
+  body.mobile-device .mod-slots {
     grid-column: 2 !important;
     grid-row: 1 !important;
     display: flex !important;
