@@ -1369,21 +1369,37 @@ body {
 @media (max-width: 768px) {
   /* Main layout adjustments */
   .loadout-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 1rem;
     padding: 1rem;
     background-size: 60% auto;
+    display: flex !important;
+    flex-direction: column !important;
   }
   
   /* All slot rows - make them horizontal and scrollable */
   .slot-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    width: 100%;
-    justify-content: center;
-    padding: 0.5rem 0;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.5rem 0 !important;
     grid-column: unset !important;
+    order: 1;
+  }
+  
+  /* Loadout avatar section */
+  .loadout-avatar {
+    order: 2;
+    grid-column: unset !important;
+    width: 100% !important;
+    text-align: center;
+  }
+  
+  /* Mod slots section */
+  .slot-row[aria-label="Mod slots"] {
+    order: 3;
   }
   
   .slot {
@@ -1431,28 +1447,40 @@ body {
     font-size: 0.7rem;
   }
   
-  /* Basic attributes - stack vertically on very small screens */
+  /* Basic attributes - stack vertically and prevent overflow */
+  .attributes-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  
   .attributes-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .attribute-card {
-    padding: 8px;
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
+    padding: 8px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   .attribute-icon {
-    margin-right: 12px;
-    margin-bottom: 0;
-    flex-shrink: 0;
+    margin-right: 12px !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
   }
   
   .attribute-info {
-    flex: 1;
-    align-items: flex-start;
+    flex: 1 !important;
+    align-items: flex-start !important;
+    min-width: 0 !important;
   }
   
   .attribute-name {

@@ -17,7 +17,7 @@ const selectionGrid = document.getElementById('selectionGrid');
 const selectionTitle = document.getElementById('selection-title');
 const closeSelectionBtn = document.getElementById('closeSelection');
 const overlayContent = document.getElementById('overlayContent');
-const loadoutSlots = document.querySelectorAll('.slot');
+const loadoutSlots = document.querySelectorAll('.slot[data-slot]');
 const drifterGrid = document.getElementById('drifterGrid'); // This might not exist
 const gearGrid = document.getElementById('gearGrid'); // This might not exist
 const gearCategorySelect = document.getElementById('gearCategorySelect');
@@ -318,14 +318,20 @@ function revealSlots() {
 }
 
 function bindSlotTriggers() {
-  loadoutSlots.forEach(slot => {
+  console.log('Binding slot triggers, found equipment slots:', loadoutSlots.length);
+  loadoutSlots.forEach((slot, index) => {
+    console.log(`Binding equipment slot ${index}:`, slot.dataset.slot, slot);
     slot.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
       const key = slot.dataset.slot;
+      console.log('Equipment slot clicked:', key);
       if (key && SLOT_MAPPINGS[key]) {
+        console.log('Opening gear overlay for:', key, SLOT_MAPPINGS[key]);
         showOverlay(SLOT_MAPPINGS[key].title, key);
+      } else {
+        console.log('No mapping found for key:', key);
       }
     }, true); // Use capture phase
   });
