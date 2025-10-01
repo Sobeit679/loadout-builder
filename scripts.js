@@ -14,7 +14,7 @@ const SLOT_MAPPINGS = {
 const drifterTrigger = document.getElementById('drifterTrigger');
 const selectionOverlay = document.getElementById('selectionOverlay');
 const selectionGrid = document.getElementById('selectionGrid');
-const selectionTitle = document.getElementById('selectionTitle');
+const selectionTitle = document.getElementById('selection-title');
 const closeSelectionBtn = document.getElementById('closeSelection');
 const overlayContent = document.getElementById('overlayContent');
 const loadoutSlots = document.querySelectorAll('.slot');
@@ -26,7 +26,116 @@ const avatarDescription = document.getElementById('avatarDescription');
 const masterySection = document.getElementById('masterySection');
 const supportEffects = document.getElementById('supportEffects');
 const supportList = document.getElementById('supportList');
-import { loadDataSets, renderCards, updateSummary, bindCopy } from './scripts/utils.js';
+// import { loadDataSets, renderCards, updateSummary, bindCopy } from './scripts/utils.js';
+
+// Imported functions from utils.js
+async function loadDataSets(notify) {
+  try {
+    console.log('Loading data sets on GitHub Pages...');
+    const [driftersData, weaponsData, skillsData, helmetsData, chestsData, bootsData, weaponModsData, armorModsData] = await Promise.all([
+      fetch('./data/drifters.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load drifters: ${r.status}`);
+        return r.json();
+      }),
+      fetch('./data/weapons.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load weapons: ${r.status}`);
+        return r.json();
+      }),
+      fetch('./data/skills.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load skills: ${r.status}`);
+        return r.json();
+      }),
+      fetch('./data/armor/helmets.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load helmets: ${r.status}`);
+        return r.json();
+      }),
+      fetch('./data/armor/chests.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load chests: ${r.status}`);
+        return r.json();
+      }),
+      fetch('./data/armor/boots.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load boots: ${r.status}`);
+        return r.json();
+      }),
+      fetch('./data/mods/weapon-mods.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load weapon mods: ${r.status}`);
+        return r.json();
+      }),
+      fetch('./data/mods/armor-mods.json').then(r => {
+        if (!r.ok) throw new Error(`Failed to load armor mods: ${r.status}`);
+        return r.json();
+      })
+    ]);
+    console.log('Data loaded successfully on GitHub Pages');
+
+    return {
+      drifters: driftersData.drifters || [],
+      gear: {
+        weapons: weaponsData.weapons || [],
+        'armors/head': helmetsData.helmets || [],
+        'armors/chest': chestsData.chests || [],
+        'armors/boots': bootsData.boots || []
+      },
+      mods: {
+        weapon: weaponModsData.weaponMods || [],
+        armor: armorModsData.armorMods || []
+      },
+      selected: {
+        drifters: [],
+        gear: {},
+        mods: {}
+      }
+    };
+  } catch (error) {
+    console.error('Error loading data on GitHub Pages:', error);
+    alert('Failed to load data: ' + error.message);
+    return {
+      drifters: [],
+      gear: { weapons: [], 'armors/head': [], 'armors/chest': [], 'armors/boots': [] },
+      mods: { weapon: [], armor: [] },
+      selected: { drifters: [], gear: {}, mods: {} }
+    };
+  }
+}
+
+function renderCards(items, container, isSelected, onToggle) {
+  container.innerHTML = '';
+  items.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'selector-card';
+    if (isSelected(item)) {
+      card.classList.add('selected');
+    }
+    
+    const img = document.createElement('img');
+    img.src = item.icon || '';
+    img.alt = item.name;
+    img.onerror = () => { img.style.display = 'none'; };
+    
+    const name = document.createElement('div');
+    name.className = 'card-name';
+    name.textContent = item.name;
+    
+    const sub = document.createElement('div');
+    sub.className = 'card-sub';
+    sub.textContent = item.sub || '';
+    
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(sub);
+    
+    card.addEventListener('click', () => onToggle(item));
+    container.appendChild(card);
+  });
+}
+
+function updateSummary() {
+  // Placeholder for updateSummary function
+}
+
+function bindCopy() {
+  // Placeholder for bindCopy function
+}
 
 const STATE = {
   drifters: [],
@@ -102,12 +211,14 @@ function showOverlay(title, key) {
   selectionOverlay.style.display = 'grid';
   selectionOverlay.hidden = false;
   
-  if (selectionTitle) selectionTitle.textContent = title;
+  if (selectionTitle) {
+    selectionTitle.textContent = title;
+  }
   
   if (key === 'drifters') {
     renderDrifterSelection();
   } else {
-    renderGear();
+    renderGear(key);
   }
 }
 
@@ -208,12 +319,15 @@ function revealSlots() {
 
 function bindSlotTriggers() {
   loadoutSlots.forEach(slot => {
-    slot.addEventListener('click', () => {
-      const key = slot.dataset.key;
+    slot.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      const key = slot.dataset.slot;
       if (key && SLOT_MAPPINGS[key]) {
         showOverlay(SLOT_MAPPINGS[key].title, key);
       }
-    });
+    }, true); // Use capture phase
   });
 }
 
@@ -253,28 +367,29 @@ async function init() {
 }
 
 
-function renderGear() {
-  const key = gearCategorySelect.value;
-  const items = key === 'weapons'
-    ? [...STATE.gear[key], ...STATE.mods.weapon]
-    : [...STATE.gear[key], ...STATE.mods.armor];
-  renderCards({
+function renderGear(key) {
+  const gearKey = SLOT_MAPPINGS[key].key;
+  
+  const items = gearKey === 'weapons'
+    ? [...STATE.gear[gearKey], ...STATE.mods.weapon]
+    : [...STATE.gear[gearKey], ...STATE.mods.armor];
+    
+  renderCards(
     items,
-    grid: gearGrid,
-    template: CARD_TEMPLATE,
-    isSelected: (item) => STATE.selected.gear[key]?.gameId === item.gameId,
-    onToggle: (item) => {
-      if (STATE.selected.gear[key]?.gameId === item.gameId) {
-        delete STATE.selected.gear[key];
+    selectionGrid,
+    (item) => STATE.selected.gear[gearKey]?.gameId === item.gameId,
+    (item) => {
+      if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
+        delete STATE.selected.gear[gearKey];
       } else {
-        STATE.selected.gear[key] = item;
+        STATE.selected.gear[gearKey] = item;
         if (item.slot) {
           STATE.selected.mods[resolveSlotKey(item)] = item;
         }
       }
       populateLoadoutBoard();
     }
-  });
+  );
 }
 
 
@@ -1036,4 +1151,8 @@ if (masteryResetButton) {
 
 
 // Initialize the application when DOM is ready
-window.addEventListener("DOMContentLoaded", init);
+console.log('Script loaded on GitHub Pages');
+window.addEventListener("DOMContentLoaded", () => {
+  console.log('DOMContentLoaded fired on GitHub Pages');
+  init();
+});

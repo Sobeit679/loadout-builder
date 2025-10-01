@@ -54,7 +54,7 @@ export async function loadDataSets(notify) {
     'armors/boots': processArmor(data.boots?.boots || [], 'boots')
   };
   const mods = {
-    weapon: data.weaponMods?.weaponMods || [],
+    weapon: processWeaponMods(data.weaponMods?.weaponMods || []),
     armor: data.armorMods?.armorMods || []
   };
 
@@ -113,6 +113,18 @@ function processArmor(armor, slot) {
     description: piece.description || '',
     stats: piece.stats || {},
     icon: piece.icon || ''
+  }));
+}
+
+function processWeaponMods(weaponMods) {
+  return weaponMods.map(mod => ({
+    gameId: mod.id,
+    type: 'weaponMod',
+    name: mod.name,
+    sub: `Mod · ${mod.rarity || 'Common'}`,
+    description: mod.description || '',
+    stats: mod.stats || {},
+    icon: mod.icon || ''
   }));
 }
 
