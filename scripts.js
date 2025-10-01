@@ -340,6 +340,64 @@ function bindSlotTriggers() {
 async function init() {
   console.log('Initializing loadout builder...');
   
+  // Add mobile class for responsive behavior
+  if (window.innerWidth <= 768) {
+    document.body.classList.add('mobile-device');
+    console.log('Mobile device detected, applying mobile styles');
+    
+    // Apply mobile styles directly via JavaScript
+    const loadoutLayout = document.getElementById('loadoutLayout');
+    if (loadoutLayout) {
+      loadoutLayout.style.cssText = `
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        gap: 1rem !important;
+        padding: 1rem !important;
+      `;
+    }
+    
+    // Fix slot rows
+    const slotRows = document.querySelectorAll('.slot-row');
+    slotRows.forEach(row => {
+      row.style.cssText = `
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.5rem 0 !important;
+      `;
+    });
+    
+    // Fix attributes grid
+    const attributesGrid = document.querySelector('.attributes-grid');
+    if (attributesGrid) {
+      attributesGrid.style.cssText = `
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      `;
+    }
+    
+    // Fix attribute cards
+    const attributeCards = document.querySelectorAll('.attribute-card');
+    attributeCards.forEach(card => {
+      card.style.cssText = `
+        padding: 8px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        text-align: left !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      `;
+    });
+  }
+  
   // Show loading indicator
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'loading-indicator';
