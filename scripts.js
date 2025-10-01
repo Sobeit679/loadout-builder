@@ -436,7 +436,10 @@ function updateAbilityTooltips(drifter) {
     if (drifter.skill.tags && drifter.skill.tags.length > 0) {
       const allTags = drifter.skill.tags.map(tag => {
         const tagClass = getTagClass(tag);
-        const displayTag = tag === 'cooldown_reduction' ? 'cooldown' : tag;
+        let displayTag = tag;
+        if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+        else if (tag === 'control_immunity') displayTag = 'control immunity';
+        else if (tag === 'damage_immunity') displayTag = 'immunity';
         return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
       }).join(' ');
       skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
@@ -464,7 +467,10 @@ function updateAbilityTooltips(drifter) {
     if (drifter.passive.tags && drifter.passive.tags.length > 0) {
       const allTags = drifter.passive.tags.map(tag => {
         const tagClass = getTagClass(tag);
-        const displayTag = tag === 'cooldown_reduction' ? 'cooldown' : tag;
+        let displayTag = tag;
+        if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+        else if (tag === 'control_immunity') displayTag = 'control immunity';
+        else if (tag === 'damage_immunity') displayTag = 'immunity';
         return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
       }).join(' ');
       skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
@@ -628,6 +634,50 @@ function getTagClass(tag) {
       return 'tag-defense';
     case 'utility':
       return 'tag-utility';
+    case 'cooldown_reduction':
+      return 'tag-cooldown';
+    case 'cooldown':
+      return 'tag-cooldown';
+    case 'control_immunity':
+      return 'tag-control-immunity';
+    case 'damage_immunity':
+      return 'tag-damage-immunity';
+    case 'slow':
+      return 'tag-slow';
+    case 'knockback':
+      return 'tag-knockback';
+    case 'silence':
+      return 'tag-silence';
+    case 'stun':
+      return 'tag-stun';
+    case 'dodge':
+      return 'tag-dodge';
+    case 'armor':
+      return 'tag-armor';
+    case 'aoe':
+      return 'tag-aoe';
+    case 'area':
+      return 'tag-area';
+    case 'magic':
+      return 'tag-magic';
+    case 'physical':
+      return 'tag-physical';
+    case 'stealth':
+      return 'tag-stealth';
+    case 'critical':
+      return 'tag-critical';
+    case 'mobility':
+      return 'tag-mobility';
+    case 'support':
+      return 'tag-support';
+    case 'tank':
+      return 'tag-tank';
+    case 'immunity':
+      return 'tag-immunity';
+    case 'skill':
+      return 'tag-skill';
+    case 'passive':
+      return 'tag-passive';
     case 'cooldown_reduction':
       return 'tag-cooldown';
     case 'cooldown':

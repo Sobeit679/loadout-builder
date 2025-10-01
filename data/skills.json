@@ -479,7 +479,7 @@
           "area": "leap"
         }
       ],
-      "icon": "./assets/icons/skill-null-pulse.png"
+      "icon": "./assets/icons/skill-skyward-leap.png"
     },
     {
       "id": "healing-guardian",
@@ -503,7 +503,7 @@
           "cooldown": "20s"
         }
       ],
-      "icon": "./assets/icons/passive-overclocking-reflex.png"
+      "icon": "./assets/icons/passive-healing-guardian.png"
     },
     {
       "id": "tempest-slash",

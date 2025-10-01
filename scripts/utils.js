@@ -2,7 +2,7 @@
 const DATA_SOURCES = {
           drifters: './data/drifters.json?v=30', // Force refresh for Auri support effects
   weapons: './data/weapons.json',
-  skills: './data/skills.json?v=7', // Updated cache-busting for Blade skills
+  skills: './data/skills.json?v=8', // Updated cache-busting for Auri skill icons
   helmets: './data/armor/helmets.json',
   chests: './data/armor/chests.json',
   boots: './data/armor/boots.json',
