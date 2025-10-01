@@ -26,6 +26,11 @@ const STATE = {
     drifters: [],
     gear: {},
     mods: {}
+  },
+  mastery: {
+    level: 1,
+    maxLevel: 50,
+    currentDrifter: null
   }
 };
 
@@ -48,6 +53,35 @@ const abilitySlots = document.querySelectorAll('.ability-slot');
 let activeSelection = null;
 const overlayContent = selectionOverlay.querySelector('.selection-dialog');
 
+// Mastery system elements
+const masterySection = document.getElementById('masterySection');
+const strengthValue = document.getElementById('strengthValue');
+const agilityValue = document.getElementById('agilityValue');
+const intelligenceValue = document.getElementById('intelligenceValue');
+const strengthBonus = document.getElementById('strengthBonus');
+const agilityBonus = document.getElementById('agilityBonus');
+const intelligenceBonus = document.getElementById('intelligenceBonus');
+const masteryLevel = document.getElementById('masteryLevel');
+const masteryButton = document.getElementById('masteryButton');
+
+// Additional stat elements
+const maxHpBonus = document.getElementById('maxHpBonus');
+const attackSpeedBonus = document.getElementById('attackSpeedBonus');
+const criticalRate = document.getElementById('criticalRate');
+const castingSpeedBonus = document.getElementById('castingSpeedBonus');
+const skillCooldownRateBonus = document.getElementById('skillCooldownRateBonus');
+const damageBonusPvE = document.getElementById('damageBonusPvE');
+const physicalDamageBonus = document.getElementById('physicalDamageBonus');
+const magicDamageBonus = document.getElementById('magicDamageBonus');
+const healingBonus = document.getElementById('healingBonus');
+const armor = document.getElementById('armor');
+const magicResistance = document.getElementById('magicResistance');
+const controlResistance = document.getElementById('controlResistance');
+const block = document.getElementById('block');
+const tenacityPenetration = document.getElementById('tenacityPenetration');
+const baseDamageHealing = document.getElementById('baseDamageHealing');
+const movementSpeed = document.getElementById('movementSpeed');
+
 function resolvePortraitPath(drifter) {
   return ''; // No external images
 }
@@ -61,6 +95,9 @@ async function init() {
   STATE.gear = data.gear;
   STATE.mods = data.mods;
   STATE.selected = data.selected;
+
+  console.log('Loaded drifters:', STATE.drifters);
+  console.log('Drifter count:', STATE.drifters.length);
 
   bindSlotTriggers();
   clearGearSlots();
@@ -217,6 +254,7 @@ function updateAvatar() {
     disableEquipmentSlots(true);
     return;
   }
+  
 
   // Handle drifter background - use icon (full body) for background
   const imageUrl = drifter.icon || drifter.portrait || drifter.cardIcon;
@@ -279,17 +317,16 @@ function updateAbilityTooltips(drifter) {
     
     // Create additional effect tags
     let additionalTags = '';
-    if (drifter.skill.tags && drifter.skill.tags.length > 1) {
-      const otherTags = drifter.skill.tags
-        .filter(tag => tag.toLowerCase() !== category)
-        .map(tag => `<span class="ability-tag">${tag}</span>`)
-        .join(' ');
-      if (otherTags) {
-        additionalTags = `<div class="ability-tags" style="margin-top: 8px;">${otherTags}</div>`;
-      }
+    let skillTags = '';
+    if (drifter.skill.tags && drifter.skill.tags.length > 0) {
+      const allTags = drifter.skill.tags.map(tag => {
+        const tagClass = getTagClass(tag);
+        return `<span class="ability-tag ${tagClass}">${tag}</span>`;
+      }).join(' ');
+      skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
     }
     
-    eTooltip.innerHTML = `<div class="ability-category ${category}">${category}</div><div style="margin-bottom: 12px;"><strong>${drifter.skill.name}</strong></div><div>${formattedDescription}</div>${additionalTags}`;
+    eTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${drifter.skill.name}</strong></div><div>${formattedDescription}</div>`;
   } else {
     eTooltip.textContent = 'No skill available';
   }
@@ -306,19 +343,17 @@ function updateAbilityTooltips(drifter) {
     const category = getAbilityCategory(drifter.passive);
     const formattedDescription = drifter.passive.description.replace(/\n/g, '<br><br>');
     
-    // Create additional effect tags for passive
-    let additionalTags = '';
-    if (drifter.passive.tags && drifter.passive.tags.length > 1) {
-      const otherTags = drifter.passive.tags
-        .filter(tag => tag.toLowerCase() !== category)
-        .map(tag => `<span class="ability-tag">${tag}</span>`)
-        .join(' ');
-      if (otherTags) {
-        additionalTags = `<div class="ability-tags" style="margin-top: 8px;">${otherTags}</div>`;
-      }
+    // Create skill tags for passive
+    let skillTags = '';
+    if (drifter.passive.tags && drifter.passive.tags.length > 0) {
+      const allTags = drifter.passive.tags.map(tag => {
+        const tagClass = getTagClass(tag);
+        return `<span class="ability-tag ${tagClass}">${tag}</span>`;
+      }).join(' ');
+      skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
     }
     
-    passiveTooltip.innerHTML = `<div class="ability-category ${category}">${category}</div><div style="margin-bottom: 12px;"><strong>${drifter.passive.name}</strong></div><div>${formattedDescription}</div>${additionalTags}`;
+    passiveTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${drifter.passive.name}</strong></div><div>${formattedDescription}</div>`;
   } else {
     passiveTooltip.textContent = 'No passive available';
   }
@@ -333,8 +368,7 @@ function updateAbilityTooltips(drifter) {
     wSlot.appendChild(wTooltip);
   }
   if (weapon) {
-    const category = getAbilityCategory(weapon);
-    wTooltip.innerHTML = `<div class="ability-category ${category}">${category}</div><div style="margin-bottom: 12px;"><strong>${weapon.sub || weapon.name}</strong></div><div>${weapon.description || 'Weapon skill'}</div>`;
+    wTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${weapon.sub || weapon.name}</strong></div><div>${weapon.description || 'Weapon skill'}</div>`;
   } else {
     wTooltip.textContent = 'No weapon equipped';
   }
@@ -455,32 +489,99 @@ function getAbilityCategory(ability) {
   return 'skill';
 }
 
+function getTagClass(tag) {
+  const tagLower = tag.toLowerCase();
+  switch (tagLower) {
+    case 'damage':
+      return 'tag-damage';
+    case 'shield':
+      return 'tag-shield';
+    case 'hard_control':
+    case 'control':
+      return 'tag-control';
+    case 'buff':
+      return 'tag-buff';
+    case 'teleport':
+      return 'tag-teleport';
+    case 'healing':
+    case 'heal':
+      return 'tag-healing';
+    case 'defense':
+    case 'defensive':
+      return 'tag-defense';
+    case 'utility':
+      return 'tag-utility';
+    default:
+      return 'tag-default';
+  }
+}
+
+// Global tooltip element
+let globalTooltip = null;
+
+function createGlobalTooltip() {
+  if (globalTooltip) return globalTooltip;
+  
+  globalTooltip = document.createElement('div');
+  globalTooltip.id = 'global-tooltip';
+  globalTooltip.style.cssText = `
+    position: fixed;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-size: 0.9rem;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: none;
+    max-width: 400px;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.6;
+    pointer-events: none;
+  `;
+  document.body.appendChild(globalTooltip);
+  return globalTooltip;
+}
+
 function addTooltipPositioning() {
   const abilitySlots = document.querySelectorAll('.ability-slot');
+  const tooltip = createGlobalTooltip();
   
-  abilitySlots.forEach(slot => {
-    const tooltip = slot.querySelector('.ability-tooltip');
-    if (!tooltip) return;
+  abilitySlots.forEach((slot, index) => {
+    const slotTooltip = slot.querySelector('.ability-tooltip');
+    if (!slotTooltip) return;
     
     slot.addEventListener('mouseenter', (e) => {
-      const rect = slot.getBoundingClientRect();
+      // Copy content from slot tooltip to global tooltip
+      tooltip.innerHTML = slotTooltip.innerHTML;
+      
+      // Show global tooltip
+      tooltip.style.display = 'block';
+      
+      // Position above slot
+      const slotRect = slot.getBoundingClientRect();
       const tooltipRect = tooltip.getBoundingClientRect();
       
-      // Position tooltip above the slot
-      let top = rect.top - tooltipRect.height - 10;
-      let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+      let top = slotRect.top - tooltipRect.height - 10;
+      let left = slotRect.left + (slotRect.width / 2) - (tooltipRect.width / 2);
       
-      // Keep tooltip within viewport
+      // Keep within viewport
       if (left < 10) left = 10;
       if (left + tooltipRect.width > window.innerWidth - 10) {
         left = window.innerWidth - tooltipRect.width - 10;
       }
       if (top < 10) {
-        top = rect.bottom + 10; // Show below if no room above
+        top = slotRect.bottom + 10;
       }
       
       tooltip.style.top = `${top}px`;
       tooltip.style.left = `${left}px`;
+    });
+    
+    slot.addEventListener('mouseleave', (e) => {
+      tooltip.style.display = 'none';
     });
   });
 }
@@ -523,6 +624,18 @@ function showOverlay(title) {
   selectionTitle.textContent = title || 'Select Item';
   selectionOverlay.hidden = false;
   console.log('Overlay should now be visible');
+  
+  // Debug overlay visibility
+  const rect = selectionOverlay.getBoundingClientRect();
+  console.log('Overlay element:', selectionOverlay);
+  console.log('Overlay rect:', rect);
+  console.log('Overlay computed styles:', {
+    display: getComputedStyle(selectionOverlay).display,
+    visibility: getComputedStyle(selectionOverlay).visibility,
+    opacity: getComputedStyle(selectionOverlay).opacity,
+    zIndex: getComputedStyle(selectionOverlay).zIndex,
+    hidden: selectionOverlay.hidden
+  });
 }
 
 function hideOverlay() {
@@ -579,10 +692,12 @@ function bindSlotTriggers() {
 
 function renderDrifterSelection() {
   console.log('renderDrifterSelection called, drifters count:', STATE.drifters.length);
+  console.log('selectionGrid element:', selectionGrid);
   selectionGrid.innerHTML = '';
   const fragment = document.createDocumentFragment();
 
-  STATE.drifters.forEach((drifter) => {
+  STATE.drifters.forEach((drifter, index) => {
+    console.log(`Creating card for drifter ${index}:`, drifter.name);
     const card = document.createElement('article');
     card.className = 'drifter-select-card';
 
@@ -602,14 +717,36 @@ function renderDrifterSelection() {
 
     card.addEventListener('click', () => {
       STATE.selected.drifters = [drifter];
+      STATE.mastery.currentDrifter = drifter;
+      STATE.mastery.level = 1; // Reset mastery level when selecting new drifter
       updateAvatar();
+      updateMasteryDisplay();
+      showMasterySection();
       hideOverlay();
     });
 
     fragment.appendChild(card);
+    console.log(`Card created for ${drifter.name}, added to fragment`);
   });
 
+  console.log('Fragment children count:', fragment.children.length);
   selectionGrid.appendChild(fragment);
+  console.log('Fragment appended to selectionGrid, grid children count:', selectionGrid.children.length);
+  
+  // Check if cards are visible
+  const cards = selectionGrid.querySelectorAll('.drifter-select-card');
+  console.log('Cards found in DOM:', cards.length);
+  cards.forEach((card, index) => {
+    const rect = card.getBoundingClientRect();
+    console.log(`Card ${index} (${card.querySelector('.drifter-select-name')?.textContent}):`, {
+      visible: rect.width > 0 && rect.height > 0,
+      width: rect.width,
+      height: rect.height,
+      display: getComputedStyle(card).display,
+      visibility: getComputedStyle(card).visibility,
+      opacity: getComputedStyle(card).opacity
+    });
+  });
 }
 
 
@@ -627,6 +764,152 @@ function createToast() {
       timer = setTimeout(() => element.classList.remove('visible'), 2000);
     }
   };
+}
+
+// Mastery system functions
+function showMasterySection() {
+  if (masterySection) {
+    masterySection.style.display = 'block';
+  }
+}
+
+function hideMasterySection() {
+  if (masterySection) {
+    masterySection.style.display = 'none';
+  }
+}
+
+function updateMasteryDisplay() {
+  if (!STATE.mastery.currentDrifter) {
+    hideMasterySection();
+    return;
+  }
+
+  const drifter = STATE.mastery.currentDrifter;
+  const level = STATE.mastery.level;
+  
+  // Calculate current attribute values with mastery bonuses
+  const strengthBonusValue = (drifter.masteryBonuses?.strength || 0) * (level - 1);
+  const agilityBonusValue = (drifter.masteryBonuses?.agility || 0) * (level - 1);
+  const intelligenceBonusValue = (drifter.masteryBonuses?.intelligence || 0) * (level - 1);
+  
+  const strengthTotal = Math.round((drifter.basicAttributes.strength + strengthBonusValue) * 10) / 10;
+  const agilityTotal = Math.round((drifter.basicAttributes.agility + agilityBonusValue) * 10) / 10;
+  const intelligenceTotal = Math.round((drifter.basicAttributes.intelligence + intelligenceBonusValue) * 10) / 10;
+
+  // Update basic attributes
+  if (strengthValue) strengthValue.textContent = strengthTotal;
+  if (agilityValue) agilityValue.textContent = agilityTotal;
+  if (intelligenceValue) intelligenceValue.textContent = intelligenceTotal;
+
+  // Update bonus values (green numbers) - show per-level bonus
+  console.log('Drifter mastery bonuses:', drifter.masteryBonuses);
+  console.log('Drifter data:', drifter);
+  console.log('DOM elements:', { strengthBonus, agilityBonus, intelligenceBonus });
+  
+  if (strengthBonus) {
+    const perLevelBonus = drifter.masteryBonuses?.strength || 0;
+    strengthBonus.textContent = `(+${perLevelBonus.toFixed(1)})`;
+    console.log('Strength bonus:', perLevelBonus, 'Element:', strengthBonus);
+  } else {
+    console.log('strengthBonus element not found');
+  }
+  if (agilityBonus) {
+    const perLevelBonus = drifter.masteryBonuses?.agility || 0;
+    agilityBonus.textContent = `(+${perLevelBonus.toFixed(1)})`;
+    console.log('Agility bonus:', perLevelBonus, 'Element:', agilityBonus);
+  } else {
+    console.log('agilityBonus element not found');
+  }
+  if (intelligenceBonus) {
+    const perLevelBonus = drifter.masteryBonuses?.intelligence || 0;
+    intelligenceBonus.textContent = `(+${perLevelBonus.toFixed(1)})`;
+    console.log('Intelligence bonus:', perLevelBonus, 'Element:', intelligenceBonus);
+  } else {
+    console.log('intelligenceBonus element not found');
+  }
+
+  // Calculate derived stats based on attribute increases
+  const strengthIncrease = strengthBonusValue;
+  const agilityIncrease = agilityBonusValue;
+  const intelligenceIncrease = intelligenceBonusValue;
+
+  // Calculate stat bonuses from attribute increases
+  const maxHpBonusIncrease = strengthIncrease * 0.25; // +0.25% per strength point
+  const controlResistanceIncrease = strengthIncrease * 0.1; // +0.1 per strength point
+  const blockIncrease = strengthIncrease * 0.5; // +0.5 per strength point
+  const pveDamageIncrease = strengthIncrease * 0.1; // +0.1% per strength point
+  const baseDamageHealingIncrease = strengthIncrease * 0.05; // +0.05% per strength point
+
+  const tenacityPenetrationIncrease = agilityIncrease * 0.15; // +0.15 per agility point
+  const criticalRateIncrease = agilityIncrease * 0.05; // +0.05% per agility point
+  const attackSpeedIncrease = agilityIncrease * 0.18; // +0.18% per agility point
+  const armorIncrease = agilityIncrease * 0.15; // +0.15 per agility point
+  const physicalDamageIncrease = agilityIncrease * 0.25; // +0.25% per agility point
+
+  const healingBonusIncrease = intelligenceIncrease * 0.25; // +0.25% per intelligence point
+  const cooldownRateIncrease = intelligenceIncrease * 0.06; // +0.06% per intelligence point
+  const castingSpeedIncrease = intelligenceIncrease * 0.3; // +0.3% per intelligence point
+  const magicResistanceIncrease = intelligenceIncrease * 0.15; // +0.15 per intelligence point
+  const magicDamageIncrease = intelligenceIncrease * 0.25; // +0.25% per intelligence point
+
+  // Calculate total stats (base from JSON + mastery increases)
+  const totalMaxHpBonus = (parseFloat(drifter.stats?.maxHpBonus?.replace('%', '') || '0') + maxHpBonusIncrease).toFixed(2);
+  const totalAttackSpeedBonus = (parseFloat(drifter.stats?.attackSpeedBonus?.replace('%', '') || '0') + attackSpeedIncrease).toFixed(2);
+  const totalCriticalRate = (parseFloat(drifter.stats?.criticalRate?.replace('%', '') || '0') + criticalRateIncrease).toFixed(2);
+  const totalCastingSpeedBonus = (parseFloat(drifter.stats?.castingSpeedBonus?.replace('%', '') || '0') + castingSpeedIncrease).toFixed(2);
+  const totalSkillCooldownRateBonus = (parseFloat(drifter.stats?.skillCooldownRateBonus?.replace('%', '') || '0') + cooldownRateIncrease).toFixed(2);
+  const totalDamageBonusPvE = (parseFloat(drifter.stats?.damageBonusPvE?.replace('%', '') || '0') + pveDamageIncrease).toFixed(2);
+  const totalPhysicalDamageBonus = (parseFloat(drifter.stats?.physicalDamageBonus?.replace('%', '') || '0') + physicalDamageIncrease).toFixed(2);
+  const totalMagicDamageBonus = (parseFloat(drifter.stats?.magicDamageBonus?.replace('%', '') || '0') + magicDamageIncrease).toFixed(2);
+  const totalHealingBonus = (parseFloat(drifter.stats?.healingBonus?.replace('%', '') || '0') + healingBonusIncrease).toFixed(2);
+  const totalArmor = (parseFloat(drifter.stats?.armor || '0') + armorIncrease).toFixed(2);
+  const totalMagicResistance = (parseFloat(drifter.stats?.magicResistance || '0') + magicResistanceIncrease).toFixed(2);
+  const totalControlResistance = (parseFloat(drifter.stats?.controlResistance || '0') + controlResistanceIncrease).toFixed(2);
+  const totalBlock = (parseFloat(drifter.stats?.block || '0') + blockIncrease).toFixed(2);
+  const totalTenacityPenetration = (parseFloat(drifter.stats?.tenacityPenetration || '0') + tenacityPenetrationIncrease).toFixed(2);
+  const totalBaseDamageHealing = (parseFloat(drifter.stats?.baseDamageHealing?.replace('%', '') || '0') + baseDamageHealingIncrease).toFixed(2);
+
+  // Update all other stats with calculated totals
+  if (maxHpBonus) maxHpBonus.textContent = totalMaxHpBonus + '%';
+  if (attackSpeedBonus) attackSpeedBonus.textContent = totalAttackSpeedBonus + '%';
+  if (criticalRate) criticalRate.textContent = totalCriticalRate + '%';
+  if (castingSpeedBonus) castingSpeedBonus.textContent = totalCastingSpeedBonus + '%';
+  if (skillCooldownRateBonus) skillCooldownRateBonus.textContent = totalSkillCooldownRateBonus + '%';
+  if (damageBonusPvE) damageBonusPvE.textContent = totalDamageBonusPvE + '%';
+  if (physicalDamageBonus) physicalDamageBonus.textContent = totalPhysicalDamageBonus + '%';
+  if (magicDamageBonus) magicDamageBonus.textContent = totalMagicDamageBonus + '%';
+  if (healingBonus) healingBonus.textContent = totalHealingBonus + '%';
+  if (armor) armor.textContent = totalArmor;
+  if (magicResistance) magicResistance.textContent = totalMagicResistance;
+  if (controlResistance) controlResistance.textContent = totalControlResistance;
+  if (block) block.textContent = totalBlock;
+  if (tenacityPenetration) tenacityPenetration.textContent = totalTenacityPenetration;
+  if (baseDamageHealing) baseDamageHealing.textContent = totalBaseDamageHealing + '%';
+  if (movementSpeed) movementSpeed.textContent = drifter.stats?.movementSpeed || '0 m/sec';
+
+  // Update mastery level
+  if (masteryLevel) masteryLevel.textContent = level;
+
+  // Update button state
+  if (masteryButton) {
+    masteryButton.disabled = level >= STATE.mastery.maxLevel;
+    masteryButton.textContent = level >= STATE.mastery.maxLevel ? 'MAX' : '+';
+  }
+}
+
+function increaseMasteryLevel() {
+  if (!STATE.mastery.currentDrifter || STATE.mastery.level >= STATE.mastery.maxLevel) {
+    return;
+  }
+
+  STATE.mastery.level++;
+  updateMasteryDisplay();
+}
+
+// Bind mastery button event
+if (masteryButton) {
+  masteryButton.addEventListener('click', increaseMasteryLevel);
 }
 
 init();

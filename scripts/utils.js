@@ -1,8 +1,8 @@
 // Data sources for GitHub Pages deployment
 const DATA_SOURCES = {
-  drifters: './data/drifters.json',
+  drifters: './data/drifters.json?v=20', // Force refresh for Astral Magus stats update
   weapons: './data/weapons.json',
-  skills: './data/skills.json',
+  skills: './data/skills.json?v=4', // Updated cache-busting for Astral Magus skills
   helmets: './data/armor/helmets.json',
   chests: './data/armor/chests.json',
   boots: './data/armor/boots.json',
@@ -28,6 +28,10 @@ export async function loadDataSets(notify) {
       }
       data[key] = await response.json();
       console.log(`Successfully loaded ${key}:`, data[key]);
+      if (key === 'drifters') {
+        console.log(`Drifters array length:`, data[key].drifters?.length);
+        console.log(`First few drifters:`, data[key].drifters?.slice(0, 3));
+      }
     } catch (error) {
       console.error(`Failed to load ${key} from ${url}:`, error);
       notify?.(`Failed to load ${key}`);
@@ -37,7 +41,11 @@ export async function loadDataSets(notify) {
   }
 
   // Process and link data
+  console.log('Raw drifters data:', data.drifters);
+  console.log('Raw skills data:', data.skills);
   const drifters = processDrifters(data.drifters?.drifters || [], data.skills?.skills || []);
+  console.log('Processed drifters:', drifters);
+  console.log('First drifter mastery bonuses:', drifters[0]?.masteryBonuses);
   const weapons = processWeapons(data.weapons?.weapons || [], data.skills?.skills || []);
   const gear = {
     weapons: weapons,
@@ -71,6 +79,7 @@ function processDrifters(drifters, skills) {
     description: drifter.description || buildDrifterDescription(drifter),
     stats: drifter.stats || {},
     basicAttributes: drifter.basicAttributes || {},
+    masteryBonuses: drifter.masteryBonuses || {},
     icon: drifter.icon || '',
     portrait: drifter.portrait || '',
     cardIcon: drifter.cardIcon || '',

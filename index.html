@@ -11,6 +11,12 @@
 
   <main class="app-body">
     <section class="panel" aria-labelledby="loadout-title">
+      <header class="panel-header">
+        <h1 class="game-title">
+          <span class="title-main">WARBORNE</span>
+          <span class="title-subtitle">ABOVE ASHES</span>
+        </h1>
+      </header>
 
       <div class="loadout-layout" id="loadoutLayout">
         <div class="loadout-overlay"></div>
@@ -62,9 +68,11 @@
       </div>
 
       <div class="drifter-abilities">
-        <div class="ability-slot drifter-passive" data-key="passive">
+        <div class="passive-slot-container">
           <div class="ability-label">Passive</div>
-          <div class="ability-icon"></div>
+          <div class="ability-slot drifter-passive" data-key="passive">
+            <div class="ability-icon"></div>
+          </div>
         </div>
       </div>
 
@@ -92,6 +100,123 @@
         <div class="ability-slot" data-key="F">
           <div class="ability-icon"></div>
           <div class="ability-key">F</div>
+        </div>
+      </div>
+
+      <div class="mastery-section" id="masterySection" style="display: none;">
+        <!-- Basic Attributes Section -->
+        <div class="attributes-section">
+          <h3 class="attributes-title">Basic Attributes</h3>
+          <div class="attributes-grid">
+            <div class="attribute-card">
+              <div class="attribute-icon strength-icon">
+                <img src="./assets/icons/strength-icon.png" alt="Strength" />
+              </div>
+              <div class="attribute-info">
+                <div class="attribute-name">Strength</div>
+                <div class="attribute-value" id="strengthValue">0</div>
+                <div class="attribute-bonus" id="strengthBonus">(+0)</div>
+              </div>
+            </div>
+            <div class="attribute-card">
+              <div class="attribute-icon agility-icon">
+                <img src="./assets/icons/agility-icon.png" alt="Agility" />
+              </div>
+              <div class="attribute-info">
+                <div class="attribute-name">Agility</div>
+                <div class="attribute-value" id="agilityValue">0</div>
+                <div class="attribute-bonus" id="agilityBonus">(+0)</div>
+              </div>
+            </div>
+            <div class="attribute-card">
+              <div class="attribute-icon intelligence-icon">
+                <img src="./assets/icons/intelligence-icon.png" alt="Intelligence" />
+              </div>
+              <div class="attribute-info">
+                <div class="attribute-name">Intelligence</div>
+                <div class="attribute-value" id="intelligenceValue">0</div>
+                <div class="attribute-bonus" id="intelligenceBonus">(+0)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drifter Stats Section -->
+        <h3 class="mastery-title">Drifter Stats</h3>
+        
+        <div class="stats-list">
+          <div class="stat-item">
+            <span class="stat-name">Max HP Bonus</span>
+            <span class="stat-value" id="maxHpBonus">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Attack Speed</span>
+            <span class="stat-value" id="attackSpeedBonus">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Critical Rate</span>
+            <span class="stat-value" id="criticalRate">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Casting Speed</span>
+            <span class="stat-value" id="castingSpeedBonus">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Cooldown Rate</span>
+            <span class="stat-value" id="skillCooldownRateBonus">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">PvE Damage</span>
+            <span class="stat-value" id="damageBonusPvE">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Physical Damage</span>
+            <span class="stat-value" id="physicalDamageBonus">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Magic Damage</span>
+            <span class="stat-value" id="magicDamageBonus">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Healing Bonus</span>
+            <span class="stat-value" id="healingBonus">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Armor</span>
+            <span class="stat-value" id="armor">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Magic Resistance</span>
+            <span class="stat-value" id="magicResistance">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Control Resistance</span>
+            <span class="stat-value" id="controlResistance">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Block</span>
+            <span class="stat-value" id="block">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Tenacity Penetration</span>
+            <span class="stat-value" id="tenacityPenetration">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Base Damage & Healing</span>
+            <span class="stat-value" id="baseDamageHealing">0%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-name">Movement Speed</span>
+            <span class="stat-value" id="movementSpeed">0 m/sec</span>
+          </div>
+        </div>
+
+        <div class="mastery-controls">
+          <div class="mastery-level">
+            <span class="mastery-label">Mastery Level:</span>
+            <span class="mastery-value" id="masteryLevel">1</span>
+          </div>
+          <button type="button" class="mastery-button" id="masteryButton" disabled>+</button>
         </div>
       </div>
     </section>

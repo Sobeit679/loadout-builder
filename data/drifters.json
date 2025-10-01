@@ -1,6 +1,1518 @@
 {
   "drifters": [
     {
+      "id": "aegis",
+      "name": "Aegis",
+      "role": "Tank",
+      "description": "Tank | Area Damage",
+      "basicAttributes": {
+        "strength": 30,
+        "agility": 15,
+        "intelligence": 15
+      },
+      "masteryBonuses": {
+        "strength": 2.2,
+        "agility": 0.5,
+        "intelligence": 1.4
+      },
+      "stats": {
+        "maxHpBonus": "7.5%",
+        "attackSpeedBonus": "2.1%",
+        "criticalRate": "0.8%",
+        "castingSpeedBonus": "2.4%",
+        "skillCooldownRateBonus": "0.48%",
+        "damageBonusPvE": "1.2%",
+        "physicalDamageBonus": "3.5%",
+        "magicDamageBonus": "2.1%",
+        "healingBonus": "4.2%",
+        "tenacityPenetration": 2.1,
+        "armor": 6.8,
+        "magicResistance": 4.2,
+        "block": 15,
+        "controlResistance": 3.2,
+        "movementSpeed": "4.8 m/sec"
+      },
+      "skills": {
+        "core": "shield-of-conviction",
+        "passive": "defiant-resolve"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Damage Reduction",
+            "value": "+5.2%",
+            "type": "positive"
+          },
+          {
+            "name": "Movement Speed",
+            "value": "-0.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-aegis.png",
+      "portrait": "./assets/icons/drifter-aegis-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-aegis.png"
+    },
+    {
+      "id": "astralmagus",
+      "name": "Astral Magus",
+      "role": "Mage",
+      "description": "Support | Mobility",
+      "basicAttributes": {
+        "strength": 20,
+        "agility": 12,
+        "intelligence": 28
+      },
+      "stats": {
+        "maxHpBonus": "5%",
+        "attackSpeedBonus": "2.1%",
+        "criticalRate": "0.6%",
+        "castingSpeedBonus": "8.4%",
+        "skillCooldownRateBonus": "1.6%",
+        "damageBonusPvE": "2%",
+        "physicalDamageBonus": "3%",
+        "magicDamageBonus": "7%",
+        "healingBonus": "7%",
+        "tenacityPenetration": 1.8,
+        "armor": 1.8,
+        "magicResistance": 4.2,
+        "block": 10,
+        "controlResistance": 2,
+        "movementSpeed": "5.3 m/sec"
+      },
+      "skills": {
+        "core": "astral-gate",
+        "passive": "celestial-rotation"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Magic Damage",
+            "value": "+6.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-3.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-astralmagus.png",
+      "portrait": "./assets/icons/drifter-astralmagus-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-astralmagus.png",
+      "masteryBonuses": {
+        "strength": 1,
+        "agility": 1,
+        "intelligence": 2.1
+      }
+    },
+    {
+      "id": "auri",
+      "name": "Auri",
+      "role": "Support",
+      "description": "Auri channels divine power to heal and protect allies.",
+      "basicAttributes": {
+        "strength": 16,
+        "agility": 14,
+        "intelligence": 20
+      },
+      "stats": {
+        "maxHpBonus": "8%",
+        "attackSpeedBonus": "2.8%",
+        "criticalRate": "1.4%",
+        "castingSpeedBonus": "6.4%",
+        "skillCooldownRateBonus": "1.3%",
+        "damageBonusPvE": "2.1%",
+        "physicalDamageBonus": "3.2%",
+        "magicDamageBonus": "5.6%",
+        "healingBonus": "15.2%",
+        "tenacityPenetration": 3.2,
+        "armor": 4.8,
+        "magicResistance": 6.4,
+        "block": 10,
+        "controlResistance": 5.6,
+        "movementSpeed": "4.9 m/sec"
+      },
+      "skills": {
+        "core": "divine-radiance",
+        "passive": "blessed-aura"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Healing Bonus",
+            "value": "+8.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-1.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-auri.png",
+      "portrait": "./assets/icons/drifter-auri-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-auri.png",
+      "masteryBonuses": {
+        "strength": 1,
+        "agility": 1.5,
+        "intelligence": 1.8
+      }
+    },
+    {
+      "id": "blade",
+      "name": "Blade",
+      "role": "Assassin",
+      "description": "Blade is a master of precision strikes and deadly combos.",
+      "basicAttributes": {
+        "strength": 20,
+        "agility": 22,
+        "intelligence": 8
+      },
+      "stats": {
+        "maxHpBonus": "3%",
+        "attackSpeedBonus": "7.2%",
+        "criticalRate": "2.8%",
+        "castingSpeedBonus": "1.4%",
+        "skillCooldownRateBonus": "1.1%",
+        "damageBonusPvE": "3.8%",
+        "physicalDamageBonus": "8.4%",
+        "magicDamageBonus": "1.8%",
+        "healingBonus": "1.2%",
+        "tenacityPenetration": 6.2,
+        "armor": 2.4,
+        "magicResistance": 1.4,
+        "block": 7,
+        "controlResistance": 2.1,
+        "movementSpeed": "6.4 m/sec"
+      },
+      "skills": {
+        "core": "blade-dance",
+        "passive": "lethal-precision"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Critical Damage",
+            "value": "+12.6%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-2.4%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-blade.png",
+      "portrait": "./assets/icons/drifter-blade-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-blade.png",
+      "masteryBonuses": {
+        "strength": 1.2,
+        "agility": 2,
+        "intelligence": 0.6
+      }
+    },
+    {
+      "id": "draknor",
+      "name": "Draknor",
+      "role": "Warrior",
+      "description": "Draknor is a fierce warrior who excels in close combat and area damage.",
+      "basicAttributes": {
+        "strength": 22,
+        "agility": 16,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "7%",
+        "attackSpeedBonus": "3.8%",
+        "criticalRate": "1.6%",
+        "castingSpeedBonus": "2.8%",
+        "skillCooldownRateBonus": "0.6%",
+        "damageBonusPvE": "2.4%",
+        "physicalDamageBonus": "6.8%",
+        "magicDamageBonus": "2.4%",
+        "healingBonus": "2.8%",
+        "tenacityPenetration": 4.2,
+        "armor": 5.6,
+        "magicResistance": 2.8,
+        "block": 12,
+        "controlResistance": 2.4,
+        "movementSpeed": "5.1 m/sec"
+      },
+      "skills": {
+        "core": "whirlwind-slash",
+        "passive": "berserker-rage"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Physical Damage",
+            "value": "+4.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-1.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-draknor.png",
+      "portrait": "./assets/icons/drifter-draknor-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-draknor.png",
+      "masteryBonuses": {
+        "strength": 1.8,
+        "agility": 1.2,
+        "intelligence": 0.8
+      }
+    },
+    {
+      "id": "durion",
+      "name": "Durion",
+      "role": "Tank",
+      "description": "Durion is an unbreakable fortress with massive defensive capabilities.",
+      "basicAttributes": {
+        "strength": 24,
+        "agility": 12,
+        "intelligence": 14
+      },
+      "stats": {
+        "maxHpBonus": "12%",
+        "attackSpeedBonus": "1.8%",
+        "criticalRate": "0.6%",
+        "castingSpeedBonus": "1.8%",
+        "skillCooldownRateBonus": "0.3%",
+        "damageBonusPvE": "0.8%",
+        "physicalDamageBonus": "2.8%",
+        "magicDamageBonus": "1.4%",
+        "healingBonus": "6.4%",
+        "tenacityPenetration": 1.8,
+        "armor": 9.6,
+        "magicResistance": 6.8,
+        "block": 20,
+        "controlResistance": 4.8,
+        "movementSpeed": "4.2 m/sec"
+      },
+      "skills": {
+        "core": "fortress-stance",
+        "passive": "unbreakable"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Damage Reduction",
+            "value": "+8.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Movement Speed",
+            "value": "-1.6%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-durion.png",
+      "portrait": "./assets/icons/drifter-durion-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-durion.png",
+      "masteryBonuses": {
+        "strength": 2,
+        "agility": 0.3,
+        "intelligence": 1
+      }
+    },
+    {
+      "id": "elektrix",
+      "name": "Elektrix",
+      "role": "Mage",
+      "description": "Elektrix wields lightning magic with incredible speed and power.",
+      "basicAttributes": {
+        "strength": 14,
+        "agility": 20,
+        "intelligence": 16
+      },
+      "stats": {
+        "maxHpBonus": "4%",
+        "attackSpeedBonus": "5.6%",
+        "criticalRate": "2.4%",
+        "castingSpeedBonus": "8.4%",
+        "skillCooldownRateBonus": "1.6%",
+        "damageBonusPvE": "3.6%",
+        "physicalDamageBonus": "2.8%",
+        "magicDamageBonus": "7.2%",
+        "healingBonus": "2.4%",
+        "tenacityPenetration": 5.8,
+        "armor": 2.2,
+        "magicResistance": 4.8,
+        "block": 5,
+        "controlResistance": 3.2,
+        "movementSpeed": "5.8 m/sec"
+      },
+      "skills": {
+        "core": "lightning-storm",
+        "passive": "electric-charge"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Attack Speed",
+            "value": "+4.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-2.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-elektrix.png",
+      "portrait": "./assets/icons/drifter-elektrix-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-elektrix.png",
+      "masteryBonuses": {
+        "strength": 0.5,
+        "agility": 1,
+        "intelligence": 2.5
+      }
+    },
+    {
+      "id": "helix",
+      "name": "Helix",
+      "role": "Warrior",
+      "description": "Helix combines martial arts with elemental energy for devastating combos.",
+      "basicAttributes": {
+        "strength": 18,
+        "agility": 20,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "5%",
+        "attackSpeedBonus": "4.8%",
+        "criticalRate": "1.8%",
+        "castingSpeedBonus": "3.2%",
+        "skillCooldownRateBonus": "0.8%",
+        "damageBonusPvE": "2.8%",
+        "physicalDamageBonus": "5.6%",
+        "magicDamageBonus": "3.8%",
+        "healingBonus": "2.8%",
+        "tenacityPenetration": 4.6,
+        "armor": 4.2,
+        "magicResistance": 3.6,
+        "block": 9,
+        "controlResistance": 2.8,
+        "movementSpeed": "5.4 m/sec"
+      },
+      "skills": {
+        "core": "spiral-strike",
+        "passive": "elemental-flow"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Combo Damage",
+            "value": "+6.2%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-1.4%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-helix.png",
+      "portrait": "./assets/icons/drifter-helix-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-helix.png",
+      "masteryBonuses": {
+        "strength": 1.8,
+        "agility": 1.2,
+        "intelligence": 0.8
+      }
+    },
+    {
+      "id": "hivequeen",
+      "name": "Hive Queen",
+      "role": "Support",
+      "description": "Hive Queen commands swarms and provides battlefield control.",
+      "basicAttributes": {
+        "strength": 12,
+        "agility": 18,
+        "intelligence": 20
+      },
+      "stats": {
+        "maxHpBonus": "6%",
+        "attackSpeedBonus": "3.6%",
+        "criticalRate": "1.6%",
+        "castingSpeedBonus": "5.8%",
+        "skillCooldownRateBonus": "1.2%",
+        "damageBonusPvE": "2.4%",
+        "physicalDamageBonus": "2.8%",
+        "magicDamageBonus": "6.4%",
+        "healingBonus": "8.8%",
+        "tenacityPenetration": 3.8,
+        "armor": 3.6,
+        "magicResistance": 5.2,
+        "block": 7,
+        "controlResistance": 4.6,
+        "movementSpeed": "5.2 m/sec"
+      },
+      "skills": {
+        "core": "swarm-command",
+        "passive": "hive-mind"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Summon Damage",
+            "value": "+7.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-2.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-hivequeen.png",
+      "portrait": "./assets/icons/drifter-hivequeen-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-hivequeen.png",
+      "masteryBonuses": {
+        "strength": 1,
+        "agility": 1.5,
+        "intelligence": 1.8
+      }
+    },
+    {
+      "id": "illusarch",
+      "name": "Illusarch",
+      "role": "Mage",
+      "description": "Illusarch weaves powerful illusions to confuse and control enemies.",
+      "basicAttributes": {
+        "strength": 8,
+        "agility": 14,
+        "intelligence": 28
+      },
+      "stats": {
+        "maxHpBonus": "1%",
+        "attackSpeedBonus": "2.8%",
+        "criticalRate": "1.2%",
+        "castingSpeedBonus": "9.6%",
+        "skillCooldownRateBonus": "1.8%",
+        "damageBonusPvE": "4.2%",
+        "physicalDamageBonus": "0.8%",
+        "magicDamageBonus": "12.4%",
+        "healingBonus": "1.2%",
+        "tenacityPenetration": 6.8,
+        "armor": 0.8,
+        "magicResistance": 5.6,
+        "block": 2,
+        "controlResistance": 4.8,
+        "movementSpeed": "5.0 m/sec"
+      },
+      "skills": {
+        "core": "reality-distortion",
+        "passive": "illusion-mastery"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Control Duration",
+            "value": "+12.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-4.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-illusarch.png",
+      "portrait": "./assets/icons/drifter-illusarch-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-illusarch.png",
+      "masteryBonuses": {
+        "strength": 0.5,
+        "agility": 1,
+        "intelligence": 2.5
+      }
+    },
+    {
+      "id": "izzy",
+      "name": "Izzy",
+      "role": "Assassin",
+      "description": "Izzy is a nimble fighter who strikes from the shadows with deadly precision.",
+      "basicAttributes": {
+        "strength": 16,
+        "agility": 26,
+        "intelligence": 8
+      },
+      "stats": {
+        "maxHpBonus": "2%",
+        "attackSpeedBonus": "8.4%",
+        "criticalRate": "3.2%",
+        "castingSpeedBonus": "1.2%",
+        "skillCooldownRateBonus": "1.3%",
+        "damageBonusPvE": "4.2%",
+        "physicalDamageBonus": "9.6%",
+        "magicDamageBonus": "0.8%",
+        "healingBonus": "0.8%",
+        "tenacityPenetration": 7.2,
+        "armor": 1.8,
+        "magicResistance": 0.8,
+        "block": 5,
+        "controlResistance": 1.6,
+        "movementSpeed": "6.8 m/sec"
+      },
+      "skills": {
+        "core": "shadow-assault",
+        "passive": "phantom-strike"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Stealth Duration",
+            "value": "+15.6%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-3.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-izzy.png",
+      "portrait": "./assets/icons/drifter-izzy-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-izzy.png",
+      "masteryBonuses": {
+        "strength": 1.2,
+        "agility": 2,
+        "intelligence": 0.6
+      }
+    },
+    {
+      "id": "kyra",
+      "name": "Kyra",
+      "role": "Mage",
+      "description": "Kyra wields powerful elemental magic with devastating area-of-effect abilities.",
+      "basicAttributes": {
+        "strength": 12,
+        "agility": 18,
+        "intelligence": 20
+      },
+      "stats": {
+        "maxHpBonus": "3%",
+        "attackSpeedBonus": "4.2%",
+        "criticalRate": "1.8%",
+        "castingSpeedBonus": "6.1%",
+        "skillCooldownRateBonus": "1.2%",
+        "damageBonusPvE": "2.8%",
+        "physicalDamageBonus": "1.8%",
+        "magicDamageBonus": "8.4%",
+        "healingBonus": "2.1%",
+        "tenacityPenetration": 4.8,
+        "armor": 1.9,
+        "magicResistance": 3.6,
+        "block": 4,
+        "controlResistance": 2.8,
+        "movementSpeed": "5.4 m/sec"
+      },
+      "skills": {
+        "core": "meteor-storm",
+        "passive": "elemental-mastery"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Magic Damage Bonus",
+            "value": "+4.2%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-2.1%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-kyra.png",
+      "portrait": "./assets/icons/drifter-kyra-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-kyra.png",
+      "masteryBonuses": {
+        "strength": 0.5,
+        "agility": 1,
+        "intelligence": 2.5
+      }
+    },
+    {
+      "id": "madbarrel",
+      "name": "Mad Barrel",
+      "role": "Warrior",
+      "description": "Mad Barrel is a berserker who thrives in chaos and destruction.",
+      "basicAttributes": {
+        "strength": 26,
+        "agility": 14,
+        "intelligence": 10
+      },
+      "stats": {
+        "maxHpBonus": "9%",
+        "attackSpeedBonus": "4.2%",
+        "criticalRate": "2.2%",
+        "castingSpeedBonus": "2.4%",
+        "skillCooldownRateBonus": "0.7%",
+        "damageBonusPvE": "3.4%",
+        "physicalDamageBonus": "7.8%",
+        "magicDamageBonus": "2.2%",
+        "healingBonus": "3.2%",
+        "tenacityPenetration": 5.4,
+        "armor": 6.2,
+        "magicResistance": 2.8,
+        "block": 14,
+        "controlResistance": 3.4,
+        "movementSpeed": "5.6 m/sec"
+      },
+      "skills": {
+        "core": "chaos-storm",
+        "passive": "battle-fury"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Berserker Rage",
+            "value": "+9.6%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-2.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-madbarrel.png",
+      "portrait": "./assets/icons/drifter-madbarrel-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-madbarrel.png",
+      "masteryBonuses": {
+        "strength": 1.8,
+        "agility": 1.2,
+        "intelligence": 0.8
+      }
+    },
+    {
+      "id": "mole",
+      "name": "Mole",
+      "role": "Tank",
+      "description": "Mole is a defensive specialist who burrows and controls the battlefield.",
+      "basicAttributes": {
+        "strength": 22,
+        "agility": 16,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "10%",
+        "attackSpeedBonus": "2.4%",
+        "criticalRate": "0.9%",
+        "castingSpeedBonus": "2.8%",
+        "skillCooldownRateBonus": "0.4%",
+        "damageBonusPvE": "1.4%",
+        "physicalDamageBonus": "4.2%",
+        "magicDamageBonus": "2.8%",
+        "healingBonus": "5.6%",
+        "tenacityPenetration": 2.4,
+        "armor": 8.4,
+        "magicResistance": 5.6,
+        "block": 18,
+        "controlResistance": 4.2,
+        "movementSpeed": "4.6 m/sec"
+      },
+      "skills": {
+        "core": "burrow-strike",
+        "passive": "earth-warden"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Damage Reduction",
+            "value": "+7.2%",
+            "type": "positive"
+          },
+          {
+            "name": "Movement Speed",
+            "value": "-1.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-mole.png",
+      "portrait": "./assets/icons/drifter-mole-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-mole.png",
+      "masteryBonuses": {
+        "strength": 2,
+        "agility": 0.3,
+        "intelligence": 1
+      }
+    },
+    {
+      "id": "moonveil",
+      "name": "Moonveil",
+      "role": "Assassin",
+      "description": "Moonveil strikes with lunar precision and ethereal grace.",
+      "basicAttributes": {
+        "strength": 14,
+        "agility": 24,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "3%",
+        "attackSpeedBonus": "7.8%",
+        "criticalRate": "2.6%",
+        "castingSpeedBonus": "2.4%",
+        "skillCooldownRateBonus": "1.2%",
+        "damageBonusPvE": "3.6%",
+        "physicalDamageBonus": "7.2%",
+        "magicDamageBonus": "3.6%",
+        "healingBonus": "1.8%",
+        "tenacityPenetration": 6.4,
+        "armor": 2.8,
+        "magicResistance": 2.4,
+        "block": 6,
+        "controlResistance": 2.8,
+        "movementSpeed": "6.6 m/sec"
+      },
+      "skills": {
+        "core": "lunar-strike",
+        "passive": "moonlight-dance"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Critical Rate",
+            "value": "+4.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-2.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-moonveil.png",
+      "portrait": "./assets/icons/drifter-moonveil-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-moonveil.png",
+      "masteryBonuses": {
+        "strength": 1.2,
+        "agility": 2,
+        "intelligence": 0.6
+      }
+    },
+    {
+      "id": "nyxa",
+      "name": "Nyxa",
+      "role": "Mage",
+      "description": "Nyxa commands dark magic and shadowy forces.",
+      "basicAttributes": {
+        "strength": 10,
+        "agility": 16,
+        "intelligence": 24
+      },
+      "stats": {
+        "maxHpBonus": "2%",
+        "attackSpeedBonus": "3.2%",
+        "criticalRate": "1.8%",
+        "castingSpeedBonus": "8.8%",
+        "skillCooldownRateBonus": "1.6%",
+        "damageBonusPvE": "3.8%",
+        "physicalDamageBonus": "1.4%",
+        "magicDamageBonus": "10.8%",
+        "healingBonus": "1.4%",
+        "tenacityPenetration": 6.2,
+        "armor": 1.2,
+        "magicResistance": 5.8,
+        "block": 3,
+        "controlResistance": 4.2,
+        "movementSpeed": "5.4 m/sec"
+      },
+      "skills": {
+        "core": "shadow-blast",
+        "passive": "dark-mastery"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Magic Damage",
+            "value": "+8.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-3.6%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-nyxa.png",
+      "portrait": "./assets/icons/drifter-nyxa-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-nyxa.png",
+      "masteryBonuses": {
+        "strength": 0.5,
+        "agility": 1,
+        "intelligence": 2.5
+      }
+    },
+    {
+      "id": "overdrive",
+      "name": "Overdrive",
+      "role": "Warrior",
+      "description": "Overdrive is a cybernetic warrior with enhanced combat capabilities.",
+      "basicAttributes": {
+        "strength": 20,
+        "agility": 18,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "6%",
+        "attackSpeedBonus": "5.4%",
+        "criticalRate": "2.0%",
+        "castingSpeedBonus": "3.6%",
+        "skillCooldownRateBonus": "0.9%",
+        "damageBonusPvE": "3.0%",
+        "physicalDamageBonus": "6.8%",
+        "magicDamageBonus": "3.2%",
+        "healingBonus": "3.6%",
+        "tenacityPenetration": 4.8,
+        "armor": 5.4,
+        "magicResistance": 3.8,
+        "block": 11,
+        "controlResistance": 3,
+        "movementSpeed": "5.8 m/sec"
+      },
+      "skills": {
+        "core": "cyber-strike",
+        "passive": "enhanced-systems"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "System Efficiency",
+            "value": "+6.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-2.0%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-overdrive.png",
+      "portrait": "./assets/icons/drifter-overdrive-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-overdrive.png",
+      "masteryBonuses": {
+        "strength": 1.8,
+        "agility": 1.2,
+        "intelligence": 0.8
+      }
+    },
+    {
+      "id": "raven",
+      "name": "Raven",
+      "role": "Assassin",
+      "description": "Raven is a stealthy assassin with high mobility and burst damage potential.",
+      "basicAttributes": {
+        "strength": 18,
+        "agility": 24,
+        "intelligence": 8
+      },
+      "stats": {
+        "maxHpBonus": "2%",
+        "attackSpeedBonus": "6.8%",
+        "criticalRate": "2.4%",
+        "castingSpeedBonus": "1.8%",
+        "skillCooldownRateBonus": "0.9%",
+        "damageBonusPvE": "3.2%",
+        "physicalDamageBonus": "7.8%",
+        "magicDamageBonus": "1.2%",
+        "healingBonus": "1.8%",
+        "tenacityPenetration": 5.6,
+        "armor": 2.1,
+        "magicResistance": 1.2,
+        "block": 6,
+        "controlResistance": 1.8,
+        "movementSpeed": "6.2 m/sec"
+      },
+      "skills": {
+        "core": "shadow-strike",
+        "passive": "shadow-dance"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Critical Damage",
+            "value": "+8.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-1.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-raven.png",
+      "portrait": "./assets/icons/drifter-raven-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-raven.png",
+      "masteryBonuses": {
+        "strength": 1.2,
+        "agility": 2,
+        "intelligence": 0.6
+      }
+    },
+    {
+      "id": "revelation",
+      "name": "Revelation",
+      "role": "Support",
+      "description": "Revelation provides divine insight and powerful buffs to allies.",
+      "basicAttributes": {
+        "strength": 18,
+        "agility": 16,
+        "intelligence": 16
+      },
+      "stats": {
+        "maxHpBonus": "7%",
+        "attackSpeedBonus": "3.4%",
+        "criticalRate": "1.8%",
+        "castingSpeedBonus": "6.8%",
+        "skillCooldownRateBonus": "1.4%",
+        "damageBonusPvE": "2.6%",
+        "physicalDamageBonus": "4.2%",
+        "magicDamageBonus": "6.4%",
+        "healingBonus": "11.2%",
+        "tenacityPenetration": 3.6,
+        "armor": 4.6,
+        "magicResistance": 5.4,
+        "block": 9,
+        "controlResistance": 4.8,
+        "movementSpeed": "5.1 m/sec"
+      },
+      "skills": {
+        "core": "divine-revelation",
+        "passive": "holy-aura"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Buff Duration",
+            "value": "+9.6%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-1.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-revelation.png",
+      "portrait": "./assets/icons/drifter-revelation-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-revelation.png",
+      "masteryBonuses": {
+        "strength": 1,
+        "agility": 1.5,
+        "intelligence": 1.8
+      }
+    },
+    {
+      "id": "sanguor",
+      "name": "Sanguor",
+      "role": "Assassin",
+      "description": "Sanguor feeds on life force and strikes with vampiric precision.",
+      "basicAttributes": {
+        "strength": 18,
+        "agility": 22,
+        "intelligence": 10
+      },
+      "stats": {
+        "maxHpBonus": "4%",
+        "attackSpeedBonus": "6.8%",
+        "criticalRate": "2.4%",
+        "castingSpeedBonus": "2.8%",
+        "skillCooldownRateBonus": "1.1%",
+        "damageBonusPvE": "3.4%",
+        "physicalDamageBonus": "7.6%",
+        "magicDamageBonus": "2.4%",
+        "healingBonus": "4.8%",
+        "tenacityPenetration": 5.8,
+        "armor": 2.6,
+        "magicResistance": 2.2,
+        "block": 6,
+        "controlResistance": 2.4,
+        "movementSpeed": "6.2 m/sec"
+      },
+      "skills": {
+        "core": "life-drain",
+        "passive": "vampiric-essence"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Life Steal",
+            "value": "+8.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-2.6%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-sanguor.png",
+      "portrait": "./assets/icons/drifter-sanguor-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-sanguor.png",
+      "masteryBonuses": {
+        "strength": 1.2,
+        "agility": 2,
+        "intelligence": 0.6
+      }
+    },
+    {
+      "id": "shadowseer",
+      "name": "Shadowseer",
+      "role": "Mage",
+      "description": "Shadowseer peers into the future and manipulates fate itself.",
+      "basicAttributes": {
+        "strength": 8,
+        "agility": 14,
+        "intelligence": 28
+      },
+      "stats": {
+        "maxHpBonus": "1%",
+        "attackSpeedBonus": "2.4%",
+        "criticalRate": "1.0%",
+        "castingSpeedBonus": "10.2%",
+        "skillCooldownRateBonus": "2.0%",
+        "damageBonusPvE": "4.8%",
+        "physicalDamageBonus": "0.6%",
+        "magicDamageBonus": "13.6%",
+        "healingBonus": "0.8%",
+        "tenacityPenetration": 7.4,
+        "armor": 0.6,
+        "magicResistance": 6.2,
+        "block": 1,
+        "controlResistance": 5.4,
+        "movementSpeed": "4.8 m/sec"
+      },
+      "skills": {
+        "core": "fate-weave",
+        "passive": "prophetic-sight"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Fate Manipulation",
+            "value": "+15.2%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-5.6%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-shadowseer.png",
+      "portrait": "./assets/icons/drifter-shadowseer-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-shadowseer.png",
+      "masteryBonuses": {
+        "strength": 0.5,
+        "agility": 1,
+        "intelligence": 2.5
+      }
+    },
+    {
+      "id": "sirokos",
+      "name": "Sirokos",
+      "role": "Warrior",
+      "description": "Sirokos commands the winds and strikes with elemental fury.",
+      "basicAttributes": {
+        "strength": 20,
+        "agility": 18,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "5%",
+        "attackSpeedBonus": "4.6%",
+        "criticalRate": "1.9%",
+        "castingSpeedBonus": "3.8%",
+        "skillCooldownRateBonus": "0.8%",
+        "damageBonusPvE": "2.9%",
+        "physicalDamageBonus": "6.2%",
+        "magicDamageBonus": "4.2%",
+        "healingBonus": "3.2%",
+        "tenacityPenetration": 4.4,
+        "armor": 4.8,
+        "magicResistance": 4.2,
+        "block": 10,
+        "controlResistance": 3.2,
+        "movementSpeed": "6.0 m/sec"
+      },
+      "skills": {
+        "core": "wind-slice",
+        "passive": "storm-caller"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Elemental Damage",
+            "value": "+7.2%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-1.8%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-sirokos.png",
+      "portrait": "./assets/icons/drifter-sirokos-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-sirokos.png",
+      "masteryBonuses": {
+        "strength": 1.8,
+        "agility": 1.2,
+        "intelligence": 0.8
+      }
+    },
+    {
+      "id": "solenne",
+      "name": "Solenne",
+      "role": "Support",
+      "description": "Solenne brings light and hope to the battlefield with divine power.",
+      "basicAttributes": {
+        "strength": 16,
+        "agility": 18,
+        "intelligence": 16
+      },
+      "stats": {
+        "maxHpBonus": "8%",
+        "attackSpeedBonus": "3.8%",
+        "criticalRate": "1.6%",
+        "castingSpeedBonus": "7.2%",
+        "skillCooldownRateBonus": "1.5%",
+        "damageBonusPvE": "2.8%",
+        "physicalDamageBonus": "3.8%",
+        "magicDamageBonus": "7.6%",
+        "healingBonus": "13.8%",
+        "tenacityPenetration": 3.8,
+        "armor": 4.2,
+        "magicResistance": 6.8,
+        "block": 8,
+        "controlResistance": 5.2,
+        "movementSpeed": "5.3 m/sec"
+      },
+      "skills": {
+        "core": "divine-light",
+        "passive": "radiant-presence"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Divine Blessing",
+            "value": "+10.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-2.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-solenne.png",
+      "portrait": "./assets/icons/drifter-solenne-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-solenne.png",
+      "masteryBonuses": {
+        "strength": 1,
+        "agility": 1.5,
+        "intelligence": 1.8
+      }
+    },
+    {
+      "id": "umbra",
+      "name": "Umbra",
+      "role": "Assassin",
+      "description": "Umbra is the master of shadows and stealth, striking from darkness.",
+      "basicAttributes": {
+        "strength": 16,
+        "agility": 26,
+        "intelligence": 8
+      },
+      "stats": {
+        "maxHpBonus": "2%",
+        "attackSpeedBonus": "8.8%",
+        "criticalRate": "3.4%",
+        "castingSpeedBonus": "1.0%",
+        "skillCooldownRateBonus": "1.4%",
+        "damageBonusPvE": "4.6%",
+        "physicalDamageBonus": "10.2%",
+        "magicDamageBonus": "0.6%",
+        "healingBonus": "0.6%",
+        "tenacityPenetration": 7.6,
+        "armor": 1.6,
+        "magicResistance": 0.6,
+        "block": 4,
+        "controlResistance": 1.4,
+        "movementSpeed": "7.2 m/sec"
+      },
+      "skills": {
+        "core": "shadow-assassination",
+        "passive": "void-mastery"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Shadow Power",
+            "value": "+18.4%",
+            "type": "positive"
+          },
+          {
+            "name": "Magic Resistance",
+            "value": "-4.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-umbra.png",
+      "portrait": "./assets/icons/drifter-umbra-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-umbra.png",
+      "masteryBonuses": {
+        "strength": 1.2,
+        "agility": 2,
+        "intelligence": 0.6
+      }
+    },
+    {
+      "id": "varnax",
+      "name": "Varnax",
+      "role": "Tank",
+      "description": "Varnax is a massive defensive juggernaut with incredible durability.",
+      "basicAttributes": {
+        "strength": 28,
+        "agility": 10,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "15%",
+        "attackSpeedBonus": "1.2%",
+        "criticalRate": "0.4%",
+        "castingSpeedBonus": "1.4%",
+        "skillCooldownRateBonus": "0.2%",
+        "damageBonusPvE": "0.6%",
+        "physicalDamageBonus": "2.2%",
+        "magicDamageBonus": "1.8%",
+        "healingBonus": "8.4%",
+        "tenacityPenetration": 1.2,
+        "armor": 12.8,
+        "magicResistance": 8.4,
+        "block": 25,
+        "controlResistance": 6.8,
+        "movementSpeed": "3.8 m/sec"
+      },
+      "skills": {
+        "core": "fortress-crush",
+        "passive": "immovable-object"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Damage Immunity",
+            "value": "+12.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Movement Speed",
+            "value": "-2.4%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-varnax.png",
+      "portrait": "./assets/icons/drifter-varnax-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-varnax.png",
+      "masteryBonuses": {
+        "strength": 2,
+        "agility": 0.3,
+        "intelligence": 1
+      }
+    },
+    {
+      "id": "veska",
+      "name": "Veska",
+      "role": "Mage",
+      "description": "Veska commands ice magic with chilling precision and control.",
+      "basicAttributes": {
+        "strength": 12,
+        "agility": 16,
+        "intelligence": 22
+      },
+      "stats": {
+        "maxHpBonus": "3%",
+        "attackSpeedBonus": "3.4%",
+        "criticalRate": "1.6%",
+        "castingSpeedBonus": "7.8%",
+        "skillCooldownRateBonus": "1.4%",
+        "damageBonusPvE": "3.2%",
+        "physicalDamageBonus": "1.8%",
+        "magicDamageBonus": "8.8%",
+        "healingBonus": "2.2%",
+        "tenacityPenetration": 5.6,
+        "armor": 2,
+        "magicResistance": 4.8,
+        "block": 4,
+        "controlResistance": 3.8,
+        "movementSpeed": "5.2 m/sec"
+      },
+      "skills": {
+        "core": "ice-prison",
+        "passive": "frozen-heart"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Ice Mastery",
+            "value": "+9.6%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-3.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-veska.png",
+      "portrait": "./assets/icons/drifter-veska-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-veska.png",
+      "masteryBonuses": {
+        "strength": 0.5,
+        "agility": 1,
+        "intelligence": 2.5
+      }
+    },
+    {
+      "id": "vire",
+      "name": "Vire",
+      "role": "Support",
+      "description": "Vire provides healing and buffs to allies while maintaining battlefield control.",
+      "basicAttributes": {
+        "strength": 14,
+        "agility": 16,
+        "intelligence": 20
+      },
+      "stats": {
+        "maxHpBonus": "6%",
+        "attackSpeedBonus": "3.2%",
+        "criticalRate": "1.2%",
+        "castingSpeedBonus": "5.4%",
+        "skillCooldownRateBonus": "1.1%",
+        "damageBonusPvE": "1.8%",
+        "physicalDamageBonus": "2.4%",
+        "magicDamageBonus": "4.8%",
+        "healingBonus": "12.6%",
+        "tenacityPenetration": 2.8,
+        "armor": 3.2,
+        "magicResistance": 4.8,
+        "block": 8,
+        "controlResistance": 4.2,
+        "movementSpeed": "5.0 m/sec"
+      },
+      "skills": {
+        "core": "divine-blessing",
+        "passive": "sanctuary"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Healing Bonus",
+            "value": "+6.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-1.2%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-vire.png",
+      "portrait": "./assets/icons/drifter-vire-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-vire.png",
+      "masteryBonuses": {
+        "strength": 1,
+        "agility": 1.5,
+        "intelligence": 1.8
+      }
+    },
+    {
+      "id": "vryssia",
+      "name": "Vryssia",
+      "role": "Support",
+      "description": "Vryssia is a nature guardian who heals and protects with life magic.",
+      "basicAttributes": {
+        "strength": 14,
+        "agility": 20,
+        "intelligence": 16
+      },
+      "stats": {
+        "maxHpBonus": "6%",
+        "attackSpeedBonus": "4.2%",
+        "criticalRate": "1.8%",
+        "castingSpeedBonus": "6.4%",
+        "skillCooldownRateBonus": "1.3%",
+        "damageBonusPvE": "2.4%",
+        "physicalDamageBonus": "3.4%",
+        "magicDamageBonus": "6.8%",
+        "healingBonus": "14.6%",
+        "tenacityPenetration": 3.4,
+        "armor": 3.8,
+        "magicResistance": 5.6,
+        "block": 7,
+        "controlResistance": 4.4,
+        "movementSpeed": "5.6 m/sec"
+      },
+      "skills": {
+        "core": "nature-blessing",
+        "passive": "life-force"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Nature's Gift",
+            "value": "+11.8%",
+            "type": "positive"
+          },
+          {
+            "name": "Physical Damage",
+            "value": "-2.4%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-vryssia.png",
+      "portrait": "./assets/icons/drifter-vryssia-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-vryssia.png",
+      "masteryBonuses": {
+        "strength": 1,
+        "agility": 1.5,
+        "intelligence": 1.8
+      }
+    },
+    {
       "id": "zero",
       "name": "Zero",
       "role": "Assassin",
@@ -47,7 +1559,12 @@
       },
       "icon": "./assets/icons/drifter-zero.png",
       "portrait": "./assets/icons/drifter-zero-portrait.png",
-      "cardIcon": "./assets/icons/drifter-card-zero.png"
+      "cardIcon": "./assets/icons/drifter-card-zero.png",
+      "masteryBonuses": {
+        "strength": 1.2,
+        "agility": 2,
+        "intelligence": 0.6
+      }
     }
   ]
 }

@@ -53,6 +53,381 @@
         }
       ],
       "icon": "./assets/icons/passive-overclocking-reflex.png"
+    },
+    {
+      "id": "shield-bash",
+      "name": "Shield Bash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "stun", "control", "tank"],
+      "mpCost": 18,
+      "cooldown": "12s",
+      "range": "3m",
+      "description": "Charges forward with shield raised. Deals X[Damage Rate: 75%] Physical Damage to enemies in path. Stuns for 2s. Applies 50% Slow for 4s.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[75%]",
+          "damageType": "Physical",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "stun",
+          "duration": "2s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "50%",
+          "duration": "4s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-shield-bash.png"
+    },
+    {
+      "id": "fortress",
+      "name": "Fortress",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["defense", "armor", "passive"],
+      "description": "Gains 15% additional Armor and Magic Resistance. Reduces incoming damage by 8%.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "armor",
+          "value": "15%",
+          "target": "self"
+        },
+        {
+          "type": "passive",
+          "effect": "magic resistance",
+          "value": "15%",
+          "target": "self"
+        },
+        {
+          "type": "passive",
+          "effect": "damage reduction",
+          "value": "8%",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/passive-fortress.png"
+    },
+    {
+      "id": "meteor-storm",
+      "name": "Meteor Storm",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "aoe", "magic", "control"],
+      "mpCost": 35,
+      "cooldown": "25s",
+      "range": "12m",
+      "description": "Calls down meteors in target area. Deals X[Damage Rate: 120%] Magic Damage to enemies in 6m radius. Applies Burn for 5s.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[120%]",
+          "damageType": "Magic",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "burn",
+          "duration": "5s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-meteor-storm.png"
+    },
+    {
+      "id": "elemental-mastery",
+      "name": "Elemental Mastery",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "magic", "passive"],
+      "description": "Increases Magic Damage by 20%. Skills have 25% chance to apply random elemental effect.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "magic damage",
+          "value": "20%",
+          "target": "self"
+        },
+        {
+          "type": "passive",
+          "effect": "elemental proc",
+          "value": "25%",
+          "target": "skills"
+        }
+      ],
+      "icon": "./assets/icons/passive-elemental-mastery.png"
+    },
+    {
+      "id": "shadow-strike",
+      "name": "Shadow Strike",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "stealth", "critical", "mobility"],
+      "mpCost": 28,
+      "cooldown": "15s",
+      "range": "8m",
+      "description": "Teleports behind target and strikes. Deals X[Damage Rate: 150%] Physical Damage. Always crits. Applies Bleed for 6s.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[150%]",
+          "damageType": "Physical",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "duration": "6s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-shadow-strike.png"
+    },
+    {
+      "id": "shadow-dance",
+      "name": "Shadow Dance",
+      "type": "passive",
+      "category": "mobility",
+      "tags": ["mobility", "stealth", "passive"],
+      "description": "Gains 30% Movement Speed. After dealing damage, has 20% chance to enter stealth for 3s.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "movement speed",
+          "value": "30%",
+          "target": "self"
+        },
+        {
+          "type": "passive",
+          "effect": "stealth proc",
+          "value": "20%",
+          "target": "after damage"
+        }
+      ],
+      "icon": "./assets/icons/passive-shadow-dance.png"
+    },
+    {
+      "id": "divine-blessing",
+      "name": "Divine Blessing",
+      "type": "active",
+      "category": "healing",
+      "tags": ["healing", "buff", "support"],
+      "mpCost": 25,
+      "cooldown": "18s",
+      "range": "10m",
+      "description": "Blesses target ally. Heals for X[Healing Rate: 80%] and applies 25% damage bonus for 8s.",
+      "effects": [
+        {
+          "type": "healing",
+          "value": "X[80%]",
+          "target": "ally"
+        },
+        {
+          "type": "buff",
+          "effect": "damage bonus",
+          "value": "25%",
+          "duration": "8s",
+          "target": "ally"
+        }
+      ],
+      "icon": "./assets/icons/skill-divine-blessing.png"
+    },
+    {
+      "id": "sanctuary",
+      "name": "Sanctuary",
+      "type": "passive",
+      "category": "healing",
+      "tags": ["healing", "support", "passive"],
+      "description": "Increases healing effectiveness by 35%. Allies within 5m gain 15% damage reduction.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "healing bonus",
+          "value": "35%",
+          "target": "self"
+        },
+        {
+          "type": "passive",
+          "effect": "damage reduction aura",
+          "value": "15%",
+          "target": "allies"
+        }
+      ],
+      "icon": "./assets/icons/passive-sanctuary.png"
+    },
+    {
+      "id": "whirlwind-slash",
+      "name": "Whirlwind Slash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "aoe", "physical", "mobility"],
+      "mpCost": 22,
+      "cooldown": "16s",
+      "range": "4m",
+      "description": "Spins rapidly dealing X[Damage Rate: 90%] Physical Damage to all enemies in 4m radius. Applies 30% Slow for 3s.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[90%]",
+          "damageType": "Physical",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "30%",
+          "duration": "3s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-whirlwind-slash.png"
+    },
+    {
+      "id": "berserker-rage",
+      "name": "Berserker Rage",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "physical", "passive"],
+      "description": "Gains 2% Attack Speed and 1% Physical Damage for each 10% missing health. Stacks up to 10 times.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "attack speed scaling",
+          "value": "2% per 10% missing health",
+          "target": "self"
+        },
+        {
+          "type": "passive",
+          "effect": "physical damage scaling",
+          "value": "1% per 10% missing health",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/passive-berserker-rage.png"
+    },
+    {
+      "id": "shield-of-conviction",
+      "name": "Shield of Conviction",
+      "type": "active",
+      "category": "defense",
+      "tags": ["defense", "shield", "healing", "damage"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "7m",
+      "description": "Grants Shield of Conviction to up to 5 allies within range for 6s. Targets with Shield of Conviction gain a [Target-based Max HP 30%] shield. During this time, 30% of the damage they deal is converted into Shield Value, increasing up to [Target-based Max HP 15%] maximum. If the shield remains intact after 6s, deals [Damage Rate: 300%] Magic Damage to nearby enemies. Damage from additional explosions is reduced to 15%.",
+      "effects": [
+        {
+          "type": "shield",
+          "value": "30% Max HP",
+          "target": "allies",
+          "maxTargets": 5
+        },
+        {
+          "type": "conversion",
+          "effect": "damage to shield",
+          "value": "30%",
+          "maxValue": "15% Max HP",
+          "target": "allies"
+        },
+        {
+          "type": "damage",
+          "value": "300%",
+          "damageType": "Magic",
+          "target": "enemies",
+          "condition": "shield intact after 6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-shield-of-conviction.png"
+    },
+    {
+      "id": "defiant-resolve",
+      "name": "Defiant Resolve",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["defense", "immunity", "damage", "passive"],
+      "description": "Gains immunity to control effects and 20% Damage Increase for 10s after obtaining any shield effect, while the shield is active (Cooldown: 20s).",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "control immunity",
+          "duration": "10s",
+          "trigger": "shield obtained"
+        },
+        {
+          "type": "passive",
+          "effect": "damage increase",
+          "value": "20%",
+          "duration": "10s",
+          "trigger": "shield obtained"
+        },
+        {
+          "type": "cooldown",
+          "value": "20s"
+        }
+      ],
+      "icon": "./assets/icons/passive-defiant-resolve.png"
+    },
+    {
+      "id": "astral-gate",
+      "name": "Astral Gate",
+      "type": "active",
+      "category": "utility",
+      "tags": ["damage", "shield", "hard_control", "buff", "teleport"],
+      "mpCost": 35,
+      "cooldown": "97s",
+      "range": "40m",
+      "description": "Generates an Astral Gate beneath the caster. After 3 seconds, it teleports up to 15 teammates within the team who are nearby to the target location. Upon arrival, deals [Damage Rate: 200%] Magic Damage to nearby enemies and inflicts Stun for 1s; allies gain a [Target-based Max HP 20%] Shield, with Movement Speed increased by 30%, lasting 4s. Targets who pass through the Astral Gate cannot be teleported again via the gate for 10s. Teleportation can cross terrain. If the destination is unreachable, teleport to the nearest valid position instead.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "200%",
+          "damageType": "Magic",
+          "target": "enemies"
+        },
+        {
+          "type": "stun",
+          "value": "1s",
+          "target": "enemies"
+        },
+        {
+          "type": "shield",
+          "value": "20% Max HP",
+          "target": "allies",
+          "duration": "4s"
+        },
+        {
+          "type": "movement_speed",
+          "value": "30%",
+          "target": "allies",
+          "duration": "4s"
+        }
+      ],
+      "icon": "./assets/icons/skill-null-pulse.png"
+    },
+    {
+      "id": "celestial-rotation",
+      "name": "Celestial Rotation",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["cooldown_reduction", "passive"],
+      "description": "Reduces the cooldown of all skills (not including Tactical Item skills) by 0.3s when this skill deals damage. (Cooldown: 0.5s)",
+      "effects": [
+        {
+          "type": "cooldown_reduction",
+          "value": "0.3s",
+          "condition": "on_damage",
+          "cooldown": "0.5s"
+        }
+      ],
+      "icon": "./assets/icons/passive-overclocking-reflex.png"
     }
   ]
 }
