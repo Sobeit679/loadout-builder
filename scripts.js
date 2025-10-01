@@ -70,6 +70,7 @@ async function loadDataSets(notify) {
 
     return {
       drifters: driftersData.drifters || [],
+      skills: skillsData.skills || [],
       gear: {
         weapons: weaponsData.weapons || [],
         'armors/head': helmetsData.helmets || [],
@@ -139,6 +140,7 @@ function bindCopy() {
 
 const STATE = {
   drifters: [],
+  skills: [],
   gear: {
     weapons: [],
     'armors/head': [],
@@ -682,22 +684,33 @@ function updateDrifterAbilities(drifter) {
     document.body.appendChild(debugPanel);
   }
   
+  // Get skill data
+  const passiveSkillId = drifter.skills?.passive;
+  const coreSkillId = drifter.skills?.core;
+  const passiveSkill = passiveSkillId ? STATE.skills?.find(s => s.id === passiveSkillId) : null;
+  const coreSkill = coreSkillId ? STATE.skills?.find(s => s.id === coreSkillId) : null;
+  
   debugPanel.innerHTML = `
     <strong>🔍 DEBUG INFO:</strong><br><br>
     <strong>Drifter:</strong> ${drifter.name}<br>
-    <strong>Passive:</strong> ${drifter.passive ? '✅ Yes' : '❌ No'}<br>
-    <strong>Passive Icon:</strong> ${drifter.passive?.icon || 'None'}<br>
-    <strong>Skill:</strong> ${drifter.skill ? '✅ Yes' : '❌ No'}<br>
-    <strong>Skill Icon:</strong> ${drifter.skill?.icon || 'None'}<br><br>
+    <strong>Passive ID:</strong> ${passiveSkillId || 'None'}<br>
+    <strong>Passive Skill:</strong> ${passiveSkill ? '✅ Found' : '❌ Not Found'}<br>
+    <strong>Passive Icon:</strong> ${passiveSkill?.icon || 'None'}<br>
+    <strong>Core ID:</strong> ${coreSkillId || 'None'}<br>
+    <strong>Core Skill:</strong> ${coreSkill ? '✅ Found' : '❌ Not Found'}<br>
+    <strong>Core Icon:</strong> ${coreSkill?.icon || 'None'}<br><br>
     <strong>Slots Found:</strong><br>
     Passive Slot: ${passiveSlot ? '✅' : '❌'}<br>
     E Slot: ${eSlot ? '✅' : '❌'}
   `;
   
-  // Handle passive skill
-  if (drifter.passive && drifter.passive.icon) {
-    console.log('Setting passive icon:', drifter.passive.icon);
-    passiveSlot.style.backgroundImage = `url(${drifter.passive.icon})`;
+  // Handle passive skill - look up by ID from skills data
+  const passiveSkillId = drifter.skills?.passive;
+  const passiveSkill = passiveSkillId ? STATE.skills?.find(s => s.id === passiveSkillId) : null;
+  
+  if (passiveSkill && passiveSkill.icon) {
+    console.log('Setting passive icon:', passiveSkill.icon);
+    passiveSlot.style.backgroundImage = `url(${passiveSkill.icon})`;
     passiveSlot.parentElement.classList.remove('empty');
   } else {
     console.log('No passive icon, clearing');
@@ -705,10 +718,13 @@ function updateDrifterAbilities(drifter) {
     passiveSlot.parentElement.classList.add('empty');
   }
   
-  // Handle active skill in E slot
-  if (drifter.skill && drifter.skill.icon) {
-    console.log('Setting skill icon:', drifter.skill.icon);
-    eSlot.style.backgroundImage = `url(${drifter.skill.icon})`;
+  // Handle active skill in E slot - look up by ID from skills data
+  const coreSkillId = drifter.skills?.core;
+  const coreSkill = coreSkillId ? STATE.skills?.find(s => s.id === coreSkillId) : null;
+  
+  if (coreSkill && coreSkill.icon) {
+    console.log('Setting skill icon:', coreSkill.icon);
+    eSlot.style.backgroundImage = `url(${coreSkill.icon})`;
     eSlot.parentElement.classList.remove('empty');
   } else {
     console.log('No skill icon, clearing');
