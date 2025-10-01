@@ -1,3 +1,4 @@
+
 const SLOT_MAPPINGS = {
   weapon: { key: 'weapons', title: 'Select Weapon', type: 'weapon' },
   helm: { key: 'armors/head', title: 'Select Helm', type: 'armor' },
@@ -14,7 +15,7 @@ const drifterTrigger = document.getElementById('drifterTrigger');
 const selectionOverlay = document.getElementById('selectionOverlay');
 const selectionGrid = document.getElementById('selectionGrid');
 const selectionTitle = document.getElementById('selectionTitle');
-const closeSelectionBtn = document.getElementById('closeSelectionBtn');
+const closeSelectionBtn = document.getElementById('closeSelection');
 const overlayContent = document.getElementById('overlayContent');
 const loadoutSlots = document.querySelectorAll('.slot');
 const drifterGrid = document.getElementById('drifterGrid'); // This might not exist
@@ -144,6 +145,8 @@ function renderDrifterSelection() {
     name.style.fontWeight = 'bold';
     name.style.textAlign = 'center';
     name.style.marginTop = '0.5rem';
+    name.style.color = 'var(--text)';
+    name.style.fontSize = '1rem';
     
     const role = document.createElement('div');
     role.textContent = drifter.role;
@@ -152,8 +155,8 @@ function renderDrifterSelection() {
     role.style.textAlign = 'center';
     role.style.marginTop = '0.25rem';
     
-    card.appendChild(img);
     card.appendChild(name);
+    card.appendChild(img);
     card.appendChild(role);
     
     // Add click handler
@@ -223,9 +226,6 @@ async function init() {
   STATE.gear = data.gear;
   STATE.mods = data.mods;
   STATE.selected = data.selected;
-
-  console.log('Loaded drifters:', STATE.drifters);
-  console.log('Drifter count:', STATE.drifters.length);
 
   bindSlotTriggers();
   clearGearSlots();
@@ -1032,6 +1032,8 @@ if (masteryResetButton) {
   masteryResetButton.addEventListener('click', resetMasteryLevel);
 }
 
-init();
 
 
+
+// Initialize the application when DOM is ready
+window.addEventListener("DOMContentLoaded", init);
