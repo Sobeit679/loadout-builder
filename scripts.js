@@ -332,19 +332,52 @@ function bindSlotTriggers() {
 }
 
 async function init() {
-  const toast = createToast();
-  document.body.appendChild(toast.element);
+  console.log('Initializing loadout builder...');
+  
+  // Show loading indicator
+  const loadingDiv = document.createElement('div');
+  loadingDiv.id = 'loading-indicator';
+  loadingDiv.style.cssText = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10000;
+    font-family: Arial, sans-serif;
+  `;
+  loadingDiv.innerHTML = 'Loading loadout builder...';
+  document.body.appendChild(loadingDiv);
 
-  const data = await loadDataSets(toast.notify);
-  STATE.drifters = data.drifters;
-  STATE.gear = data.gear;
-  STATE.mods = data.mods;
-  STATE.selected = data.selected;
+  try {
+    const toast = createToast();
+    document.body.appendChild(toast.element);
 
-  bindSlotTriggers();
-  clearGearSlots();
-  disableEquipmentSlots(true); // Start with equipment slots disabled
-  renderDrifters();
+    const data = await loadDataSets(toast.notify);
+    STATE.drifters = data.drifters;
+    STATE.gear = data.gear;
+    STATE.mods = data.mods;
+    STATE.selected = data.selected;
+
+    bindSlotTriggers();
+    clearGearSlots();
+    disableEquipmentSlots(true); // Start with equipment slots disabled
+    renderDrifters();
+    
+    // Remove loading indicator
+    if (loadingDiv.parentNode) {
+      loadingDiv.parentNode.removeChild(loadingDiv);
+    }
+    
+    console.log('Loadout builder initialized successfully');
+  } catch (error) {
+    console.error('Failed to initialize loadout builder:', error);
+    loadingDiv.innerHTML = 'Failed to load. Please refresh the page.';
+    loadingDiv.style.background = 'rgba(200,0,0,0.8)';
+  }
   
   // Update UI with any pre-selected drifter
   updateAvatar();
@@ -1152,7 +1185,22 @@ if (masteryResetButton) {
 
 // Initialize the application when DOM is ready
 console.log('Script loaded on GitHub Pages');
-window.addEventListener("DOMContentLoaded", () => {
-  console.log('DOMContentLoaded fired on GitHub Pages');
+
+// Fallback for older browsers
+if (document.readyState === 'loading') {
+  window.addEventListener("DOMContentLoaded", () => {
+    console.log('DOMContentLoaded fired on GitHub Pages');
+    init();
+  });
+} else {
+  console.log('DOM already loaded, initializing immediately');
   init();
-});
+}
+
+// Additional fallback
+setTimeout(() => {
+  if (!STATE.drifters || STATE.drifters.length === 0) {
+    console.log('Fallback initialization triggered');
+    init();
+  }
+}, 1000);
