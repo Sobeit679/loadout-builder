@@ -4,13 +4,14 @@
   body.mobile-device .loadout-layout {
     display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     overflow-x: hidden !important;
     gap: 1rem !important;
-    padding: 1rem !important;
+    padding: 0.5rem !important;
     align-items: center !important;
     justify-content: center !important;
+    box-sizing: border-box !important;
     /* DEBUG: Add visible border to see layout container */
     border: 3px solid red !important;
     background-color: rgba(255, 0, 0, 0.1) !important;
@@ -38,12 +39,14 @@
   body.mobile-device .slot-row {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 0.5rem !important;
+    gap: 0.3rem !important;
     width: 100% !important;
+    max-width: 100% !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0.5rem 0 !important;
+    padding: 0.3rem 0 !important;
     margin: 0 auto !important;
+    box-sizing: border-box !important;
     /* DEBUG: Add visible border to see slot rows */
     border: 2px solid blue !important;
     background-color: rgba(0, 0, 255, 0.1) !important;
@@ -63,9 +66,11 @@
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    min-width: 70px !important;
+    min-width: 60px !important;
+    max-width: 80px !important;
     flex: 0 0 auto !important;
     margin: 0 auto !important;
+    box-sizing: border-box !important;
     /* DEBUG: Add visible border to see individual slots */
     border: 1px solid green !important;
     background-color: rgba(0, 255, 0, 0.1) !important;
@@ -103,16 +108,29 @@
   
   /* Force drifter image scaling on mobile */
   body.mobile-device .loadout-avatar img {
-    max-width: 300px !important;
-    max-height: 300px !important;
-    width: auto !important;
-    height: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
     object-fit: contain !important;
     margin: 0 auto !important;
     display: block !important;
     /* DEBUG: Add visible border to see image container */
     border: 3px solid yellow !important;
     background-color: rgba(255, 255, 0, 0.2) !important;
+  }
+  
+  /* Make sure the avatar container has proper dimensions */
+  body.mobile-device .loadout-avatar {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
   }
   
   .avatar-title {
