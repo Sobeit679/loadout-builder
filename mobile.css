@@ -7,8 +7,8 @@
     width: 100vw !important;
     max-width: 100vw !important;
     overflow-x: hidden !important;
-    gap: 0.5rem !important;
-    padding: 0.25rem !important;
+    gap: 0.3rem !important;
+    padding: 0.1rem !important;
     align-items: center !important;
     justify-content: center !important;
     box-sizing: border-box !important;
@@ -39,12 +39,12 @@
   body.mobile-device .slot-row {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 0.2rem !important;
+    gap: 0.1rem !important;
     width: 100% !important;
     max-width: 100% !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0.2rem 0 !important;
+    padding: 0.1rem 0 !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
     /* DEBUG: Add visible border to see slot rows */
@@ -66,8 +66,8 @@
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    min-width: 50px !important;
-    max-width: 60px !important;
+    min-width: 40px !important;
+    max-width: 50px !important;
     flex: 0 0 auto !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
@@ -83,8 +83,8 @@
   
   /* Downscale slot cards on mobile */
   body.mobile-device .slot-card {
-    width: 45px !important;
-    height: 45px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
   
   .slot-label {
@@ -95,9 +95,22 @@
   
   /* Downscale slot labels on mobile */
   body.mobile-device .slot-label {
-    font-size: 0.5rem !important;
-    margin-top: 0.1rem !important;
+    font-size: 0.4rem !important;
+    margin-top: 0.05rem !important;
     text-align: center !important;
+  }
+  
+  /* Hide "Empty Slot" text on mobile to avoid blocking the + symbol */
+  body.mobile-device .slot-card .slot-text {
+    display: none !important;
+  }
+  
+  /* Make the + symbol more prominent on mobile */
+  body.mobile-device .slot-card .slot-icon {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    color: white !important;
+    text-shadow: 0 0 3px rgba(0,0,0,0.8) !important;
   }
   
   .loadout-avatar {
@@ -137,8 +150,8 @@
   body.mobile-device .loadout-avatar {
     width: 100% !important;
     max-width: 100% !important;
-    height: 150px !important;
-    min-height: 150px !important;
+    height: 120px !important;
+    min-height: 120px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
