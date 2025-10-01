@@ -564,6 +564,28 @@ function updateAvatar() {
   const avatarTitle = document.getElementById('avatarTitle');
   const avatarText = document.getElementById('avatarText');
   
+  // Add debug indicator for updateAvatar
+  let avatarDebug = document.getElementById('avatar-debug');
+  if (!avatarDebug) {
+    avatarDebug = document.createElement('div');
+    avatarDebug.id = 'avatar-debug';
+    avatarDebug.style.cssText = `
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: blue;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      z-index: 10001;
+      border: 2px solid cyan;
+    `;
+    document.body.appendChild(avatarDebug);
+  }
+  
+  avatarDebug.innerHTML = `DEBUG: updateAvatar called!<br>Drifter: ${drifter ? drifter.name : 'None'}`;
+  
   if (!drifter) {
     loadoutLayout.style.backgroundImage = '';
     avatarTitle.textContent = '';
@@ -608,6 +630,28 @@ function updateAvatar() {
 
 function updateDrifterAbilities(drifter) {
   console.log('Updating drifter abilities for:', drifter.name);
+  
+  // Add a very visible debug indicator first
+  let debugIndicator = document.getElementById('debug-indicator');
+  if (!debugIndicator) {
+    debugIndicator = document.createElement('div');
+    debugIndicator.id = 'debug-indicator';
+    debugIndicator.style.cssText = `
+      position: fixed;
+      top: 50px;
+      left: 10px;
+      background: red;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      z-index: 10001;
+      border: 3px solid yellow;
+    `;
+    debugIndicator.innerHTML = 'DEBUG: updateDrifterAbilities called!';
+    document.body.appendChild(debugIndicator);
+  }
+  
   const passiveSlot = document.querySelector('.drifter-passive .ability-icon');
   const eSlot = document.querySelector('[data-key="E"] .ability-icon');
   
@@ -625,25 +669,29 @@ function updateDrifterAbilities(drifter) {
       position: fixed;
       top: 10px;
       right: 10px;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.9);
       color: white;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 12px;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
       z-index: 10000;
-      max-width: 200px;
+      max-width: 250px;
       word-wrap: break-word;
+      border: 2px solid white;
     `;
     document.body.appendChild(debugPanel);
   }
   
   debugPanel.innerHTML = `
-    <strong>Debug Info:</strong><br>
-    Drifter: ${drifter.name}<br>
-    Passive: ${drifter.passive ? 'Yes' : 'No'}<br>
-    Passive Icon: ${drifter.passive?.icon || 'None'}<br>
-    Skill: ${drifter.skill ? 'Yes' : 'No'}<br>
-    Skill Icon: ${drifter.skill?.icon || 'None'}
+    <strong>🔍 DEBUG INFO:</strong><br><br>
+    <strong>Drifter:</strong> ${drifter.name}<br>
+    <strong>Passive:</strong> ${drifter.passive ? '✅ Yes' : '❌ No'}<br>
+    <strong>Passive Icon:</strong> ${drifter.passive?.icon || 'None'}<br>
+    <strong>Skill:</strong> ${drifter.skill ? '✅ Yes' : '❌ No'}<br>
+    <strong>Skill Icon:</strong> ${drifter.skill?.icon || 'None'}<br><br>
+    <strong>Slots Found:</strong><br>
+    Passive Slot: ${passiveSlot ? '✅' : '❌'}<br>
+    E Slot: ${eSlot ? '✅' : '❌'}
   `;
   
   // Handle passive skill
