@@ -49,14 +49,28 @@
     padding: 1rem !important;
   }
   
+  .loadout-avatar img {
+    max-width: 200px !important;
+    max-height: 200px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  
   .avatar-title {
     text-align: center !important;
-    margin: 0.5rem 0 !important;
+    margin: 0.5rem auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
   }
   
   .avatar-description {
     text-align: center !important;
-    margin: 0.5rem 0 !important;
+    margin: 0.5rem auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
   }
   
   .avatar-trigger {
@@ -95,18 +109,21 @@
   
   .ability-bar {
     display: flex !important;
-    gap: 0.5rem !important;
+    gap: 0.25rem !important;
     justify-content: center !important;
-    padding: 1rem 0 !important;
+    padding: 0.5rem !important;
     margin: 0.5rem 0 !important;
     overflow-x: auto !important;
     width: 100% !important;
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
   }
   
   .ability-slot {
-    width: 60px !important;
-    height: 60px !important;
+    width: 50px !important;
+    height: 50px !important;
     flex-shrink: 0 !important;
+    margin: 0.1rem !important;
   }
   
   .ability-icon {
