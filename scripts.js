@@ -1,4 +1,6 @@
 
+console.log('Script loading...');
+
 const SLOT_MAPPINGS = {
   weapon: { key: 'weapons', title: 'Select Weapon', type: 'weapon' },
   helm: { key: 'armors/head', title: 'Select Helm', type: 'armor' },
@@ -10,22 +12,12 @@ const SLOT_MAPPINGS = {
   bootsMod: { key: 'bootsMod', title: 'Select Boots Mod', type: 'armorMod' }
 };
 
-// DOM References
-const drifterTrigger = document.getElementById('drifterTrigger');
-const selectionOverlay = document.getElementById('selectionOverlay');
-const selectionGrid = document.getElementById('selectionGrid');
-const selectionTitle = document.getElementById('selection-title');
-const closeSelectionBtn = document.getElementById('closeSelection');
-const overlayContent = document.getElementById('overlayContent');
-const loadoutSlots = document.querySelectorAll('.slot[data-slot]');
-const drifterGrid = document.getElementById('drifterGrid'); // This might not exist
-const gearGrid = document.getElementById('gearGrid'); // This might not exist
-const gearCategorySelect = document.getElementById('gearCategorySelect');
-const avatarTitle = document.getElementById('avatarTitle');
-const avatarDescription = document.getElementById('avatarDescription');
-const masterySection = document.getElementById('masterySection');
-const supportEffects = document.getElementById('supportEffects');
-const supportList = document.getElementById('supportList');
+// DOM References - will be initialized in init()
+let drifterTrigger, selectionOverlay, selectionGrid, selectionTitle, closeSelectionBtn, overlayContent, loadoutSlots;
+// These will be initialized in init()
+let drifterGrid, gearGrid, gearCategorySelect, avatarTitle, avatarDescription;
+// These will be initialized in init()
+let masterySection, supportEffects, supportList;
 // import { loadDataSets, renderCards, updateSummary, bindCopy } from './scripts/utils.js';
 
 // Imported functions from utils.js
@@ -340,7 +332,31 @@ function bindSlotTriggers() {
 }
 
 async function init() {
-  console.log('Initializing loadout builder...');
+  console.log('INIT FUNCTION CALLED - Initializing loadout builder...');
+  
+  // Initialize DOM references
+  drifterTrigger = document.getElementById('drifterTrigger');
+  selectionOverlay = document.getElementById('selectionOverlay');
+  selectionGrid = document.getElementById('selectionGrid');
+  selectionTitle = document.getElementById('selection-title');
+  closeSelectionBtn = document.getElementById('closeSelection');
+  overlayContent = document.getElementById('overlayContent');
+  loadoutSlots = document.querySelectorAll('.slot[data-slot]');
+  drifterGrid = document.getElementById('drifterGrid');
+  gearGrid = document.getElementById('gearGrid');
+  gearCategorySelect = document.getElementById('gearCategorySelect');
+  avatarTitle = document.getElementById('avatarTitle');
+  avatarDescription = document.getElementById('avatarDescription');
+  masterySection = document.getElementById('masterySection');
+  supportEffects = document.getElementById('supportEffects');
+  supportList = document.getElementById('supportList');
+  
+  console.log('DOM elements initialized:', {
+    drifterTrigger: !!drifterTrigger,
+    selectionOverlay: !!selectionOverlay,
+    selectionGrid: !!selectionGrid,
+    loadoutSlots: loadoutSlots.length
+  });
   
   // Add mobile class for responsive behavior
   if (window.innerWidth <= 768) {
@@ -427,6 +443,7 @@ async function init() {
 
     const data = await loadDataSets(toast.notify);
     STATE.drifters = data.drifters;
+    STATE.skills = data.skills;
     STATE.gear = data.gear;
     STATE.mods = data.mods;
     STATE.selected = data.selected;
@@ -662,51 +679,27 @@ function updateDrifterAbilities(drifter) {
   console.log('Drifter passive:', drifter.passive);
   console.log('Drifter skill:', drifter.skill);
   
-  // Create debug panel for mobile
-  let debugPanel = document.getElementById('debug-panel');
-  if (!debugPanel) {
-    debugPanel = document.createElement('div');
-    debugPanel.id = 'debug-panel';
-    debugPanel.style.cssText = `
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.9);
-      color: white;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 14px;
-      z-index: 10000;
-      max-width: 250px;
-      word-wrap: break-word;
-      border: 2px solid white;
-    `;
-    document.body.appendChild(debugPanel);
-  }
-  
   // Get skill data
   const passiveSkillId = drifter.skills?.passive;
   const coreSkillId = drifter.skills?.core;
   const passiveSkill = passiveSkillId ? STATE.skills?.find(s => s.id === passiveSkillId) : null;
   const coreSkill = coreSkillId ? STATE.skills?.find(s => s.id === coreSkillId) : null;
   
-  debugPanel.innerHTML = `
-    <strong>🔍 DEBUG INFO:</strong><br><br>
-    <strong>Drifter:</strong> ${drifter.name}<br>
-    <strong>Passive ID:</strong> ${passiveSkillId || 'None'}<br>
-    <strong>Passive Skill:</strong> ${passiveSkill ? '✅ Found' : '❌ Not Found'}<br>
-    <strong>Passive Icon:</strong> ${passiveSkill?.icon || 'None'}<br>
-    <strong>Core ID:</strong> ${coreSkillId || 'None'}<br>
-    <strong>Core Skill:</strong> ${coreSkill ? '✅ Found' : '❌ Not Found'}<br>
-    <strong>Core Icon:</strong> ${coreSkill?.icon || 'None'}<br><br>
-    <strong>Slots Found:</strong><br>
-    Passive Slot: ${passiveSlot ? '✅' : '❌'}<br>
-    E Slot: ${eSlot ? '✅' : '❌'}
-  `;
+  // Debug logging
+  console.log('🔍 DEBUG INFO:');
+  console.log('Drifter:', drifter.name);
+  console.log('Passive ID:', passiveSkillId || 'None');
+  console.log('Passive Skill:', passiveSkill ? '✅ Found' : '❌ Not Found');
+  console.log('Passive Icon:', passiveSkill?.icon || 'None');
+  console.log('Core ID:', coreSkillId || 'None');
+  console.log('Core Skill:', coreSkill ? '✅ Found' : '❌ Not Found');
+  console.log('Core Icon:', coreSkill?.icon || 'None');
+  console.log('STATE.skills length:', STATE.skills?.length || 0);
+  console.log('First few skills:', STATE.skills?.slice(0, 3).map(s => `${s.id}: ${s.name}`) || 'None');
+  console.log('Passive Slot:', passiveSlot ? '✅' : '❌');
+  console.log('E Slot:', eSlot ? '✅' : '❌');
   
   // Handle passive skill - look up by ID from skills data
-  const passiveSkillId = drifter.skills?.passive;
-  const passiveSkill = passiveSkillId ? STATE.skills?.find(s => s.id === passiveSkillId) : null;
   
   if (passiveSkill && passiveSkill.icon) {
     console.log('Setting passive icon:', passiveSkill.icon);
@@ -719,8 +712,6 @@ function updateDrifterAbilities(drifter) {
   }
   
   // Handle active skill in E slot - look up by ID from skills data
-  const coreSkillId = drifter.skills?.core;
-  const coreSkill = coreSkillId ? STATE.skills?.find(s => s.id === coreSkillId) : null;
   
   if (coreSkill && coreSkill.icon) {
     console.log('Setting skill icon:', coreSkill.icon);
