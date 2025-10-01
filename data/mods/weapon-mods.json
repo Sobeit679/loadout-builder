@@ -1,0 +1,32 @@
+{
+  "weaponMods": [
+    {
+      "id": "void-enhancement",
+      "name": "Void Enhancement",
+      "rarity": "epic",
+      "slot": "weapon",
+      "description": "Enhances weapon with void energy, increasing magical damage and adding void effects.",
+      "stats": {
+        "magicDamage": "+30%",
+        "voidDamage": "+15%",
+        "spellPower": "+20",
+        "manaCost": "-10%"
+      },
+      "icon": "./assets/icons/mod-void-enhancement.png"
+    },
+    {
+      "id": "shadow-edge",
+      "name": "Shadow Edge",
+      "rarity": "rare",
+      "slot": "weapon",
+      "description": "Sharpens the weapon's edge with shadow magic, increasing critical damage and stealth.",
+      "stats": {
+        "criticalDamage": "+25%",
+        "stealthDamage": "+20%",
+        "agility": 5,
+        "criticalChance": "+8%"
+      },
+      "icon": "./assets/icons/mod-shadow-edge.png"
+    }
+  ]
+}

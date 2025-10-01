@@ -1,0 +1,32 @@
+{
+  "helmets": [
+    {
+      "id": "void-crown",
+      "name": "Void Crown",
+      "rarity": "epic",
+      "skill": "Void Mastery",
+      "description": "A crown forged from the essence of the void. Enhances magical abilities and provides mental protection.",
+      "stats": {
+        "magicResistance": 15,
+        "intelligence": 8,
+        "manaRegen": "+2/s",
+        "castingSpeed": "+10%"
+      },
+      "icon": "./assets/icons/helmet-void-crown.png"
+    },
+    {
+      "id": "shadow-visor",
+      "name": "Shadow Visor",
+      "rarity": "rare",
+      "skill": "Shadow Sight",
+      "description": "A sleek visor that enhances perception and stealth capabilities.",
+      "stats": {
+        "agility": 6,
+        "criticalChance": "+5%",
+        "stealth": "+15%",
+        "perception": "+20%"
+      },
+      "icon": "./assets/icons/helmet-shadow-visor.png"
+    }
+  ]
+}

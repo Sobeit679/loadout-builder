@@ -1,0 +1,32 @@
+{
+  "armorMods": [
+    {
+      "id": "void-resistance",
+      "name": "Void Resistance",
+      "rarity": "epic",
+      "slot": "armor",
+      "description": "Increases resistance to void magic and enhances magical abilities.",
+      "stats": {
+        "voidResistance": "+40%",
+        "magicResistance": 15,
+        "intelligence": 8,
+        "spellPower": "+12%"
+      },
+      "icon": "./assets/icons/mod-void-resistance.png"
+    },
+    {
+      "id": "shadow-cloak",
+      "name": "Shadow Cloak",
+      "rarity": "rare",
+      "slot": "armor",
+      "description": "Enhances stealth capabilities and provides shadow-based protection.",
+      "stats": {
+        "stealth": "+25%",
+        "shadowResistance": "+30%",
+        "agility": 6,
+        "dodgeChance": "+12%"
+      },
+      "icon": "./assets/icons/mod-shadow-cloak.png"
+    }
+  ]
+}

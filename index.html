@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warborne Loadout Builder</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  
+
+  <main class="app-body">
+    <section class="panel" aria-labelledby="loadout-title">
+
+      <div class="loadout-layout" id="loadoutLayout">
+        <div class="loadout-overlay"></div>
+        
+        <section class="slot-row" aria-label="Equipment slots" style="grid-column: 1;">
+          <div class="slot" data-slot="weapon">
+            <span class="slot-label">Weapon</span>
+            <div class="slot-card"></div>
+          </div>
+          <div class="slot" data-slot="helm">
+            <span class="slot-label">Helm</span>
+            <div class="slot-card"></div>
+          </div>
+          <div class="slot" data-slot="chest">
+            <span class="slot-label">Chest</span>
+            <div class="slot-card"></div>
+          </div>
+          <div class="slot" data-slot="boots">
+            <span class="slot-label">Boots</span>
+            <div class="slot-card"></div>
+          </div>
+        </section>
+
+        <section class="loadout-avatar" aria-label="Selected drifter" style="grid-column: 2;">
+          <h3 class="avatar-title" id="avatarTitle"></h3>
+          <button type="button" class="avatar-trigger" id="drifterTrigger">
+            <div class="avatar-text" id="avatarText">Select Drifter</div>
+          </button>
+        </section>
+
+        <section class="slot-row" aria-label="Mod slots" style="grid-column: 3;">
+          <div class="slot" data-slot="weaponMod">
+            <span class="slot-label">Weapon Mod</span>
+            <div class="slot-card"></div>
+          </div>
+          <div class="slot" data-slot="helmMod">
+            <span class="slot-label">Helm Mod</span>
+            <div class="slot-card"></div>
+          </div>
+          <div class="slot" data-slot="chestMod">
+            <span class="slot-label">Chest Mod</span>
+            <div class="slot-card"></div>
+          </div>
+          <div class="slot" data-slot="bootsMod">
+            <span class="slot-label">Boots Mod</span>
+            <div class="slot-card"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="drifter-abilities">
+        <div class="ability-slot drifter-passive" data-key="passive">
+          <div class="ability-label">Passive</div>
+          <div class="ability-icon"></div>
+        </div>
+      </div>
+
+      <div class="ability-bar">
+        <div class="ability-slot" data-key="A">
+          <div class="ability-icon"></div>
+          <div class="ability-key">A</div>
+        </div>
+        <div class="ability-slot" data-key="Q">
+          <div class="ability-icon"></div>
+          <div class="ability-key">Q</div>
+        </div>
+        <div class="ability-slot" data-key="W">
+          <div class="ability-icon"></div>
+          <div class="ability-key">W</div>
+        </div>
+        <div class="ability-slot" data-key="E">
+          <div class="ability-icon"></div>
+          <div class="ability-key">E</div>
+        </div>
+        <div class="ability-slot" data-key="D">
+          <div class="ability-icon"></div>
+          <div class="ability-key">D</div>
+        </div>
+        <div class="ability-slot" data-key="F">
+          <div class="ability-icon"></div>
+          <div class="ability-key">F</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="selection-overlay" id="selectionOverlay" hidden>
+    <div class="selection-dialog" role="dialog" aria-modal="true" aria-labelledby="selection-title">
+      <header class="selection-header">
+        <h3 id="selection-title" class="selection-title">Select Item</h3>
+        <button type="button" class="ghost-btn" id="closeSelection" aria-label="Close">×</button>
+      </header>
+      <div class="selector-grid" id="selectionGrid"></div>
+    </div>
+  </div>
+
+  <template id="card-template">
+    <article class="item-card" tabindex="0">
+      <img class="item-thumb" hidden />
+      <div class="item-overlay" hidden></div>
+      <header>
+        <h3 class="item-name"></h3>
+        <p class="item-sub"></p>
+      </header>
+      <p class="item-desc"></p>
+      <footer class="item-meta"></footer>
+    </article>
+  </template>
+
+  <script type="module" src="./scripts.js"></script>
+</body>
+</html>
+

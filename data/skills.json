@@ -1,0 +1,58 @@
+{
+  "skills": [
+    {
+      "id": "null-pulse",
+      "name": "Null Pulse",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "knockback", "silence", "control"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "9m",
+      "description": "Releases a Null Pulse in the target direction. Deals X[Damage Rate: 50%] Physical Damage to enemies in range. Knocks enemies back 12m. Applies Silence. Applies 40% Slow for 3s.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[50%]",
+          "damageType": "Physical",
+          "target": "enemies"
+        },
+        {
+          "type": "knockback",
+          "value": "12m",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "silence",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "40%",
+          "duration": "3s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-null-pulse.png"
+    },
+    {
+      "id": "overclocking-reflex",
+      "name": "Overclocking Reflex",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["defense", "dodge", "passive"],
+      "description": "Has a 35% chance to dodge Basic Attack damage.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "dodge",
+          "value": "35%",
+          "target": "basic attacks"
+        }
+      ],
+      "icon": "./assets/icons/passive-overclocking-reflex.png"
+    }
+  ]
+}

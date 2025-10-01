@@ -1,0 +1,53 @@
+{
+  "drifters": [
+    {
+      "id": "zero",
+      "name": "Zero",
+      "role": "Assassin",
+      "description": "Zero specializes in Single-Target Damage and Control.",
+      "basicAttributes": {
+        "strength": 16,
+        "agility": 22,
+        "intelligence": 12
+      },
+      "stats": {
+        "maxHpBonus": "4%",
+        "attackSpeedBonus": "3.9%",
+        "criticalRate": "1.1%",
+        "castingSpeedBonus": "3.6%",
+        "skillCooldownRateBonus": "0.72%",
+        "damageBonusPvE": "1.6%",
+        "physicalDamageBonus": "5.5%",
+        "magicDamageBonus": "3%",
+        "healingBonus": "3%",
+        "tenacityPenetration": 3.3,
+        "armor": 3.3,
+        "magicResistance": 1.8,
+        "block": 8,
+        "controlResistance": 1.6,
+        "movementSpeed": "5.2 m/sec"
+      },
+      "skills": {
+        "core": "null-pulse",
+        "passive": "overclocking-reflex"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Basic Attack Bonus",
+            "value": "+2.69%",
+            "type": "positive"
+          },
+          {
+            "name": "Basic Attack Critical Rate",
+            "value": "-1.61%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-zero.png",
+      "portrait": "./assets/icons/drifter-zero-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-zero.png"
+    }
+  ]
+}
