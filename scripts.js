@@ -583,27 +583,7 @@ function updateAvatar() {
   const avatarTitle = document.getElementById('avatarTitle');
   const avatarText = document.getElementById('avatarText');
   
-  // Add debug indicator for updateAvatar
-  let avatarDebug = document.getElementById('avatar-debug');
-  if (!avatarDebug) {
-    avatarDebug = document.createElement('div');
-    avatarDebug.id = 'avatar-debug';
-    avatarDebug.style.cssText = `
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background: blue;
-      color: white;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 14px;
-      z-index: 10001;
-      border: 2px solid cyan;
-    `;
-    document.body.appendChild(avatarDebug);
-  }
-  
-  avatarDebug.innerHTML = `DEBUG: updateAvatar called!<br>Drifter: ${drifter ? drifter.name : 'None'}`;
+  // Debug panel removed
   
   if (!drifter) {
     loadoutLayout.style.backgroundImage = '';
@@ -619,12 +599,12 @@ function updateAvatar() {
   }
   
 
-  // Handle drifter background - use icon (full body) for background
-  const imageUrl = drifter.icon || drifter.portrait || drifter.cardIcon;
+  // Handle drifter background - use card image for mobile
+  const imageUrl = drifter.cardIcon || drifter.card || drifter.icon || drifter.portrait;
   if (imageUrl) {
     loadoutLayout.style.backgroundImage = `url(${imageUrl})`;
-    loadoutLayout.style.backgroundSize = '175% auto';
-    loadoutLayout.style.backgroundPosition = 'center bottom';
+    loadoutLayout.style.backgroundSize = 'contain';
+    loadoutLayout.style.backgroundPosition = 'center center';
     loadoutLayout.style.backgroundRepeat = 'no-repeat';
   } else {
     loadoutLayout.style.backgroundImage = '';
@@ -650,26 +630,7 @@ function updateAvatar() {
 function updateDrifterAbilities(drifter) {
   console.log('Updating drifter abilities for:', drifter.name);
   
-  // Add a very visible debug indicator first
-  let debugIndicator = document.getElementById('debug-indicator');
-  if (!debugIndicator) {
-    debugIndicator = document.createElement('div');
-    debugIndicator.id = 'debug-indicator';
-    debugIndicator.style.cssText = `
-      position: fixed;
-      top: 50px;
-      left: 10px;
-      background: red;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      font-size: 16px;
-      z-index: 10001;
-      border: 3px solid yellow;
-    `;
-    debugIndicator.innerHTML = 'DEBUG: updateDrifterAbilities called!';
-    document.body.appendChild(debugIndicator);
-  }
+  // Debug panel removed
   
   const passiveSlot = document.querySelector('.drifter-passive .ability-icon');
   const eSlot = document.querySelector('[data-key="E"] .ability-icon');
