@@ -11,6 +11,9 @@
     padding: 1rem !important;
     align-items: center !important;
     justify-content: center !important;
+    /* DEBUG: Add visible border to see layout container */
+    border: 3px solid red !important;
+    background-color: rgba(255, 0, 0, 0.1) !important;
   }
   .loadout-layout {
     display: flex !important;
@@ -41,6 +44,9 @@
     align-items: center !important;
     padding: 0.5rem 0 !important;
     margin: 0 auto !important;
+    /* DEBUG: Add visible border to see slot rows */
+    border: 2px solid blue !important;
+    background-color: rgba(0, 0, 255, 0.1) !important;
   }
   
   .slot {
@@ -60,6 +66,9 @@
     min-width: 70px !important;
     flex: 0 0 auto !important;
     margin: 0 auto !important;
+    /* DEBUG: Add visible border to see individual slots */
+    border: 1px solid green !important;
+    background-color: rgba(0, 255, 0, 0.1) !important;
   }
   
   .slot-card {
@@ -101,6 +110,9 @@
     object-fit: contain !important;
     margin: 0 auto !important;
     display: block !important;
+    /* DEBUG: Add visible border to see image container */
+    border: 3px solid yellow !important;
+    background-color: rgba(255, 255, 0, 0.2) !important;
   }
   
   .avatar-title {
@@ -131,6 +143,9 @@
     left: 0 !important;
     right: 0 !important;
     transform: none !important;
+    /* DEBUG: Add visible border to see text elements */
+    border: 2px solid purple !important;
+    background-color: rgba(128, 0, 128, 0.1) !important;
   }
   
   /* Force "Select Drifter" text to be centered */
@@ -144,6 +159,9 @@
     left: 0 !important;
     right: 0 !important;
     transform: none !important;
+    /* DEBUG: Add visible border to see "Select Drifter" button */
+    border: 2px solid orange !important;
+    background-color: rgba(255, 165, 0, 0.1) !important;
   }
   
   .avatar-trigger {
