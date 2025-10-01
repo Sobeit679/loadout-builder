@@ -345,57 +345,60 @@ async function init() {
     document.body.classList.add('mobile-device');
     console.log('Mobile device detected, applying mobile styles');
     
-    // Apply mobile styles directly via JavaScript
-    const loadoutLayout = document.getElementById('loadoutLayout');
-    if (loadoutLayout) {
-      loadoutLayout.style.cssText = `
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        gap: 1rem !important;
-        padding: 1rem !important;
-      `;
-    }
-    
-    // Fix slot rows
-    const slotRows = document.querySelectorAll('.slot-row');
-    slotRows.forEach(row => {
-      row.style.cssText = `
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 0.5rem !important;
-        width: 100% !important;
-        justify-content: center !important;
-        padding: 0.5rem 0 !important;
-      `;
-    });
-    
-    // Fix attributes grid
-    const attributesGrid = document.querySelector('.attributes-grid');
-    if (attributesGrid) {
-      attributesGrid.style.cssText = `
-        grid-template-columns: 1fr !important;
-        gap: 8px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      `;
-    }
-    
-    // Fix attribute cards
-    const attributeCards = document.querySelectorAll('.attribute-card');
-    attributeCards.forEach(card => {
-      card.style.cssText = `
-        padding: 8px !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        text-align: left !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-      `;
-    });
+    // Force mobile layout after a short delay to ensure DOM is ready
+    setTimeout(() => {
+      console.log('Applying mobile layout fixes...');
+      
+      // Apply mobile styles directly via JavaScript
+      const loadoutLayout = document.getElementById('loadoutLayout');
+      if (loadoutLayout) {
+        loadoutLayout.style.display = 'flex';
+        loadoutLayout.style.flexDirection = 'column';
+        loadoutLayout.style.width = '100%';
+        loadoutLayout.style.maxWidth = '100%';
+        loadoutLayout.style.overflowX = 'hidden';
+        loadoutLayout.style.gap = '1rem';
+        loadoutLayout.style.padding = '1rem';
+        console.log('Fixed loadout layout');
+      }
+      
+      // Fix slot rows
+      const slotRows = document.querySelectorAll('.slot-row');
+      slotRows.forEach((row, index) => {
+        row.style.display = 'flex';
+        row.style.flexWrap = 'wrap';
+        row.style.gap = '0.5rem';
+        row.style.width = '100%';
+        row.style.justifyContent = 'center';
+        row.style.padding = '0.5rem 0';
+        console.log(`Fixed slot row ${index}`);
+      });
+      
+      // Fix attributes grid
+      const attributesGrid = document.querySelector('.attributes-grid');
+      if (attributesGrid) {
+        attributesGrid.style.gridTemplateColumns = '1fr';
+        attributesGrid.style.gap = '8px';
+        attributesGrid.style.width = '100%';
+        attributesGrid.style.maxWidth = '100%';
+        console.log('Fixed attributes grid');
+      }
+      
+      // Fix attribute cards
+      const attributeCards = document.querySelectorAll('.attribute-card');
+      attributeCards.forEach((card, index) => {
+        card.style.padding = '8px';
+        card.style.flexDirection = 'row';
+        card.style.alignItems = 'center';
+        card.style.textAlign = 'left';
+        card.style.width = '100%';
+        card.style.maxWidth = '100%';
+        card.style.boxSizing = 'border-box';
+        console.log(`Fixed attribute card ${index}`);
+      });
+      
+      console.log('Mobile layout fixes applied');
+    }, 100);
   }
   
   // Show loading indicator
