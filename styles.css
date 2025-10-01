@@ -1394,7 +1394,27 @@ body {
     order: 2;
     grid-column: unset !important;
     width: 100% !important;
-    text-align: center;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1rem !important;
+  }
+  
+  .avatar-title {
+    text-align: center !important;
+    margin: 0.5rem 0 !important;
+  }
+  
+  .avatar-description {
+    text-align: center !important;
+    margin: 0.5rem 0 !important;
+  }
+  
+  .avatar-trigger {
+    margin: 1rem auto !important;
+    display: block !important;
   }
   
   /* Mod slots section */
@@ -1445,6 +1465,23 @@ body {
   
   .ability-key {
     font-size: 0.7rem;
+  }
+  
+  /* Ensure ability icons are properly displayed on mobile */
+  .ability-icon {
+    width: 100% !important;
+    height: 100% !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
+  
+  .drifter-passive .ability-icon {
+    width: 100% !important;
+    height: 100% !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
   }
   
   /* Basic attributes - stack vertically and prevent overflow */

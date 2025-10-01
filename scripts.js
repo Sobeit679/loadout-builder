@@ -546,23 +546,33 @@ function updateAvatar() {
 }
 
 function updateDrifterAbilities(drifter) {
+  console.log('Updating drifter abilities for:', drifter.name);
   const passiveSlot = document.querySelector('.drifter-passive .ability-icon');
   const eSlot = document.querySelector('[data-key="E"] .ability-icon');
   
+  console.log('Passive slot found:', passiveSlot);
+  console.log('E slot found:', eSlot);
+  console.log('Drifter passive:', drifter.passive);
+  console.log('Drifter skill:', drifter.skill);
+  
   // Handle passive skill
   if (drifter.passive && drifter.passive.icon) {
+    console.log('Setting passive icon:', drifter.passive.icon);
     passiveSlot.style.backgroundImage = `url(${drifter.passive.icon})`;
     passiveSlot.parentElement.classList.remove('empty');
   } else {
+    console.log('No passive icon, clearing');
     passiveSlot.style.backgroundImage = '';
     passiveSlot.parentElement.classList.add('empty');
   }
   
   // Handle active skill in E slot
   if (drifter.skill && drifter.skill.icon) {
+    console.log('Setting skill icon:', drifter.skill.icon);
     eSlot.style.backgroundImage = `url(${drifter.skill.icon})`;
     eSlot.parentElement.classList.remove('empty');
   } else {
+    console.log('No skill icon, clearing');
     eSlot.style.backgroundImage = '';
     eSlot.parentElement.classList.add('empty');
   }
