@@ -1,34 +1,66 @@
 {
   "weapons": [
     {
-      "id": "curse-staff",
-      "name": "Curse Staff",
-      "type": "staff",
+      "id": "rotten-breath",
+      "gameId": "rotten-breath",
+      "name": "Rotten Breath",
+      "type": "curse-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
       "rarity": "epic",
-      "description": "A powerful staff imbued with dark energy. Channels the power of the void to devastating effect.",
+      "description": "A cursed staff that channels the power of decay and plague. Its very presence spreads corruption and disease.",
       "stats": {
         "damage": "85-120",
         "attackSpeed": "1.2",
         "criticalChance": "8%",
         "magicPower": "+25"
       },
-      "skill": "null-pulse",
-      "skillIcon": "./assets/icons/skill-null-pulse.png",
-      "icon": "./assets/icons/weapon-curse-staff.png"
+      "coreSkill": "rot-manifest",
+      "passiveSkill": "plague-outbreak",
+      "basicAttacks": [
+        "touch-of-plague",
+        "plague-strike", 
+        "venom-pool"
+      ],
+      "weaponSkills": [
+        "scourge",
+        "plague-surge",
+        "spread-plague",
+        "exhaustion",
+        "toxic-matter"
+      ],
+      "icon": "./assets/icons/weapon-rotten-breath.png"
     },
     {
-      "id": "shadow-blade",
-      "name": "Shadow Blade",
-      "type": "sword",
-      "rarity": "rare",
-      "description": "A blade forged from shadow essence. Cuts through enemies with deadly precision.",
+      "id": "nihilstaff",
+      "gameId": "nihilstaff",
+      "name": "Nihilstaff",
+      "type": "curse-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "description": "A staff of pure nihilistic energy that drains hope and cripples the will to fight. Its curse spreads despair and weakness.",
       "stats": {
-        "damage": "95-110",
-        "attackSpeed": "1.5",
-        "criticalChance": "12%",
-        "physicalPower": "+20"
+        "damage": "90-125",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+30"
       },
-      "icon": "./assets/icons/weapon-shadow-blade.png"
+      "coreSkill": "crippling-curse",
+      "passiveSkill": "plague-outbreak",
+      "basicAttacks": [
+        "touch-of-plague",
+        "plague-strike", 
+        "venom-pool"
+      ],
+      "weaponSkills": [
+        "scourge",
+        "plague-surge",
+        "spread-plague",
+        "exhaustion",
+        "toxic-matter"
+      ],
+      "icon": "./assets/icons/weapon-nihilstaff.png"
     }
   ]
 }

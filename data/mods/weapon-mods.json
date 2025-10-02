@@ -2,6 +2,7 @@
   "weaponMods": [
     {
       "id": "void-enhancement",
+      "gameId": "void-enhancement",
       "name": "Void Enhancement",
       "rarity": "epic",
       "slot": "weapon",
@@ -16,6 +17,7 @@
     },
     {
       "id": "shadow-edge",
+      "gameId": "shadow-edge",
       "name": "Shadow Edge",
       "rarity": "rare",
       "slot": "weapon",

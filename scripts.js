@@ -107,22 +107,167 @@ function renderCards(items, container, isSelected, onToggle) {
       card.classList.add('selected');
     }
     
-    const img = document.createElement('img');
-    img.src = item.icon || '';
-    img.alt = item.name;
-    img.onerror = () => { img.style.display = 'none'; };
-    
-    const name = document.createElement('div');
-    name.className = 'card-name';
-    name.textContent = item.name;
-    
-    const sub = document.createElement('div');
-    sub.className = 'card-sub';
-    sub.textContent = item.sub || '';
-    
-    card.appendChild(img);
-    card.appendChild(name);
-    card.appendChild(sub);
+    // Check if this is a weapon with core skill
+    if (item.coreSkill) {
+      const coreSkill = STATE.skills.find(s => s.id === item.coreSkill);
+      
+      // Make the card itself the weapon bar - completely horizontal flow
+      card.style.display = 'flex';
+      card.style.alignItems = 'center';
+      card.style.padding = '12px 16px';
+      card.style.borderBottom = '1px solid var(--border)';
+      card.style.backgroundColor = 'var(--card-bg)';
+      card.style.transition = 'background-color 0.2s';
+      card.style.margin = '0';
+      card.style.borderRadius = '0';
+      card.style.gap = '16px';
+      card.style.width = '100%';
+      card.style.minWidth = '100%';
+      card.style.minHeight = 'auto';
+      card.style.maxHeight = 'none';
+      card.style.overflow = 'visible';
+      card.style.gridColumn = '1 / -1';
+      card.style.gridRow = 'auto';
+      
+      console.log('=== CARD CONTAINER DEBUG ===');
+      console.log('Card element created:', card);
+      console.log('Card classes:', card.className);
+      
+      // Weapon image
+      const weaponImg = document.createElement('img');
+      weaponImg.src = item.icon || '';
+      weaponImg.alt = item.name;
+      weaponImg.className = 'weapon-icon';
+      weaponImg.style.width = '40px';
+      weaponImg.style.height = '40px';
+      weaponImg.style.objectFit = 'contain';
+      weaponImg.style.flexShrink = '0';
+      weaponImg.onerror = () => { weaponImg.style.display = 'none'; };
+      
+      // Weapon name and type container
+      const weaponInfo = document.createElement('div');
+      weaponInfo.style.display = 'flex';
+      weaponInfo.style.flexDirection = 'column';
+      weaponInfo.style.marginRight = '16px';
+      
+      const weaponName = document.createElement('div');
+      weaponName.textContent = item.name;
+      weaponName.style.fontSize = '1rem';
+      weaponName.style.fontWeight = 'bold';
+      weaponName.style.color = 'var(--text)';
+      weaponName.style.marginBottom = '2px';
+      
+      const weaponType = document.createElement('div');
+      weaponType.textContent = `${item.weaponType} • ${item.range}`;
+      weaponType.style.fontSize = '0.8rem';
+      weaponType.style.color = 'var(--text-muted)';
+      
+      weaponInfo.appendChild(weaponName);
+      weaponInfo.appendChild(weaponType);
+      
+      // Core skill image
+      const skillImg = document.createElement('img');
+      skillImg.src = coreSkill?.icon || '';
+      skillImg.alt = coreSkill?.name || 'Core Skill';
+      skillImg.className = 'core-skill-icon';
+      skillImg.style.width = '40px';
+      skillImg.style.height = '40px';
+      skillImg.style.objectFit = 'contain';
+      skillImg.style.flexShrink = '0';
+      skillImg.onerror = () => { skillImg.style.display = 'none'; };
+      
+      // Core skill info container
+      const skillInfo = document.createElement('div');
+      skillInfo.style.display = 'flex';
+      skillInfo.style.flexDirection = 'column';
+      skillInfo.style.flex = '1';
+      
+      // Core skill name
+      const skillName = document.createElement('div');
+      skillName.textContent = coreSkill?.name || 'No core skill';
+      skillName.style.fontWeight = 'bold';
+      skillName.style.fontSize = '0.95rem';
+      skillName.style.color = 'var(--text)';
+      skillName.style.marginBottom = '4px';
+      
+      // Skill tags
+      const skillTags = document.createElement('div');
+      skillTags.style.display = 'flex';
+      skillTags.style.gap = '4px';
+      skillTags.style.marginBottom = '4px';
+      
+      if (coreSkill?.tags) {
+        coreSkill.tags.forEach(tag => {
+          const tagElement = document.createElement('span');
+          tagElement.textContent = tag;
+          tagElement.className = `skill-tag ${getTagClass(tag)}`;
+          skillTags.appendChild(tagElement);
+        });
+      }
+      
+      // Skill description
+      const skillDesc = document.createElement('div');
+      skillDesc.textContent = coreSkill?.description || '';
+      skillDesc.style.fontSize = '0.8rem';
+      skillDesc.style.color = 'var(--text-muted)';
+      skillDesc.style.lineHeight = '1.3';
+      skillDesc.style.width = '100%';
+      skillDesc.style.minWidth = '0';
+      skillDesc.style.overflow = 'visible';
+      skillDesc.style.whiteSpace = 'normal';
+      
+      // Debug logging
+      console.log('=== WEAPON CARD DEBUG ===');
+      console.log('Card element:', card);
+      console.log('Card computed styles:', window.getComputedStyle(card));
+      console.log('SkillInfo element:', skillInfo);
+      console.log('SkillInfo computed styles:', window.getComputedStyle(skillInfo));
+      console.log('SkillDesc element:', skillDesc);
+      console.log('SkillDesc computed styles:', window.getComputedStyle(skillDesc));
+      console.log('Description text length:', coreSkill?.description?.length);
+      console.log('Description text:', coreSkill?.description);
+      
+      skillInfo.appendChild(skillName);
+      skillInfo.appendChild(skillTags);
+      skillInfo.appendChild(skillDesc);
+      
+      // Add all elements in horizontal order
+      card.appendChild(weaponImg);
+      card.appendChild(weaponInfo);
+      card.appendChild(skillImg);
+      card.appendChild(skillInfo);
+      
+      // Debug parent container
+      console.log('=== PARENT CONTAINER DEBUG ===');
+      console.log('Parent container:', container);
+      console.log('Parent computed styles:', window.getComputedStyle(container));
+      console.log('Parent width:', container.offsetWidth);
+      console.log('Card width after append:', card.offsetWidth);
+      console.log('Card height after append:', card.offsetHeight);
+      console.log('Card computed width:', window.getComputedStyle(card).width);
+      console.log('Card computed min-width:', window.getComputedStyle(card).minWidth);
+      console.log('Card computed max-width:', window.getComputedStyle(card).maxWidth);
+      console.log('SkillInfo computed width:', window.getComputedStyle(skillInfo).width);
+      console.log('SkillDesc computed width:', window.getComputedStyle(skillDesc).width);
+    } else {
+      // Regular item rendering
+      const img = document.createElement('img');
+      img.src = item.icon || '';
+      img.alt = item.name;
+      img.onerror = () => { img.style.display = 'none'; };
+      
+      const name = document.createElement('div');
+      name.className = 'card-name';
+      name.textContent = item.name;
+      
+      const sub = document.createElement('div');
+      sub.className = 'card-sub';
+      sub.textContent = item.sub || '';
+      
+      card.appendChild(img);
+      card.appendChild(name);
+      card.appendChild(sub);
+    }
     
     card.addEventListener('click', () => onToggle(item));
     container.appendChild(card);
@@ -221,6 +366,9 @@ function showOverlay(title, key) {
   
   if (key === 'drifters') {
     renderDrifterSelection();
+  } else if (key === 'basic-attacks' || key === 'weapon-skills') {
+    // These are handled by the calling functions directly
+    // Just show the overlay, content is already rendered
   } else {
     renderGear(key);
   }
@@ -446,31 +594,78 @@ async function init() {
       if (e.target === selectionOverlay || e.target === overlayContent) hideOverlay();
     });
   }
+  
+  // Bind ability slot click handlers
+  const aSlot = document.querySelector('[data-key="A"]');
+  const qSlot = document.querySelector('[data-key="Q"]');
+  
+  if (aSlot) {
+    aSlot.addEventListener('click', (e) => {
+      console.log('Ability slot A clicked');
+      e.stopPropagation();
+      e.preventDefault();
+      showBasicAttackSelection();
+    });
+  }
+  
+  if (qSlot) {
+    qSlot.addEventListener('click', (e) => {
+      console.log('Ability slot Q clicked');
+      e.stopPropagation();
+      e.preventDefault();
+      showWeaponSkillSelection();
+    });
+  }
 }
 
 
 function renderGear(key) {
   const gearKey = SLOT_MAPPINGS[key].key;
   
+  // For weapons, only show actual weapons, not mods
   const items = gearKey === 'weapons'
-    ? [...STATE.gear[gearKey], ...STATE.mods.weapon]
+    ? STATE.gear[gearKey]
     : [...STATE.gear[gearKey], ...STATE.mods.armor];
+    
+  console.log('Rendering gear for key:', key, 'Items:', items);
+  console.log('Weapons in STATE.gear[weapons]:', STATE.gear[gearKey]);
     
   renderCards(
     items,
     selectionGrid,
     (item) => STATE.selected.gear[gearKey]?.gameId === item.gameId,
-    (item) => {
-      if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
-        delete STATE.selected.gear[gearKey];
-      } else {
-        STATE.selected.gear[gearKey] = item;
-        if (item.slot) {
-          STATE.selected.mods[resolveSlotKey(item)] = item;
-        }
-      }
-      populateLoadoutBoard();
-    }
+           (item) => {
+             console.log('Weapon selection clicked:', item);
+             if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
+               console.log('Deselecting weapon');
+               delete STATE.selected.gear[gearKey];
+             } else {
+               console.log('Selecting weapon:', item.name);
+               STATE.selected.gear[gearKey] = item;
+               if (item.slot) {
+                 STATE.selected.mods[resolveSlotKey(item)] = item;
+               }
+               // Auto-fill ability slots with weapon skills
+               if (item.basicAttacks && item.basicAttacks.length > 0) {
+                 const firstBasicAttack = STATE.skills.find(s => s.id === item.basicAttacks[0]);
+                 if (firstBasicAttack) {
+                   STATE.selected.gear['basic-attack'] = firstBasicAttack;
+                 }
+               }
+               
+               if (item.weaponSkills && item.weaponSkills.length > 0) {
+                 const firstWeaponSkill = STATE.skills.find(s => s.id === item.weaponSkills[0]);
+                 if (firstWeaponSkill) {
+                   STATE.selected.gear['weapon-skill'] = firstWeaponSkill;
+                 }
+               }
+               
+               // Close the modal after selecting a weapon
+               hideOverlay();
+             }
+             console.log('Selected weapon:', STATE.selected.gear[gearKey]);
+             populateLoadoutBoard();
+           }
   );
 }
 
@@ -514,6 +709,13 @@ function populateLoadoutBoard() {
 
   // Update ability slot W with weapon skill
   updateWeaponSkill();
+  
+  // Update weapon passive
+  updateWeaponPassive();
+  
+  // Update ability slots A and Q with weapon skills
+  updateBasicAttackSkill();
+  updateWeaponAbilitySkill();
 }
 
 function updateWeaponSkill() {
@@ -521,11 +723,22 @@ function updateWeaponSkill() {
   const wSlot = document.querySelector('[data-key="W"]');
   const wIcon = wSlot.querySelector('.ability-icon');
   
-  // Handle weapon skill icons
-  if (weapon && weapon.skill && weapon.skill.icon) {
+  // Handle weapon core skill
+  if (weapon && weapon.coreSkill) {
+    const coreSkill = STATE.skills.find(s => s.id === weapon.coreSkill);
+    if (coreSkill && coreSkill.icon) {
+      wIcon.style.backgroundImage = `url(${coreSkill.icon})`;
+      wSlot.classList.remove('empty');
+    } else {
+      wIcon.style.backgroundImage = '';
+      wSlot.classList.add('empty');
+    }
+  } else if (weapon && weapon.skill && weapon.skill.icon) {
+    // Fallback for old weapon format
     wIcon.style.backgroundImage = `url(${weapon.skill.icon})`;
     wSlot.classList.remove('empty');
   } else if (weapon && weapon.skillIcon) {
+    // Fallback for old weapon format
     wIcon.style.backgroundImage = `url(${weapon.skillIcon})`;
     wSlot.classList.remove('empty');
   } else {
@@ -538,6 +751,225 @@ function updateWeaponSkill() {
   if (drifter) {
     updateAbilityTooltips(drifter);
   }
+}
+
+function updateWeaponPassive() {
+  const weapon = STATE.selected.gear['weapons'];
+  const weaponPassiveSlot = document.querySelector('[data-key="weapon-passive"]');
+  const weaponPassiveIcon = weaponPassiveSlot.querySelector('.ability-icon');
+  
+  // Handle weapon passive skill
+  if (weapon && weapon.passiveSkill) {
+    const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
+    if (passiveSkill && passiveSkill.icon) {
+      weaponPassiveIcon.style.backgroundImage = `url(${passiveSkill.icon})`;
+      weaponPassiveSlot.classList.remove('empty');
+    } else {
+      weaponPassiveIcon.style.backgroundImage = '';
+      weaponPassiveSlot.classList.add('empty');
+    }
+  } else {
+    weaponPassiveIcon.style.backgroundImage = '';
+    weaponPassiveSlot.classList.add('empty');
+  }
+  
+  // Update weapon passive tooltip
+  const drifter = STATE.selected.drifters[0];
+  if (drifter) {
+    updateAbilityTooltips(drifter);
+  }
+}
+
+function updateBasicAttackSkill() {
+  const basicAttack = STATE.selected.gear['basic-attack'];
+  const aSlot = document.querySelector('[data-key="A"]');
+  const aIcon = aSlot.querySelector('.ability-icon');
+  
+  if (basicAttack && basicAttack.icon) {
+    aIcon.style.backgroundImage = `url(${basicAttack.icon})`;
+    aSlot.classList.remove('empty');
+  } else {
+    aIcon.style.backgroundImage = '';
+    aSlot.classList.add('empty');
+  }
+  
+  // Update tooltip
+  const drifter = STATE.selected.drifters[0];
+  if (drifter) {
+    updateAbilityTooltips(drifter);
+  }
+}
+
+function updateWeaponAbilitySkill() {
+  const weaponSkill = STATE.selected.gear['weapon-skill'];
+  const qSlot = document.querySelector('[data-key="Q"]');
+  const qIcon = qSlot.querySelector('.ability-icon');
+  
+  if (weaponSkill && weaponSkill.icon) {
+    qIcon.style.backgroundImage = `url(${weaponSkill.icon})`;
+    qSlot.classList.remove('empty');
+  } else {
+    qIcon.style.backgroundImage = '';
+    qSlot.classList.add('empty');
+  }
+  
+  // Update tooltip
+  const drifter = STATE.selected.drifters[0];
+  if (drifter) {
+    updateAbilityTooltips(drifter);
+  }
+}
+
+function showBasicAttackSelection() {
+  const weapon = STATE.selected.gear['weapons'];
+  if (!weapon || !weapon.basicAttacks) {
+    console.log('No weapon selected or no basic attacks available');
+    return;
+  }
+  
+  // Get the basic attack skills
+  const basicAttackSkills = weapon.basicAttacks.map(skillId => 
+    STATE.skills.find(s => s.id === skillId)
+  ).filter(skill => skill);
+  
+  if (basicAttackSkills.length === 0) {
+    console.log('No basic attack skills found');
+    return;
+  }
+  
+  // Create a vertical cascade of skill images
+  showSkillCascade('A', basicAttackSkills, (skill) => {
+    STATE.selected.gear['basic-attack'] = skill;
+    updateBasicAttackSkill();
+  });
+}
+
+function showWeaponSkillSelection() {
+  const weapon = STATE.selected.gear['weapons'];
+  if (!weapon || !weapon.weaponSkills) {
+    console.log('No weapon selected or no weapon skills available');
+    return;
+  }
+  
+  // Get the weapon skills
+  const weaponSkills = weapon.weaponSkills.map(skillId => 
+    STATE.skills.find(s => s.id === skillId)
+  ).filter(skill => skill);
+  
+  if (weaponSkills.length === 0) {
+    console.log('No weapon skills found');
+    return;
+  }
+  
+  // Create a vertical cascade of skill images
+  showSkillCascade('Q', weaponSkills, (skill) => {
+    STATE.selected.gear['weapon-skill'] = skill;
+    updateWeaponAbilitySkill();
+  });
+}
+
+function showSkillCascade(slotKey, skills, onSelect) {
+  const slot = document.querySelector(`[data-key="${slotKey}"]`);
+  if (!slot) return;
+  
+  // Check if cascade is already open for this slot
+  const existingCascade = slot.querySelector('.skill-cascade');
+  if (existingCascade) {
+    hideSkillCascade();
+    return;
+  }
+  
+  // Remove any existing cascades from other slots
+  hideSkillCascade();
+  
+  // Hide any existing tooltips when cascade opens
+  const tooltip = createGlobalTooltip();
+  tooltip.style.display = 'none';
+  tooltip.style.opacity = '0';
+  tooltip.style.visibility = 'hidden';
+  
+  // Create cascade container
+  const cascade = document.createElement('div');
+  cascade.className = 'skill-cascade';
+  cascade.style.cssText = `
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    z-index: 1000;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    min-width: 60px;
+  `;
+  
+  // Add skill images
+  skills.forEach(skill => {
+    const skillOption = document.createElement('div');
+    skillOption.className = 'skill-option';
+    skillOption.style.cssText = `
+      width: 50px;
+      height: 50px;
+      background-image: url(${skill.icon});
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 2px solid ${STATE.selected.gear[slotKey === 'A' ? 'basic-attack' : 'weapon-skill']?.id === skill.id ? 'var(--accent)' : 'transparent'};
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    `;
+    
+    // Add hover effect
+    skillOption.addEventListener('mouseenter', () => {
+      skillOption.style.borderColor = 'var(--accent)';
+      skillOption.style.transform = 'scale(1.1)';
+    });
+    
+    skillOption.addEventListener('mouseleave', () => {
+      if (STATE.selected.gear[slotKey === 'A' ? 'basic-attack' : 'weapon-skill']?.id !== skill.id) {
+        skillOption.style.borderColor = 'transparent';
+      }
+      skillOption.style.transform = 'scale(1)';
+    });
+    
+    // Add click handler
+    skillOption.addEventListener('click', (e) => {
+      e.stopPropagation();
+      onSelect(skill);
+      hideSkillCascade();
+    });
+    
+    // No tooltip on cascade skills to prevent interference
+    
+    cascade.appendChild(skillOption);
+  });
+  
+  // Position the cascade relative to the slot
+  slot.style.position = 'relative';
+  slot.appendChild(cascade);
+  
+  // Add click outside to close
+  const closeCascade = (e) => {
+    if (!cascade.contains(e.target) && e.target !== slot) {
+      hideSkillCascade();
+      document.removeEventListener('click', closeCascade);
+    }
+  };
+  
+  // Delay adding the click listener to avoid immediate closure
+  setTimeout(() => {
+    document.addEventListener('click', closeCascade);
+  }, 10);
+}
+
+function hideSkillCascade() {
+  const existingCascades = document.querySelectorAll('.skill-cascade');
+  existingCascades.forEach(cascade => cascade.remove());
 }
 
 function updateAvatar() {
@@ -744,8 +1176,44 @@ function updateAbilityTooltips(drifter) {
     passiveTooltip.textContent = 'No passive available';
   }
   
-  // Update weapon skill tooltip (W slot)
+  // Update weapon passive tooltip
   const weapon = STATE.selected.gear['weapons'];
+  const weaponPassiveSlot = document.querySelector('[data-key="weapon-passive"]');
+  let weaponPassiveTooltip = weaponPassiveSlot.querySelector('.ability-tooltip');
+  if (!weaponPassiveTooltip) {
+    weaponPassiveTooltip = document.createElement('div');
+    weaponPassiveTooltip.className = 'ability-tooltip';
+    weaponPassiveSlot.appendChild(weaponPassiveTooltip);
+  }
+  if (weapon && weapon.passiveSkill) {
+    const weaponPassiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
+    if (weaponPassiveSkill) {
+      const formattedDescription = weaponPassiveSkill.description.replace(/\n/g, '<br><br>');
+      
+      // Create skill tags for weapon passive
+      let skillTags = '';
+      if (weaponPassiveSkill.tags && weaponPassiveSkill.tags.length > 0) {
+        const allTags = weaponPassiveSkill.tags.map(tag => {
+          const tagClass = getTagClass(tag);
+          let displayTag = tag;
+          if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+          else if (tag === 'control_immunity') displayTag = 'control immunity';
+          else if (tag === 'damage_immunity') displayTag = 'immunity';
+          else if (tag === 'hard_control') displayTag = 'hard control';
+          return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+        }).join(' ');
+        skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+      }
+      
+      weaponPassiveTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${weaponPassiveSkill.name}</strong></div><div>${formattedDescription}</div>`;
+    } else {
+      weaponPassiveTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${weapon.name}</strong></div><div>Weapon passive not found</div>`;
+    }
+  } else {
+    weaponPassiveTooltip.textContent = 'No weapon passive available';
+  }
+  
+  // Update weapon skill tooltip (W slot)
   const wSlot = document.querySelector('[data-key="W"]');
   let wTooltip = wSlot.querySelector('.ability-tooltip');
   if (!wTooltip) {
@@ -754,9 +1222,101 @@ function updateAbilityTooltips(drifter) {
     wSlot.appendChild(wTooltip);
   }
   if (weapon) {
-    wTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${weapon.sub || weapon.name}</strong></div><div>${weapon.description || 'Weapon skill'}</div>`;
+    if (weapon.coreSkill) {
+      // New weapon system with core skill
+      const coreSkill = STATE.skills.find(s => s.id === weapon.coreSkill);
+      if (coreSkill) {
+        const formattedDescription = coreSkill.description.replace(/\n/g, '<br><br>');
+        
+        // Create skill tags
+        let skillTags = '';
+        if (coreSkill.tags && coreSkill.tags.length > 0) {
+          const allTags = coreSkill.tags.map(tag => {
+            const tagClass = getTagClass(tag);
+            let displayTag = tag;
+            if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+            else if (tag === 'control_immunity') displayTag = 'control immunity';
+            else if (tag === 'damage_immunity') displayTag = 'immunity';
+            else if (tag === 'hard_control') displayTag = 'hard control';
+            return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+          }).join(' ');
+          skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+        }
+        
+        wTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${coreSkill.name}</strong></div><div>${formattedDescription}</div>`;
+      } else {
+        wTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${weapon.name}</strong></div><div>Core skill not found</div>`;
+      }
+    } else {
+      // Fallback for old weapon format
+      wTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${weapon.sub || weapon.name}</strong></div><div>${weapon.description || 'Weapon skill'}</div>`;
+    }
   } else {
     wTooltip.textContent = 'No weapon equipped';
+  }
+  
+  // Update ability slot A tooltip (basic attack)
+  const aSlot = document.querySelector('[data-key="A"]');
+  let aTooltip = aSlot.querySelector('.ability-tooltip');
+  if (!aTooltip) {
+    aTooltip = document.createElement('div');
+    aTooltip.className = 'ability-tooltip';
+    aSlot.appendChild(aTooltip);
+  }
+  const basicAttack = STATE.selected.gear['basic-attack'];
+  if (basicAttack) {
+    const formattedDescription = basicAttack.description.replace(/\n/g, '<br><br>');
+    
+    // Create skill tags
+    let skillTags = '';
+    if (basicAttack.tags && basicAttack.tags.length > 0) {
+      const allTags = basicAttack.tags.map(tag => {
+        const tagClass = getTagClass(tag);
+        let displayTag = tag;
+        if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+        else if (tag === 'control_immunity') displayTag = 'control immunity';
+        else if (tag === 'damage_immunity') displayTag = 'immunity';
+        else if (tag === 'hard_control') displayTag = 'hard control';
+        return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+      }).join(' ');
+      skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+    }
+    
+    aTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${basicAttack.name}</strong></div><div>${formattedDescription}</div>`;
+  } else {
+    aTooltip.textContent = 'No basic attack selected';
+  }
+  
+  // Update ability slot Q tooltip (weapon skill)
+  const qSlot = document.querySelector('[data-key="Q"]');
+  let qTooltip = qSlot.querySelector('.ability-tooltip');
+  if (!qTooltip) {
+    qTooltip = document.createElement('div');
+    qTooltip.className = 'ability-tooltip';
+    qSlot.appendChild(qTooltip);
+  }
+  const weaponSkill = STATE.selected.gear['weapon-skill'];
+  if (weaponSkill) {
+    const formattedDescription = weaponSkill.description.replace(/\n/g, '<br><br>');
+    
+    // Create skill tags
+    let skillTags = '';
+    if (weaponSkill.tags && weaponSkill.tags.length > 0) {
+      const allTags = weaponSkill.tags.map(tag => {
+        const tagClass = getTagClass(tag);
+        let displayTag = tag;
+        if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+        else if (tag === 'control_immunity') displayTag = 'control immunity';
+        else if (tag === 'damage_immunity') displayTag = 'immunity';
+        else if (tag === 'hard_control') displayTag = 'hard control';
+        return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+      }).join(' ');
+      skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+    }
+    
+    qTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${weaponSkill.name}</strong></div><div>${formattedDescription}</div>`;
+  } else {
+    qTooltip.textContent = 'No weapon skill selected';
   }
   
   // Add hover positioning for all ability slots
@@ -963,14 +1523,20 @@ function getTagClass(tag) {
       return 'tag-illusion';
     case 'mp':
       return 'tag-mp';
-    case 'cleanse':
-      return 'tag-cleanse';
-    case 'cooldown_reduction':
-      return 'tag-cooldown';
-    case 'cooldown':
-      return 'tag-cooldown';
-    default:
-      return 'tag-default';
+    case 'dispel':
+      return 'tag-dispel';
+        case 'cleanse':
+          return 'tag-cleanse';
+        case 'dot':
+          return 'tag-dot';
+        case 'stacking':
+          return 'tag-dot';
+        case 'cooldown_reduction':
+          return 'tag-cooldown';
+        case 'cooldown':
+          return 'tag-cooldown';
+        default:
+          return 'tag-default';
   }
 }
 
@@ -1009,6 +1575,10 @@ function addTooltipPositioning() {
     if (!slotTooltip) return;
     
     slot.addEventListener('mouseenter', (e) => {
+      // Check if any cascade is open
+      const openCascade = document.querySelector('.skill-cascade');
+      if (openCascade) return; // Don't show tooltip if cascade is open
+      
       // Copy content from slot tooltip to global tooltip
       tooltip.innerHTML = slotTooltip.innerHTML;
       

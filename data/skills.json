@@ -121,7 +121,7 @@
       "name": "Meteor Storm",
       "type": "active",
       "category": "damage",
-      "tags": ["magic_damage", "aoe", "magic", "control"],
+      "tags": ["magic_damage", "aoe", "magic", "control", "dot"],
       "mpCost": 35,
       "cooldown": "25s",
       "range": "12m",
@@ -170,7 +170,7 @@
       "name": "Shadow Strike",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "stealth", "critical", "mobility"],
+      "tags": ["damage", "stealth", "critical", "mobility", "dot"],
       "mpCost": 28,
       "cooldown": "15s",
       "range": "8m",
@@ -2912,6 +2912,427 @@
         }
       ],
       "icon": "./assets/icons/passive-overclocking-reflex.png"
+    },
+    {
+      "id": "plague-outbreak",
+      "name": "Plague Outbreak",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "debuff", "passive", "dot", "stacking"],
+      "description": "[Plague]: Deals [Damage Rate: 20%] Magic Damage every 3s for 13s. Stacks up to 10 times. When a target affected by [Plague] dies, deals [Damage Rate: 120%] Magic Damage to up to 5 other nearby enemies.",
+      "effects": [
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies",
+          "duration": "13s",
+          "maxStacks": 10,
+          "effects": [
+            {
+              "type": "damage_over_time",
+              "value": "X[20%]",
+              "damageType": "Magic",
+              "interval": "3s"
+            }
+          ]
+        },
+        {
+          "type": "passive",
+          "name": "Plague Death Explosion",
+          "trigger": "plague_target_dies",
+          "effects": [
+            {
+              "type": "damage",
+              "value": "X[120%]",
+              "damageType": "Magic",
+              "target": "nearby_enemies",
+              "maxTargets": 5
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-plague-outbreak.png"
+    },
+    {
+      "id": "rot-manifest",
+      "name": "Rot Manifest",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "skill", "dot"],
+      "mpCost": 22,
+      "cooldown": "17s",
+      "castingTime": "0.96s",
+      "range": "14m",
+      "description": "Doubles the enemy's [Plague] stacks and refreshes duration. If stacks exceed the limit, deals [Damage Rate: 55%] per stack Magic Damage for excess stacks. If target has no [Plague], inflicts at least 1 stack of [Plague] and deals [Damage Rate: 55%] Magic Damage.",
+      "effects": [
+        {
+          "type": "debuff_modification",
+          "name": "Plague Stack Doubling",
+          "target": "enemies",
+          "effect": "double_stacks_and_refresh_duration",
+          "debuff": "Plague"
+        },
+        {
+          "type": "damage",
+          "value": "X[55%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "condition": "plague_stacks_exceed_limit",
+          "scaling": "per_excess_stack"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies",
+          "minStacks": 1,
+          "condition": "target_has_no_plague"
+        },
+        {
+          "type": "damage",
+          "value": "X[55%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "condition": "target_has_no_plague"
+        }
+      ],
+      "icon": "./assets/icons/skill-rot-manifest.png"
+    },
+    {
+      "id": "touch-of-plague",
+      "name": "Touch of Plague",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "skill", "dot"],
+      "cooldown": "0.48s",
+      "castingTime": "0.96s",
+      "range": "14m",
+      "description": "Deals [Damage Rate: 90%] Magic Damage and applies [Plague]",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[90%]",
+          "damageType": "Magic",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-touch-of-plague.png"
+    },
+    {
+      "id": "plague-strike",
+      "name": "Plague Strike",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "skill", "dot"],
+      "cooldown": "0.48s",
+      "castingTime": "1.1s",
+      "range": "18m",
+      "description": "Releases a shockwave in target direction, dealing [Damage Rate: 100%] Magic Damage to enemies in its path and inflicting [Plague]",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[100%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "shockwave_path"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies",
+          "area": "shockwave_path"
+        }
+      ],
+      "icon": "./assets/icons/skill-plague-strike.png"
+    },
+    {
+      "id": "venom-pool",
+      "name": "Venom Pool",
+      "type": "active",
+      "category": "damage",
+      "tags": ["slow", "damage", "skill"],
+      "cooldown": "1.9s",
+      "range": "16m",
+      "description": "Throws a pool of venom at the target location, lasting 3s, slowing enemies inside by 20% and inflicting [Plague] every second",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Venom Pool",
+          "duration": "3s",
+          "target": "target_location"
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "20%",
+          "target": "enemies",
+          "area": "venom_pool",
+          "duration": "3s"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies",
+          "area": "venom_pool",
+          "interval": "1s",
+          "duration": "3s"
+        }
+      ],
+      "icon": "./assets/icons/skill-venom-pool.png"
+    },
+    {
+      "id": "scourge",
+      "name": "Scourge",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "range": "12m",
+      "description": "Deals [Damage Rate: 125%] Magic Damage to the enemy every 0.7s, inflicts [Plague], and restores [Healing Rate: 30%] HP. Cannot move while channeling",
+      "effects": [
+        {
+          "type": "channel",
+          "duration": "while_active",
+          "movement_restricted": true
+        },
+        {
+          "type": "damage",
+          "value": "X[125%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "interval": "0.7s"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies",
+          "interval": "0.7s"
+        },
+        {
+          "type": "healing",
+          "value": "X[30%]",
+          "target": "self",
+          "interval": "0.7s"
+        }
+      ],
+      "icon": "./assets/icons/skill-scourge.png"
+    },
+    {
+      "id": "plague-surge",
+      "name": "Plague Surge",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "skill", "dot"],
+      "mpCost": 17,
+      "cooldown": "9.7s",
+      "range": "18m",
+      "description": "Releases a plague surge in target direction, dealing [Damage Rate: 160%] Magic Damage to enemies hit, inflicting 2 stacks of [Plague] and reducing Speed by 30% for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[160%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "target_direction"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies",
+          "area": "target_direction",
+          "stacks": 2
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "30%",
+          "target": "enemies",
+          "area": "target_direction",
+          "duration": "4s"
+        }
+      ],
+      "icon": "./assets/icons/skill-plague-surge.png"
+    },
+    {
+      "id": "spread-plague",
+      "name": "Spread Plague",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "skill", "dot"],
+      "mpCost": 10,
+      "cooldown": "4.8s",
+      "range": "9m",
+      "description": "While active, consumes 10 MP every 3s and inflicts [Plague] to nearby enemies. Basic Attacks have a 30% chance to miss for 9s. Use again to deactivate. Automatically deactivates when MP is insufficient.",
+      "effects": [
+        {
+          "type": "toggle_skill",
+          "name": "Spread Plague",
+          "mpCost": 10,
+          "interval": "3s",
+          "autoDeactivate": "insufficient_mp"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "nearby_enemies",
+          "interval": "3s",
+          "condition": "skill_active"
+        },
+        {
+          "type": "debuff",
+          "name": "Miss Chance",
+          "value": "30%",
+          "target": "self",
+          "duration": "9s",
+          "effect": "basic_attack_miss",
+          "condition": "skill_active"
+        }
+      ],
+      "icon": "./assets/icons/skill-spread-plague.png"
+    },
+    {
+      "id": "exhaustion",
+      "name": "Exhaustion",
+      "type": "active",
+      "category": "control",
+      "tags": ["debuff", "hard_control", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "range": "12m",
+      "description": "Summons a draining field at the target location, lasting 6s. Slows enemies inside by 30% and inflicts [Exhaustion] every second for 6s, stacking up to 6 times",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Draining Field",
+          "duration": "6s",
+          "target": "target_location"
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "30%",
+          "target": "enemies",
+          "area": "draining_field",
+          "duration": "6s"
+        },
+        {
+          "type": "debuff",
+          "name": "Exhaustion",
+          "target": "enemies",
+          "area": "draining_field",
+          "maxStacks": 6,
+          "interval": "1s",
+          "duration": "6s",
+          "effects": [
+            {
+              "type": "damage_reduction",
+              "value": "6%",
+              "per_stack": true
+            },
+            {
+              "type": "healing_reduction",
+              "value": "6%",
+              "per_stack": true
+            },
+            {
+              "type": "attack_speed_reduction",
+              "value": "6%",
+              "per_stack": true
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-exhaustion.png"
+    },
+    {
+      "id": "toxic-matter",
+      "name": "Toxic Matter",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "skill"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "castingTime": "0.48s",
+      "range": "16m",
+      "description": "Launches Toxic Matter at target, bouncing to other enemies within 7m up to 9 times. Each target can be hit up to 2 times. Each hit deals [Damage Rate: 100%] Magic Damage, inflicts 1 stack of [Plague] and reduces Magic Resistance by 64 for 6s.",
+      "effects": [
+        {
+          "type": "projectile",
+          "name": "Toxic Matter",
+          "maxBounces": 9,
+          "bounceRange": "7m",
+          "maxHitsPerTarget": 2
+        },
+        {
+          "type": "damage",
+          "value": "X[100%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "trigger": "projectile_hit"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "target": "enemies",
+          "stacks": 1,
+          "trigger": "projectile_hit"
+        },
+        {
+          "type": "debuff",
+          "name": "Magic Resistance Reduction",
+          "value": 64,
+          "target": "enemies",
+          "duration": "6s",
+          "trigger": "projectile_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-toxic-matter.png"
+    },
+    {
+      "id": "crippling-curse",
+      "name": "Crippling Curse",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "debuff", "dispel", "skill"],
+      "mpCost": 22,
+      "cooldown": "17s",
+      "castingTime": "0.48s",
+      "range": "12m",
+      "description": "Curses a circular area. After a brief delay, deals [Damage Rate: 250%] Magic Damage to up to 10 enemies in range, dispelling all Buffs, shields, and HoT effects, and inflicting [Crippled] for 6s",
+      "effects": [
+        {
+          "type": "damage",
+          "damageRate": 250,
+          "damageType": "magic",
+          "targets": "enemies",
+          "maxTargets": 10,
+          "area": "circular"
+        },
+        {
+          "type": "dispel",
+          "targets": "enemies",
+          "effects": ["buffs", "shields", "hot"]
+        },
+        {
+          "type": "debuff",
+          "name": "Crippled",
+          "duration": "6s",
+          "description": "Cannot use movement skills or gain buffs, shields, or HoT effects",
+          "effects": [
+            {
+              "type": "movement_speed",
+              "value": -50,
+              "unit": "percent"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-crippling-curse.png"
     }
   ]
 }
