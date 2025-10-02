@@ -359,64 +359,26 @@ async function init() {
   });
   
   // Add mobile class for responsive behavior
+  // Check multiple conditions for mobile detection
+  const isMobile = window.innerWidth <= 768 || 
+                   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                   ('ontouchstart' in window) ||
+                   (navigator.maxTouchPoints > 0);
+  
+  if (isMobile) {
+    document.body.classList.add('mobile-device');
+    console.log('Mobile device detected, applying mobile styles. Width:', window.innerWidth, 'UserAgent:', navigator.userAgent);
+  } else {
+    console.log('Desktop detected. Width:', window.innerWidth, 'UserAgent:', navigator.userAgent);
+  }
+  
+  // Force mobile mode for testing if viewport is small (for device emulation)
   if (window.innerWidth <= 768) {
     document.body.classList.add('mobile-device');
-    console.log('Mobile device detected, applying mobile styles');
+    console.log('Forcing mobile mode due to small viewport:', window.innerWidth);
     
-    // Force mobile layout after a short delay to ensure DOM is ready
-    setTimeout(() => {
-      console.log('Applying mobile layout fixes...');
-      
-      // Apply mobile styles directly via JavaScript
-      const loadoutLayout = document.getElementById('loadoutLayout');
-      if (loadoutLayout) {
-        loadoutLayout.style.display = 'flex';
-        loadoutLayout.style.flexDirection = 'column';
-        loadoutLayout.style.width = '100%';
-        loadoutLayout.style.maxWidth = '100%';
-        loadoutLayout.style.overflowX = 'hidden';
-        loadoutLayout.style.gap = '1rem';
-        loadoutLayout.style.padding = '1rem';
-        console.log('Fixed loadout layout');
-      }
-      
-      // Fix slot rows
-      const slotRows = document.querySelectorAll('.slot-row');
-      slotRows.forEach((row, index) => {
-        row.style.display = 'flex';
-        row.style.flexWrap = 'wrap';
-        row.style.gap = '0.5rem';
-        row.style.width = '100%';
-        row.style.justifyContent = 'center';
-        row.style.padding = '0.5rem 0';
-        console.log(`Fixed slot row ${index}`);
-      });
-      
-      // Fix attributes grid
-      const attributesGrid = document.querySelector('.attributes-grid');
-      if (attributesGrid) {
-        attributesGrid.style.gridTemplateColumns = '1fr';
-        attributesGrid.style.gap = '8px';
-        attributesGrid.style.width = '100%';
-        attributesGrid.style.maxWidth = '100%';
-        console.log('Fixed attributes grid');
-      }
-      
-      // Fix attribute cards
-      const attributeCards = document.querySelectorAll('.attribute-card');
-      attributeCards.forEach((card, index) => {
-        card.style.padding = '8px';
-        card.style.flexDirection = 'row';
-        card.style.alignItems = 'center';
-        card.style.textAlign = 'left';
-        card.style.width = '100%';
-        card.style.maxWidth = '100%';
-        card.style.boxSizing = 'border-box';
-        console.log(`Fixed attribute card ${index}`);
-      });
-      
-      console.log('Mobile layout fixes applied');
-    }, 100);
+    // Mobile CSS handles all layout - no JavaScript overrides needed
+    console.log('Mobile CSS will handle layout - no JavaScript overrides needed');
   }
   
   // Show loading indicator

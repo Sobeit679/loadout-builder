@@ -56,7 +56,15 @@
     justify-content: center !important;
     padding: 1rem !important;
   }
-  /* Removed conflicting loadout-layout rule - using body.mobile-device version above */
+  .loadout-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    gap: 1rem !important;
+    padding: 1rem !important;
+  }
   
   .slot-row {
     display: flex !important;
@@ -81,7 +89,13 @@
     box-sizing: border-box !important;
   }
   
-  /* Removed duplicate slot rule - using body.mobile-device version below */
+  .slot {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    min-width: 70px !important;
+    flex: 0 0 auto !important;
+  }
   
   /* Clean individual slots */
   body.mobile-device .slot {
@@ -96,7 +110,10 @@
     box-sizing: border-box !important;
   }
   
-  /* Removed duplicate slot-card rule - using body.mobile-device version below */
+  .slot-card {
+    width: 50px !important;
+    height: 50px !important;
+  }
   
   /* Clean slot cards on mobile */
   body.mobile-device .slot-card {
@@ -107,7 +124,11 @@
     box-sizing: border-box !important;
   }
   
-  /* Removed duplicate slot-label rule - using body.mobile-device version below */
+  .slot-label {
+    font-size: 0.6rem !important;
+    margin-top: 0.2rem !important;
+    text-align: center !important;
+  }
   
   /* Clean slot labels on mobile */
   body.mobile-device .slot-label {
@@ -129,7 +150,16 @@
     text-shadow: 0 0 2px rgba(0,0,0,0.8) !important;
   }
   
-  /* Removed conflicting loadout-avatar rule - using body.mobile-device version above */
+  .loadout-avatar {
+    order: 2 !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1rem !important;
+  }
   
   .loadout-avatar img {
     max-width: 200px !important;
@@ -150,7 +180,18 @@
     display: block !important;
   }
   
-  /* Removed duplicate loadout-avatar rule - using the first one above */
+  /* Clean avatar container */
+  body.mobile-device .loadout-avatar {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
   
   .avatar-title {
     text-align: center !important;
@@ -298,24 +339,30 @@
     background-position: center !important;
   }
   
-  /* Center drifter abilities section */
-  body.mobile-device .drifter-abilities {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
+  /* Mobile modal constraints */
+  body.mobile-device .selection-overlay {
     padding: 0.5rem !important;
+    align-items: flex-start !important;
+    padding-top: 2rem !important;
   }
   
-  /* Center passive slot container */
-  body.mobile-device .passive-slot-container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
+  body.mobile-device .selection-dialog {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 90vh !important;
+    max-height: 90vh !important;
+    margin: 0 !important;
+  }
+  
+  body.mobile-device .selection-dialog .selector-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem !important;
+    max-height: none !important;
+  }
+  
+  body.mobile-device .drifter-select-card {
+    width: 150px !important;
+    height: 180px !important;
   }
 }
