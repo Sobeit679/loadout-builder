@@ -679,8 +679,15 @@ function updateAvatar() {
   
   if (imageUrl) {
     loadoutLayout.style.backgroundImage = `url(${imageUrl})`;
-    loadoutLayout.style.backgroundSize = 'contain';
-    loadoutLayout.style.backgroundPosition = 'center center';
+    // Use different background sizes for mobile vs desktop
+    if (isMobile) {
+      loadoutLayout.style.backgroundSize = 'contain';
+      loadoutLayout.style.backgroundPosition = 'center center';
+    } else {
+      // Desktop: let CSS handle the sizing (60% auto from styles.css)
+      loadoutLayout.style.backgroundSize = '';
+      loadoutLayout.style.backgroundPosition = '';
+    }
     loadoutLayout.style.backgroundRepeat = 'no-repeat';
   } else {
     loadoutLayout.style.backgroundImage = '';
