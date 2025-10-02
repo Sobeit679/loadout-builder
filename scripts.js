@@ -107,9 +107,9 @@ function renderCards(items, container, isSelected, onToggle) {
       card.classList.add('selected');
     }
     
-    // Check if this is a weapon with core skill
-    if (item.coreSkill) {
-      const coreSkill = STATE.skills.find(s => s.id === item.coreSkill);
+    // Check if this is a weapon with core skill or helmet with passive skill
+    if (item.coreSkill || item.passiveSkill) {
+      const skill = STATE.skills.find(s => s.id === (item.coreSkill || item.passiveSkill));
       
       // Make the card itself the weapon bar - completely horizontal flow
       card.style.display = 'flex';
@@ -133,43 +133,47 @@ function renderCards(items, container, isSelected, onToggle) {
       console.log('Card element created:', card);
       console.log('Card classes:', card.className);
       
-      // Weapon image
-      const weaponImg = document.createElement('img');
-      weaponImg.src = item.icon || '';
-      weaponImg.alt = item.name;
-      weaponImg.className = 'weapon-icon';
-      weaponImg.style.width = '40px';
-      weaponImg.style.height = '40px';
-      weaponImg.style.objectFit = 'contain';
-      weaponImg.style.flexShrink = '0';
-      weaponImg.onerror = () => { weaponImg.style.display = 'none'; };
+      // Item image
+      const itemImg = document.createElement('img');
+      itemImg.src = item.icon || '';
+      itemImg.alt = item.name;
+      itemImg.className = 'item-icon';
+      itemImg.style.width = '40px';
+      itemImg.style.height = '40px';
+      itemImg.style.objectFit = 'contain';
+      itemImg.style.flexShrink = '0';
+      itemImg.onerror = () => { itemImg.style.display = 'none'; };
       
-      // Weapon name and type container
-      const weaponInfo = document.createElement('div');
-      weaponInfo.style.display = 'flex';
-      weaponInfo.style.flexDirection = 'column';
-      weaponInfo.style.marginRight = '16px';
+      // Item name and type container
+      const itemInfo = document.createElement('div');
+      itemInfo.style.display = 'flex';
+      itemInfo.style.flexDirection = 'column';
+      itemInfo.style.marginRight = '16px';
       
-      const weaponName = document.createElement('div');
-      weaponName.textContent = item.name;
-      weaponName.style.fontSize = '1rem';
-      weaponName.style.fontWeight = 'bold';
-      weaponName.style.color = 'var(--text)';
-      weaponName.style.marginBottom = '2px';
+      const itemName = document.createElement('div');
+      itemName.textContent = item.name;
+      itemName.style.fontSize = '1rem';
+      itemName.style.fontWeight = 'bold';
+      itemName.style.color = 'var(--text)';
+      itemName.style.marginBottom = '2px';
       
-      const weaponType = document.createElement('div');
-      weaponType.textContent = `${item.weaponType} • ${item.range}`;
-      weaponType.style.fontSize = '0.8rem';
-      weaponType.style.color = 'var(--text-muted)';
+      const itemType = document.createElement('div');
+      if (item.weaponType && item.range) {
+        itemType.textContent = `${item.weaponType} • ${item.range}`;
+      } else if (item.armorType) {
+        itemType.textContent = item.armorType;
+      }
+      itemType.style.fontSize = '0.8rem';
+      itemType.style.color = 'var(--text-muted)';
       
-      weaponInfo.appendChild(weaponName);
-      weaponInfo.appendChild(weaponType);
+      itemInfo.appendChild(itemName);
+      itemInfo.appendChild(itemType);
       
-      // Core skill image
+      // Skill image
       const skillImg = document.createElement('img');
-      skillImg.src = coreSkill?.icon || '';
-      skillImg.alt = coreSkill?.name || 'Core Skill';
-      skillImg.className = 'core-skill-icon';
+      skillImg.src = skill?.icon || '';
+      skillImg.alt = skill?.name || 'Skill';
+      skillImg.className = 'skill-icon';
       skillImg.style.width = '40px';
       skillImg.style.height = '40px';
       skillImg.style.objectFit = 'contain';
@@ -182,9 +186,9 @@ function renderCards(items, container, isSelected, onToggle) {
       skillInfo.style.flexDirection = 'column';
       skillInfo.style.flex = '1';
       
-      // Core skill name
+      // Skill name
       const skillName = document.createElement('div');
-      skillName.textContent = coreSkill?.name || 'No core skill';
+      skillName.textContent = skill?.name || 'No skill';
       skillName.style.fontWeight = 'bold';
       skillName.style.fontSize = '0.95rem';
       skillName.style.color = 'var(--text)';
@@ -196,8 +200,8 @@ function renderCards(items, container, isSelected, onToggle) {
       skillTags.style.gap = '4px';
       skillTags.style.marginBottom = '4px';
       
-      if (coreSkill?.tags) {
-        coreSkill.tags.forEach(tag => {
+      if (skill?.tags) {
+        skill.tags.forEach(tag => {
           const tagElement = document.createElement('span');
           tagElement.textContent = tag;
           tagElement.className = `skill-tag ${getTagClass(tag)}`;
@@ -207,7 +211,7 @@ function renderCards(items, container, isSelected, onToggle) {
       
       // Skill description
       const skillDesc = document.createElement('div');
-      skillDesc.textContent = coreSkill?.description || '';
+      skillDesc.textContent = skill?.description || '';
       skillDesc.style.fontSize = '0.8rem';
       skillDesc.style.color = 'var(--text-muted)';
       skillDesc.style.lineHeight = '1.3';
@@ -217,23 +221,23 @@ function renderCards(items, container, isSelected, onToggle) {
       skillDesc.style.whiteSpace = 'normal';
       
       // Debug logging
-      console.log('=== WEAPON CARD DEBUG ===');
+      console.log('=== ITEM CARD DEBUG ===');
       console.log('Card element:', card);
       console.log('Card computed styles:', window.getComputedStyle(card));
       console.log('SkillInfo element:', skillInfo);
       console.log('SkillInfo computed styles:', window.getComputedStyle(skillInfo));
       console.log('SkillDesc element:', skillDesc);
       console.log('SkillDesc computed styles:', window.getComputedStyle(skillDesc));
-      console.log('Description text length:', coreSkill?.description?.length);
-      console.log('Description text:', coreSkill?.description);
+      console.log('Description text length:', skill?.description?.length);
+      console.log('Description text:', skill?.description);
       
       skillInfo.appendChild(skillName);
       skillInfo.appendChild(skillTags);
       skillInfo.appendChild(skillDesc);
       
       // Add all elements in horizontal order
-      card.appendChild(weaponImg);
-      card.appendChild(weaponInfo);
+      card.appendChild(itemImg);
+      card.appendChild(itemInfo);
       card.appendChild(skillImg);
       card.appendChild(skillInfo);
       
@@ -247,6 +251,7 @@ function renderCards(items, container, isSelected, onToggle) {
       console.log('Card computed width:', window.getComputedStyle(card).width);
       console.log('Card computed min-width:', window.getComputedStyle(card).minWidth);
       console.log('Card computed max-width:', window.getComputedStyle(card).maxWidth);
+      console.log('ItemInfo computed width:', window.getComputedStyle(itemInfo).width);
       console.log('SkillInfo computed width:', window.getComputedStyle(skillInfo).width);
       console.log('SkillDesc computed width:', window.getComputedStyle(skillDesc).width);
     } else {
@@ -622,8 +627,8 @@ async function init() {
 function renderGear(key) {
   const gearKey = SLOT_MAPPINGS[key].key;
   
-  // For weapons, only show actual weapons, not mods
-  const items = gearKey === 'weapons'
+  // For weapons and helmets, only show actual items, not mods
+  const items = (gearKey === 'weapons' || gearKey === 'armors/head')
     ? STATE.gear[gearKey]
     : [...STATE.gear[gearKey], ...STATE.mods.armor];
     
@@ -713,6 +718,9 @@ function populateLoadoutBoard() {
   // Update weapon passive
   updateWeaponPassive();
   
+  // Update helm passive
+  updateHelmPassive();
+  
   // Update ability slots A and Q with weapon skills
   updateBasicAttackSkill();
   updateWeaponAbilitySkill();
@@ -774,6 +782,33 @@ function updateWeaponPassive() {
   }
   
   // Update weapon passive tooltip
+  const drifter = STATE.selected.drifters[0];
+  if (drifter) {
+    updateAbilityTooltips(drifter);
+  }
+}
+
+function updateHelmPassive() {
+  const helm = STATE.selected.gear['armors/head'];
+  const helmPassiveSlot = document.querySelector('[data-key="helm-passive"]');
+  const helmPassiveIcon = helmPassiveSlot.querySelector('.ability-icon');
+  
+  // Handle helm passive skill
+  if (helm && helm.passiveSkill) {
+    const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
+    if (passiveSkill && passiveSkill.icon) {
+      helmPassiveIcon.style.backgroundImage = `url(${passiveSkill.icon})`;
+      helmPassiveSlot.classList.remove('empty');
+    } else {
+      helmPassiveIcon.style.backgroundImage = '';
+      helmPassiveSlot.classList.add('empty');
+    }
+  } else {
+    helmPassiveIcon.style.backgroundImage = '';
+    helmPassiveSlot.classList.add('empty');
+  }
+  
+  // Update helm passive tooltip
   const drifter = STATE.selected.drifters[0];
   if (drifter) {
     updateAbilityTooltips(drifter);
@@ -1211,6 +1246,43 @@ function updateAbilityTooltips(drifter) {
     }
   } else {
     weaponPassiveTooltip.textContent = 'No weapon passive available';
+  }
+  
+  // Update helm passive tooltip
+  const helm = STATE.selected.gear['armors/head'];
+  const helmPassiveSlot = document.querySelector('[data-key="helm-passive"]');
+  let helmPassiveTooltip = helmPassiveSlot.querySelector('.ability-tooltip');
+  if (!helmPassiveTooltip) {
+    helmPassiveTooltip = document.createElement('div');
+    helmPassiveTooltip.className = 'ability-tooltip';
+    helmPassiveSlot.appendChild(helmPassiveTooltip);
+  }
+  if (helm && helm.passiveSkill) {
+    const helmPassiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
+    if (helmPassiveSkill) {
+      const formattedDescription = helmPassiveSkill.description.replace(/\n/g, '<br><br>');
+      
+      // Create skill tags for helm passive
+      let skillTags = '';
+      if (helmPassiveSkill.tags && helmPassiveSkill.tags.length > 0) {
+        const allTags = helmPassiveSkill.tags.map(tag => {
+          const tagClass = getTagClass(tag);
+          let displayTag = tag;
+          if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+          else if (tag === 'control_immunity') displayTag = 'control immunity';
+          else if (tag === 'damage_immunity') displayTag = 'immunity';
+          else if (tag === 'hard_control') displayTag = 'hard control';
+          return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+        }).join(' ');
+        skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+      }
+      
+      helmPassiveTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${helmPassiveSkill.name}</strong></div><div>${formattedDescription}</div>`;
+    } else {
+      helmPassiveTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${helm.name}</strong></div><div>Helm passive not found</div>`;
+    }
+  } else {
+    helmPassiveTooltip.textContent = 'No helm passive available';
   }
   
   // Update weapon skill tooltip (W slot)

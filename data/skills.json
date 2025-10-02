@@ -3333,6 +3333,31 @@
         }
       ],
       "icon": "./assets/icons/skill-crippling-curse.png"
+    },
+    {
+      "id": "amplify",
+      "name": "Amplify",
+      "type": "passive",
+      "category": "buff",
+      "tags": ["buff", "passive"],
+      "description": "When casting skills, increases Magic Damage dealt by 20% for 6s. Trigger Interval: 30s",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Amplify",
+          "duration": "6s",
+          "triggerInterval": "30s",
+          "description": "Increases Magic Damage dealt by 20%",
+          "effects": [
+            {
+              "type": "magic_damage",
+              "value": 20,
+              "unit": "percent"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-amplify.png"
     }
   ]
 }

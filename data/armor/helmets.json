@@ -1,32 +1,21 @@
 {
   "helmets": [
     {
-      "id": "void-crown",
-      "name": "Void Crown",
+      "id": "breezeweaver-hood",
+      "gameId": "breezeweaver-hood",
+      "name": "Breezeweaver Hood",
+      "type": "helmet",
+      "armorType": "Intelligence",
       "rarity": "epic",
-      "skill": "Void Mastery",
-      "description": "A crown forged from the essence of the void. Enhances magical abilities and provides mental protection.",
+      "description": "A mystical hood woven from ethereal winds that amplifies magical prowess and enhances spellcasting abilities.",
       "stats": {
-        "magicResistance": 15,
-        "intelligence": 8,
-        "manaRegen": "+2/s",
-        "castingSpeed": "+10%"
+        "magicResistance": 18,
+        "intelligence": 10,
+        "manaRegen": "+3/s",
+        "castingSpeed": "+15%"
       },
-      "icon": "./assets/icons/helmet-void-crown.png"
-    },
-    {
-      "id": "shadow-visor",
-      "name": "Shadow Visor",
-      "rarity": "rare",
-      "skill": "Shadow Sight",
-      "description": "A sleek visor that enhances perception and stealth capabilities.",
-      "stats": {
-        "agility": 6,
-        "criticalChance": "+5%",
-        "stealth": "+15%",
-        "perception": "+20%"
-      },
-      "icon": "./assets/icons/helmet-shadow-visor.png"
+      "passiveSkill": "amplify",
+      "icon": "./assets/icons/helmet-breezeweaver-hood.png"
     }
   ]
 }
