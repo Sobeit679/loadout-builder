@@ -72,22 +72,28 @@ export async function loadDataSets(notify) {
 
 // Data processing functions
 function processDrifters(drifters, skills) {
-  return drifters.map(drifter => ({
-    gameId: drifter.id,
-    name: drifter.name,
-    role: drifter.role || 'Support',
-    description: drifter.description || buildDrifterDescription(drifter),
-    stats: drifter.stats || {},
-    basicAttributes: drifter.basicAttributes || {},
-    baseHp: drifter.baseHp || 1000,
-    masteryBonuses: drifter.masteryBonuses || {},
-    icon: drifter.icon || '',
-    portrait: drifter.portrait || '',
-    cardIcon: drifter.cardIcon || '',
-    skill: findSkillById(drifter.skills?.core, skills),
-    passive: findSkillById(drifter.skills?.passive, skills),
-    support: drifter.support || {}
-  }));
+  console.log('🔍 DEBUG: Processing drifters, first few:', drifters.slice(0, 3));
+  const processed = drifters.map(drifter => {
+    console.log('🔍 DEBUG: Processing drifter:', drifter.name, 'id:', drifter.id);
+    return {
+      gameId: drifter.id,
+      name: drifter.name,
+      role: drifter.role || 'Support',
+      description: drifter.description || buildDrifterDescription(drifter),
+      stats: drifter.stats || {},
+      basicAttributes: drifter.basicAttributes || {},
+      baseHp: drifter.baseHp || 1000,
+      masteryBonuses: drifter.masteryBonuses || {},
+      icon: drifter.icon || '',
+      portrait: drifter.portrait || '',
+      cardIcon: drifter.cardIcon || '',
+      skill: findSkillById(drifter.skills?.core, skills),
+      passive: findSkillById(drifter.skills?.passive, skills),
+      support: drifter.support || {}
+    };
+  });
+  console.log('🔍 DEBUG: Processed drifters, first few gameIds:', processed.slice(0, 3).map(d => ({ name: d.name, gameId: d.gameId })));
+  return processed;
 }
 
 function processWeapons(weapons, skills) {

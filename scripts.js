@@ -60,8 +60,16 @@ async function loadDataSets(notify) {
     ]);
     console.log('Data loaded successfully on GitHub Pages');
 
+    // Process drifters to add gameId field
+    const processedDrifters = (driftersData.drifters || []).map(drifter => ({
+      ...drifter,
+      gameId: drifter.id // Add gameId field for click handler
+    }));
+    
+    console.log('🔍 DEBUG: Processed drifters with gameId:', processedDrifters.slice(0, 3).map(d => ({ name: d.name, id: d.id, gameId: d.gameId })));
+
     return {
-      drifters: driftersData.drifters || [],
+      drifters: processedDrifters,
       skills: skillsData.skills || [],
       gear: {
         weapons: weaponsData.weapons || [],
@@ -266,14 +274,25 @@ function renderDrifterSelection() {
     
     // Add click handler
     card.addEventListener('click', () => {
+      console.log('🔍 DEBUG: Drifter card clicked:', drifter.name, drifter.gameId);
+      console.log('🔍 DEBUG: Current selected drifters before:', STATE.selected.drifters);
+      
       const existing = STATE.selected.drifters.findIndex((sel) => sel.gameId === drifter.gameId);
+      console.log('🔍 DEBUG: Existing drifter found at index:', existing);
+      
       if (existing >= 0) {
+        console.log('🔍 DEBUG: Removing existing drifter');
         STATE.selected.drifters.splice(existing, 1);
         updateSupportEffects(null);
       } else {
+        console.log('🔍 DEBUG: Adding new drifter');
         STATE.selected.drifters.length = 0;
         STATE.selected.drifters.push(drifter);
       }
+      
+      console.log('🔍 DEBUG: Selected drifters after:', STATE.selected.drifters);
+      console.log('🔍 DEBUG: Calling updateAvatar with drifter:', STATE.selected.drifters[0]?.name);
+      
       updateAvatar();
       updateSupportEffects(STATE.selected.drifters[0]);
       clearGearSlots();
@@ -368,6 +387,50 @@ async function init() {
   if (isMobile) {
     document.body.classList.add('mobile-device');
     console.log('Mobile device detected, applying mobile styles. Width:', window.innerWidth, 'UserAgent:', navigator.userAgent);
+    
+    // DEBUG: Check if mobile class was applied
+    console.log('🔍 DEBUG: Mobile class applied:', document.body.classList.contains('mobile-device'));
+    
+    // DEBUG: Check loadout layout element
+    const loadoutLayout = document.getElementById('loadoutLayout');
+    if (loadoutLayout) {
+      console.log('🔍 DEBUG: Loadout layout element found:', loadoutLayout);
+      console.log('🔍 DEBUG: Loadout layout classes:', loadoutLayout.className);
+      console.log('🔍 DEBUG: Loadout layout computed style display:', window.getComputedStyle(loadoutLayout).display);
+      console.log('🔍 DEBUG: Loadout layout computed style grid-template-columns:', window.getComputedStyle(loadoutLayout).gridTemplateColumns);
+    }
+    
+    // DEBUG: Check equipment slots
+    const equipmentSlots = document.querySelector('.equipment-slots');
+    if (equipmentSlots) {
+      console.log('🔍 DEBUG: Equipment slots element found:', equipmentSlots);
+      console.log('🔍 DEBUG: Equipment slots classes:', equipmentSlots.className);
+      console.log('🔍 DEBUG: Equipment slots computed style display:', window.getComputedStyle(equipmentSlots).display);
+      console.log('🔍 DEBUG: Equipment slots computed style align-items:', window.getComputedStyle(equipmentSlots).alignItems);
+      console.log('🔍 DEBUG: Equipment slots computed style justify-content:', window.getComputedStyle(equipmentSlots).justifyContent);
+    }
+    
+    // DEBUG: Check mod slots
+    const modSlots = document.querySelector('.mod-slots');
+    if (modSlots) {
+      console.log('🔍 DEBUG: Mod slots element found:', modSlots);
+      console.log('🔍 DEBUG: Mod slots classes:', modSlots.className);
+      console.log('🔍 DEBUG: Mod slots computed style display:', window.getComputedStyle(modSlots).display);
+      console.log('🔍 DEBUG: Mod slots computed style align-items:', window.getComputedStyle(modSlots).alignItems);
+      console.log('🔍 DEBUG: Mod slots computed style justify-content:', window.getComputedStyle(modSlots).justifyContent);
+    }
+    
+    // DEBUG: Check individual slots
+    const slots = document.querySelectorAll('.slot');
+    console.log('🔍 DEBUG: Found', slots.length, 'slots');
+    slots.forEach((slot, index) => {
+      console.log(`🔍 DEBUG: Slot ${index}:`, slot);
+      console.log(`🔍 DEBUG: Slot ${index} classes:`, slot.className);
+      console.log(`🔍 DEBUG: Slot ${index} computed style display:`, window.getComputedStyle(slot).display);
+      console.log(`🔍 DEBUG: Slot ${index} computed style align-items:`, window.getComputedStyle(slot).alignItems);
+      console.log(`🔍 DEBUG: Slot ${index} computed style justify-content:`, window.getComputedStyle(slot).justifyContent);
+    });
+    
   } else {
     console.log('Desktop detected. Width:', window.innerWidth, 'UserAgent:', navigator.userAgent);
   }
@@ -376,6 +439,26 @@ async function init() {
   if (window.innerWidth <= 768) {
     document.body.classList.add('mobile-device');
     console.log('Forcing mobile mode due to small viewport:', window.innerWidth);
+    
+    // DEBUG: Check if mobile CSS is loaded
+    const mobileCSS = Array.from(document.styleSheets).find(sheet => 
+      sheet.href && sheet.href.includes('mobile.css')
+    );
+    console.log('🔍 DEBUG: Mobile CSS loaded:', !!mobileCSS);
+    if (mobileCSS) {
+      console.log('🔍 DEBUG: Mobile CSS href:', mobileCSS.href);
+      try {
+        const rules = Array.from(mobileCSS.cssRules || []);
+        console.log('🔍 DEBUG: Mobile CSS rules count:', rules.length);
+        const mobileDeviceRules = rules.filter(rule => 
+          rule.selectorText && rule.selectorText.includes('body.mobile-device')
+        );
+        console.log('🔍 DEBUG: Mobile device rules count:', mobileDeviceRules.length);
+        console.log('🔍 DEBUG: First few mobile device rules:', mobileDeviceRules.slice(0, 3).map(r => r.selectorText));
+      } catch (e) {
+        console.log('🔍 DEBUG: Cannot access mobile CSS rules (CORS):', e.message);
+      }
+    }
     
     // Mobile CSS handles all layout - no JavaScript overrides needed
     console.log('Mobile CSS will handle layout - no JavaScript overrides needed');
@@ -540,19 +623,29 @@ function updateWeaponSkill() {
 }
 
 function updateAvatar() {
+  console.log('🔍 DEBUG: updateAvatar called');
   const drifter = STATE.selected.drifters[0];
-  const loadoutLayout = document.getElementById('loadoutLayout');
-  const avatarTitle = document.getElementById('avatarTitle');
-  const avatarText = document.getElementById('avatarText');
+  console.log('🔍 DEBUG: Drifter from STATE:', drifter);
   
-  // Debug panel removed
+  const loadoutLayout = document.getElementById('loadoutLayout');
+  const avatarText = document.getElementById('avatarText');
+  const drifterInfoSection = document.getElementById('drifterInfoSection');
+  const drifterName = document.getElementById('drifterName');
+  const drifterDescription = document.getElementById('drifterDescription');
+  
+  console.log('🔍 DEBUG: DOM elements found:', {
+    loadoutLayout: !!loadoutLayout,
+    avatarText: !!avatarText,
+    drifterInfoSection: !!drifterInfoSection,
+    drifterName: !!drifterName,
+    drifterDescription: !!drifterDescription
+  });
   
   if (!drifter) {
     loadoutLayout.style.backgroundImage = '';
-    avatarTitle.textContent = '';
-    avatarDescription.textContent = '';
-    avatarText.textContent = 'Select Drifter';
-    avatarText.style.display = 'grid';
+    if (avatarText) avatarText.textContent = 'Select Drifter';
+    if (avatarText) avatarText.style.display = 'grid';
+    if (drifterInfoSection) drifterInfoSection.style.display = 'none';
     clearDrifterAbilities();
     disableEquipmentSlots(true);
     hideMasterySection();
@@ -575,9 +668,22 @@ function updateAvatar() {
     loadoutLayout.style.backgroundRepeat = '';
   }
   
-  avatarTitle.textContent = drifter.name;
-  avatarDescription.textContent = drifter.description || '';
-  avatarText.style.display = 'none';
+  console.log('🔍 DEBUG: Setting drifter info:', {
+    drifterName: drifter.name,
+    drifterDescription: drifter.description,
+    avatarText: !!avatarText,
+    drifterInfoSection: !!drifterInfoSection,
+    drifterNameEl: !!drifterName,
+    drifterDescEl: !!drifterDescription
+  });
+  
+  // Update the drifter info section below header
+  if (drifterInfoSection) drifterInfoSection.style.display = 'block';
+  if (drifterName) drifterName.textContent = drifter.name;
+  if (drifterDescription) drifterDescription.textContent = drifter.description || '';
+  
+  // Hide the "Select Drifter" text in the center
+  if (avatarText) avatarText.style.display = 'none';
   updateDrifterAbilities(drifter);
   disableEquipmentSlots(false);
   

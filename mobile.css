@@ -1,5 +1,30 @@
 /* Mobile-specific styles */
 @media screen and (max-width: 768px) {
+  /* DEBUG: Add visible borders to see what's happening */
+  body.mobile-device .loadout-layout {
+    border: 3px solid red !important;
+  }
+  
+  body.mobile-device .equipment-slots {
+    border: 2px solid blue !important;
+    background: rgba(0, 0, 255, 0.1) !important;
+  }
+  
+  body.mobile-device .mod-slots {
+    border: 2px solid green !important;
+    background: rgba(0, 255, 0, 0.1) !important;
+  }
+  
+  body.mobile-device .slot {
+    border: 1px solid yellow !important;
+    background: rgba(255, 255, 0, 0.1) !important;
+  }
+  
+  body.mobile-device .slot-card {
+    border: 1px solid orange !important;
+    background: rgba(255, 165, 0, 0.2) !important;
+  }
+  
   /* Force everything to stay within viewport */
   * {
     max-width: 100vw !important;
@@ -11,17 +36,34 @@
     box-sizing: border-box !important;
   }
   
+  /* Ensure parent containers don't overflow */
+  body.mobile-device .app-body {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+    margin: 0 !important;
+  }
+  
+  body.mobile-device .panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  
   /* Mobile layout: equipment left, mods right, drifter center */
   body.mobile-device .loadout-layout {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     grid-template-rows: auto auto !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
+    width: 100% !important;
+    max-width: 100% !important;
     overflow-x: hidden !important;
-    gap: 0.5rem !important;
-    padding: 0.5rem !important;
+    gap: 0.3rem !important;
+    padding: 0.3rem !important;
     box-sizing: border-box !important;
+    /* OVERRIDE DESKTOP justify-items: center */
+    justify-items: stretch !important;
+    align-items: start !important;
   }
   
   /* Equipment slots on the left */
@@ -30,8 +72,12 @@
     grid-row: 1 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.3rem !important;
+    gap: 0.2rem !important;
     align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.2rem !important;
   }
   
   /* Mod slots on the right */
@@ -40,8 +86,12 @@
     grid-row: 1 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.3rem !important;
+    gap: 0.2rem !important;
     align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.2rem !important;
   }
   
   /* Drifter section spans both columns below */
@@ -56,45 +106,28 @@
     justify-content: center !important;
     padding: 1rem !important;
   }
-  .loadout-layout {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    gap: 1rem !important;
-    padding: 1rem !important;
-  }
   
-  .slot-row {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 0.5rem !important;
-    width: 100% !important;
-    justify-content: center !important;
-    padding: 0.5rem 0 !important;
-  }
-  
-  /* Clean equipment slots - overridden by specific selectors above */
+  /* Override desktop slot-row grid behavior for mobile */
   body.mobile-device .slot-row {
     display: flex !important;
     flex-direction: column !important;
+    justify-items: unset !important;
     gap: 0.3rem !important;
     width: 100% !important;
-    max-width: 100% !important;
-    justify-content: center !important;
     align-items: center !important;
-    padding: 0.3rem 0 !important;
-    margin: 0 auto !important;
-    box-sizing: border-box !important;
+    justify-content: center !important;
   }
   
-  .slot {
+  /* Specific overrides for equipment and mod slot rows */
+  body.mobile-device .equipment-slots.slot-row,
+  body.mobile-device .mod-slots.slot-row {
     display: flex !important;
     flex-direction: column !important;
+    justify-items: unset !important;
+    gap: 0.3rem !important;
+    width: 100% !important;
     align-items: center !important;
-    min-width: 70px !important;
-    flex: 0 0 auto !important;
+    justify-content: center !important;
   }
   
   /* Clean individual slots */
@@ -106,13 +139,10 @@
     min-width: 60px !important;
     max-width: 80px !important;
     flex: 0 0 auto !important;
+    padding: 0.3rem 0 !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
-  }
-  
-  .slot-card {
-    width: 50px !important;
-    height: 50px !important;
+    width: 100% !important;
   }
   
   /* Clean slot cards on mobile */
@@ -122,12 +152,7 @@
     max-width: 50px !important;
     max-height: 50px !important;
     box-sizing: border-box !important;
-  }
-  
-  .slot-label {
-    font-size: 0.6rem !important;
-    margin-top: 0.2rem !important;
-    text-align: center !important;
+    margin: 0 auto !important;
   }
   
   /* Clean slot labels on mobile */
@@ -135,9 +160,11 @@
     font-size: 0.6rem !important;
     margin-top: 0.2rem !important;
     text-align: center !important;
+    width: 100% !important;
+    display: block !important;
   }
   
-  /* Hide "Empty Slot" text on mobile to avoid blocking the + symbol */
+  /* Show "Empty Slot" text on mobile but make it smaller */
   body.mobile-device .slot-card .slot-text {
     display: none !important;
   }
@@ -148,25 +175,6 @@
     font-weight: bold !important;
     color: white !important;
     text-shadow: 0 0 2px rgba(0,0,0,0.8) !important;
-  }
-  
-  .loadout-avatar {
-    order: 2 !important;
-    width: 100% !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 1rem !important;
-  }
-  
-  .loadout-avatar img {
-    max-width: 200px !important;
-    max-height: 200px !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
   }
   
   /* Clean drifter image scaling on mobile */
@@ -193,47 +201,72 @@
     overflow: hidden !important;
   }
   
-  .avatar-title {
+  /* Drifter info section - always visible under header */
+  body.mobile-device .drifter-info-section {
     text-align: center !important;
-    margin: 0.3rem auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-    font-size: 1.2rem !important;
+    padding: 1rem !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+    margin: 1rem !important;
   }
   
-  .avatar-description {
-    text-align: center !important;
-    margin: 0.3rem auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-    font-size: 0.9rem !important;
+  body.mobile-device .drifter-name {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    color: white !important;
+    margin: 0 0 0.5rem 0 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
   }
   
-  /* Downscale text on mobile */
-  body.mobile-device .avatar-title {
+  body.mobile-device .drifter-description {
     font-size: 1rem !important;
-    margin: 0.2rem auto !important;
+    color: rgba(255,255,255,0.9) !important;
+    margin: 0 !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
   }
   
-  body.mobile-device .avatar-description {
-    font-size: 0.8rem !important;
+  /* Override desktop absolute positioning for mobile */
+  body.mobile-device .avatar-title {
+    position: static !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
     margin: 0.2rem auto !important;
-  }
-  
-  /* Clean text centering on mobile */
-  body.mobile-device .avatar-title,
-  body.mobile-device .avatar-description {
+    width: 100% !important;
+    max-width: 100% !important;
     text-align: center !important;
+    display: block !important;
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+  }
+  
+  body.mobile-device .avatar-description {
+    position: static !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    font-size: 0.9rem !important;
+    margin: 0.1rem auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+    color: rgba(255,255,255,0.9) !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+  }
+  
+  /* Override desktop absolute positioning for avatar text */
+  body.mobile-device .avatar-text {
+    position: static !important;
+    inset: unset !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    color: var(--text-muted) !important;
     margin: 0.5rem auto !important;
     width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
-    transform: none !important;
   }
   
   /* Clean "Select Drifter" text centering */
@@ -243,76 +276,40 @@
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
-    transform: none !important;
   }
   
-  .avatar-trigger {
-    margin: 1rem auto !important;
-    display: block !important;
-  }
-  
-  .attributes-grid {
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  .attribute-card {
-    padding: 8px !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    text-align: left !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  .attribute-icon {
-    margin-right: 12px !important;
-    margin-bottom: 0 !important;
-    flex-shrink: 0 !important;
-  }
-  
-  .attribute-info {
-    flex: 1 !important;
-    align-items: flex-start !important;
-    min-width: 0 !important;
-  }
-  
-  .ability-bar {
+  /* Center drifter abilities section */
+  body.mobile-device .drifter-abilities {
     display: flex !important;
-    gap: 0.25rem !important;
     justify-content: center !important;
-    padding: 0.5rem !important;
-    margin: 0.5rem 0 !important;
-    overflow-x: auto !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: 100% !important;
-    flex-wrap: wrap !important;
+    margin: 0 auto !important;
+    padding: 0.5rem !important;
+  }
+  
+  /* Center passive slot container */
+  body.mobile-device .passive-slot-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   /* Force ability bar to fit on mobile */
   body.mobile-device .ability-bar {
     display: flex !important;
-    gap: 0.2rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.3rem !important;
     justify-content: center !important;
-    padding: 0.3rem !important;
-    margin: 0.3rem 0 !important;
+    padding: 0.5rem 0 !important;
+    margin: 0.5rem 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    flex-wrap: wrap !important;
     overflow-x: hidden !important;
-  }
-  
-  .ability-slot {
-    width: 50px !important;
-    height: 50px !important;
-    flex-shrink: 0 !important;
-    margin: 0.1rem !important;
   }
   
   /* Force smaller ability slots on mobile */
@@ -320,23 +317,23 @@
     width: 45px !important;
     height: 45px !important;
     flex-shrink: 0 !important;
-    margin: 0.05rem !important;
+    margin: 0.1rem !important;
   }
   
-  .ability-icon {
+  body.mobile-device .ability-slot .ability-icon {
     width: 100% !important;
     height: 100% !important;
     background-size: contain !important;
-    background-repeat: no-repeat !important;
     background-position: center !important;
+    background-repeat: no-repeat !important;
   }
   
-  .drifter-passive .ability-icon {
+  body.mobile-device .drifter-passive .ability-icon {
     width: 100% !important;
     height: 100% !important;
     background-size: contain !important;
-    background-repeat: no-repeat !important;
     background-position: center !important;
+    background-repeat: no-repeat !important;
   }
   
   /* Mobile modal constraints */
@@ -344,25 +341,33 @@
     padding: 0.5rem !important;
     align-items: flex-start !important;
     padding-top: 2rem !important;
+    box-sizing: border-box !important;
   }
   
   body.mobile-device .selection-dialog {
-    width: 100vw !important;
-    max-width: 100vw !important;
+    width: calc(100vw - 1rem) !important;
+    max-width: calc(100vw - 1rem) !important;
     height: 90vh !important;
     max-height: 90vh !important;
     margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   
   body.mobile-device .selection-dialog .selector-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
     gap: 0.5rem !important;
     padding: 0.5rem !important;
     max-height: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
   
   body.mobile-device .drifter-select-card {
-    width: 150px !important;
-    height: 180px !important;
+    width: 140px !important;
+    height: 170px !important;
+    max-width: 140px !important;
+    box-sizing: border-box !important;
   }
 }

@@ -19,6 +19,12 @@
         </h1>
       </header>
 
+      <!-- Drifter info section - always visible -->
+      <div class="drifter-info-section" id="drifterInfoSection" style="display: none;">
+        <h2 class="drifter-name" id="drifterName"></h2>
+        <p class="drifter-description" id="drifterDescription"></p>
+      </div>
+
       <div class="loadout-layout" id="loadoutLayout">
         <div class="loadout-overlay"></div>
         
@@ -42,8 +48,6 @@
         </section>
 
         <section class="loadout-avatar" aria-label="Selected drifter">
-          <h3 class="avatar-title" id="avatarTitle"></h3>
-          <div class="avatar-description" id="avatarDescription"></div>
           <button type="button" class="avatar-trigger" id="drifterTrigger">
             <div class="avatar-text" id="avatarText">Select Drifter</div>
           </button>
