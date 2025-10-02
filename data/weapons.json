@@ -61,6 +61,161 @@
         "toxic-matter"
       ],
       "icon": "./assets/icons/weapon-nihilstaff.png"
+    },
+    {
+      "id": "infestors-staff",
+      "gameId": "infestors-staff",
+      "name": "Infestor's Staff",
+      "type": "curse-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "description": "A staff that channels the power of parasitic infestation. Its curse spreads living parasites that feed on the enemy's life force.",
+      "stats": {
+        "damage": "88-130",
+        "attackSpeed": "1.15",
+        "criticalChance": "9%",
+        "magicPower": "+28"
+      },
+      "coreSkill": "parasitic-swarm",
+      "passiveSkill": "plague-outbreak",
+      "basicAttacks": [
+        "touch-of-plague",
+        "plague-strike", 
+        "venom-pool"
+      ],
+      "weaponSkills": [
+        "scourge",
+        "plague-surge",
+        "spread-plague",
+        "exhaustion",
+        "toxic-matter"
+      ],
+      "icon": "./assets/icons/weapon-infestors-staff.png"
+    },
+    {
+      "id": "plaguespread",
+      "gameId": "plaguespread",
+      "name": "Plaguespread",
+      "type": "curse-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "description": "A staff that spreads disease and pestilence across the battlefield. Its curse creates a spreading plague that weakens all who come near.",
+      "stats": {
+        "damage": "82-128",
+        "attackSpeed": "1.25",
+        "criticalChance": "7%",
+        "magicPower": "+26"
+      },
+      "coreSkill": "pestilence",
+      "passiveSkill": "plague-outbreak",
+      "basicAttacks": [
+        "touch-of-plague",
+        "plague-strike", 
+        "venom-pool"
+      ],
+      "weaponSkills": [
+        "scourge",
+        "plague-surge",
+        "spread-plague",
+        "exhaustion",
+        "toxic-matter"
+      ],
+      "icon": "./assets/icons/weapon-plaguespread.png"
+    },
+    {
+      "id": "hexlock",
+      "gameId": "hexlock",
+      "name": "Hexlock",
+      "type": "curse-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "description": "A cursed staff that binds enemies with hexes and malice. Its dark magic punishes those who dare to use their abilities while under its influence.",
+      "stats": {
+        "damage": "85-132",
+        "attackSpeed": "1.20",
+        "criticalChance": "8%",
+        "magicPower": "+28"
+      },
+      "coreSkill": "hexbound-malice",
+      "passiveSkill": "plague-outbreak",
+      "basicAttacks": [
+        "touch-of-plague",
+        "plague-strike", 
+        "venom-pool"
+      ],
+      "weaponSkills": [
+        "scourge",
+        "plague-surge",
+        "spread-plague",
+        "exhaustion",
+        "toxic-matter"
+      ],
+      "icon": "./assets/icons/weapon-hexlock.png"
+    },
+    {
+      "id": "withermaul",
+      "gameId": "withermaul",
+      "name": "Withermaul",
+      "type": "curse-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "description": "A staff imbued with ancient decay, capable of summoning blighted blooms that wither the life from foes.",
+      "stats": {
+        "damage": "90-140",
+        "attackSpeed": "1.15",
+        "criticalChance": "9%",
+        "magicPower": "+30"
+      },
+      "coreSkill": "bloom-of-malice",
+      "passiveSkill": "plague-outbreak",
+      "basicAttacks": [
+        "touch-of-plague",
+        "plague-strike", 
+        "venom-pool"
+      ],
+      "weaponSkills": [
+        "scourge",
+        "plague-surge",
+        "spread-plague",
+        "exhaustion",
+        "toxic-matter"
+      ],
+      "icon": "./assets/icons/weapon-withermaul.png"
+    },
+    {
+      "id": "necromist",
+      "gameId": "necromist",
+      "name": "Necromist",
+      "type": "curse-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "description": "A staff shrouded in necrotic mist, capable of unleashing eruptions of death clouds that spread decay and weaken enemies.",
+      "stats": {
+        "damage": "92-145",
+        "attackSpeed": "1.10",
+        "criticalChance": "10%",
+        "magicPower": "+32"
+      },
+      "coreSkill": "necrotic-eruption",
+      "passiveSkill": "plague-outbreak",
+      "basicAttacks": [
+        "touch-of-plague",
+        "plague-strike", 
+        "venom-pool"
+      ],
+      "weaponSkills": [
+        "scourge",
+        "plague-surge",
+        "spread-plague",
+        "exhaustion",
+        "toxic-matter"
+      ],
+      "icon": "./assets/icons/weapon-necromist.png"
     }
   ]
 }

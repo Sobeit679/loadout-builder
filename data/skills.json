@@ -3413,6 +3413,257 @@
         }
       ],
       "icon": "./assets/icons/skill-abundance.png"
+    },
+    {
+      "id": "parasitic-swarm",
+      "name": "Parasitic Swarm",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "skill", "dot"],
+      "mpCost": 25,
+      "cooldown": "23s",
+      "castingTime": "0.48s",
+      "range": "14m",
+      "description": "Infects an enemy with [Parasites]. [Parasites]: Parasites last 12s and deal 50% True Damage whenever the target takes direct damage (minimum interval 0.8s). When dispelled, deals 350% Magic Damage.",
+      "effects": [
+        {
+          "type": "debuff",
+          "name": "Parasites",
+          "duration": "12s",
+          "description": "Deals 50% True Damage whenever target takes direct damage (minimum interval 0.8s). When dispelled, deals 350% Magic Damage",
+          "effects": [
+            {
+              "type": "damage",
+              "value": 50,
+              "damageType": "True",
+              "unit": "percent",
+              "trigger": "on direct damage",
+              "interval": "0.8s"
+            },
+            {
+              "type": "damage",
+              "value": 350,
+              "damageType": "Magic",
+              "unit": "percent",
+              "trigger": "when dispelled"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-parasitic-swarm.png"
+    },
+    {
+      "id": "pestilence",
+      "name": "Pestilence",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "skill", "dot", "aoe"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "instant",
+      "range": "14m",
+      "description": "Infects any target with Pestilence Source for 8s. Every second, deals 65% Magic Damage to the infected and nearby enemies. Inflicts 1 stack of [Plague] and reduces damage dealt by 5% to enemies except the carrier for 4s, stacking up to 5 times.",
+      "effects": [
+        {
+          "type": "debuff",
+          "name": "Pestilence Source",
+          "duration": "8s",
+          "description": "Deals 65% Magic Damage every second to infected and nearby enemies",
+          "effects": [
+            {
+              "type": "damage",
+              "value": 65,
+              "damageType": "Magic",
+              "unit": "percent",
+              "target": "infected and nearby enemies",
+              "interval": "1s"
+            }
+          ]
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "duration": "4s",
+          "maxStacks": 5,
+          "description": "Reduces damage dealt by 5% per stack",
+          "effects": [
+            {
+              "type": "debuff",
+              "value": 5,
+              "unit": "percent",
+              "stat": "damage_dealt",
+              "perStack": true
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-pestilence.png"
+    },
+    {
+      "id": "hexbound-malice",
+      "name": "Hexbound Malice",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "skill", "aoe"],
+      "mpCost": 22,
+      "cooldown": "17s",
+      "castingTime": "0.48s",
+      "range": "16m",
+      "description": "Inflict 2 stacks of [Plague] as well as [Hexbound Malice] to enemies in range, lasting 9s. [Hexbound Malice]: Each active skill used consumes 10 extra MP and inflicts 200% Magic Damage.",
+      "effects": [
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "stacks": 2,
+          "duration": "9s",
+          "description": "Reduces damage dealt by 5% per stack",
+          "effects": [
+            {
+              "type": "debuff",
+              "value": 5,
+              "unit": "percent",
+              "stat": "damage_dealt",
+              "perStack": true
+            }
+          ]
+        },
+        {
+          "type": "debuff",
+          "name": "Hexbound Malice",
+          "duration": "9s",
+          "description": "Each active skill used consumes 10 extra MP and inflicts 200% Magic Damage",
+          "effects": [
+            {
+              "type": "debuff",
+              "name": "MP Cost Increase",
+              "value": 10,
+              "unit": "mp",
+              "trigger": "on active skill use"
+            },
+            {
+              "type": "damage",
+              "value": 200,
+              "damageType": "Magic",
+              "unit": "percent",
+              "trigger": "on active skill use"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-hexbound-malice.png"
+    },
+    {
+      "id": "bloom-of-malice",
+      "name": "Bloom of Malice",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "skill", "aoe", "stacking"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "castingTime": "3s",
+      "range": "16m",
+      "description": "Plants a Bloom of Malice seed before channeling energy to it for 3s. The seed grows gradually until blooming (press skill again to bloom early). When blooming, deals 360% Magic Damage to nearby enemies, inflicts random amounts of [Plague] stacks lasting 12s, and reduces Max HP by 2.5% (stacks up to 10 times). Effects increase with growth time ([Plague] stacks 1–2 → 3–10 / Max HP reduction stacks 1 → 10).",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 360,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "nearby enemies",
+          "trigger": "on bloom"
+        },
+        {
+          "type": "debuff",
+          "name": "Plague",
+          "duration": "12s",
+          "stacks": "random (1-2 initial, 3-10 with growth)",
+          "description": "Reduces damage dealt by 5% per stack",
+          "effects": [
+            {
+              "type": "debuff",
+              "value": 5,
+              "unit": "percent",
+              "stat": "damage_dealt",
+              "perStack": true
+            }
+          ]
+        },
+        {
+          "type": "debuff",
+          "name": "Max HP Reduction",
+          "duration": "12s",
+          "stacks": "up to 10 times (1 initial, 10 with growth)",
+          "description": "Reduces Max HP by 2.5% per stack",
+          "effects": [
+            {
+              "type": "debuff",
+              "value": 2.5,
+              "unit": "percent",
+              "stat": "max_hp",
+              "perStack": true
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-bloom-of-malice.png"
+    },
+    {
+      "id": "necrotic-eruption",
+      "name": "Necrotic Eruption",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "skill", "aoe", "dot"],
+      "mpCost": 28,
+      "cooldown": "34s",
+      "castingTime": "instant",
+      "range": "16m",
+      "description": "Deploys a Necrotic Eruption device at the target location. Every 2 seconds, it generates Death Clouds at random locations within the device's area (the device's range gradually expands), creating a total of 5 Death Clouds. Each Death Cloud lasts for 10s. Death Clouds deal 40% Magic Damage to enemies in range every second, inflicting [Plague], and reducing Healing Effect by 5% for 12s, stacking up to 5 times.",
+      "effects": [
+        {
+          "type": "summon",
+          "name": "Necrotic Eruption Device",
+          "duration": "indefinite",
+          "description": "Generates 5 Death Clouds over time",
+          "effects": [
+            {
+              "type": "generate-entity",
+              "entity": "Death Cloud",
+              "count": 5,
+              "interval": "2s",
+              "area": "device-area",
+              "randomLocation": true,
+              "entityEffects": [
+                {
+                  "type": "damage-over-time",
+                  "value": 40,
+                  "damageType": "Magic",
+                  "unit": "percent",
+                  "interval": "1s",
+                  "duration": "10s",
+                  "target": "enemies-in-range"
+                },
+                {
+                  "type": "debuff",
+                  "name": "Plague",
+                  "duration": "12s",
+                  "stacks": 1,
+                  "maxStacks": 5,
+                  "description": "Reduces Healing Effect by 5%",
+                  "effects": [
+                    {
+                      "type": "debuff",
+                      "value": 5,
+                      "unit": "percent",
+                      "stat": "healing_effect"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-necrotic-eruption.png"
     }
   ]
 }
