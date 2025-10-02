@@ -660,14 +660,17 @@ function updateAvatar() {
   
   if (isMobile) {
     // Mobile: use card images
-    imageUrl = drifter.cardIcon || drifter.card || drifter.icon || drifter.portrait;
+    const mobileImageUrl = drifter.cardIcon || drifter.card || drifter.icon || drifter.portrait;
+    // Add cache-busting parameter to force reload
+    imageUrl = mobileImageUrl ? `${mobileImageUrl}?v=${Date.now()}` : mobileImageUrl;
   } else {
     // Desktop: use regular drifter images
     const drifterId = drifter.id || drifter.gameId;
     if (drifterId) {
       // Special case for Nyxa (typo in filename)
       const imageName = drifterId === 'nyxa' ? 'nyxz' : drifterId;
-      imageUrl = `./assets/icons/drifter-${imageName}.png`;
+      // Add cache-busting parameter to force reload
+      imageUrl = `./assets/icons/drifter-${imageName}.png?v=${Date.now()}`;
     } else {
       // Fallback to existing properties
       imageUrl = drifter.icon || drifter.portrait;
