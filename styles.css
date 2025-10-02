@@ -239,7 +239,7 @@ body {
   padding: clamp(0.75rem, 2vw, 1.25rem);
   align-items: start;
   justify-items: center;
-  background-size: auto;
+  background-size: 100% auto;
   background-position: center bottom;
   background-repeat: no-repeat;
   border-radius: var(--radius);
