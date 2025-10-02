@@ -1423,4 +1423,43 @@ body {
   font-weight: 600;
 }
 
+.skills-video {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-link-button {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--accent);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 0.5rem 1rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.video-link-button:hover {
+  background: var(--accent);
+  color: var(--bg-elev-2);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3);
+}
+
+.video-link-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(var(--accent-rgb), 0.2);
+}
+
 /* Mobile rules moved to mobile.css to avoid conflicts */

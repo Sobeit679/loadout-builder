@@ -206,9 +206,9 @@
       "role": "Tank",
       "description": "Tank | Control",
       "basicAttributes": {
-        "strength": 46,
-        "agility": 40,
-        "intelligence": 50
+        "strength": 30,
+        "agility": 20,
+        "intelligence": 30
       },
       "stats": {
         "maxHpBonus": "11%",
@@ -243,6 +243,7 @@
       "icon": "./assets/icons/drifter-draknor.png",
       "portrait": "./assets/icons/drifter-draknor-portrait.png",
       "cardIcon": "./assets/icons/drifter-card-draknor.png",
+      "youtubeLink": "https://youtu.be/rZKpZSiibMY",
       "masteryBonuses": {
         "strength": 2.2,
         "agility": 1.0,

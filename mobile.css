@@ -349,4 +349,15 @@
   body .slot-card.empty::after {
     font-size: 1.2rem !important;
   }
+  
+  /* Mobile video link button styling */
+  .skills-video {
+    margin-top: 0.75rem !important;
+    padding-top: 0.75rem !important;
+  }
+  
+  .video-link-button {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.75rem !important;
+  }
 }

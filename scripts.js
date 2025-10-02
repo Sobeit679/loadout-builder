@@ -358,6 +358,7 @@ async function init() {
   supportList = document.getElementById('supportList');
   
   
+  
   // Add mobile class for responsive behavior
   // Check multiple conditions for mobile detection
   const isMobile = window.innerWidth <= 768 || 
@@ -619,11 +620,16 @@ function updateAvatar() {
   disableEquipmentSlots(false);
   
   // Show mastery section and update support effects
+  console.log('About to call showMasterySection');
   showMasterySection();
+  console.log('About to set mastery currentDrifter');
   STATE.mastery.currentDrifter = drifter;
   STATE.mastery.level = 1;
+  console.log('About to call updateMasteryDisplay');
   updateMasteryDisplay();
+  console.log('About to call updateSupportEffects with:', drifter);
   updateSupportEffects(drifter);
+  console.log('updateSupportEffects call completed');
 }
 
 function updateDrifterAbilities(drifter) {
@@ -1227,18 +1233,30 @@ if (masteryResetButton) {
 
 
 function updateSupportEffects(drifter) {
-  if (!supportEffects || !supportList) return;
+  console.log('=== updateSupportEffects called with:', drifter);
+  if (!supportEffects || !supportList) {
+    console.log('Support effects elements not found');
+    return;
+  }
   
   // Clear existing support effects
   supportList.innerHTML = '';
   
   if (!drifter || !drifter.support) {
+    console.log('No drifter or support data, hiding support effects');
     supportEffects.style.display = 'none';
+    updateSkillsVideo(null);
     return;
   }
   
   // Show support effects section
+  console.log('Showing support effects for:', drifter.name);
   supportEffects.style.display = 'block';
+  
+  // Update skills video button
+  console.log('About to call updateSkillsVideo');
+  updateSkillsVideo(drifter);
+  console.log('updateSkillsVideo call completed');
   
   // Add support effects
   if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
@@ -1287,6 +1305,40 @@ function updateSupportEffects(drifter) {
   }
 }
 
+function updateSkillsVideo(drifter) {
+  const skillsVideo = document.getElementById('skillsVideo');
+  if (!skillsVideo) return;
+  
+  if (!drifter) {
+    skillsVideo.style.display = 'none';
+    return;
+  }
+  
+  // Always show the video section, but with different text based on whether there's a link
+  skillsVideo.style.display = 'block';
+  
+  const videoButton = document.getElementById('playButton');
+  if (videoButton) {
+    if (drifter.youtubeLink) {
+      videoButton.textContent = 'VIDEO INTRODUCTION';
+      videoButton.style.opacity = '1';
+      videoButton.style.cursor = 'pointer';
+    } else {
+      videoButton.textContent = 'VIDEO COMING SOON';
+      videoButton.style.opacity = '0.5';
+      videoButton.style.cursor = 'not-allowed';
+    }
+  }
+}
+
+function handlePlayButtonClick() {
+  const selectedDrifter = STATE.selected.drifters[0];
+  if (!selectedDrifter || !selectedDrifter.youtubeLink) return;
+  
+  // Open YouTube link in a new tab
+  window.open(selectedDrifter.youtubeLink, '_blank');
+}
+
 // Bind mastery button events
 if (masteryButton) {
   masteryButton.addEventListener('click', increaseMasteryLevel);
@@ -1296,8 +1348,11 @@ if (masteryResetButton) {
   masteryResetButton.addEventListener('click', resetMasteryLevel);
 }
 
-
-
+// Bind play button event
+const playButton = document.getElementById('playButton');
+if (playButton) {
+  playButton.addEventListener('click', handlePlayButtonClick);
+}
 
 // Initialize the application when DOM is ready
 console.log('Script loaded on GitHub Pages');
