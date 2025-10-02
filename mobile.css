@@ -81,13 +81,7 @@
     box-sizing: border-box !important;
   }
   
-  .slot {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    min-width: 70px !important;
-    flex: 0 0 auto !important;
-  }
+  /* Removed duplicate slot rule - using body.mobile-device version below */
   
   /* Clean individual slots */
   body.mobile-device .slot {
@@ -102,10 +96,7 @@
     box-sizing: border-box !important;
   }
   
-  .slot-card {
-    width: 50px !important;
-    height: 50px !important;
-  }
+  /* Removed duplicate slot-card rule - using body.mobile-device version below */
   
   /* Clean slot cards on mobile */
   body.mobile-device .slot-card {
@@ -116,11 +107,7 @@
     box-sizing: border-box !important;
   }
   
-  .slot-label {
-    font-size: 0.6rem !important;
-    margin-top: 0.2rem !important;
-    text-align: center !important;
-  }
+  /* Removed duplicate slot-label rule - using body.mobile-device version below */
   
   /* Clean slot labels on mobile */
   body.mobile-device .slot-label {
@@ -163,18 +150,7 @@
     display: block !important;
   }
   
-  /* Clean avatar container */
-  body.mobile-device .loadout-avatar {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 200px !important;
-    min-height: 200px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden !important;
-  }
+  /* Removed duplicate loadout-avatar rule - using the first one above */
   
   .avatar-title {
     text-align: center !important;
