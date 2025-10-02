@@ -45,6 +45,11 @@ Each data entry follows a consistent structure:
 - **Visual Assets**: Icon path for representation
 - **Relationships**: ID-based references between items
 
+## 🎮 Credits
+
+- **Game**: [Warborne](https://warborne.qoolandgames.com/) - All in-game assets used with permission
+- **Tool**: Fan-made loadout builder (not officially affiliated)
+
 ## 📄 License
 
 MIT License - feel free to use and modify as needed.

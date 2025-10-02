@@ -158,8 +158,13 @@ function renderCards(items, container, isSelected, onToggle) {
       itemName.style.marginBottom = '2px';
       
       const itemType = document.createElement('div');
-      if (item.weaponType && item.range) {
-        itemType.textContent = `${item.weaponType} • ${item.range}`;
+      if (item.type) {
+        // Convert weapon type from kebab-case to display format
+        const weaponTypeDisplay = item.type
+          .split('-')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+        itemType.textContent = weaponTypeDisplay;
       } else if (item.armorType) {
         itemType.textContent = item.armorType;
       }
@@ -364,6 +369,21 @@ function showOverlay(title, key) {
   
   selectionOverlay.style.display = 'grid';
   selectionOverlay.hidden = false;
+  
+  // Add data-selection-type attribute for mobile CSS targeting
+  const selectionType = key === 'drifters' ? 'drifter' : 'equipment';
+  selectionOverlay.setAttribute('data-selection-type', selectionType);
+  
+  // Also add to dialog and header elements
+  const dialog = selectionOverlay.querySelector('.selection-dialog');
+  const header = selectionOverlay.querySelector('.selection-header');
+  const titleEl = selectionOverlay.querySelector('.selection-title');
+  const closeBtn = selectionOverlay.querySelector('.ghost-btn');
+  
+  if (dialog) dialog.setAttribute('data-selection-type', selectionType);
+  if (header) header.setAttribute('data-selection-type', selectionType);
+  if (titleEl) titleEl.setAttribute('data-selection-type', selectionType);
+  if (closeBtn) closeBtn.setAttribute('data-selection-type', selectionType);
   
   if (selectionTitle) {
     selectionTitle.textContent = title;

@@ -360,4 +360,209 @@
     padding: 0.4rem 0.8rem !important;
     font-size: 0.75rem !important;
   }
+
+  /* Enhanced Mobile Equipment Modals - Only for Equipment, Not Drifter */
+  body.mobile-device .selection-overlay[data-selection-type="equipment"] {
+    padding: 0.25rem !important;
+    align-items: flex-start !important;
+    padding-top: 1rem !important;
+    box-sizing: border-box !important;
+    background: rgba(12, 14, 18, 0.98) !important;
+  }
+  
+  body.mobile-device .selection-dialog[data-selection-type="equipment"] {
+    width: calc(100vw - 0.5rem) !important;
+    max-width: calc(100vw - 0.5rem) !important;
+    height: 95vh !important;
+    max-height: 95vh !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+  }
+  
+  body.mobile-device .selection-header[data-selection-type="equipment"] {
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid var(--border) !important;
+    background: var(--bg-elev-2) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+  }
+  
+  body.mobile-device .selection-title[data-selection-type="equipment"] {
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+    color: var(--text) !important;
+    text-align: center !important;
+  }
+  
+  body.mobile-device .ghost-btn[data-selection-type="equipment"] {
+    position: absolute !important;
+    top: 0.75rem !important;
+    right: 1rem !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: var(--bg-elev-3) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+    font-size: 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Mobile Equipment Grid - Single Column Layout (Only for Equipment) */
+  body.mobile-device .selection-dialog[data-selection-type="equipment"] .selector-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem !important;
+    max-height: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Mobile Equipment Cards - Simplified Layout (Image + Name + Description) */
+  body.mobile-device .selector-card {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1rem !important;
+    border-bottom: 1px solid var(--border) !important;
+    background: var(--card-bg) !important;
+    transition: background-color 0.2s !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    box-sizing: border-box !important;
+  }
+  
+  body.mobile-device .selector-card:hover {
+    background: var(--bg-elev-2) !important;
+  }
+  
+  /* Mobile Equipment Card Images - Larger for better visibility */
+  body.mobile-device .selector-card .item-thumb {
+    width: 80px !important;
+    height: 80px !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--border) !important;
+    background: var(--bg) !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Hide all skill-related content on mobile */
+  body.mobile-device .selector-card .item-overlay,
+  body.mobile-device .selector-card .skill-icon,
+  body.mobile-device .selector-card .skill-info,
+  body.mobile-device .selector-card .skill-image,
+  body.mobile-device .selector-card .skill-header,
+  body.mobile-device .selector-card .skill-name,
+  body.mobile-device .selector-card .skill-tags,
+  body.mobile-device .selector-card .skill-tag,
+  body.mobile-device .selector-card .skill-desc {
+    display: none !important;
+  }
+  
+  /* Hide skill-related divs that don't have specific classes */
+  body.mobile-device .selector-card > div:nth-child(3),
+  body.mobile-device .selector-card > div:nth-child(4) {
+    display: none !important;
+  }
+  
+  /* Mobile Equipment Card Content - Simplified */
+  body.mobile-device .selector-card header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  
+  body.mobile-device .selector-card .item-name {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: var(--text) !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+  }
+  
+  body.mobile-device .selector-card .item-sub {
+    font-size: 0.8rem !important;
+    color: var(--accent) !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    font-weight: 500 !important;
+  }
+  
+  body.mobile-device .selector-card .item-desc {
+    font-size: 0.75rem !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  
+  body.mobile-device .selector-card .item-meta {
+    font-size: 0.7rem !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    font-style: italic !important;
+  }
+  
+  /* Mobile Rarity Colors */
+  body.mobile-device .selector-card[data-rarity="common"] {
+    border-left: 3px solid #9ca3af !important;
+  }
+  
+  body.mobile-device .selector-card[data-rarity="uncommon"] {
+    border-left: 3px solid #10b981 !important;
+  }
+  
+  body.mobile-device .selector-card[data-rarity="rare"] {
+    border-left: 3px solid #3b82f6 !important;
+  }
+  
+  body.mobile-device .selector-card[data-rarity="epic"] {
+    border-left: 3px solid #8b5cf6 !important;
+  }
+  
+  body.mobile-device .selector-card[data-rarity="legendary"] {
+    border-left: 3px solid #f59e0b !important;
+  }
+  
+  /* Mobile Scrollbar Styling */
+  body.mobile-device .selector-grid::-webkit-scrollbar {
+    width: 4px !important;
+  }
+  
+  body.mobile-device .selector-grid::-webkit-scrollbar-track {
+    background: var(--bg) !important;
+  }
+  
+  body.mobile-device .selector-grid::-webkit-scrollbar-thumb {
+    background: var(--border) !important;
+    border-radius: 2px !important;
+  }
+  
+  body.mobile-device .selector-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--accent) !important;
+  }
 }

@@ -1584,7 +1584,7 @@
       "name": "Soul Feast",
       "type": "active",
       "category": "damage",
-      "tags": ["slow", "buff", "skill", "disarm"],
+      "tags": ["slow", "buff", "skill"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
