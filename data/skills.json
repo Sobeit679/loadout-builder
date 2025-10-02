@@ -3664,6 +3664,365 @@
         }
       ],
       "icon": "./assets/icons/skill-necrotic-eruption.png"
+    },
+    {
+      "id": "divine-ward",
+      "name": "Divine Ward",
+      "type": "passive",
+      "category": "buff",
+      "tags": ["buff", "passive"],
+      "description": "Increases the resistances of allies within 9m by 15%",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Resistance Boost",
+          "value": 15,
+          "unit": "percent",
+          "stat": "resistances",
+          "target": "allies",
+          "range": "9m",
+          "description": "Increases resistances of nearby allies"
+        }
+      ],
+      "icon": "./assets/icons/passive-divine-ward.png"
+    },
+    {
+      "id": "aegisflare",
+      "name": "Aegisflare",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "shield", "healing", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "instant",
+      "range": "16m",
+      "description": "Grants a shield of 25% of target's Max HP to the caster or an ally for 4s. When the shield breaks, deals 250% Magic Damage to nearby enemies.",
+      "effects": [
+        {
+          "type": "shield",
+          "value": 25,
+          "unit": "percent",
+          "stat": "max_hp",
+          "duration": "4s",
+          "target": "caster or ally",
+          "description": "Grants shield based on target's Max HP"
+        },
+        {
+          "type": "damage",
+          "value": 250,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "nearby enemies",
+          "trigger": "when shield breaks",
+          "description": "Deals damage when shield is destroyed"
+        }
+      ],
+      "icon": "./assets/icons/skill-aegisflare.png"
+    },
+    {
+      "id": "holy-feather",
+      "name": "Holy Feather",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 0,
+      "cooldown": "0.48s",
+      "castingTime": "0.48s",
+      "range": "16m",
+      "description": "Deals 90% Magic Damage. Can cast every 5s. Deals 150% Magic Damage to the target and heals 90% HP for up to 3 allies within 16m who have the lowest HP.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 90,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "target",
+          "description": "Normal attack damage"
+        },
+        {
+          "type": "damage",
+          "value": 150,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "target",
+          "trigger": "every 5s",
+          "description": "Enhanced damage every 5 seconds"
+        },
+        {
+          "type": "healing",
+          "value": 90,
+          "unit": "percent",
+          "target": "up to 3 allies with lowest HP",
+          "range": "16m",
+          "trigger": "every 5s",
+          "description": "Heals allies with lowest HP"
+        }
+      ],
+      "icon": "./assets/icons/skill-holy-feather.png"
+    },
+    {
+      "id": "holy-smite",
+      "name": "Holy Smite",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "buff", "skill"],
+      "mpCost": 0,
+      "cooldown": "0.48s",
+      "castingTime": "1.1s",
+      "range": "12m",
+      "description": "Calls down holy smite at the target location, dealing 80% Magic Damage to all players (160% Magic Damage to mobs). Heals the caster for 57% HP if hitting at least one enemy.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 80,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "all players",
+          "description": "Damage to players"
+        },
+        {
+          "type": "damage",
+          "value": 160,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "mobs",
+          "description": "Enhanced damage to mobs"
+        },
+        {
+          "type": "healing",
+          "value": 57,
+          "unit": "percent",
+          "target": "caster",
+          "trigger": "if hitting at least one enemy",
+          "description": "Heals caster when hitting enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-holy-smite.png"
+    },
+    {
+      "id": "holy-heal",
+      "name": "Holy Heal",
+      "type": "active",
+      "category": "healing",
+      "tags": ["healing", "skill"],
+      "mpCost": 0,
+      "cooldown": "0.48s",
+      "castingTime": "1.4s",
+      "range": "14m",
+      "description": "Performs Holy Heal at the target location, restoring 108% HP to allies in range.",
+      "effects": [
+        {
+          "type": "healing",
+          "value": 108,
+          "unit": "percent",
+          "target": "allies in range",
+          "description": "Restores HP to nearby allies"
+        }
+      ],
+      "icon": "./assets/icons/skill-holy-heal.png"
+    },
+    {
+      "id": "holy-wave",
+      "name": "Holy Wave",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 17,
+      "cooldown": "9.7s",
+      "castingTime": "instant",
+      "range": "18m",
+      "description": "Projects a holy wave in the target direction, dealing 200% Magic Damage to all players (300% Magic Damage to mobs) in its path. The wave automatically returns when reaching max range, healing up to 5 nearby allies for 90% HP.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 200,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "all players in path",
+          "description": "Damage to players"
+        },
+        {
+          "type": "damage",
+          "value": 300,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "mobs in path",
+          "description": "Enhanced damage to mobs"
+        },
+        {
+          "type": "healing",
+          "value": 90,
+          "unit": "percent",
+          "target": "up to 5 nearby allies",
+          "trigger": "when wave returns",
+          "description": "Heals allies when wave returns"
+        }
+      ],
+      "icon": "./assets/icons/skill-holy-wave.png"
+    },
+    {
+      "id": "divine-link",
+      "name": "Divine Link",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 21,
+      "cooldown": "15s",
+      "castingTime": "6s",
+      "range": "10m",
+      "description": "Channels divine link on target for 6s, also granting the caster 15% of target's Max HP Shield for 4s. Can move slowly while channeling. When targeting an ally, heals them for 120% HP every second. When targeting an enemy, deals 100% Magic Damage every second.",
+      "effects": [
+        {
+          "type": "shield",
+          "value": 15,
+          "unit": "percent",
+          "stat": "max_hp",
+          "duration": "4s",
+          "target": "caster",
+          "description": "Grants shield to caster"
+        },
+        {
+          "type": "healing",
+          "value": 120,
+          "unit": "percent",
+          "target": "ally",
+          "interval": "1s",
+          "duration": "6s",
+          "trigger": "when targeting ally",
+          "description": "Heals ally every second"
+        },
+        {
+          "type": "damage",
+          "value": 100,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "enemy",
+          "interval": "1s",
+          "duration": "6s",
+          "trigger": "when targeting enemy",
+          "description": "Damages enemy every second"
+        }
+      ],
+      "icon": "./assets/icons/skill-divine-link.png"
+    },
+    {
+      "id": "holy-energy",
+      "name": "Holy Energy",
+      "type": "active",
+      "category": "healing",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 20,
+      "cooldown": "13s",
+      "castingTime": "instant",
+      "range": "14m",
+      "description": "Projects holy energy at the target location. On impact, restores 90% HP and grants a 20% of target's Max HP shield for 4s to allies in range.",
+      "effects": [
+        {
+          "type": "healing",
+          "value": 90,
+          "unit": "percent",
+          "target": "allies in range",
+          "description": "Restores HP to allies"
+        },
+        {
+          "type": "shield",
+          "value": 20,
+          "unit": "percent",
+          "stat": "max_hp",
+          "duration": "4s",
+          "target": "allies in range",
+          "description": "Grants shield to allies"
+        }
+      ],
+      "icon": "./assets/icons/skill-holy-energy.png"
+    },
+    {
+      "id": "holy-wall",
+      "name": "Holy Wall",
+      "type": "active",
+      "category": "damage",
+      "tags": ["shield", "hard-control", "skill"],
+      "mpCost": 21,
+      "cooldown": "15s",
+      "castingTime": "instant",
+      "range": "3m",
+      "description": "Creates multiple holy walls in front. Enemies who touch them take 150% Magic Damage and are stunned for 1.5s, while the caster gains a 15% of target's Max HP shield for 6s.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 150,
+          "damageType": "Magic",
+          "unit": "percent",
+          "target": "enemies who touch walls",
+          "description": "Damage to enemies touching walls"
+        },
+        {
+          "type": "stun",
+          "duration": "1.5s",
+          "target": "enemies who touch walls",
+          "description": "Stuns enemies touching walls"
+        },
+        {
+          "type": "shield",
+          "value": 15,
+          "unit": "percent",
+          "stat": "max_hp",
+          "duration": "6s",
+          "target": "caster",
+          "description": "Grants shield to caster"
+        }
+      ],
+      "icon": "./assets/icons/skill-holy-wall.png"
+    },
+    {
+      "id": "holy-baptism",
+      "name": "Holy Baptism",
+      "type": "active",
+      "category": "healing",
+      "tags": ["healing", "buff", "cleanse", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "instant",
+      "range": "14m",
+      "description": "Cleanses all Slow and Immobilize effects and 2 Debuff effects from the caster and up to 20 nearby allies and restores 120% HP. Also prevents the next 3 Immobilize and Immune to Slow effects within 4s.",
+      "effects": [
+        {
+          "type": "cleanse",
+          "effects": ["slow", "immobilize"],
+          "target": "caster and up to 20 nearby allies",
+          "description": "Removes Slow and Immobilize effects"
+        },
+        {
+          "type": "cleanse",
+          "effects": ["debuff"],
+          "count": 2,
+          "target": "caster and up to 20 nearby allies",
+          "description": "Removes 2 debuff effects"
+        },
+        {
+          "type": "healing",
+          "value": 120,
+          "unit": "percent",
+          "target": "caster and up to 20 nearby allies",
+          "description": "Restores HP to allies"
+        },
+        {
+          "type": "buff",
+          "name": "Immobilize Immunity",
+          "duration": "4s",
+          "stacks": 3,
+          "target": "caster and up to 20 nearby allies",
+          "description": "Prevents next 3 Immobilize effects"
+        },
+        {
+          "type": "buff",
+          "name": "Slow Immunity",
+          "duration": "4s",
+          "target": "caster and up to 20 nearby allies",
+          "description": "Immune to Slow effects"
+        }
+      ],
+      "icon": "./assets/icons/skill-holy-baptism.png"
     }
   ]
 }

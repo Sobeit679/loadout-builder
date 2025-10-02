@@ -216,6 +216,37 @@
         "toxic-matter"
       ],
       "icon": "./assets/icons/weapon-necromist.png"
+    },
+    {
+      "id": "judgements-staff",
+      "gameId": "judgements-staff",
+      "name": "Judgment's Staff",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "description": "A divine staff of judgment, capable of both healing allies and smiting enemies with holy power.",
+      "stats": {
+        "damage": "88-135",
+        "attackSpeed": "1.20",
+        "criticalChance": "8%",
+        "magicPower": "+28"
+      },
+      "coreSkill": "aegisflare",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-judgments-staff.png"
     }
   ]
 }
