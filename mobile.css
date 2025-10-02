@@ -1,29 +1,9 @@
 /* Mobile-specific styles */
 @media screen and (max-width: 768px) {
-  /* DEBUG: Add visible borders to see what's happening */
-  body.mobile-device .loadout-layout {
-    border: 3px solid red !important;
-  }
   
-  body.mobile-device .equipment-slots {
-    border: 2px solid blue !important;
-    background: rgba(0, 0, 255, 0.1) !important;
-  }
   
-  body.mobile-device .mod-slots {
-    border: 2px solid green !important;
-    background: rgba(0, 255, 0, 0.1) !important;
-  }
   
-  body.mobile-device .slot {
-    border: 1px solid yellow !important;
-    background: rgba(255, 255, 0, 0.1) !important;
-  }
   
-  body.mobile-device .slot-card {
-    border: 1px solid orange !important;
-    background: rgba(255, 165, 0, 0.2) !important;
-  }
   
   /* Force everything to stay within viewport */
   * {
