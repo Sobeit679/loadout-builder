@@ -887,6 +887,8 @@ function getTagClass(tag) {
       return 'tag-control';
     case 'buff':
       return 'tag-buff';
+    case 'debuff':
+      return 'tag-debuff';
     case 'teleport':
       return 'tag-teleport';
     case 'healing':
@@ -947,6 +949,22 @@ function getTagClass(tag) {
       return 'tag-immobilize';
     case 'pull':
       return 'tag-pull';
+    case 'summon':
+      return 'tag-summon';
+    case 'stacking':
+      return 'tag-stacking';
+    case 'melee':
+      return 'tag-melee';
+    case 'elemental':
+      return 'tag-elemental';
+    case 'coordination':
+      return 'tag-coordination';
+    case 'illusion':
+      return 'tag-illusion';
+    case 'mp':
+      return 'tag-mp';
+    case 'cleanse':
+      return 'tag-cleanse';
     case 'cooldown_reduction':
       return 'tag-cooldown';
     case 'cooldown':

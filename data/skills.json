@@ -121,7 +121,7 @@
       "name": "Meteor Storm",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "aoe", "magic", "control"],
+      "tags": ["magic_damage", "aoe", "magic", "control"],
       "mpCost": 35,
       "cooldown": "25s",
       "range": "12m",
@@ -510,7 +510,7 @@
       "name": "Tempest Slash",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "physical", "area", "control_immunity", "damage_immunity", "critical"],
+      "tags": ["damage", "physical", "area", "immunity", "damage_immunity", "critical"],
       "mpCost": 27,
       "cooldown": "28s",
       "range": "8m",
@@ -578,7 +578,7 @@
           "maxChains": 5
         },
         {
-          "type": "control_immunity",
+          "type": "immunity",
           "duration": "4s",
           "target": "self"
         },
@@ -664,7 +664,7 @@
           "range": "10m"
         },
         {
-          "type": "control_immunity",
+          "type": "immunity",
           "duration": "6s",
           "target": "self"
         },
@@ -732,6 +732,2186 @@
         }
       ],
       "icon": "./assets/icons/passive-reflective-shield.png"
+    },
+    {
+      "id": "storm-pulse",
+      "name": "Storm Pulse",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "area", "physical"],
+      "mpCost": 29,
+      "cooldown": "39s",
+      "range": "7m",
+      "description": "Activate an Electric Device for 8s. Electric Device hits up to 5 enemies every 0.5s for [Damage Rate: 40%] Physical Damage, reducing Armor by 8% for 8s. Stacks up to 10 times.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[40%]",
+          "damageType": "Physical",
+          "target": "enemies",
+          "maxTargets": 5,
+          "interval": "0.5s",
+          "duration": "8s"
+        },
+        {
+          "type": "debuff",
+          "effect": "armor_reduction",
+          "value": "8%",
+          "duration": "8s",
+          "maxStacks": 10,
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-storm-pulse.png"
+    },
+    {
+      "id": "static-overdrive",
+      "name": "Static Overdrive",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "passive", "stacking"],
+      "description": "Basic Attacks grant 1 stack of Electric Charge. At 5 stacks, the next attack triggers EMP Blast, dealing [Damage Rate: 160%] Physical Damage to enemies in range.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "stacking",
+          "trigger": "basic_attack",
+          "stacks": "electric_charge",
+          "maxStacks": 5
+        },
+        {
+          "type": "damage",
+          "value": "X[160%]",
+          "damageType": "Physical",
+          "trigger": "emp_blast",
+          "condition": "5_stacks",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/passive-static-overdrive.png"
+    },
+    {
+      "id": "spiral-strike",
+      "name": "Spiral Strike",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "physical", "melee"],
+      "mpCost": 25,
+      "cooldown": "15s",
+      "range": "3m",
+      "description": "Performs a spinning attack dealing [Damage Rate: 120%] Physical Damage to nearby enemies.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[120%]",
+          "damageType": "Physical",
+          "target": "enemies",
+          "area": "3m"
+        }
+      ],
+      "icon": "./assets/icons/skill-spiral-strike.png"
+    },
+    {
+      "id": "elemental-flow",
+      "name": "Elemental Flow",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["passive", "elemental", "mana"],
+      "description": "Elemental skills have 20% reduced mana cost and 15% increased effectiveness.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "mana_reduction",
+          "value": "20%",
+          "condition": "elemental_skills"
+        },
+        {
+          "type": "passive",
+          "effect": "effectiveness_boost",
+          "value": "15%",
+          "condition": "elemental_skills"
+        }
+      ],
+      "icon": "./assets/icons/passive-elemental-flow.png"
+    },
+    {
+      "id": "swarm-command",
+      "name": "Swarm Command",
+      "type": "active",
+      "category": "summon",
+      "tags": ["summon", "control", "area"],
+      "mpCost": 30,
+      "cooldown": "25s",
+      "range": "8m",
+      "description": "Summons a swarm of creatures that attack enemies in the target area for 10s.",
+      "effects": [
+        {
+          "type": "summon",
+          "creature": "swarm",
+          "duration": "10s",
+          "target": "area",
+          "range": "8m"
+        }
+      ],
+      "icon": "./assets/icons/skill-swarm-command.png"
+    },
+    {
+      "id": "hive-mind",
+      "name": "Hive Mind",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["passive", "summon", "coordination"],
+      "description": "Summoned creatures gain 25% increased damage and move 30% faster.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "summon_boost",
+          "damage": "25%",
+          "speed": "30%"
+        }
+      ],
+      "icon": "./assets/icons/passive-hive-mind.png"
+    },
+    {
+      "id": "reality-distortion",
+      "name": "Reality Distortion",
+      "type": "active",
+      "category": "control",
+      "tags": ["control", "debuff", "area"],
+      "mpCost": 35,
+      "cooldown": "30s",
+      "range": "6m",
+      "description": "Creates a distortion field that slows enemies by 40% and reduces their accuracy by 25% for 8s.",
+      "effects": [
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "40%",
+          "duration": "8s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "accuracy_reduction",
+          "value": "25%",
+          "duration": "8s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-reality-distortion.png"
+    },
+    {
+      "id": "illusion-mastery",
+      "name": "Illusion Mastery",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["passive", "illusion", "stealth"],
+      "description": "Illusion skills last 50% longer and have 30% reduced mana cost.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "duration_boost",
+          "value": "50%",
+          "condition": "illusion_skills"
+        },
+        {
+          "type": "passive",
+          "effect": "mana_reduction",
+          "value": "30%",
+          "condition": "illusion_skills"
+        }
+      ],
+      "icon": "./assets/icons/passive-illusion-mastery.png"
+    },
+    {
+      "id": "genetic-cascade",
+      "name": "Genetic Cascade",
+      "type": "active",
+      "category": "support",
+      "tags": ["healing", "debuff", "buff", "damage"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "range": "12m",
+      "description": "Initiates a Genetic Cascade on the target, lasting 15 seconds. When the target is an ally: Restores [Healing Rate: 30%] HP per second and applies Damage Increase by 3% for 5s, stacking up to 10 times. When the target is an enemy: Deals [Damage Rate: 50%] Magic Damage per second and applies Damage Reduced by 3% for 5s, stacking up to 10 times. Initial link also affects caster: Restores [Healing Rate: 30%] HP per second to the caster and applies Damage Increase by 3% for 5s, stacking up to 10 times. Additional Connection: Another connection can be made to a different type of target that was not selected initially during the skill duration. Link Break Condition: The link breaks if the distance to the target exceeds 25 meters.",
+      "effects": [
+        {
+          "type": "healing",
+          "value": "X[30%]",
+          "target": "ally",
+          "duration": "15s",
+          "interval": "1s"
+        },
+        {
+          "type": "buff",
+          "name": "Damage Increase",
+          "value": "3%",
+          "duration": "5s",
+          "stacks": 10,
+          "target": "ally"
+        },
+        {
+          "type": "damage",
+          "value": "X[50%]",
+          "damageType": "Magic",
+          "target": "enemy",
+          "duration": "15s",
+          "interval": "1s"
+        },
+        {
+          "type": "debuff",
+          "name": "Damage Reduced",
+          "value": "3%",
+          "duration": "5s",
+          "stacks": 10,
+          "target": "enemy"
+        },
+        {
+          "type": "healing",
+          "value": "X[30%]",
+          "target": "caster",
+          "duration": "15s",
+          "interval": "1s"
+        },
+        {
+          "type": "buff",
+          "name": "Damage Increase",
+          "value": "3%",
+          "duration": "5s",
+          "stacks": 10,
+          "target": "caster"
+        }
+      ],
+      "icon": "./assets/icons/skill-genetic-cascade.png"
+    },
+    {
+      "id": "helical-convergence",
+      "name": "Helical Convergence",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["damage", "healing", "debuff", "buff"],
+      "description": "After dealing damage 5 times, creates two Yin Vortexes around the caster that deal [Damage Rate: 100%] Magic Damage to enemies hit and reduce healing received by 5% for 4s. Stacks up to 3 times. (Cooldown: 0.5s) After healing 5 times, creates two Yang Vortexes around self that restore [Healing Rate: 60%] HP to allies hit and increase healing received by 5% for 4s. Stacks up to 3 times. (Cooldown: 0.5s)",
+      "effects": [
+        {
+          "type": "passive",
+          "trigger": "damage_dealt",
+          "threshold": 5,
+          "cooldown": "0.5s"
+        },
+        {
+          "type": "damage",
+          "value": "X[100%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "vortex"
+        },
+        {
+          "type": "debuff",
+          "name": "Healing Reduction",
+          "value": "5%",
+          "duration": "4s",
+          "stacks": 3,
+          "target": "enemies"
+        },
+        {
+          "type": "passive",
+          "trigger": "healing_done",
+          "threshold": 5,
+          "cooldown": "0.5s"
+        },
+        {
+          "type": "healing",
+          "value": "X[60%]",
+          "target": "allies",
+          "area": "vortex"
+        },
+        {
+          "type": "buff",
+          "name": "Healing Increase",
+          "value": "5%",
+          "duration": "4s",
+          "stacks": 3,
+          "target": "allies"
+        }
+      ],
+      "icon": "./assets/icons/passive-helical-convergence.png"
+    },
+    {
+      "id": "abyssal-sovereignty",
+      "name": "Abyssal Sovereignty",
+      "type": "active",
+      "category": "utility",
+      "tags": ["damage", "healing", "buff", "cleanse", "skill"],
+      "mpCost": 31,
+      "cooldown": "48s",
+      "range": "5m",
+      "description": "Removes all control effects and gains [Submerge] for 2.5s. [Submerge]: Dives underground, becoming immune to all damage and control effects. Increases Movement Speed by 40% and recovers [Healing Rate: 58%] HP every second. Press skill again to exit [Submerge] early. Upon exiting [Submerge], deals [Damage Rate: 200%] Magic Damage to nearby enemies. Can be used while skills are disabled",
+      "effects": [
+        {
+          "type": "cleanse",
+          "target": "self",
+          "effects": ["all_control_effects"]
+        },
+        {
+          "type": "buff",
+          "name": "Submerge",
+          "duration": "2.5s",
+          "target": "self",
+          "effects": [
+            "immunity_to_damage",
+            "immunity_to_control",
+            "movement_speed_increase_40%",
+            "healing_per_second_58%"
+          ]
+        },
+        {
+          "type": "damage",
+          "value": "X[200%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "nearby",
+          "trigger": "exit_submerge"
+        }
+      ],
+      "icon": "./assets/icons/skill-abyssal-sovereignty.png"
+    },
+    {
+      "id": "hive-exaltation",
+      "name": "Hive Exaltation",
+      "type": "passive",
+      "category": "healing",
+      "tags": ["buff", "healing"],
+      "description": "Dealing damage with a skill grants 1 stack of Swarm, restoring [Healing Rate: 9%] HP every 2s for 6s (stacks do not boost healing effect). During this time, Damage Resistance increases by 5%, stacking up to 5 times. (Cooldown: 0.5s)",
+      "effects": [
+        {
+          "type": "healing",
+          "value": "X[9%]",
+          "interval": "2s",
+          "duration": "6s",
+          "trigger": "skill_damage",
+          "note": "stacks do not boost healing effect"
+        },
+        {
+          "type": "buff",
+          "name": "Damage Resistance",
+          "value": "5%",
+          "duration": "6s",
+          "maxStacks": 5,
+          "trigger": "healing_duration"
+        }
+      ],
+      "cooldown": "0.5s",
+      "icon": "./assets/icons/passive-hive-exaltation.png"
+    },
+    {
+      "id": "spectral-disguise",
+      "name": "Spectral Disguise",
+      "type": "active",
+      "category": "utility",
+      "tags": ["stealth", "buff", "skill"],
+      "mpCost": 31,
+      "cooldown": "48s",
+      "range": "8m",
+      "description": "Creates a Spectral Disguise granting Stealth to the caster and up to 15 nearby allies, increasing Damage Resistance by 25% for 8s. Using a skill, dealing damage or direct healing breaks Stealth for 4s before reapplying",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Stealth",
+          "target": "self_and_allies",
+          "maxTargets": 15,
+          "area": "8m",
+          "duration": "8s"
+        },
+        {
+          "type": "buff",
+          "name": "Damage Resistance",
+          "value": "25%",
+          "target": "self_and_allies",
+          "maxTargets": 15,
+          "area": "8m",
+          "duration": "8s"
+        },
+        {
+          "type": "stealth_break",
+          "triggers": ["skill_use", "damage_dealt", "direct_healing"],
+          "break_duration": "4s",
+          "reapply": true
+        }
+      ],
+      "icon": "./assets/icons/skill-spectral-disguise.png"
+    },
+    {
+      "id": "echo-reflection",
+      "name": "Echo Reflection",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage"],
+      "description": "Skill and Basic Attack hits from the rear deal [Damage Rate: 60%] additional Physical Damage (Cooldown: 0.3s). Basic Attack Damage Bonuses affect damage and basic attack critical hits can cause the damage to crit",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[60%]",
+          "damageType": "Physical",
+          "trigger": "rear_hit",
+          "triggers": ["skill_hit", "basic_attack_hit"],
+          "cooldown": "0.3s"
+        },
+        {
+          "type": "passive",
+          "name": "Basic Attack Damage Bonuses",
+          "description": "Basic Attack Damage Bonuses affect damage and basic attack critical hits can cause the damage to crit"
+        }
+      ],
+      "cooldown": "0.3s",
+      "icon": "./assets/icons/passive-echo-reflection.png"
+    },
+    {
+      "id": "acid-blast",
+      "name": "Acid Blast",
+      "type": "active",
+      "category": "damage",
+      "tags": ["slow", "debuff", "damage", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "7m",
+      "description": "Sprays acid for 4s, releasing 4 random splatters of acid per second to form an Acid Zone that lasts 8.5s. Enemies inside are Slowed by 50%. Enemies entering the Acid Zone gain [Acid Blast] [Acid Blast]: Reduces Damage by 40%, cancels Stealth, and each stack deals [Damage Rate: 20%] Magic Damage every second for 6s. Stacks up to 3 times",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Acid Zone",
+          "duration": "8.5s",
+          "creation_duration": "4s",
+          "splatters_per_second": 4
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "50%",
+          "target": "enemies_in_zone",
+          "duration": "8.5s"
+        },
+        {
+          "type": "debuff",
+          "name": "Acid Blast",
+          "target": "enemies_entering_zone",
+          "duration": "6s",
+          "maxStacks": 3,
+          "effects": [
+            {
+              "type": "damage_reduction",
+              "value": "40%"
+            },
+            {
+              "type": "stealth_cancel"
+            },
+            {
+              "type": "damage_over_time",
+              "value": "X[20%]",
+              "damageType": "Magic",
+              "interval": "1s"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-acid-blast.png"
+    },
+    {
+      "id": "corrosion-barrier",
+      "name": "Corrosion Barrier",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["damage", "slow", "debuff"],
+      "description": "After taking 5 instances of damage, releases acid outward, dealing [Damage Rate: 70%] Magic Damage to enemies in range, reducing their damage dealt by 25% and Movement Speed by 25% for 4s",
+      "effects": [
+        {
+          "type": "passive",
+          "trigger": "damage_taken",
+          "threshold": 5,
+          "reset_on_trigger": true
+        },
+        {
+          "type": "damage",
+          "value": "X[70%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "range"
+        },
+        {
+          "type": "debuff",
+          "name": "Damage Reduction",
+          "value": "25%",
+          "target": "enemies",
+          "duration": "4s"
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "25%",
+          "target": "enemies",
+          "duration": "4s"
+        }
+      ],
+      "icon": "./assets/icons/passive-corrosion-barrier.png"
+    },
+    {
+      "id": "frozen-maelstrom",
+      "name": "Frozen Maelstrom",
+      "type": "active",
+      "category": "damage",
+      "tags": ["magic_damage", "slow", "debuff", "hard_control", "skill"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "range": "10m",
+      "description": "After a short charge, unleashes a Frost Maelstrom forward, dealing [Damage Rate: 200%] Magic Damage to enemies in range, applying Slow by 40% and reducing Attack Speed by 40% for 6s. The shockwave also deals additional [Damage Rate: 300%] Magic Damage to enemies in the direct front area and Freezes them for 3s.",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "X[200%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "range"
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "40%",
+          "target": "enemies",
+          "duration": "6s"
+        },
+        {
+          "type": "debuff",
+          "name": "Attack Speed Reduction",
+          "value": "40%",
+          "target": "enemies",
+          "duration": "6s"
+        },
+        {
+          "type": "damage",
+          "value": "X[300%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "direct_front",
+          "trigger": "shockwave"
+        },
+        {
+          "type": "control",
+          "name": "Freeze",
+          "target": "enemies",
+          "area": "direct_front",
+          "duration": "3s",
+          "trigger": "shockwave"
+        }
+      ],
+      "icon": "./assets/icons/skill-frozen-maelstrom.png"
+    },
+    {
+      "id": "fractured-ice",
+      "name": "Fractured Ice",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["damage", "slow"],
+      "description": "After casting the skill, if damage is dealt within 5 seconds, increases Damage Resistance by 25% for 6s, while emitting cold mist around itself, dealing [Damage Rate: 80%] Magic Damage and reducing Attack Speed by 30% and movement speed by 30% per second for 4s. (Cooldown: 20s)",
+      "effects": [
+        {
+          "type": "passive",
+          "trigger": "after_skill_cast",
+          "condition": "damage_dealt_within_5s",
+          "cooldown": "20s"
+        },
+        {
+          "type": "buff",
+          "name": "Damage Resistance",
+          "value": "25%",
+          "target": "self",
+          "duration": "6s"
+        },
+        {
+          "type": "damage",
+          "value": "X[80%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "around_self",
+          "name": "Cold Mist"
+        },
+        {
+          "type": "debuff",
+          "name": "Attack Speed Reduction",
+          "value": "30%",
+          "target": "enemies",
+          "area": "around_self",
+          "duration": "4s"
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "30%",
+          "target": "enemies",
+          "area": "around_self",
+          "duration": "4s"
+        }
+      ],
+      "cooldown": "20s",
+      "icon": "./assets/icons/passive-fractured-ice.png"
+    },
+    {
+      "id": "cannonade-mode",
+      "name": "Cannonade Mode",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "buff", "transformation", "slow", "aoe"],
+      "mpCost": 25,
+      "cooldown": "9.7s",
+      "range": "30m",
+      "description": "Transforms into a Cannon Form for 25 seconds. During this time, Magic Resistance is increased by 80, can move slowly, and Basic Attack becomes Bombardment: Fires projectiles at targets beyond 8m that explode and deals [Damage Rate: 230%] Physical Damage to enemies hit",
+      "effects": [
+        {
+          "type": "transformation",
+          "name": "Cannon Form",
+          "duration": "25s"
+        },
+        {
+          "type": "buff",
+          "name": "Magic Resistance",
+          "value": 80,
+          "target": "self",
+          "duration": "25s"
+        },
+        {
+          "type": "movement_speed_reduction",
+          "value": "slow",
+          "target": "self",
+          "duration": "25s"
+        },
+        {
+          "type": "basic_attack_change",
+          "name": "Bombardment",
+          "range": "8m+",
+          "damage": "X[230%]",
+          "damageType": "Physical",
+          "area": "explosion",
+          "duration": "25s"
+        }
+      ],
+      "icon": "./assets/icons/skill-cannonade-mode.png"
+    },
+    {
+      "id": "resolve",
+      "name": "Resolve",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff", "stacking"],
+      "description": "While standing still, gain 1 stack of [Steadfast] every second [Steadfast]: +2% Critical Rate, +2% Damage Resistance for 2s. Stacks up to 15 times",
+      "effects": [
+        {
+          "type": "passive",
+          "trigger": "while_standing_still",
+          "interval": "1s"
+        },
+        {
+          "type": "buff",
+          "name": "Steadfast",
+          "target": "self",
+          "stacks": 1,
+          "maxStacks": 15,
+          "stackDuration": "2s",
+          "effects": [
+            {
+              "type": "critical_rate_increase",
+              "value": "2%"
+            },
+            {
+              "type": "damage_resistance_increase",
+              "value": "2%"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-resolve.png"
+    },
+    {
+      "id": "moles-escape",
+      "name": "Mole's Escape",
+      "type": "active",
+      "category": "utility",
+      "tags": ["damage", "movement", "pull", "skill"],
+      "mpCost": 27,
+      "cooldown": "44s",
+      "range": "14m",
+      "description": "Jumps backward 6 meters while throwing a robotic grappling hook in the target direction, dealing [Damage Rate: 110%] Magic Damage to the first enemy hit and binding them for 10s. Enemies attempting to leave the binding range are pulled back to the center and take [Damage Rate: 142%] Magic Damage.",
+      "effects": [
+        {
+          "type": "movement",
+          "name": "Backward Jump",
+          "distance": "6m",
+          "target": "self"
+        },
+        {
+          "type": "damage",
+          "value": "X[110%]",
+          "damageType": "Magic",
+          "target": "first_enemy_hit",
+          "area": "target_direction"
+        },
+        {
+          "type": "control",
+          "name": "Binding",
+          "target": "first_enemy_hit",
+          "duration": "10s",
+          "area": "binding_range"
+        },
+        {
+          "type": "pull",
+          "name": "Grappling Hook Pull",
+          "target": "bound_enemies",
+          "trigger": "attempting_to_leave_range",
+          "destination": "center"
+        },
+        {
+          "type": "damage",
+          "value": "X[142%]",
+          "damageType": "Magic",
+          "target": "pulled_enemies",
+          "trigger": "pull_effect"
+        }
+      ],
+      "icon": "./assets/icons/skill-moles-escape.png"
+    },
+    {
+      "id": "survivability-resilience",
+      "name": "Survivability Resilience",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["buff"],
+      "description": "Increases own weight limit by 200",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Weight Limit Increase",
+          "value": 200,
+          "target": "self",
+          "permanent": true
+        }
+      ],
+      "icon": "./assets/icons/passive-survivability-resilience.png"
+    },
+    {
+      "id": "twinlance-infusion",
+      "name": "Twinlance Infusion",
+      "type": "active",
+      "category": "support",
+      "tags": ["damage", "mp", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "10m",
+      "description": "Creates a Lunar Domain and channels for 8s. Enemies within are struck by starlight on skill use, taking [Damage Rate: 200%] Magic Damage and losing 20 MP. Allies within recover 8 MP every second and gain [Target-based Max HP 15%] Shield lasting 4s. Skill cannot be interrupted. +20% Movement Speed while channeling",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Lunar Domain",
+          "duration": "8s",
+          "area": "10m",
+          "channeling": true,
+          "interruptible": false
+        },
+        {
+          "type": "damage",
+          "value": "X[200%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "lunar_domain",
+          "trigger": "skill_use",
+          "name": "Starlight Strike"
+        },
+        {
+          "type": "mp_drain",
+          "value": 20,
+          "target": "enemies",
+          "area": "lunar_domain",
+          "trigger": "skill_use"
+        },
+        {
+          "type": "mp_recovery",
+          "value": 8,
+          "target": "allies",
+          "area": "lunar_domain",
+          "interval": "1s",
+          "duration": "8s"
+        },
+        {
+          "type": "shield",
+          "value": "X[15%]",
+          "target": "allies",
+          "area": "lunar_domain",
+          "duration": "4s",
+          "based_on": "target_max_hp"
+        },
+        {
+          "type": "buff",
+          "name": "Movement Speed",
+          "value": "20%",
+          "target": "self",
+          "duration": "8s",
+          "trigger": "while_channeling"
+        }
+      ],
+      "icon": "./assets/icons/skill-twinlance-infusion.png"
+    },
+    {
+      "id": "lunar-rebirth",
+      "name": "Lunar Rebirth",
+      "type": "passive",
+      "category": "support",
+      "tags": ["mp"],
+      "description": "Every 2s restores Moonveil Max MP +1%MP to other allies within 12m",
+      "effects": [
+        {
+          "type": "passive",
+          "trigger": "every_2s",
+          "interval": "2s"
+        },
+        {
+          "type": "mp_recovery",
+          "value": "X[1%]",
+          "target": "allies",
+          "area": "12m",
+          "based_on": "moonveil_max_mp",
+          "exclude_self": true
+        }
+      ],
+      "icon": "./assets/icons/passive-lunar-rebirth.png"
+    },
+    {
+      "id": "soul-feast",
+      "name": "Soul Feast",
+      "type": "active",
+      "category": "damage",
+      "tags": ["slow", "buff", "skill", "disarm"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "7m",
+      "description": "Creates a Void Domain, enveloping the caster and up to 5 nearby enemies in void. Deals [Damage Rate: 50%] Magic Damage to enemies in range every second. The domain lasts for 8s. Enemies under Wraith Possession are immune to Physical Damage, cannot perform Basic Attacks, have their Magic Damage Reduction reduced by 30%, and are Slowed by 30%. While under Wraith Possession, the caster is also immune to Physical Damage, can perform Basic Attacks, gains 35% Basic Attack Lifesteal, and ignores the Physical Damage immunity of other enemies under Wraith Possession. The caster's Wraith Possession state cannot be dispelled.",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Void Domain",
+          "duration": "8s",
+          "area": "7m",
+          "maxTargets": 5
+        },
+        {
+          "type": "damage",
+          "value": "X[50%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "void_domain",
+          "interval": "1s",
+          "duration": "8s"
+        },
+        {
+          "type": "debuff",
+          "name": "Wraith Possession",
+          "target": "enemies",
+          "area": "void_domain",
+          "maxTargets": 5,
+          "duration": "8s",
+          "effects": [
+            {
+              "type": "immunity",
+              "damageType": "Physical"
+            },
+            {
+              "type": "disarm",
+              "name": "Cannot perform Basic Attacks"
+            },
+            {
+              "type": "magic_damage_reduction_reduction",
+              "value": "30%"
+            },
+            {
+              "type": "slow",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "type": "buff",
+          "name": "Wraith Possession (Caster)",
+          "target": "self",
+          "duration": "8s",
+          "effects": [
+            {
+              "type": "immunity",
+              "damageType": "Physical"
+            },
+            {
+              "type": "basic_attack_enabled"
+            },
+            {
+              "type": "lifesteal",
+              "value": "35%",
+              "trigger": "basic_attack"
+            },
+            {
+              "type": "ignore_immunity",
+              "damageType": "Physical",
+              "target": "enemies_under_wraith_possession"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-soul-feast.png"
+    },
+    {
+      "id": "voidshape",
+      "name": "Voidshape",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["passive", "magic_damage", "debuff"],
+      "description": "Converts Basic Attack Damage from Physical to Magic. Basic Attacks also reduce the enemy's Magic Resistance by 4% for 4s, stacking up to 10 times",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Damage Type Conversion",
+          "from": "Physical",
+          "to": "Magic",
+          "trigger": "basic_attack"
+        },
+        {
+          "type": "debuff",
+          "name": "Magic Resistance Reduction",
+          "value": "4%",
+          "target": "enemies",
+          "duration": "4s",
+          "maxStacks": 10,
+          "trigger": "basic_attack_hit"
+        }
+      ],
+      "icon": "./assets/icons/passive-voidshape.png"
+    },
+    {
+      "id": "flamecore-rampage",
+      "name": "Flamecore Rampage",
+      "type": "active",
+      "category": "damage",
+      "tags": ["buff", "skill", "damage", "cleanse", "immunity", "aoe"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "range": "7m",
+      "description": "Removes all current Plating values, dealing [Damage Rate: 100%] Physical Damage to nearby enemies and inflicting Hell Salvo, while also granting 55% Attack Speed, 30% Movement Speed, and 30% Critical Rate, and becoming Immune to Control Effects for 6s (this state cannot be dispelled)",
+      "effects": [
+        {
+          "type": "cleanse",
+          "target": "self",
+          "effects": ["all_plating_values"]
+        },
+        {
+          "type": "damage",
+          "value": "X[100%]",
+          "damageType": "Physical",
+          "target": "enemies",
+          "area": "nearby"
+        },
+        {
+          "type": "debuff",
+          "name": "Hell Salvo",
+          "target": "enemies",
+          "area": "nearby",
+          "duration": "4s",
+          "effects": [
+            {
+              "type": "damage_over_time",
+              "value": "X[50%]",
+              "damageType": "Physical",
+              "interval": "1s"
+            }
+          ]
+        },
+        {
+          "type": "buff",
+          "name": "Attack Speed",
+          "value": "55%",
+          "target": "self",
+          "duration": "6s"
+        },
+        {
+          "type": "buff",
+          "name": "Movement Speed",
+          "value": "30%",
+          "target": "self",
+          "duration": "6s"
+        },
+        {
+          "type": "buff",
+          "name": "Critical Rate",
+          "value": "30%",
+          "target": "self",
+          "duration": "6s"
+        },
+        {
+          "type": "immunity",
+          "name": "Control Effects",
+          "target": "self",
+          "duration": "6s",
+          "undispellable": true
+        }
+      ],
+      "icon": "./assets/icons/skill-flamecore-rampage.png"
+    },
+    {
+      "id": "hell-slavos-embrace",
+      "name": "Hell Salvo's Embrace",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["buff"],
+      "description": "While without Plating, gains 5 Energy per second, and gains 5 Energy on Basic Attack Crit. When Energy reaches 100, restores [Target-based Max HP 15%] Plating values. While with Plating, gains [Target-based Max HP 3%] Plating values on Basic Attack Crit. Plating restored cannot exceed [Target-based Max HP 25%]. (Trigger Interval: 1 seconds)",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Energy Generation (Without Plating)",
+          "condition": "without_plating",
+          "effects": [
+            {
+              "type": "energy_gain",
+              "value": 5,
+              "interval": "1s"
+            },
+            {
+              "type": "energy_gain",
+              "value": 5,
+              "trigger": "basic_attack_crit"
+            }
+          ]
+        },
+        {
+          "type": "passive",
+          "name": "Plating Restoration (Energy)",
+          "trigger": "energy_reaches_100",
+          "effects": [
+            {
+              "type": "plating_restore",
+              "value": "X[15%]",
+              "based_on": "target_max_hp"
+            }
+          ]
+        },
+        {
+          "type": "passive",
+          "name": "Plating Restoration (Crit)",
+          "condition": "with_plating",
+          "trigger": "basic_attack_crit",
+          "effects": [
+            {
+              "type": "plating_restore",
+              "value": "X[3%]",
+              "based_on": "target_max_hp",
+              "max_plating": "X[25%]"
+            }
+          ]
+        }
+      ],
+      "triggerInterval": "1s",
+      "icon": "./assets/icons/passive-hell-slavos-embrace.png"
+    },
+    {
+      "id": "ravens-gaze",
+      "name": "Raven's Gaze",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "dispel", "skill"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "range": "14m",
+      "description": "Select an enemy target to summon ravens. After 2 seconds, ravens dive to attack, dealing [Damage Rate: 210%] Magic Damage to up to 10 enemies in range, dispelling all buffs, shields, and HoT effects. Applies 50% Slow and reduces damage dealt by 50% for 6s. Targets cannot gain buffs, shields, or HoT effects during this time",
+      "effects": [
+        {
+          "type": "target_selection",
+          "name": "Raven Summon",
+          "delay": "2s"
+        },
+        {
+          "type": "damage",
+          "value": "X[210%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "maxTargets": 10,
+          "area": "range"
+        },
+        {
+          "type": "dispel",
+          "target": "enemies",
+          "area": "range",
+          "effects": ["buffs", "shields", "hot_effects"]
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "50%",
+          "target": "enemies",
+          "area": "range",
+          "duration": "6s"
+        },
+        {
+          "type": "debuff",
+          "name": "Damage Reduction",
+          "value": "50%",
+          "target": "enemies",
+          "area": "range",
+          "duration": "6s"
+        },
+        {
+          "type": "debuff",
+          "name": "Buff Prevention",
+          "target": "enemies",
+          "area": "range",
+          "duration": "6s",
+          "effects": ["prevent_buffs", "prevent_shields", "prevent_hot_effects"]
+        }
+      ],
+      "icon": "./assets/icons/skill-ravens-gaze.png"
+    },
+    {
+      "id": "summon-raven",
+      "name": "Summon Raven",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "healing", "dispel"],
+      "description": "Skills dealing damage grant the caster Raven's Call. At 6 stacks, the next skill damage within 8s that hits an enemy target will summon ravens at the location, dealing [Damage Rate: 120%] Magic Damage to up to 5 enemies in range. This effect removes 1 stack of buffs from hit targets and restores [Healing Rate: 72%] HP to self. (Stack gain interval: 0.5; Raven's Call interval: 10s)",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Raven's Call",
+          "trigger": "skill_damage",
+          "stackGainInterval": "0.5s",
+          "maxStacks": 6
+        },
+        {
+          "type": "passive",
+          "name": "Raven Summon",
+          "trigger": "skill_damage_hit",
+          "condition": "6_stacks",
+          "window": "8s",
+          "cooldown": "10s",
+          "effects": [
+            {
+              "type": "damage",
+              "value": "X[120%]",
+              "damageType": "Magic",
+              "target": "enemies",
+              "maxTargets": 5,
+              "area": "location"
+            },
+            {
+              "type": "dispel",
+              "target": "hit_targets",
+              "stacks": 1,
+              "effects": ["buffs"]
+            },
+            {
+              "type": "healing",
+              "value": "X[72%]",
+              "target": "self"
+            }
+          ]
+        }
+      ],
+      "stackGainInterval": "0.5s",
+      "ravenCallInterval": "10s",
+      "icon": "./assets/icons/passive-summon-raven.png"
+    },
+    {
+      "id": "sanctification",
+      "name": "Sanctification",
+      "type": "active",
+      "category": "healing",
+      "tags": ["healing", "cleanse", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "16m",
+      "description": "Creates an expanding Sanctification Field at the target location and channels for 5s. Cannot be interrupted while channeling. Cleanses all control effects and debuffs every 0.5s, from up to 20 allies in the field and restores [Healing Rate: 30%] HP",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Sanctification Field",
+          "target": "target_location",
+          "expansion": true,
+          "maxAllies": 20
+        },
+        {
+          "type": "channel",
+          "duration": "5s",
+          "interruptible": false
+        },
+        {
+          "type": "cleanse",
+          "target": "allies",
+          "area": "sanctification_field",
+          "maxTargets": 20,
+          "interval": "0.5s",
+          "effects": ["control_effects", "debuffs"]
+        },
+        {
+          "type": "healing",
+          "value": "X[30%]",
+          "target": "allies",
+          "area": "sanctification_field",
+          "maxTargets": 20,
+          "interval": "0.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-sanctification.png"
+    },
+    {
+      "id": "holy-covenant",
+      "name": "Holy Covenant",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff"],
+      "description": "When healing with skills, the target gains 5% additional Damage Resistance for 4s. Stacks up to 6 times",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Damage Resistance Stack",
+          "trigger": "healing_with_skills",
+          "target": "healed_target",
+          "effects": [
+            {
+              "type": "buff",
+              "name": "Damage Resistance",
+              "value": "5%",
+              "duration": "4s",
+              "maxStacks": 6,
+              "stacking": true
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-holy-covenant.png"
+    },
+    {
+      "id": "hemophage",
+      "name": "Hemophage",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "7m",
+      "description": "Activates Crimson Vortex for 6s. Crimson Vortex deals [Damage Rate: 75%] Magic Damage to up to 5 enemies every second, healing the caster for 60% of damage dealt for players (and 30% for Mobs). Damage increases up to [Damage Rate: 150%] as HP drops",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Crimson Vortex",
+          "duration": "6s",
+          "maxTargets": 5
+        },
+        {
+          "type": "damage",
+          "value": "X[75%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "maxTargets": 5,
+          "interval": "1s",
+          "duration": "6s",
+          "scaling": {
+            "type": "hp_based",
+            "maxValue": "X[150%]",
+            "trigger": "hp_drops"
+          }
+        },
+        {
+          "type": "healing",
+          "value": "X[60%]",
+          "target": "self",
+          "trigger": "damage_dealt",
+          "condition": "vs_players",
+          "interval": "1s",
+          "duration": "6s"
+        },
+        {
+          "type": "healing",
+          "value": "X[30%]",
+          "target": "self",
+          "trigger": "damage_dealt",
+          "condition": "vs_mobs",
+          "interval": "1s",
+          "duration": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-hemophage.png"
+    },
+    {
+      "id": "blood-contract",
+      "name": "Blood Contract",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff"],
+      "description": "Gains +4% Damage Resistance and +6% Attack Speed for every 10% HP lost.",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Blood Contract Buff",
+          "trigger": "hp_lost",
+          "threshold": "10%",
+          "effects": [
+            {
+              "type": "buff",
+              "name": "Damage Resistance",
+              "value": "4%",
+              "target": "self",
+              "stacking": true
+            },
+            {
+              "type": "buff",
+              "name": "Attack Speed",
+              "value": "6%",
+              "target": "self",
+              "stacking": true
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-blood-contract.png"
+    },
+    {
+      "id": "shadow-cascade",
+      "name": "Shadow Cascade",
+      "type": "active",
+      "category": "damage",
+      "tags": ["magic_damage", "skill"],
+      "mpCost": 29,
+      "cooldown": "39s",
+      "range": "20m",
+      "description": "Gathers dark energy and channels for 4s, firing 5 dark energy spheres (a total of 25) every 0.8s toward the front. Each sphere deals [Damage Rate: 50%] Magic Damage to enemies, applying [Dark Matter Venom] and reducing Healing Received by 8% for 6s. Stacks up to 5 times. The skill cannot be interrupted.",
+      "effects": [
+        {
+          "type": "channel",
+          "duration": "4s",
+          "interruptible": false
+        },
+        {
+          "type": "projectile",
+          "name": "Dark Energy Spheres",
+          "count": 5,
+          "totalCount": 25,
+          "interval": "0.8s",
+          "direction": "front"
+        },
+        {
+          "type": "damage",
+          "value": "X[50%]",
+          "damageType": "Magic",
+          "target": "enemies",
+          "trigger": "sphere_hit"
+        },
+        {
+          "type": "debuff",
+          "name": "Dark Matter Venom",
+          "target": "enemies",
+          "maxStacks": 5,
+          "duration": "12s",
+          "trigger": "sphere_hit",
+          "effects": [
+            {
+              "type": "damage_over_time",
+              "value": "X[15%]",
+              "damageType": "Magic",
+              "interval": "2s",
+              "scaling": "with_stacks"
+            }
+          ]
+        },
+        {
+          "type": "debuff",
+          "name": "Healing Reduction",
+          "value": "8%",
+          "target": "enemies",
+          "duration": "6s",
+          "maxStacks": 5,
+          "trigger": "sphere_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-shadow-cascade.png"
+    },
+    {
+      "id": "umbra-resonance",
+      "name": "Umbra Resonance",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["buff"],
+      "description": "Gains 5% Movement Speed for 3s when inflicting an enemy with a DoT effect, stacking up to 6 times",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Movement Speed Stack",
+          "trigger": "inflict_dot",
+          "target": "enemy",
+          "effects": [
+            {
+              "type": "buff",
+              "name": "Movement Speed",
+              "value": "5%",
+              "target": "self",
+              "duration": "3s",
+              "maxStacks": 6,
+              "stacking": true
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-umbra-resonance.png"
+    },
+    {
+      "id": "sandstorm-dominion",
+      "name": "Sandstorm Dominion",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "knockback", "dispel", "skill"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "range": "8m",
+      "description": "Creates a Sandstorm around the caster, pushing all enemies outside. Channels for 6s with +45% Damage Resistance and control immunity. Enemies touching the wind field take [Damage Rate: 300%] Physical Damage, have their buffs dispelled, and are Slowed by 60% for 4s. Also knocks them back 11m from center",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Sandstorm",
+          "target": "around_caster",
+          "push_enemies": "outside"
+        },
+        {
+          "type": "channel",
+          "duration": "6s"
+        },
+        {
+          "type": "buff",
+          "name": "Damage Resistance",
+          "value": "45%",
+          "target": "self",
+          "duration": "6s"
+        },
+        {
+          "type": "immunity",
+          "name": "Control Effects",
+          "target": "self",
+          "duration": "6s"
+        },
+        {
+          "type": "damage",
+          "value": "X[300%]",
+          "damageType": "Physical",
+          "target": "enemies",
+          "trigger": "touching_wind_field"
+        },
+        {
+          "type": "dispel",
+          "target": "enemies",
+          "trigger": "touching_wind_field",
+          "effects": ["buffs"]
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "60%",
+          "target": "enemies",
+          "trigger": "touching_wind_field",
+          "duration": "4s"
+        },
+        {
+          "type": "knockback",
+          "distance": "11m",
+          "direction": "from_center",
+          "target": "enemies",
+          "trigger": "touching_wind_field"
+        }
+      ],
+      "icon": "./assets/icons/skill-sandstorm-dominion.png"
+    },
+    {
+      "id": "sand-veil",
+      "name": "Sand Veil",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "debuff", "silence"],
+      "description": "Creates a circular storm field around the caster for 4s when causing Forced Movement (Pull, Knockback). Deals [Damage Rate: 100%] Physical Damage to enemies in the field, inflicting Silence and a 40% chance to miss Basic Attacks for 3s. (Cooldown: 20s)",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Storm Field Trigger",
+          "trigger": "forced_movement",
+          "movement_types": ["pull", "knockback"],
+          "cooldown": "20s"
+        },
+        {
+          "type": "area_effect",
+          "name": "Circular Storm Field",
+          "target": "around_caster",
+          "duration": "4s"
+        },
+        {
+          "type": "damage",
+          "value": "X[100%]",
+          "damageType": "Physical",
+          "target": "enemies",
+          "area": "storm_field"
+        },
+        {
+          "type": "control",
+          "name": "Silence",
+          "target": "enemies",
+          "area": "storm_field",
+          "duration": "3s"
+        },
+        {
+          "type": "debuff",
+          "name": "Miss Chance",
+          "value": "40%",
+          "target": "enemies",
+          "area": "storm_field",
+          "duration": "3s",
+          "effect": "basic_attack_miss"
+        }
+      ],
+      "cooldown": "20s",
+      "icon": "./assets/icons/passive-sand-veil.png"
+    },
+    {
+      "id": "bond-of-light",
+      "name": "Bond of Light",
+      "type": "active",
+      "category": "healing",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "10m",
+      "description": "Links to 8 targets within 10m around the caster, channeling for 4s. Restores [Healing Rate: 48%] HP to the caster and linked allies every 0.5s, while dealing [Damage Rate: 70%] Magic Damage to linked enemies. Cannot be interrupted while channeling",
+      "effects": [
+        {
+          "type": "target_selection",
+          "name": "Light Bond",
+          "maxTargets": 8,
+          "area": "10m",
+          "targets": "allies_and_enemies"
+        },
+        {
+          "type": "channel",
+          "duration": "4s",
+          "interruptible": false
+        },
+        {
+          "type": "healing",
+          "value": "X[48%]",
+          "target": "caster_and_linked_allies",
+          "interval": "0.5s",
+          "duration": "4s"
+        },
+        {
+          "type": "damage",
+          "value": "X[70%]",
+          "damageType": "Magic",
+          "target": "linked_enemies",
+          "interval": "0.5s",
+          "duration": "4s"
+        }
+      ],
+      "icon": "./assets/icons/skill-bond-of-light.png"
+    },
+    {
+      "id": "lights-echo",
+      "name": "Light's Echo",
+      "type": "passive",
+      "category": "support",
+      "tags": ["buff"],
+      "description": "Other allies within 12m receive +20% healing",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Healing Amplification",
+          "target": "allies",
+          "area": "12m",
+          "effects": [
+            {
+              "type": "buff",
+              "name": "Healing Received",
+              "value": "20%",
+              "permanent": true
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-lights-echo.png"
+    },
+    {
+      "id": "shadow-rift",
+      "name": "Shadow Rift",
+      "type": "active",
+      "category": "damage",
+      "tags": ["buff", "skill"],
+      "mpCost": 29,
+      "cooldown": "39s",
+      "range": "15m",
+      "description": "Expands an area centered on the caster, lasting 20s. Simultaneously disperses 8 Umbra Shadows that deal [Damage Rate: 200%] Physical Damage to enemies in their path. If more than one Shadow hits a target, the damage is reduced to 15% of the original value. While inside the area, Skills change to [Shadow Shift]. When touching a Shadow, Shadow Shift's Cooldown is reduced by 5s, grants [Target-based Max HP 10%] Shield, and increases Movement Speed by 20% for 4s. If the caster leaves the area, it immediately disappears. [Shadow Shift]: Teleports forward. The next 5 Basic Attacks increase Attack Speed by 60% for 6s.",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Shadow Rift Area",
+          "target": "around_caster",
+          "duration": "20s",
+          "disappears_on_leave": true
+        },
+        {
+          "type": "projectile",
+          "name": "Umbra Shadows",
+          "count": 8,
+          "damageType": "Physical",
+          "damageValue": "X[200%]",
+          "damageReduction": "15%",
+          "condition": "multiple_shadows_hit"
+        },
+        {
+          "type": "skill_transformation",
+          "name": "Shadow Shift",
+          "condition": "inside_area",
+          "effects": [
+            {
+              "type": "teleport",
+              "direction": "forward"
+            },
+            {
+              "type": "buff",
+              "name": "Attack Speed",
+              "value": "60%",
+              "target": "self",
+              "duration": "6s",
+              "trigger": "next_5_basic_attacks"
+            }
+          ]
+        },
+        {
+          "type": "shadow_interaction",
+          "name": "Shadow Touch",
+          "trigger": "touching_shadow",
+          "effects": [
+            {
+              "type": "cooldown_reduction",
+              "skill": "Shadow Shift",
+              "value": "5s"
+            },
+            {
+              "type": "shield",
+              "value": "X[10%]",
+              "based_on": "target_max_hp"
+            },
+            {
+              "type": "buff",
+              "name": "Movement Speed",
+              "value": "20%",
+              "target": "self",
+              "duration": "4s"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-shadow-rift.png"
+    },
+    {
+      "id": "umbra-kinetics",
+      "name": "Umbra Kinetics",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage"],
+      "description": "Grants Basic Attacks a 30% chance to trigger a shadow strike for 6s, dealing [Damage Rate: 100%] Physical Damage (Cooldown: 0.8s). Basic Attack Damage Bonuses affect damage and basic attack critical hits can cause the damage to crit",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Shadow Strike",
+          "trigger": "basic_attack",
+          "chance": "30%",
+          "cooldown": "0.8s",
+          "effects": [
+            {
+              "type": "damage",
+              "value": "X[100%]",
+              "damageType": "Physical",
+              "target": "enemies",
+              "duration": "6s",
+              "affected_by": "basic_attack_damage_bonuses",
+              "can_crit": true,
+              "crit_source": "basic_attack_crit"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-umbra-kinetics.png"
+    },
+    {
+      "id": "magma-slam",
+      "name": "Magma Slam",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "hard_control", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "10m",
+      "description": "Leaps to the target location. Gains immunity to control during leap. Deals [Damage Rate: 350%] Physical Damage and knocks enemies in the area up for 1.5s",
+      "effects": [
+        {
+          "type": "leap",
+          "target": "target_location",
+          "range": "10m"
+        },
+        {
+          "type": "immunity",
+          "name": "Control Effects",
+          "target": "self",
+          "duration": "during_leap"
+        },
+        {
+          "type": "damage",
+          "value": "X[350%]",
+          "damageType": "Physical",
+          "target": "enemies",
+          "area": "target_location"
+        },
+        {
+          "type": "control",
+          "name": "Knockup",
+          "target": "enemies",
+          "area": "target_location",
+          "duration": "1.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-magma-slam.png"
+    },
+    {
+      "id": "seismic-impact",
+      "name": "Seismic Impact",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "slow"],
+      "description": "When inflicting Immobilize or Hard Control (Stun, Fear, Freeze, Knockup, Petrify), drops a meteor after 1s, dealing [Damage Rate: 150%] Physical Damage and 30% Slow for 3s. (Cooldown: 5s)",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Meteor Drop",
+          "trigger": "inflict_control",
+          "control_types": ["immobilize", "stun", "fear", "freeze", "knockup", "petrify"],
+          "delay": "1s",
+          "cooldown": "5s",
+          "effects": [
+            {
+              "type": "damage",
+              "value": "X[150%]",
+              "damageType": "Physical",
+              "target": "enemies",
+              "area": "meteor_impact"
+            },
+            {
+              "type": "control",
+              "name": "Slow",
+              "value": "30%",
+              "target": "enemies",
+              "area": "meteor_impact",
+              "duration": "3s"
+            }
+          ]
+        }
+      ],
+      "cooldown": "5s",
+      "icon": "./assets/icons/passive-seismic-impact.png"
+    },
+    {
+      "id": "serpents-whisper",
+      "name": "Serpent's Whisper",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "hard_control", "skill"],
+      "mpCost": 31,
+      "cooldown": "48s",
+      "range": "14m",
+      "description": "Applies Serpent's Whisper to self or an ally. Cannot Move or cast Skills for 4s, gains Damage and Control Immunity, and deals [Damage Rate: 58%] Magic Damage to nearby enemies every 0.5s, inflicting [Creeping Stone] [Creeping Stone]: Lasts 1s, stacking up to 4 times; when max stacked, the target is Petrified for 2s. While Petrified, Armor is reduced by 25% (cannot obtain [Creeping Stone] for 6s) Can be used while Skills are disabled. Serpent's Whisper cannot be Dispelled",
+      "effects": [
+        {
+          "type": "target_selection",
+          "name": "Serpent's Whisper",
+          "target": "self_or_ally",
+          "range": "14m",
+          "undispellable": true
+        },
+        {
+          "type": "restriction",
+          "name": "Movement and Skills",
+          "target": "whispered_target",
+          "duration": "4s",
+          "effects": ["cannot_move", "cannot_cast_skills"]
+        },
+        {
+          "type": "immunity",
+          "name": "Damage and Control",
+          "target": "whispered_target",
+          "duration": "4s",
+          "effects": ["damage", "control"]
+        },
+        {
+          "type": "damage",
+          "value": "X[58%]",
+          "damageType": "Magic",
+          "target": "nearby_enemies",
+          "interval": "0.5s",
+          "duration": "4s"
+        },
+        {
+          "type": "debuff",
+          "name": "Creeping Stone",
+          "target": "nearby_enemies",
+          "interval": "0.5s",
+          "duration": "4s",
+          "maxStacks": 4,
+          "stackDuration": "1s",
+          "effects": [
+            {
+              "type": "control",
+              "name": "Petrify",
+              "trigger": "max_stacks",
+              "duration": "2s",
+              "effects": [
+                {
+                  "type": "debuff",
+                  "name": "Armor Reduction",
+                  "value": "25%"
+                }
+              ]
+            }
+          ],
+          "immunity_duration": "6s"
+        }
+      ],
+      "can_use_while_disabled": true,
+      "icon": "./assets/icons/skill-serpents-whisper.png"
+    },
+    {
+      "id": "shedskin",
+      "name": "Shedskin",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["damage", "hard_control"],
+      "description": "Retains 1 HP upon taking lethal damage, transforming into a spirit serpent, cleansing all negative effects (control, DoT, and debuffs), gaining immunity to control, debuffs and damage for 2s, and +100% Movement Speed, and healing 5% HP every 0.5s. (CD: 120s)",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Shedskin Revival",
+          "trigger": "lethal_damage",
+          "cooldown": "120s",
+          "effects": [
+            {
+              "type": "survival",
+              "name": "Retain HP",
+              "value": 1
+            },
+            {
+              "type": "transformation",
+              "name": "Spirit Serpent",
+              "duration": "2s"
+            },
+            {
+              "type": "cleanse",
+              "target": "self",
+              "effects": ["control", "dot", "debuffs"]
+            },
+            {
+              "type": "immunity",
+              "name": "Control, Debuffs and Damage",
+              "target": "self",
+              "duration": "2s",
+              "effects": ["control", "debuffs", "damage"]
+            },
+            {
+              "type": "buff",
+              "name": "Movement Speed",
+              "value": "100%",
+              "target": "self",
+              "duration": "2s"
+            },
+            {
+              "type": "healing",
+              "value": "5%",
+              "target": "self",
+              "interval": "0.5s",
+              "duration": "2s"
+            }
+          ]
+        }
+      ],
+      "cooldown": "120s",
+      "icon": "./assets/icons/passive-shedskin.png"
+    },
+    {
+      "id": "bloodstorm",
+      "name": "Bloodstorm",
+      "type": "active",
+      "category": "damage",
+      "tags": ["magic_damage", "healing", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "castingTime": "0.96s",
+      "range": "7m",
+      "description": "Channels for 5s, scattering 8 Blood Seeds (up to 40 total) around the caster every second. Each seed explodes 1.5s after landing, dealing [Damage Rate: 70%] Magic Damage to up to 5 enemies in range. If at least one enemy is hit by the explosion, the caster regenerates [Healing Rate: 15%] Vitality. Skill cannot be interrupted. Increases Movement Speed by 30% (decaying over time)",
+      "effects": [
+        {
+          "type": "channel",
+          "duration": "5s",
+          "interruptible": false
+        },
+        {
+          "type": "projectile",
+          "name": "Blood Seeds",
+          "count": 8,
+          "totalCount": 40,
+          "interval": "1s",
+          "area": "around_caster"
+        },
+        {
+          "type": "delayed_explosion",
+          "name": "Seed Explosion",
+          "delay": "1.5s",
+          "damageType": "Magic",
+          "damageValue": "X[70%]",
+          "target": "enemies",
+          "maxTargets": 5,
+          "area": "seed_range"
+        },
+        {
+          "type": "healing",
+          "name": "Vitality Regeneration",
+          "value": "X[15%]",
+          "target": "self",
+          "trigger": "enemy_hit_by_explosion",
+          "condition": "at_least_one_enemy_hit"
+        },
+        {
+          "type": "buff",
+          "name": "Movement Speed",
+          "value": "30%",
+          "target": "self",
+          "duration": "5s",
+          "decay": true
+        }
+      ],
+      "icon": "./assets/icons/skill-bloodstorm.png"
+    },
+    {
+      "id": "blood-curse",
+      "name": "Blood Curse",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "healing"],
+      "description": "When Skills or Basic Attacks deal direct damage, they apply Blood Curse to the target for 6s. 30% of the damage dealt to cursed targets will explode as True Damage when the curse ends, while also restoring [Healing Rate: 20%] Vitality to the caster. (Cooldown: 25s)",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Blood Curse Application",
+          "trigger": "direct_damage",
+          "damage_sources": ["skills", "basic_attacks"],
+          "cooldown": "25s",
+          "effects": [
+            {
+              "type": "debuff",
+              "name": "Blood Curse",
+              "target": "damaged_target",
+              "duration": "6s"
+            }
+          ]
+        },
+        {
+          "type": "passive",
+          "name": "Curse Explosion",
+          "trigger": "curse_ends",
+          "effects": [
+            {
+              "type": "damage",
+              "value": "X[30%]",
+              "damageType": "True",
+              "target": "cursed_targets",
+              "based_on": "damage_dealt_during_curse"
+            },
+            {
+              "type": "healing",
+              "name": "Vitality Restoration",
+              "value": "X[20%]",
+              "target": "self"
+            }
+          ]
+        }
+      ],
+      "cooldown": "25s",
+      "icon": "./assets/icons/passive-blood-curse.png"
+    },
+    {
+      "id": "engulfing-shadows",
+      "name": "Engulfing Shadows",
+      "type": "active",
+      "category": "damage",
+      "tags": ["magic_damage", "shield", "stealth", "skill"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "description": "Enters Stealth and gains [Shadow Ward] and the skill [Phantom Bind] for 9 seconds. Shadow Ward: Grants [Target-based Max HP 25%] Shield. If Shadow Ward is dispelled, the Shadow Dive effect ends prematurely. Phantom Bind: Summon phantoms that track enemies in range, dealing [Damage Rate: 183%] Magic Damage and replenishing [Target-based Max HP 5%] Spectral Shield. Doesn't break Engulfing Shadows Stealth. Using any skill other than Phantom Bind, dealing direct healing or damage while in Stealth will break invisibility for 2 seconds before re-entering Stealth.",
+      "effects": [
+        {
+          "type": "stealth",
+          "name": "Engulfing Shadows",
+          "duration": "9s"
+        },
+        {
+          "type": "shield",
+          "name": "Shadow Ward",
+          "value": "X[25%]",
+          "based_on": "target_max_hp",
+          "duration": "9s",
+          "dispelled_ends_stealth": true
+        },
+        {
+          "type": "skill_grant",
+          "name": "Phantom Bind",
+          "duration": "9s",
+          "effects": [
+            {
+              "type": "summon",
+              "name": "Phantoms",
+              "target": "enemies",
+              "area": "range",
+              "damageType": "Magic",
+              "damageValue": "X[183%]"
+            },
+            {
+              "type": "shield",
+              "name": "Spectral Shield",
+              "value": "X[5%]",
+              "based_on": "target_max_hp",
+              "trigger": "phantom_damage"
+            }
+          ],
+          "does_not_break_stealth": true
+        },
+        {
+          "type": "stealth_break",
+          "triggers": ["other_skills", "direct_healing", "direct_damage"],
+          "exceptions": ["phantom_bind"],
+          "break_duration": "2s",
+          "re_enter_stealth": true
+        }
+      ],
+      "icon": "./assets/icons/skill-engulfing-shadows.png"
+    },
+    {
+      "id": "healing-bloom-hunter",
+      "name": "Healing Bloom Hunter",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["stealth", "healing"],
+      "description": "Enters Stealth when standing still unhurt and not using skills for a short duration. Taking damage, using skills, or moving breaks Stealth. Warning appears when enemies are within 7 to 14 meters. Stealth is lost if an enemy remains within 7 meters for over 3 seconds. Gains 3% HP per second while in any Stealth state",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Auto Stealth",
+          "trigger": "standing_still",
+          "conditions": ["unhurt", "not_using_skills"],
+          "duration": "short_duration"
+        },
+        {
+          "type": "stealth_break",
+          "triggers": ["taking_damage", "using_skills", "moving"]
+        },
+        {
+          "type": "warning",
+          "name": "Enemy Proximity",
+          "range": "7-14m",
+          "target": "enemies"
+        },
+        {
+          "type": "stealth_loss",
+          "name": "Close Enemy",
+          "condition": "enemy_within_7m",
+          "duration": "3s"
+        },
+        {
+          "type": "healing",
+          "name": "Stealth Regeneration",
+          "value": "3%",
+          "target": "self",
+          "interval": "1s",
+          "condition": "in_stealth"
+        }
+      ],
+      "icon": "./assets/icons/passive-healing-bloom-hunter.png"
+    },
+    {
+      "id": "null-pulse",
+      "name": "Null Pulse",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "knockback", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "9m",
+      "description": "Releases a Null Pulse in the target direction, dealing 49[Damage Rate: 50%] Physical Damage to enemies in range, knocking them back 12m, and applying Silence and 40% Slow for 3s.",
+      "effects": [
+        {
+          "type": "projectile",
+          "name": "Null Pulse",
+          "direction": "target_direction",
+          "range": "9m"
+        },
+        {
+          "type": "damage",
+          "value": "X[50%]",
+          "damageType": "Physical",
+          "target": "enemies",
+          "area": "pulse_range"
+        },
+        {
+          "type": "knockback",
+          "distance": "12m",
+          "direction": "away_from_caster",
+          "target": "enemies",
+          "area": "pulse_range"
+        },
+        {
+          "type": "control",
+          "name": "Silence",
+          "target": "enemies",
+          "area": "pulse_range",
+          "duration": "3s"
+        },
+        {
+          "type": "control",
+          "name": "Slow",
+          "value": "40%",
+          "target": "enemies",
+          "area": "pulse_range",
+          "duration": "3s"
+        }
+      ],
+      "icon": "./assets/icons/skill-null-pulse.png"
+    },
+    {
+      "id": "overclocking-reflex",
+      "name": "Overclocking Reflex",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["dodge"],
+      "description": "Has a 35% chance to dodge Basic Attack damage",
+      "effects": [
+        {
+          "type": "passive",
+          "name": "Dodge Basic Attacks",
+          "trigger": "basic_attack_damage",
+          "chance": "35%",
+          "effects": [
+            {
+              "type": "dodge",
+              "damage_type": "basic_attack"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/passive-overclocking-reflex.png"
     }
   ]
 }
