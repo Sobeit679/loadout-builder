@@ -56,15 +56,7 @@
     justify-content: center !important;
     padding: 1rem !important;
   }
-  .loadout-layout {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    gap: 1rem !important;
-    padding: 1rem !important;
-  }
+  /* Removed conflicting loadout-layout rule - using body.mobile-device version above */
   
   .slot-row {
     display: flex !important;
@@ -150,16 +142,7 @@
     text-shadow: 0 0 2px rgba(0,0,0,0.8) !important;
   }
   
-  .loadout-avatar {
-    order: 2 !important;
-    width: 100% !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 1rem !important;
-  }
+  /* Removed conflicting loadout-avatar rule - using body.mobile-device version above */
   
   .loadout-avatar img {
     max-width: 200px !important;
@@ -337,5 +320,26 @@
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
+  }
+  
+  /* Center drifter abilities section */
+  body.mobile-device .drifter-abilities {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0.5rem !important;
+  }
+  
+  /* Center passive slot container */
+  body.mobile-device .passive-slot-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
