@@ -1923,13 +1923,20 @@ function addTooltipPositioning() {
 }
 
 function clearDrifterAbilities() {
+  // Clear drifter passive slot
   const passiveSlot = document.querySelector('.drifter-passive .ability-icon');
-  const eSlot = document.querySelector('[data-key="E"] .ability-icon');
-  
   passiveSlot.style.backgroundImage = '';
   passiveSlot.parentElement.classList.add('empty');
-  eSlot.style.backgroundImage = '';
-  eSlot.parentElement.classList.add('empty');
+  
+  // Clear all ability slots (A, Q, W, E, D, F)
+  const abilitySlots = document.querySelectorAll('.ability-slot');
+  abilitySlots.forEach(slot => {
+    const icon = slot.querySelector('.ability-icon');
+    if (icon) {
+      icon.style.backgroundImage = '';
+      slot.classList.add('empty');
+    }
+  });
 }
 
 // Loadout Save/Load/Export/Import/Share Functions
