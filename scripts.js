@@ -256,22 +256,22 @@ function renderCards(items, container, isSelected, onToggle) {
       console.log('SkillDesc computed width:', window.getComputedStyle(skillDesc).width);
     } else {
       // Regular item rendering
-      const img = document.createElement('img');
-      img.src = item.icon || '';
-      img.alt = item.name;
-      img.onerror = () => { img.style.display = 'none'; };
-      
-      const name = document.createElement('div');
-      name.className = 'card-name';
-      name.textContent = item.name;
-      
-      const sub = document.createElement('div');
-      sub.className = 'card-sub';
-      sub.textContent = item.sub || '';
-      
-      card.appendChild(img);
-      card.appendChild(name);
-      card.appendChild(sub);
+    const img = document.createElement('img');
+    img.src = item.icon || '';
+    img.alt = item.name;
+    img.onerror = () => { img.style.display = 'none'; };
+    
+    const name = document.createElement('div');
+    name.className = 'card-name';
+    name.textContent = item.name;
+    
+    const sub = document.createElement('div');
+    sub.className = 'card-sub';
+    sub.textContent = item.sub || '';
+    
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(sub);
     }
     
     card.addEventListener('click', () => onToggle(item));
@@ -728,17 +728,17 @@ function renderGear(key) {
     items,
     selectionGrid,
     (item) => STATE.selected.gear[gearKey]?.gameId === item.gameId,
-           (item) => {
+    (item) => {
              console.log('Weapon selection clicked:', item);
-             if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
+      if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
                console.log('Deselecting weapon');
-               delete STATE.selected.gear[gearKey];
-             } else {
+        delete STATE.selected.gear[gearKey];
+      } else {
                console.log('Selecting weapon:', item.name);
-               STATE.selected.gear[gearKey] = item;
-               if (item.slot) {
-                 STATE.selected.mods[resolveSlotKey(item)] = item;
-               }
+        STATE.selected.gear[gearKey] = item;
+        if (item.slot) {
+          STATE.selected.mods[resolveSlotKey(item)] = item;
+        }
                // Auto-fill ability slots with weapon skills
                if (item.basicAttacks && item.basicAttacks.length > 0) {
                  const firstBasicAttack = STATE.skills.find(s => s.id === item.basicAttacks[0]);
@@ -758,8 +758,8 @@ function renderGear(key) {
                hideOverlay();
              }
              console.log('Selected weapon:', STATE.selected.gear[gearKey]);
-             populateLoadoutBoard();
-           }
+      populateLoadoutBoard();
+    }
   );
 }
 
@@ -1470,7 +1470,7 @@ function updateAbilityTooltips(drifter) {
       }
     } else {
       // Fallback for old weapon format
-      wTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${weapon.sub || weapon.name}</strong></div><div>${weapon.description || 'Weapon skill'}</div>`;
+    wTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${weapon.sub || weapon.name}</strong></div><div>${weapon.description || 'Weapon skill'}</div>`;
     }
   } else {
     wTooltip.textContent = 'No weapon equipped';
@@ -1838,12 +1838,12 @@ function getTagClass(tag) {
           return 'tag-dot';
         case 'stacking':
           return 'tag-dot';
-        case 'cooldown_reduction':
-          return 'tag-cooldown';
-        case 'cooldown':
-          return 'tag-cooldown';
-        default:
-          return 'tag-default';
+    case 'cooldown_reduction':
+      return 'tag-cooldown';
+    case 'cooldown':
+      return 'tag-cooldown';
+    default:
+      return 'tag-default';
   }
 }
 
@@ -1933,7 +1933,7 @@ function clearDrifterAbilities() {
 }
 
 // Loadout Save/Load/Export/Import/Share Functions
-function exportLoadout() {
+function exportLoadout(event) {
   const loadout = {
     version: '1.0',
     timestamp: new Date().toISOString(),
@@ -1944,39 +1944,15 @@ function exportLoadout() {
   };
   
   const dataStr = JSON.stringify(loadout, null, 2);
-  const dataBlob = new Blob([dataStr], { type: 'application/json' });
+  const encodedData = btoa(dataStr);
   
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(dataBlob);
-  link.download = `warborne-loadout-${new Date().toISOString().split('T')[0]}.json`;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  
-  showToast('Loadout exported successfully!', 'success');
+  // Show modal with the code string near the clicked button
+  showLoadoutCodeModal(encodedData, 'Export Loadout', false, event.target);
 }
 
-function importLoadout() {
-  const fileInput = document.getElementById('loadoutFileInput');
-  fileInput.click();
-  
-  fileInput.onchange = function(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      try {
-        const loadout = JSON.parse(e.target.result);
-        loadLoadoutData(loadout);
-        showToast('Loadout imported successfully!', 'success');
-      } catch (error) {
-        console.error('Error parsing loadout file:', error);
-        showToast('Error: Invalid loadout file format', 'error');
-      }
-    };
-    reader.readAsText(file);
-  };
+function importLoadout(event) {
+  // Show modal for entering loadout code near the clicked button
+  showLoadoutCodeModal('', 'Import Loadout', true, event.target);
 }
 
 function shareLoadout() {
@@ -2163,6 +2139,194 @@ function showLoadoutModal(loadouts, clickedButton) {
       }
     });
   });
+}
+
+function showLoadoutCodeModal(code, title, isImport = false, clickedButton = null) {
+  // Create modal with proper z-index and background
+  const modal = document.createElement('div');
+  modal.className = 'loadout-modal';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+  
+  modal.innerHTML = `
+    <div class="loadout-modal-content" style="
+      max-width: 500px; 
+      width: 90vw; 
+      background: var(--bg-elev-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 10001;
+    ">
+      <div class="loadout-modal-header" style="
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+        <h3 class="loadout-modal-title" style="margin: 0; color: #ffffff; font-size: 1.1em;">${title}</h3>
+        <button class="loadout-modal-close" onclick="this.closest('.loadout-modal').remove()" style="
+          background: none;
+          border: none;
+          color: #ffffff;
+          font-size: 1.5em;
+          cursor: pointer;
+          padding: 0;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 4px;
+        " onmouseover="this.style.backgroundColor='var(--border)'" onmouseout="this.style.backgroundColor='transparent'">×</button>
+      </div>
+      <div style="padding: 20px;">
+        ${isImport ? `
+          <label for="loadoutCodeInput" style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 0.9em; color: #ffffff;">Paste your loadout code:</label>
+          <textarea id="loadoutCodeInput" placeholder="Paste your loadout code here..." 
+            style="width: 100%; height: 120px; padding: 10px; border: 1px solid #666; 
+                   background: #1a1a1a; color: #ffffff !important; border-radius: 4px; 
+                   font-family: monospace; resize: vertical; font-size: 0.8em;
+                   box-sizing: border-box; outline: none;"></textarea>
+        ` : `
+          <label for="loadoutCodeDisplay" style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 0.9em; color: #ffffff;">Your loadout code:</label>
+          <textarea id="loadoutCodeDisplay" readonly 
+            style="width: 100%; height: 120px; padding: 10px; border: 1px solid #666; 
+                   background: #1a1a1a; color: #ffffff !important; border-radius: 4px; 
+                   font-family: monospace; resize: vertical; font-size: 0.8em;
+                   box-sizing: border-box; cursor: text; outline: none;">${code}</textarea>
+        `}
+      </div>
+      <div class="loadout-modal-actions" style="
+        padding: 0 20px 20px;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      ">
+        ${isImport ? `
+          <button class="loadout-modal-btn secondary" onclick="this.closest('.loadout-modal').remove()" style="
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-elev-2);
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+          ">Cancel</button>
+          <button class="loadout-modal-btn" onclick="importFromCode()" style="
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+          ">Import Loadout</button>
+        ` : `
+          <button class="loadout-modal-btn" onclick="copyLoadoutCode()" style="
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+          ">Copy Code</button>
+          <button class="loadout-modal-btn secondary" onclick="this.closest('.loadout-modal').remove()" style="
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-elev-2);
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+          ">Close</button>
+        `}
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Close modal when clicking outside
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.remove();
+    }
+  });
+  
+  // Close modal with Escape key
+  const handleEscape = (e) => {
+    if (e.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', handleEscape);
+    }
+  };
+  document.addEventListener('keydown', handleEscape);
+  
+        // Focus on input if importing
+        if (isImport) {
+          setTimeout(() => {
+            const input = modal.querySelector('#loadoutCodeInput');
+            if (input) input.focus();
+          }, 100);
+        } else {
+          // Select all text if exporting
+          setTimeout(() => {
+            const textarea = modal.querySelector('#loadoutCodeDisplay');
+            if (textarea) {
+              console.log('Setting textarea value:', code);
+              textarea.value = code;
+              textarea.style.color = '#ffffff';
+              textarea.style.backgroundColor = '#1a1a1a';
+              textarea.select();
+              textarea.focus();
+              console.log('Textarea value after setting:', textarea.value);
+            }
+          }, 100);
+        }
+}
+
+function copyLoadoutCode() {
+  const textarea = document.querySelector('#loadoutCodeDisplay');
+  if (textarea) {
+    textarea.select();
+    document.execCommand('copy');
+    showToast('Loadout code copied to clipboard!', 'success');
+  }
+}
+
+function importFromCode() {
+  const textarea = document.querySelector('#loadoutCodeInput');
+  if (!textarea) return;
+  
+  const code = textarea.value.trim();
+  if (!code) {
+    showToast('Please enter a loadout code', 'error');
+    return;
+  }
+  
+  try {
+    const decodedData = atob(code);
+    const loadout = JSON.parse(decodedData);
+    loadLoadoutData(loadout);
+    showToast('Loadout imported successfully!', 'success');
+    
+    // Close modal
+    const modal = document.querySelector('.loadout-modal');
+    if (modal) modal.remove();
+  } catch (error) {
+    console.error('Error parsing loadout code:', error);
+    showToast('Error: Invalid loadout code format', 'error');
+  }
 }
 
 function loadSelectedLoadout(loadoutId) {
