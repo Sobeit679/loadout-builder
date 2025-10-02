@@ -1,32 +1,22 @@
 {
   "boots": [
     {
-      "id": "void-treads",
-      "name": "Void Treads",
-      "rarity": "epic",
-      "skill": "Void Step",
-      "description": "Boots infused with void energy that allow for teleportation and enhanced movement.",
-      "stats": {
-        "movementSpeed": "+25%",
-        "intelligence": 6,
-        "teleportRange": "+5m",
-        "cooldownReduction": "+8%"
-      },
-      "icon": "./assets/icons/boots-void-treads.png"
-    },
-    {
-      "id": "shadow-sprinters",
-      "name": "Shadow Sprinters",
+      "id": "arcaneflow-boots",
+      "gameId": "arcaneflow-boots",
+      "name": "Arcaneflow Boots",
+      "type": "boots",
+      "armorType": "Intelligence",
       "rarity": "rare",
-      "skill": "Shadow Dash",
-      "description": "Lightweight boots that enhance speed and provide stealth capabilities.",
+      "description": "Enchanted boots that channel magical energy to enhance movement and provide powerful healing abilities.",
       "stats": {
-        "movementSpeed": "+20%",
-        "agility": 7,
-        "stealth": "+15%",
-        "staminaRegen": "+10%"
+        "movementSpeed": "+18%",
+        "magicResistance": 12,
+        "intelligence": 6,
+        "healingBonus": "+20%",
+        "manaRegen": "+1.5/s"
       },
-      "icon": "./assets/icons/boots-shadow-sprinters.png"
+      "coreSkill": "abundance",
+      "icon": "./assets/icons/boots-arcaneflow-boots.png"
     }
   ]
 }

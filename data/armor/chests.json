@@ -1,34 +1,22 @@
 {
   "chests": [
     {
-      "id": "void-robe",
-      "name": "Void Robe",
-      "rarity": "epic",
-      "skill": "Void Barrier",
-      "description": "A flowing robe woven from void energy. Provides excellent magical protection and enhances spellcasting.",
-      "stats": {
-        "armor": 25,
-        "magicResistance": 20,
-        "intelligence": 10,
-        "manaPool": "+50",
-        "spellPower": "+15%"
-      },
-      "icon": "./assets/icons/chest-void-robe.png"
-    },
-    {
-      "id": "shadow-leather",
-      "name": "Shadow Leather",
+      "id": "vigorcloak",
+      "gameId": "vigorcloak",
+      "name": "Vigorcloak",
+      "type": "chest",
+      "armorType": "Intelligence",
       "rarity": "rare",
-      "skill": "Shadow Step",
-      "description": "Lightweight leather armor that allows for quick movement and stealth.",
+      "description": "A mystical cloak infused with healing energy that enhances restorative abilities and provides magical protection.",
       "stats": {
-        "armor": 18,
-        "agility": 8,
-        "movementSpeed": "+12%",
-        "stealth": "+20%",
-        "dodgeChance": "+8%"
+        "armor": 20,
+        "magicResistance": 15,
+        "intelligence": 8,
+        "healingBonus": "+25%",
+        "manaRegen": "+2/s"
       },
-      "icon": "./assets/icons/chest-shadow-leather.png"
+      "coreSkill": "heal",
+      "icon": "./assets/icons/chest-vigorcloak.png"
     }
   ]
 }

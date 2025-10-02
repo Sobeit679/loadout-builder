@@ -3358,6 +3358,61 @@
         }
       ],
       "icon": "./assets/icons/passive-amplify.png"
+    },
+    {
+      "id": "heal",
+      "name": "Heal",
+      "type": "active",
+      "category": "healing",
+      "tags": ["healing", "skill"],
+      "mpCost": 0,
+      "cooldown": "34s",
+      "castingTime": "instant",
+      "range": "7m",
+      "description": "Instantly restores [Healing Rate: 120%] HP to nearby allies",
+      "effects": [
+        {
+          "type": "healing",
+          "healingRate": 120,
+          "targets": "allies",
+          "area": "nearby"
+        }
+      ],
+      "icon": "./assets/icons/skill-heal.png"
+    },
+    {
+      "id": "abundance",
+      "name": "Abundance",
+      "type": "active",
+      "category": "buff",
+      "tags": ["mp", "buff", "skill"],
+      "mpCost": 0,
+      "cooldown": "29s",
+      "castingTime": "instant",
+      "range": "6m",
+      "description": "Increases Movement Speed by 50% and restores 8 MP every second for 5s",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Abundance",
+          "duration": "5s",
+          "description": "Increases Movement Speed by 50% and restores 8 MP every second",
+          "effects": [
+            {
+              "type": "movement_speed",
+              "value": 50,
+              "unit": "percent"
+            },
+            {
+              "type": "mana_restore",
+              "value": 8,
+              "unit": "per_second",
+              "duration": "5s"
+            }
+          ]
+        }
+      ],
+      "icon": "./assets/icons/skill-abundance.png"
     }
   ]
 }

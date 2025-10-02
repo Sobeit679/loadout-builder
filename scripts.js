@@ -621,14 +621,103 @@ async function init() {
       showWeaponSkillSelection();
     });
   }
+
+  // Bind loadout control buttons
+  const exportLoadoutBtn = document.getElementById('exportLoadoutBtn');
+  const importLoadoutBtn = document.getElementById('importLoadoutBtn');
+
+  if (exportLoadoutBtn) {
+    exportLoadoutBtn.addEventListener('click', exportLoadout);
+  }
+  if (importLoadoutBtn) {
+    importLoadoutBtn.addEventListener('click', importLoadout);
+  }
+
+  // Check for shared loadout in URL
+  checkForSharedLoadout();
+  
+  // Debug: Check if loadout buttons are found
+  console.log('=== LOADOUT BUTTONS DEBUG ===');
+  console.log('Export button:', document.getElementById('exportLoadoutBtn'));
+  console.log('Import button:', document.getElementById('importLoadoutBtn'));
+  
+  // Debug: Check CSS loading
+  console.log('=== CSS DEBUG ===');
+  const stylesheet = document.querySelector('link[href*="styles.css"]');
+  console.log('Stylesheet link:', stylesheet);
+  console.log('Stylesheet href:', stylesheet?.href);
+  
+  // Debug: Check if our CSS classes exist
+  const testElement = document.createElement('div');
+  testElement.className = 'loadout-btn';
+  document.body.appendChild(testElement);
+  const computedStyle = window.getComputedStyle(testElement);
+  console.log('Loadout button computed styles:', {
+    display: computedStyle.display,
+    background: computedStyle.background,
+    borderRadius: computedStyle.borderRadius,
+    padding: computedStyle.padding
+  });
+  document.body.removeChild(testElement);
+  
+  // Debug: Check if text buttons are found
+  console.log('=== LOADOUT TEXT BUTTONS DEBUG ===');
+  const textButtons = document.querySelectorAll('.loadout-text-btn');
+  console.log('Found loadout text buttons:', textButtons.length);
+  
+  // Force correct positioning with inline styles
+  const header = document.querySelector('.panel-header');
+  if (header) {
+    header.style.display = 'flex';
+    header.style.flexDirection = 'column';
+    header.style.alignItems = 'center';
+    header.style.marginBottom = '24px';
+    header.style.padding = '0 20px';
+  }
+  
+  const title = document.querySelector('.game-title');
+  if (title) {
+    title.style.textAlign = 'center';
+    title.style.width = '100%';
+    title.style.marginBottom = '12px';
+  }
+  
+  const controls = document.querySelector('.loadout-controls');
+  if (controls) {
+    controls.style.display = 'flex';
+    controls.style.gap = '16px';
+    controls.style.alignItems = 'center';
+    controls.style.justifyContent = 'flex-end';
+    controls.style.background = 'transparent';
+    controls.style.padding = '0';
+    controls.style.border = 'none';
+    controls.style.boxShadow = 'none';
+    controls.style.width = '100%';
+  }
+  
+  // Add hover effects to text buttons
+  textButtons.forEach((btn, index) => {
+    console.log(`Text Button ${index + 1}:`, btn);
+    
+    // Add hover effect
+    btn.addEventListener('mouseenter', () => {
+      btn.style.color = 'var(--accent)';
+      btn.style.backgroundColor = 'var(--bg-elev-2)';
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      btn.style.color = 'var(--text)';
+      btn.style.backgroundColor = 'transparent';
+    });
+  });
 }
 
 
 function renderGear(key) {
   const gearKey = SLOT_MAPPINGS[key].key;
   
-  // For weapons and helmets, only show actual items, not mods
-  const items = (gearKey === 'weapons' || gearKey === 'armors/head')
+  // For weapons, helmets, chests, and boots, only show actual items, not mods
+  const items = (gearKey === 'weapons' || gearKey === 'armors/head' || gearKey === 'armors/chest' || gearKey === 'armors/boots')
     ? STATE.gear[gearKey]
     : [...STATE.gear[gearKey], ...STATE.mods.armor];
     
@@ -721,6 +810,12 @@ function populateLoadoutBoard() {
   // Update helm passive
   updateHelmPassive();
   
+  // Update chest skill (D slot)
+  updateChestSkill();
+  
+  // Update boots skill (F slot)
+  updateBootsSkill();
+  
   // Update ability slots A and Q with weapon skills
   updateBasicAttackSkill();
   updateWeaponAbilitySkill();
@@ -809,6 +904,60 @@ function updateHelmPassive() {
   }
   
   // Update helm passive tooltip
+  const drifter = STATE.selected.drifters[0];
+  if (drifter) {
+    updateAbilityTooltips(drifter);
+  }
+}
+
+function updateChestSkill() {
+  const chest = STATE.selected.gear['armors/chest'];
+  const dSlot = document.querySelector('[data-key="D"]');
+  const dIcon = dSlot.querySelector('.ability-icon');
+  
+  // Handle chest core skill
+  if (chest && chest.coreSkill) {
+    const coreSkill = STATE.skills.find(s => s.id === chest.coreSkill);
+    if (coreSkill && coreSkill.icon) {
+      dIcon.style.backgroundImage = `url(${coreSkill.icon})`;
+      dSlot.classList.remove('empty');
+    } else {
+      dIcon.style.backgroundImage = '';
+      dSlot.classList.add('empty');
+    }
+  } else {
+    dIcon.style.backgroundImage = '';
+    dSlot.classList.add('empty');
+  }
+  
+  // Update chest skill tooltip
+  const drifter = STATE.selected.drifters[0];
+  if (drifter) {
+    updateAbilityTooltips(drifter);
+  }
+}
+
+function updateBootsSkill() {
+  const boots = STATE.selected.gear['armors/boots'];
+  const fSlot = document.querySelector('[data-key="F"]');
+  const fIcon = fSlot.querySelector('.ability-icon');
+  
+  // Handle boots core skill
+  if (boots && boots.coreSkill) {
+    const coreSkill = STATE.skills.find(s => s.id === boots.coreSkill);
+    if (coreSkill && coreSkill.icon) {
+      fIcon.style.backgroundImage = `url(${coreSkill.icon})`;
+      fSlot.classList.remove('empty');
+    } else {
+      fIcon.style.backgroundImage = '';
+      fSlot.classList.add('empty');
+    }
+  } else {
+    fIcon.style.backgroundImage = '';
+    fSlot.classList.add('empty');
+  }
+  
+  // Update boots skill tooltip
   const drifter = STATE.selected.drifters[0];
   if (drifter) {
     updateAbilityTooltips(drifter);
@@ -1327,6 +1476,92 @@ function updateAbilityTooltips(drifter) {
     wTooltip.textContent = 'No weapon equipped';
   }
   
+  // Update chest skill tooltip (D slot)
+  const chest = STATE.selected.gear['armors/chest'];
+  const dSlot = document.querySelector('[data-key="D"]');
+  let dTooltip = dSlot.querySelector('.ability-tooltip');
+  if (!dTooltip) {
+    dTooltip = document.createElement('div');
+    dTooltip.className = 'ability-tooltip';
+    dSlot.appendChild(dTooltip);
+  }
+  if (chest) {
+    if (chest.coreSkill) {
+      // New chest system with core skill
+      const coreSkill = STATE.skills.find(s => s.id === chest.coreSkill);
+      if (coreSkill) {
+        const formattedDescription = coreSkill.description.replace(/\n/g, '<br><br>');
+        
+        // Create skill tags
+        let skillTags = '';
+        if (coreSkill.tags && coreSkill.tags.length > 0) {
+          const allTags = coreSkill.tags.map(tag => {
+            const tagClass = getTagClass(tag);
+            let displayTag = tag;
+            if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+            else if (tag === 'control_immunity') displayTag = 'control immunity';
+            else if (tag === 'damage_immunity') displayTag = 'immunity';
+            else if (tag === 'hard_control') displayTag = 'hard control';
+            return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+          }).join(' ');
+          skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+        }
+        
+        dTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${coreSkill.name}</strong></div><div>${formattedDescription}</div>`;
+      } else {
+        dTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${chest.name}</strong></div><div>Core skill not found</div>`;
+      }
+    } else {
+      // Fallback for old chest format
+      dTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${chest.sub || chest.name}</strong></div><div>${chest.description || 'Chest skill'}</div>`;
+    }
+  } else {
+    dTooltip.textContent = 'No chest equipped';
+  }
+  
+  // Update boots skill tooltip (F slot)
+  const boots = STATE.selected.gear['armors/boots'];
+  const fSlot = document.querySelector('[data-key="F"]');
+  let fTooltip = fSlot.querySelector('.ability-tooltip');
+  if (!fTooltip) {
+    fTooltip = document.createElement('div');
+    fTooltip.className = 'ability-tooltip';
+    fSlot.appendChild(fTooltip);
+  }
+  if (boots) {
+    if (boots.coreSkill) {
+      // New boots system with core skill
+      const coreSkill = STATE.skills.find(s => s.id === boots.coreSkill);
+      if (coreSkill) {
+        const formattedDescription = coreSkill.description.replace(/\n/g, '<br><br>');
+        
+        // Create skill tags
+        let skillTags = '';
+        if (coreSkill.tags && coreSkill.tags.length > 0) {
+          const allTags = coreSkill.tags.map(tag => {
+            const tagClass = getTagClass(tag);
+            let displayTag = tag;
+            if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+            else if (tag === 'control_immunity') displayTag = 'control immunity';
+            else if (tag === 'damage_immunity') displayTag = 'immunity';
+            else if (tag === 'hard_control') displayTag = 'hard control';
+            return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+          }).join(' ');
+          skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+        }
+        
+        fTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${coreSkill.name}</strong></div><div>${formattedDescription}</div>`;
+      } else {
+        fTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${boots.name}</strong></div><div>Core skill not found</div>`;
+      }
+    } else {
+      // Fallback for old boots format
+      fTooltip.innerHTML = `<div style="margin-bottom: 12px;"><strong>${boots.sub || boots.name}</strong></div><div>${boots.description || 'Boots skill'}</div>`;
+    }
+  } else {
+    fTooltip.textContent = 'No boots equipped';
+  }
+  
   // Update ability slot A tooltip (basic attack)
   const aSlot = document.querySelector('[data-key="A"]');
   let aTooltip = aSlot.querySelector('.ability-tooltip');
@@ -1695,6 +1930,306 @@ function clearDrifterAbilities() {
   passiveSlot.parentElement.classList.add('empty');
   eSlot.style.backgroundImage = '';
   eSlot.parentElement.classList.add('empty');
+}
+
+// Loadout Save/Load/Export/Import/Share Functions
+function exportLoadout() {
+  const loadout = {
+    version: '1.0',
+    timestamp: new Date().toISOString(),
+    drifter: STATE.selected.drifters[0] || null,
+    gear: STATE.selected.gear || {},
+    mods: STATE.selected.mods || {},
+    masteryLevel: parseInt(document.getElementById('masteryLevel')?.textContent || '1')
+  };
+  
+  const dataStr = JSON.stringify(loadout, null, 2);
+  const dataBlob = new Blob([dataStr], { type: 'application/json' });
+  
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(dataBlob);
+  link.download = `warborne-loadout-${new Date().toISOString().split('T')[0]}.json`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  
+  showToast('Loadout exported successfully!', 'success');
+}
+
+function importLoadout() {
+  const fileInput = document.getElementById('loadoutFileInput');
+  fileInput.click();
+  
+  fileInput.onchange = function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const loadout = JSON.parse(e.target.result);
+        loadLoadoutData(loadout);
+        showToast('Loadout imported successfully!', 'success');
+      } catch (error) {
+        console.error('Error parsing loadout file:', error);
+        showToast('Error: Invalid loadout file format', 'error');
+      }
+    };
+    reader.readAsText(file);
+  };
+}
+
+function shareLoadout() {
+  const loadout = {
+    version: '1.0',
+    timestamp: new Date().toISOString(),
+    drifter: STATE.selected.drifters[0] || null,
+    gear: STATE.selected.gear || {},
+    mods: STATE.selected.mods || {},
+    masteryLevel: parseInt(document.getElementById('masteryLevel')?.textContent || '1')
+  };
+  
+  const dataStr = JSON.stringify(loadout, null, 2);
+  const encodedData = btoa(dataStr);
+  const shareUrl = `${window.location.origin}${window.location.pathname}?loadout=${encodedData}`;
+  
+  navigator.clipboard.writeText(shareUrl).then(() => {
+    showToast('Loadout link copied to clipboard!', 'success');
+  }).catch(() => {
+    // Fallback for browsers that don't support clipboard API
+    const textArea = document.createElement('textarea');
+    textArea.value = shareUrl;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    showToast('Loadout link copied to clipboard!', 'success');
+  });
+}
+
+function loadLoadoutData(loadout) {
+  try {
+    // Validate loadout structure
+    if (!loadout || typeof loadout !== 'object') {
+      throw new Error('Invalid loadout data');
+    }
+    
+    // Load drifter
+    if (loadout.drifter) {
+      STATE.selected.drifters = [loadout.drifter];
+      updateAvatar();
+    }
+    
+    // Load gear
+    if (loadout.gear) {
+      STATE.selected.gear = { ...STATE.selected.gear, ...loadout.gear };
+    }
+    
+    // Load mods
+    if (loadout.mods) {
+      STATE.selected.mods = { ...STATE.selected.mods, ...loadout.mods };
+    }
+    
+    // Load mastery level
+    if (loadout.masteryLevel) {
+      const masteryLevel = document.getElementById('masteryLevel');
+      if (masteryLevel) {
+        masteryLevel.textContent = loadout.masteryLevel.toString();
+      }
+    }
+    
+    // Update the UI
+    populateLoadoutBoard();
+    updateSupportEffects(STATE.selected.drifters[0]);
+    
+  } catch (error) {
+    console.error('Error loading loadout:', error);
+    showToast('Error loading loadout data', 'error');
+  }
+}
+
+function saveLoadout() {
+  const loadoutName = prompt('Enter a name for this loadout:');
+  if (!loadoutName || loadoutName.trim() === '') return;
+  
+  const loadout = {
+    id: Date.now().toString(),
+    name: loadoutName.trim(),
+    version: '1.0',
+    timestamp: new Date().toISOString(),
+    drifter: STATE.selected.drifters[0] || null,
+    gear: STATE.selected.gear || {},
+    mods: STATE.selected.mods || {},
+    masteryLevel: parseInt(document.getElementById('masteryLevel')?.textContent || '1')
+  };
+  
+  // Get existing saved loadouts
+  const savedLoadouts = JSON.parse(localStorage.getItem('warborneLoadouts') || '[]');
+  
+  // Check if loadout with this name already exists
+  const existingIndex = savedLoadouts.findIndex(l => l.name === loadout.name);
+  if (existingIndex !== -1) {
+    if (!confirm(`A loadout named "${loadout.name}" already exists. Overwrite it?`)) {
+      return;
+    }
+    savedLoadouts[existingIndex] = loadout;
+  } else {
+    savedLoadouts.push(loadout);
+  }
+  
+  // Save to localStorage
+  localStorage.setItem('warborneLoadouts', JSON.stringify(savedLoadouts));
+  showToast(`Loadout "${loadout.name}" saved!`, 'success');
+}
+
+function loadLoadout(event) {
+  const savedLoadouts = JSON.parse(localStorage.getItem('warborneLoadouts') || '[]');
+  
+  if (savedLoadouts.length === 0) {
+    showToast('No saved loadouts found', 'info');
+    return;
+  }
+  
+  showLoadoutModal(savedLoadouts, event?.target);
+}
+
+function showLoadoutModal(loadouts, clickedButton) {
+  // Create modal
+  const modal = document.createElement('div');
+  modal.className = 'loadout-modal';
+  modal.innerHTML = `
+    <div class="loadout-modal-content">
+      <div class="loadout-modal-header">
+        <h3 class="loadout-modal-title">Load Saved Loadout</h3>
+        <button class="loadout-modal-close" onclick="this.closest('.loadout-modal').remove()">×</button>
+      </div>
+      <div class="loadout-list" id="loadoutList">
+        ${loadouts.map(loadout => `
+          <div class="loadout-item" data-loadout-id="${loadout.id}">
+            <div>
+              <div class="loadout-name">${loadout.name}</div>
+              <div class="loadout-date">${new Date(loadout.timestamp).toLocaleDateString()}</div>
+            </div>
+            <div class="loadout-actions">
+              <button class="loadout-action-btn" onclick="loadSelectedLoadout('${loadout.id}')">Load</button>
+              <button class="loadout-action-btn delete" onclick="deleteLoadout('${loadout.id}')">Delete</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="loadout-modal-actions">
+        <button class="loadout-modal-btn secondary" onclick="this.closest('.loadout-modal').remove()">Cancel</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Position modal near the clicked button
+  if (clickedButton) {
+    const buttonRect = clickedButton.getBoundingClientRect();
+    const modalContent = modal.querySelector('.loadout-modal-content');
+    
+    // Position modal to the right of the button, or below if not enough space
+    const spaceRight = window.innerWidth - buttonRect.right;
+    const spaceBelow = window.innerHeight - buttonRect.bottom;
+    
+    if (spaceRight > 300) {
+      // Position to the right
+      modalContent.style.position = 'fixed';
+      modalContent.style.left = `${buttonRect.right + 10}px`;
+      modalContent.style.top = `${buttonRect.top}px`;
+      modalContent.style.transform = 'none';
+    } else if (spaceBelow > 200) {
+      // Position below
+      modalContent.style.position = 'fixed';
+      modalContent.style.left = `${buttonRect.left}px`;
+      modalContent.style.top = `${buttonRect.bottom + 10}px`;
+      modalContent.style.transform = 'none';
+    } else {
+      // Center if no space
+      modalContent.style.position = 'fixed';
+      modalContent.style.left = '50%';
+      modalContent.style.top = '50%';
+      modalContent.style.transform = 'translate(-50%, -50%)';
+    }
+  }
+  
+  // Add click handlers
+  modal.querySelectorAll('.loadout-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('loadout-action-btn')) {
+        loadSelectedLoadout(item.dataset.loadoutId);
+      }
+    });
+  });
+}
+
+function loadSelectedLoadout(loadoutId) {
+  const savedLoadouts = JSON.parse(localStorage.getItem('warborneLoadouts') || '[]');
+  const loadout = savedLoadouts.find(l => l.id === loadoutId);
+  
+  if (loadout) {
+    loadLoadoutData(loadout);
+    document.querySelector('.loadout-modal')?.remove();
+    showToast(`Loaded loadout: ${loadout.name}`, 'success');
+  }
+}
+
+function deleteLoadout(loadoutId) {
+  if (!confirm('Are you sure you want to delete this loadout?')) return;
+  
+  const savedLoadouts = JSON.parse(localStorage.getItem('warborneLoadouts') || '[]');
+  const filteredLoadouts = savedLoadouts.filter(l => l.id !== loadoutId);
+  
+  localStorage.setItem('warborneLoadouts', JSON.stringify(filteredLoadouts));
+  
+  // Refresh the modal
+  const modal = document.querySelector('.loadout-modal');
+  if (modal) {
+    modal.remove();
+    loadLoadout();
+  }
+  
+  showToast('Loadout deleted', 'success');
+}
+
+function showToast(message, type = 'info') {
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  
+  document.body.appendChild(toast);
+  
+  // Show toast
+  setTimeout(() => toast.classList.add('show'), 100);
+  
+  // Hide toast after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// Check for loadout in URL parameters on page load
+function checkForSharedLoadout() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const loadoutData = urlParams.get('loadout');
+  
+  if (loadoutData) {
+    try {
+      const loadout = JSON.parse(atob(loadoutData));
+      loadLoadoutData(loadout);
+      showToast('Shared loadout loaded!', 'success');
+      
+      // Clean up URL
+      const newUrl = window.location.origin + window.location.pathname;
+      window.history.replaceState({}, document.title, newUrl);
+    } catch (error) {
+      console.error('Error loading shared loadout:', error);
+      showToast('Error loading shared loadout', 'error');
+    }
+  }
 }
 
 
