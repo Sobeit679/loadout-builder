@@ -560,6 +560,178 @@
         }
       ],
       "icon": "./assets/icons/passive-cyclone-reap.png"
+    },
+    {
+      "id": "shackled-grip",
+      "name": "Shackled Grip",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "hard_control", "pull", "skill"],
+      "mpCost": 27,
+      "cooldown": "25s",
+      "range": "4m",
+      "description": "Channels for 4 seconds, creating chains that extend outward and create chain links on hit (maximum of 5 chains). Chains break at their range limit. During channeling, gains control immunity, 40% increased Damage Resistance, and 30% increased Movement Speed. After channeling ends, pulls all chained targets and deals [Damage Rate: 150%] Physical Damage, stunning them for 1.5s. Jumping during channeling ends the skill early, dealing [Damage Rate: 300%] Physical Damage to enemies in range.",
+      "effects": [
+        {
+          "type": "channel",
+          "duration": "4s",
+          "maxChains": 5
+        },
+        {
+          "type": "control_immunity",
+          "duration": "4s",
+          "target": "self"
+        },
+        {
+          "type": "damage_resistance",
+          "value": "40%",
+          "duration": "4s",
+          "target": "self"
+        },
+        {
+          "type": "movement_speed",
+          "value": "30%",
+          "duration": "4s",
+          "target": "self"
+        },
+        {
+          "type": "damage",
+          "value": "150%",
+          "damageType": "Physical",
+          "target": "chained_enemies"
+        },
+        {
+          "type": "stun",
+          "value": "1.5s",
+          "target": "chained_enemies"
+        },
+        {
+          "type": "damage",
+          "value": "300%",
+          "damageType": "Physical",
+          "target": "enemies_in_range",
+          "condition": "early_termination"
+        }
+      ],
+      "icon": "./assets/icons/skill-shackled-grip.png"
+    },
+    {
+      "id": "imprisonment",
+      "name": "Imprisonment",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "immobilize", "passive"],
+      "description": "When inflicting Forced Movement (Pull, Knockback) on enemies, creates a circular prison lasting 4s. Enemies touching the prison take [Damage Rate: 100%] Magic Damage and are Immobilized until the prison ends (Cooldown: 20s)",
+      "effects": [
+        {
+          "type": "trigger",
+          "condition": "forced_movement",
+          "cooldown": "20s"
+        },
+        {
+          "type": "prison",
+          "duration": "4s",
+          "shape": "circular"
+        },
+        {
+          "type": "damage",
+          "value": "100%",
+          "damageType": "Magic",
+          "target": "enemies_touching_prison"
+        },
+        {
+          "type": "immobilize",
+          "duration": "4s",
+          "target": "enemies_touching_prison"
+        }
+      ],
+      "icon": "./assets/icons/passive-imprisonment.png"
+    },
+    {
+      "id": "protectors-radiance",
+      "name": "Protector's Radiance",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "shield", "skill"],
+      "mpCost": 30,
+      "cooldown": "38s",
+      "range": "10m",
+      "description": "Creates a Guardian Field and channels for 6s, gaining immunity to control. Allies on the field gain +40% Max HP and immunity to Forced Movement (Pull, Knockback). Each 5000 total damage taken by allies grants 1 Energy stack, up to 5. Use again within 12s of starting the channeling to unleash absorbed energy, dealing [Damage Rate: 350%]-[Damage Rate: 700%] Magic Damage based on stacks and reducing Movement Speed by 30% for 4s",
+      "effects": [
+        {
+          "type": "guardian_field",
+          "duration": "6s",
+          "range": "10m"
+        },
+        {
+          "type": "control_immunity",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "max_hp_bonus",
+          "value": "40%",
+          "duration": "6s",
+          "target": "allies_on_field"
+        },
+        {
+          "type": "forced_movement_immunity",
+          "duration": "6s",
+          "target": "allies_on_field"
+        },
+        {
+          "type": "energy_stacks",
+          "maxStacks": 5,
+          "trigger": "damage_taken",
+          "threshold": 5000
+        },
+        {
+          "type": "damage",
+          "value": "350%-700%",
+          "damageType": "Magic",
+          "target": "enemies",
+          "scaling": "energy_stacks"
+        },
+        {
+          "type": "movement_speed_reduction",
+          "value": "30%",
+          "duration": "4s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-protectors-radiance.png"
+    },
+    {
+      "id": "reflective-shield",
+      "name": "Reflective Shield",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff", "passive"],
+      "description": "Taking damage equal to 10% of Max HP within 5s after skill cast grants 25% Damage Resistance for 6s. During this time, reflect Magic Damage equal to 65% + 1.5% of Max HP to the attacker. (Cooldown: 25s)",
+      "effects": [
+        {
+          "type": "trigger",
+          "condition": "damage_taken",
+          "threshold": "10%_max_hp",
+          "timeframe": "5s",
+          "cooldown": "25s"
+        },
+        {
+          "type": "damage_resistance",
+          "value": "25%",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "damage_reflection",
+          "value": "65%",
+          "damageType": "Magic",
+          "scaling": "1.5%_max_hp",
+          "target": "attacker",
+          "duration": "6s"
+        }
+      ],
+      "icon": "./assets/icons/passive-reflective-shield.png"
     }
   ]
 }

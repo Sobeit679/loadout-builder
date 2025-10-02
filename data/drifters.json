@@ -203,45 +203,40 @@
     {
       "id": "draknor",
       "name": "Draknor",
-      "role": "Warrior",
-      "description": "Draknor is a fierce warrior who excels in close combat and area damage.",
+      "role": "Tank",
+      "description": "Tank | Control",
       "basicAttributes": {
-        "strength": 22,
-        "agility": 16,
-        "intelligence": 12
+        "strength": 46,
+        "agility": 40,
+        "intelligence": 50
       },
       "stats": {
-        "maxHpBonus": "7%",
-        "attackSpeedBonus": "3.8%",
-        "criticalRate": "1.6%",
-        "castingSpeedBonus": "2.8%",
-        "skillCooldownRateBonus": "0.6%",
-        "damageBonusPvE": "2.4%",
-        "physicalDamageBonus": "6.8%",
-        "magicDamageBonus": "2.4%",
-        "healingBonus": "2.8%",
-        "tenacityPenetration": 4.2,
-        "armor": 5.6,
-        "magicResistance": 2.8,
-        "block": 12,
-        "controlResistance": 2.4,
-        "movementSpeed": "5.1 m/sec"
+        "maxHpBonus": "11%",
+        "attackSpeedBonus": "7.2%",
+        "criticalRate": "2%",
+        "castingSpeedBonus": "15%",
+        "skillCooldownRateBonus": "3%",
+        "damageBonusPvE": "4.6%",
+        "physicalDamageBonus": "10%",
+        "magicDamageBonus": "12%",
+        "healingBonus": "12%",
+        "tenacityPenetration": 6,
+        "armor": 6,
+        "magicResistance": 7.5,
+        "block": 23,
+        "controlResistance": 4.6,
+        "movementSpeed": "5.3 m/sec"
       },
       "skills": {
-        "core": "whirlwind-slash",
-        "passive": "berserker-rage"
+        "core": "shackled-grip",
+        "passive": "imprisonment"
       },
       "support": {
         "effects": [
           {
-            "name": "Physical Damage",
-            "value": "+4.8%",
+            "name": "Gathering Yield Bonus",
+            "value": "+2.15%",
             "type": "positive"
-          },
-          {
-            "name": "Magic Resistance",
-            "value": "-1.2%",
-            "type": "negative"
           }
         ]
       },
@@ -249,52 +244,52 @@
       "portrait": "./assets/icons/drifter-draknor-portrait.png",
       "cardIcon": "./assets/icons/drifter-card-draknor.png",
       "masteryBonuses": {
-        "strength": 1.8,
-        "agility": 1.2,
-        "intelligence": 0.8
+        "strength": 2.2,
+        "agility": 1.0,
+        "intelligence": 1.1
       }
     },
     {
       "id": "durion",
       "name": "Durion",
       "role": "Tank",
-      "description": "Durion is an unbreakable fortress with massive defensive capabilities.",
+      "description": "Tank | Support | Area Damage",
       "basicAttributes": {
-        "strength": 24,
-        "agility": 12,
-        "intelligence": 14
+        "strength": 51,
+        "agility": 31,
+        "intelligence": 34
       },
       "stats": {
         "maxHpBonus": "12%",
-        "attackSpeedBonus": "1.8%",
-        "criticalRate": "0.6%",
-        "castingSpeedBonus": "1.8%",
-        "skillCooldownRateBonus": "0.3%",
-        "damageBonusPvE": "0.8%",
-        "physicalDamageBonus": "2.8%",
-        "magicDamageBonus": "1.4%",
-        "healingBonus": "6.4%",
-        "tenacityPenetration": 1.8,
-        "armor": 9.6,
-        "magicResistance": 6.8,
-        "block": 20,
-        "controlResistance": 4.8,
-        "movementSpeed": "4.2 m/sec"
+        "attackSpeedBonus": "5.5%",
+        "criticalRate": "1.5%",
+        "castingSpeedBonus": "10%",
+        "skillCooldownRateBonus": "2%",
+        "damageBonusPvE": "5.1%",
+        "physicalDamageBonus": "7.7%",
+        "magicDamageBonus": "8.5%",
+        "healingBonus": "8.5%",
+        "tenacityPenetration": 4.6,
+        "armor": 4.6,
+        "magicResistance": 5.1,
+        "block": 25,
+        "controlResistance": 5.1,
+        "movementSpeed": "5.2 m/sec"
       },
       "skills": {
-        "core": "fortress-stance",
-        "passive": "unbreakable"
+        "core": "protectors-radiance",
+        "passive": "reflective-shield"
       },
       "support": {
         "effects": [
           {
-            "name": "Damage Reduction",
-            "value": "+8.4%",
+            "name": "Max HP Bonus",
+            "value": "+3.23%",
             "type": "positive"
           },
           {
-            "name": "Movement Speed",
-            "value": "-1.6%",
+            "name": "Max MP Bonus",
+            "value": "-3.23%",
             "type": "negative"
           }
         ]
@@ -303,9 +298,9 @@
       "portrait": "./assets/icons/drifter-durion-portrait.png",
       "cardIcon": "./assets/icons/drifter-card-durion.png",
       "masteryBonuses": {
-        "strength": 2,
-        "agility": 0.3,
-        "intelligence": 1
+        "strength": 2.4,
+        "agility": 0.7,
+        "intelligence": 1.0
       }
     },
     {

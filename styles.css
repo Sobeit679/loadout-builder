@@ -1011,6 +1011,25 @@ body {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+.tag-hard-control {
+  background: rgba(220, 38, 38, 0.9);
+  color: white;
+  border-color: rgba(220, 38, 38, 1);
+  font-weight: bold;
+}
+
+.tag-immobilize {
+  background: rgba(139, 69, 19, 0.9);
+  color: white;
+  border-color: rgba(139, 69, 19, 1);
+}
+
+.tag-pull {
+  background: rgba(34, 197, 94, 0.9);
+  color: white;
+  border-color: rgba(34, 197, 94, 1);
+}
+
 /* Removed CSS hover rule - JavaScript handles tooltip visibility */
 
 .input.select {

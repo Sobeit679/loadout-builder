@@ -149,13 +149,6 @@
     display: none !important;
   }
   
-  /* Make the + symbol more prominent on mobile */
-  body.mobile-device .slot-card .slot-icon {
-    font-size: 1.2rem !important;
-    font-weight: bold !important;
-    color: white !important;
-    text-shadow: 0 0 2px rgba(0,0,0,0.8) !important;
-  }
   
   /* Clean drifter image scaling on mobile */
   body.mobile-device .loadout-avatar img {
@@ -349,5 +342,11 @@
     height: 170px !important;
     max-width: 140px !important;
     box-sizing: border-box !important;
+  }
+  
+  /* Smaller + symbol on mobile for equipment and mod slots */
+  body.mobile-device .slot-card.empty::after,
+  body .slot-card.empty::after {
+    font-size: 1.2rem !important;
   }
 }

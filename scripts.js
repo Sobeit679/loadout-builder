@@ -25,7 +25,7 @@ async function loadDataSets(notify) {
   try {
     console.log('Loading data sets on GitHub Pages...');
     const [driftersData, weaponsData, skillsData, helmetsData, chestsData, bootsData, weaponModsData, armorModsData] = await Promise.all([
-      fetch('./data/drifters.json').then(r => {
+      fetch(`./data/drifters.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load drifters: ${r.status}`);
         return r.json();
       }),
@@ -33,7 +33,7 @@ async function loadDataSets(notify) {
         if (!r.ok) throw new Error(`Failed to load weapons: ${r.status}`);
         return r.json();
       }),
-      fetch('./data/skills.json').then(r => {
+      fetch(`./data/skills.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load skills: ${r.status}`);
         return r.json();
       }),
@@ -161,6 +161,9 @@ const STATE = {
     currentDrifter: null
   }
 };
+
+// Global tooltip element
+let globalTooltip = null;
 
 const CARD_TEMPLATE = document.getElementById('card-template');
 const summaryEl = document.getElementById('summary');
@@ -405,6 +408,7 @@ async function init() {
     STATE.gear = data.gear;
     STATE.mods = data.mods;
     STATE.selected = data.selected;
+    
 
     bindSlotTriggers();
     clearGearSlots();
@@ -630,10 +634,6 @@ function updateDrifterAbilities(drifter) {
   const passiveSlot = document.querySelector('.drifter-passive .ability-icon');
   const eSlot = document.querySelector('[data-key="E"] .ability-icon');
   
-  console.log('Passive slot found:', passiveSlot);
-  console.log('E slot found:', eSlot);
-  console.log('Drifter passive:', drifter.passive);
-  console.log('Drifter skill:', drifter.skill);
   
   // Get skill data
   const passiveSkillId = drifter.skills?.passive;
@@ -641,12 +641,11 @@ function updateDrifterAbilities(drifter) {
   const passiveSkill = passiveSkillId ? STATE.skills?.find(s => s.id === passiveSkillId) : null;
   const coreSkill = coreSkillId ? STATE.skills?.find(s => s.id === coreSkillId) : null;
   
-  // Debug logging
-  
   // Handle passive skill - look up by ID from skills data
   
   if (passiveSkill && passiveSkill.icon) {
-    passiveSlot.style.backgroundImage = `url(${passiveSkill.icon})`;
+    const iconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
+    passiveSlot.style.backgroundImage = `url(${iconUrl})`;
     passiveSlot.parentElement.classList.remove('empty');
   } else {
     passiveSlot.style.backgroundImage = '';
@@ -656,7 +655,8 @@ function updateDrifterAbilities(drifter) {
   // Handle active skill in E slot - look up by ID from skills data
   
   if (coreSkill && coreSkill.icon) {
-    eSlot.style.backgroundImage = `url(${coreSkill.icon})`;
+    const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
+    eSlot.style.backgroundImage = `url(${iconUrl})`;
     eSlot.parentElement.classList.remove('empty');
   } else {
     eSlot.style.backgroundImage = '';
@@ -668,6 +668,12 @@ function updateDrifterAbilities(drifter) {
 }
 
 function updateAbilityTooltips(drifter) {
+  // Get skill data from STATE.skills
+  const coreSkillId = drifter.skills?.core;
+  const passiveSkillId = drifter.skills?.passive;
+  const coreSkill = coreSkillId ? STATE.skills?.find(s => s.id === coreSkillId) : null;
+  const passiveSkill = passiveSkillId ? STATE.skills?.find(s => s.id === passiveSkillId) : null;
+  
   // Update E slot tooltip (drifter active skill)
   const eSlot = document.querySelector('[data-key="E"]');
   let eTooltip = eSlot.querySelector('.ability-tooltip');
@@ -676,26 +682,26 @@ function updateAbilityTooltips(drifter) {
     eTooltip.className = 'ability-tooltip';
     eSlot.appendChild(eTooltip);
   }
-  if (drifter.skill) {
-    const category = getAbilityCategory(drifter.skill);
-    const formattedDescription = drifter.skill.description.replace(/\n/g, '<br><br>');
+  if (coreSkill) {
+    const category = getAbilityCategory(coreSkill);
+    const formattedDescription = coreSkill.description.replace(/\n/g, '<br><br>');
     
-    // Create additional effect tags
-    let additionalTags = '';
+    // Create skill tags
     let skillTags = '';
-    if (drifter.skill.tags && drifter.skill.tags.length > 0) {
-      const allTags = drifter.skill.tags.map(tag => {
+    if (coreSkill.tags && coreSkill.tags.length > 0) {
+      const allTags = coreSkill.tags.map(tag => {
         const tagClass = getTagClass(tag);
         let displayTag = tag;
         if (tag === 'cooldown_reduction') displayTag = 'cooldown';
         else if (tag === 'control_immunity') displayTag = 'control immunity';
         else if (tag === 'damage_immunity') displayTag = 'immunity';
+        else if (tag === 'hard_control') displayTag = 'hard control';
         return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
       }).join(' ');
       skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
     }
     
-    eTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${drifter.skill.name}</strong></div><div>${formattedDescription}</div>`;
+    eTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${coreSkill.name}</strong></div><div>${formattedDescription}</div>`;
   } else {
     eTooltip.textContent = 'No skill available';
   }
@@ -708,25 +714,26 @@ function updateAbilityTooltips(drifter) {
     passiveTooltip.className = 'ability-tooltip';
     passiveSlot.appendChild(passiveTooltip);
   }
-  if (drifter.passive) {
-    const category = getAbilityCategory(drifter.passive);
-    const formattedDescription = drifter.passive.description.replace(/\n/g, '<br><br>');
+  if (passiveSkill) {
+    const category = getAbilityCategory(passiveSkill);
+    const formattedDescription = passiveSkill.description.replace(/\n/g, '<br><br>');
     
     // Create skill tags for passive
     let skillTags = '';
-    if (drifter.passive.tags && drifter.passive.tags.length > 0) {
-      const allTags = drifter.passive.tags.map(tag => {
+    if (passiveSkill.tags && passiveSkill.tags.length > 0) {
+      const allTags = passiveSkill.tags.map(tag => {
         const tagClass = getTagClass(tag);
         let displayTag = tag;
         if (tag === 'cooldown_reduction') displayTag = 'cooldown';
         else if (tag === 'control_immunity') displayTag = 'control immunity';
         else if (tag === 'damage_immunity') displayTag = 'immunity';
+        else if (tag === 'hard_control') displayTag = 'hard control';
         return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
       }).join(' ');
       skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
     }
     
-    passiveTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${drifter.passive.name}</strong></div><div>${formattedDescription}</div>`;
+    passiveTooltip.innerHTML = `${skillTags}<div style="margin-bottom: 12px;"><strong>${passiveSkill.name}</strong></div><div>${formattedDescription}</div>`;
   } else {
     passiveTooltip.textContent = 'No passive available';
   }
@@ -928,6 +935,12 @@ function getTagClass(tag) {
       return 'tag-skill';
     case 'passive':
       return 'tag-passive';
+    case 'hard_control':
+      return 'tag-hard-control';
+    case 'immobilize':
+      return 'tag-immobilize';
+    case 'pull':
+      return 'tag-pull';
     case 'cooldown_reduction':
       return 'tag-cooldown';
     case 'cooldown':
@@ -936,9 +949,6 @@ function getTagClass(tag) {
       return 'tag-default';
   }
 }
-
-// Global tooltip element
-let globalTooltip = null;
 
 function createGlobalTooltip() {
   if (globalTooltip) return globalTooltip;
@@ -980,6 +990,8 @@ function addTooltipPositioning() {
       
       // Show global tooltip
       tooltip.style.display = 'block';
+      tooltip.style.opacity = '1';
+      tooltip.style.visibility = 'visible';
       
       // Position above slot
       const slotRect = slot.getBoundingClientRect();
@@ -1003,6 +1015,8 @@ function addTooltipPositioning() {
     
     slot.addEventListener('mouseleave', (e) => {
       tooltip.style.display = 'none';
+      tooltip.style.opacity = '0';
+      tooltip.style.visibility = 'hidden';
     });
   });
 }
