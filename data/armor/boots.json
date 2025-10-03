@@ -256,6 +256,125 @@
       },
       "coreSkill": "escape",
       "icon": "./assets/icons/boots-evasion-striders.png"
+    },
+    {
+      "id": "energizer-boots",
+      "gameId": "energizer-boots",
+      "name": "Energizer Boots",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "rare",
+      "description": "Heavy boots that provide vitality and healing capabilities for strength-based fighters.",
+      "stats": {
+        "strength": 6,
+        "healthRegen": "+15%",
+        "movementSpeed": "+10%",
+        "healingPower": "+18%"
+      },
+      "coreSkill": "vitality",
+      "icon": "./assets/icons/boots-energizer-boots.png"
+    },
+    {
+      "id": "vanuards-march",
+      "gameId": "vanuards-march",
+      "name": "Vanuard's March",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "Sturdy boots that allow the wearer to lead the charge with enhanced mobility and immunity to movement impairments.",
+      "stats": {
+        "strength": 8,
+        "movementSpeed": "+20%",
+        "resistance": "+15%",
+        "leadership": "+12%"
+      },
+      "coreSkill": "vanguard",
+      "icon": "./assets/icons/boots-vanuards-march.png"
+    },
+    {
+      "id": "titan-walkers",
+      "gameId": "titan-walkers",
+      "name": "Titan Walkers",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "Massive boots that grant titanic growth and immunity to forced movement effects.",
+      "stats": {
+        "strength": 10,
+        "maxHp": "+25%",
+        "movementSpeed": "+12%",
+        "immunity": "+20%"
+      },
+      "coreSkill": "titanic-growth",
+      "icon": "./assets/icons/boots-titan-walkers.png"
+    },
+    {
+      "id": "bulwark-striders",
+      "gameId": "bulwark-striders",
+      "name": "Bulwark Striders",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "Defensive boots that allow the wearer to leap to allies and provide protective shields.",
+      "stats": {
+        "strength": 9,
+        "shieldPower": "+20%",
+        "leapRange": "+15%",
+        "defense": "+18%"
+      },
+      "coreSkill": "guardian",
+      "icon": "./assets/icons/boots-bulwark-striders.png"
+    },
+    {
+      "id": "wrathstep",
+      "gameId": "wrathstep",
+      "name": "Wrathstep",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "Furious boots that grow stronger as the wearer takes damage, scaling with health loss.",
+      "stats": {
+        "strength": 11,
+        "damageScaling": "+15%",
+        "movementSpeed": "+14%",
+        "rage": "+22%"
+      },
+      "coreSkill": "vengeance",
+      "icon": "./assets/icons/boots-wrathstep.png"
+    },
+    {
+      "id": "avalanche-boots",
+      "gameId": "avalanche-boots",
+      "name": "Avalanche Boots",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "legendary",
+      "description": "Legendary boots that allow for devastating mountain crashes with double leaps and knockup effects.",
+      "stats": {
+        "strength": 15,
+        "leapDamage": "+30%",
+        "knockupPower": "+25%",
+        "damageResistance": "+20%"
+      },
+      "coreSkill": "mountain-crash",
+      "icon": "./assets/icons/boots-avalanche-boots.png"
+    },
+    {
+      "id": "impact-heavy-boots",
+      "gameId": "impact-heavy-boots",
+      "name": "Impact Heavy Boots",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "legendary",
+      "description": "Legendary heavy boots that enable powerful lunges with knockback and terrain stun effects.",
+      "stats": {
+        "strength": 18,
+        "lungeDamage": "+35%",
+        "knockbackPower": "+30%",
+        "stunDuration": "+25%"
+      },
+      "coreSkill": "lunge",
+      "icon": "./assets/icons/boots-impact-heavy-boots.png"
     }
   ]
 }

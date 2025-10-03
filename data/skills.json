@@ -11044,6 +11044,246 @@
       ],
       "triggerInterval": "120s",
       "icon": "./assets/icons/passive-defiance.png"
+    },
+    {
+      "id": "vitality",
+      "name": "Vitality",
+      "type": "core",
+      "category": "healing",
+      "tags": ["healing over time", "movement speed", "regeneration"],
+      "mpCost": 20,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Increases Movement Speed by 50% and restores [Healing Rate: 24%] HP every second for 5s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "50%",
+          "duration": "5s",
+          "target": "self"
+        },
+        {
+          "type": "heal_over_time",
+          "value": "24%",
+          "duration": "5s",
+          "interval": "1s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-vitality.png"
+    },
+    {
+      "id": "vanguard",
+      "name": "Vanguard",
+      "type": "core",
+      "category": "movement",
+      "tags": ["buff", "movement speed", "cleanse", "immunity"],
+      "mpCost": 25,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Remove Slow and immobilize effects. Increases Movement Speed by 80% and gains immunity to Slow and immobilize effects for 4s",
+      "effects": [
+        {
+          "type": "cleanse",
+          "effects": ["slow", "immobilize"],
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "80%",
+          "duration": "4s",
+          "target": "self"
+        },
+        {
+          "type": "immunity",
+          "effects": ["slow", "immobilize"],
+          "duration": "4s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-vanguard.png"
+    },
+    {
+      "id": "titanic-growth",
+      "name": "Titanic Growth",
+      "type": "core",
+      "category": "buff",
+      "tags": ["buff", "movement speed", "hp", "immunity"],
+      "mpCost": 30,
+      "cooldown": "44s",
+      "range": "6m",
+      "description": "Enhances Movement Speed by 30%, Max HP and Current HP by 80%, and grants Immunity to Forced Movement (Pull, Knockback) for 6s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "30%",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "max hp",
+          "value": "80%",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "heal",
+          "value": "80%",
+          "target": "self"
+        },
+        {
+          "type": "immunity",
+          "effects": ["pull", "knockback"],
+          "duration": "6s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-titanic-growth.png"
+    },
+    {
+      "id": "vengeance",
+      "name": "Vengeance",
+      "type": "core",
+      "category": "buff",
+      "tags": ["buff", "movement speed", "damage", "scaling"],
+      "mpCost": 25,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "For every 10% HP lost, gains 1 stack of Movement Speed Increase by 17% and damage by 4.5% for 5s. Stacks up to 7 times",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "17%",
+          "duration": "5s",
+          "stacks": 7,
+          "stackCondition": "hp_lost",
+          "stackThreshold": "10%",
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "damage",
+          "value": "4.5%",
+          "duration": "5s",
+          "stacks": 7,
+          "stackCondition": "hp_lost",
+          "stackThreshold": "10%",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-vengeance.png"
+    },
+    {
+      "id": "mountain-crash",
+      "name": "Mountain Crash",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "hard control", "knockup", "movement"],
+      "mpCost": 30,
+      "cooldown": "29s",
+      "range": "9m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 150%] Physical Damage and inflicting Knockup for 1s to enemies upon landing. Then adjusts direction and leaps again toward the target, dealing another [Damage Rate: 150%] Physical Damage and inflicting Knockup for 1s on enemies upon landing. During the skill's duration, immune to control effects and gains +80% Damage Resistance",
+      "effects": [
+        {
+          "type": "movement",
+          "value": "9m",
+          "target": "location"
+        },
+        {
+          "type": "physical damage",
+          "value": "150%",
+          "target": "enemies"
+        },
+        {
+          "type": "hard control",
+          "effect": "knockup",
+          "duration": "1s",
+          "target": "enemies"
+        },
+        {
+          "type": "movement",
+          "value": "9m",
+          "target": "location"
+        },
+        {
+          "type": "physical damage",
+          "value": "150%",
+          "target": "enemies"
+        },
+        {
+          "type": "hard control",
+          "effect": "knockup",
+          "duration": "1s",
+          "target": "enemies"
+        },
+        {
+          "type": "control_immunity",
+          "duration": "skill_duration",
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "damage resistance",
+          "value": "80%",
+          "duration": "skill_duration",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-mountain-crash.png"
+    },
+    {
+      "id": "lunge",
+      "name": "Lunge",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "knockback", "movement", "stun"],
+      "mpCost": 25,
+      "cooldown": "39s",
+      "range": "14m",
+      "description": "Charges forward, dealing [Damage Rate: 50%] Physical Damage 5 times to enemies in the path and knocking them back 4m each time. If knocked into terrain, enemies are stunned for 2s. Immune to control effects and gains +80% Damage Resistance while charging",
+      "effects": [
+        {
+          "type": "movement",
+          "value": "14m",
+          "target": "direction"
+        },
+        {
+          "type": "physical damage",
+          "value": "50%",
+          "hits": 5,
+          "target": "enemies"
+        },
+        {
+          "type": "knockback",
+          "value": "4m",
+          "hits": 5,
+          "target": "enemies"
+        },
+        {
+          "type": "stun",
+          "duration": "2s",
+          "target": "enemies",
+          "condition": "terrain_collision"
+        },
+        {
+          "type": "control_immunity",
+          "duration": "charging",
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "damage resistance",
+          "value": "80%",
+          "duration": "charging",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-lunge.png"
     }
   ]
 }
