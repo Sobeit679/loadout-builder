@@ -603,6 +603,456 @@
       ],
       "icon": "./assets/icons/weapon-glacier-spark.png",
       "gameId": "glacier-spark"
+    },
+    {
+      "id": "blazing-catalyst",
+      "gameId": "blazing-catalyst",
+      "name": "Blazing Catalyst",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "rare",
+      "stats": {
+        "damage": "75-110",
+        "attackSpeed": "1.3",
+        "criticalChance": "6%",
+        "magicPower": "+20"
+      },
+      "coreSkill": "hellfire",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-blazing-catalyst.png"
+    },
+    {
+      "id": "blazruptor",
+      "gameId": "blazruptor",
+      "name": "Blazruptor",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "85-120",
+        "attackSpeed": "1.2",
+        "criticalChance": "8%",
+        "magicPower": "+25"
+      },
+      "coreSkill": "hell-salvo",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-blazruptor.png"
+    },
+    {
+      "id": "inferno-core",
+      "gameId": "inferno-core",
+      "name": "Inferno Core",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-125",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+30"
+      },
+      "coreSkill": "core-flare",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-inferno-core.png"
+    },
+    {
+      "id": "doomfire",
+      "gameId": "doomfire",
+      "name": "Doomfire",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "95-130",
+        "attackSpeed": "1.0",
+        "criticalChance": "12%",
+        "magicPower": "+35"
+      },
+      "coreSkill": "scorching-surge",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-doomfire.png"
+    },
+    {
+      "id": "flame-maw",
+      "gameId": "flame-maw",
+      "name": "Flame Maw",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "100-135",
+        "attackSpeed": "0.9",
+        "criticalChance": "14%",
+        "magicPower": "+40"
+      },
+      "coreSkill": "molten-blast",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-flame-maw.png"
+    },
+    {
+      "id": "molten-mortar",
+      "gameId": "molten-mortar",
+      "name": "Molten Mortar",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "110-150",
+        "attackSpeed": "0.8",
+        "criticalChance": "16%",
+        "magicPower": "+50"
+      },
+      "coreSkill": "molten-volley",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-molten-mortar.png"
+    },
+    {
+      "id": "solarflare",
+      "gameId": "solarflare",
+      "name": "Solarflare",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "120-160",
+        "attackSpeed": "0.7",
+        "criticalChance": "18%",
+        "magicPower": "+60"
+      },
+      "coreSkill": "starforge-beam",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-solarflare.png"
+    },
+    {
+      "id": "eclipse-conduit",
+      "gameId": "eclipse-conduit",
+      "name": "Eclipse Conduit",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "rare",
+      "stats": {
+        "damage": "75-110",
+        "attackSpeed": "1.3",
+        "criticalChance": "6%",
+        "magicPower": "+20"
+      },
+      "coreSkill": "crater-surge",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-eclipse-conduit.png"
+    },
+    {
+      "id": "venomstave",
+      "gameId": "venomstave",
+      "name": "Venomstave",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "85-120",
+        "attackSpeed": "1.2",
+        "criticalChance": "8%",
+        "magicPower": "+25"
+      },
+      "coreSkill": "toxin-injection",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-venomstave.png"
+    },
+    {
+      "id": "tendrils-grasp",
+      "gameId": "tendrils-grasp",
+      "name": "Tendril's Grasp",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-125",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+30"
+      },
+      "coreSkill": "entangling-growth",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-tendrils-grasp.png"
+    },
+    {
+      "id": "verdant-embrace",
+      "gameId": "verdant-embrace",
+      "name": "Verdent Embrace",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "95-130",
+        "attackSpeed": "1.0",
+        "criticalChance": "12%",
+        "magicPower": "+35"
+      },
+      "coreSkill": "healing-bloom",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-verdant-embrace.png"
+    },
+    {
+      "id": "harmonys-staff",
+      "gameId": "harmonys-staff",
+      "name": "Harmony's Staff",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "100-135",
+        "attackSpeed": "0.9",
+        "criticalChance": "14%",
+        "magicPower": "+40"
+      },
+      "coreSkill": "rain-of-serenity",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-harmonys-staff.png"
+    },
+    {
+      "id": "thornward-staff",
+      "gameId": "thornward-staff",
+      "name": "Thornward Staff",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "105-140",
+        "attackSpeed": "0.8",
+        "criticalChance": "16%",
+        "magicPower": "+45"
+      },
+      "coreSkill": "thorn-barrier",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-thornward-staff.png"
+    },
+    {
+      "id": "sanctuary-of-growth",
+      "gameId": "sanctuary-of-growth",
+      "name": "Sanctuary of Growth",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "110-150",
+        "attackSpeed": "0.7",
+        "criticalChance": "18%",
+        "magicPower": "+50"
+      },
+      "coreSkill": "divine-rootfall",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-sanctuary-of-growth.png"
+    },
+    {
+      "id": "spirits-call",
+      "gameId": "spirits-call",
+      "name": "Spirit's Call",
+      "type": "nature",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "120-160",
+        "attackSpeed": "0.6",
+        "criticalChance": "20%",
+        "magicPower": "+60"
+      },
+      "coreSkill": "breeze-of-resurgence",
+      "passiveSkill": "natural-armor",
+      "basicAttacks": [
+        "evil-seed",
+        "soothing-mist",
+        "healing-seed"
+      ],
+      "weaponSkills": [
+        "winding-vines",
+        "energize",
+        "vitality-seed",
+        "freshness",
+        "regenerate"
+      ],
+      "icon": "./assets/icons/weapon-spirits-call.png"
     }
   ]
 }

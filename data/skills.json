@@ -4517,6 +4517,972 @@
         }
       ],
       "icon": "./assets/icons/skill-frost-roar.png"
+    },
+    {
+      "id": "burst",
+      "name": "Burst",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["passive", "magic damage", "dot", "aoe"],
+      "description": "Damage dealt by the carrier inflicts a status effect called [Burn]. [Burn] deals 25% Magic Damage every second for 8 seconds. [Burn] can stack up to 6 times, but these stacks do not boost the damage of the individual [Burn] effect. When [Burn] reaches its maximum stacks (6 stacks), it triggers an additional effect: it deals 80% Magic Damage to up to 5 enemies near the carrier and then removes all existing [Burn] stacks from the target.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "burn_on_damage",
+          "description": "Damage dealt inflicts [Burn]"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "damage": "25% Magic Damage",
+          "interval": "1s",
+          "duration": "8s",
+          "max_stacks": 6
+        },
+        {
+          "type": "explosion",
+          "trigger": "max_burn_stacks",
+          "damage": "80% Magic Damage",
+          "targets": "up to 5 enemies",
+          "effect": "removes all [Burn] stacks"
+        }
+      ],
+      "icon": "./assets/icons/passive-burst.png"
+    },
+    {
+      "id": "magma-burst",
+      "name": "Magma Burst",
+      "type": "active",
+      "category": "basic",
+      "tags": ["magic damage", "dot"],
+      "cooldown": "0.48s",
+      "castingTime": "1.1s",
+      "range": "14m",
+      "description": "Deals [Damage Rate: 120%] Magic Damage and applies 1 stack of [Burn].",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "120%",
+          "damageType": "Magic"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        }
+      ],
+      "icon": "./assets/icons/skill-magma-burst.png"
+    },
+    {
+      "id": "scorching-shard",
+      "name": "Scorching Shard",
+      "type": "active",
+      "category": "basic",
+      "tags": ["magic damage", "dot", "aoe"],
+      "cooldown": "0.48s",
+      "castingTime": "1.1s",
+      "range": "14m",
+      "description": "Fires 3 Scorching Shards in the target direction. Deals [Damage Rate: 120%] Magic Damage to enemies and inflicts 1 stack of [Burn]. Additional shard hits on the same target beyond the first deal damage equal to 25% of the original damage.",
+      "effects": [
+        {
+          "type": "projectile",
+          "count": 3,
+          "damage": "120% Magic Damage",
+          "damageReduction": "25% for additional hits"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        }
+      ],
+      "icon": "./assets/icons/skill-scorching-shard.png"
+    },
+    {
+      "id": "wildfire-shard",
+      "name": "Wildfire Shard",
+      "type": "active",
+      "category": "basic",
+      "tags": ["magic damage", "dot", "aoe"],
+      "cooldown": "0.48s",
+      "castingTime": "1.9s",
+      "range": "18m",
+      "description": "Fires a wildfire shard at the target location that bounces forward twice before exploding at the final position, dealing [Damage Rate: 120%] Magic Damage to enemies in range and inflicting 1 stack of [Burn]",
+      "effects": [
+        {
+          "type": "projectile",
+          "bounces": 2,
+          "damage": "120% Magic Damage",
+          "explosion": true
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        }
+      ],
+      "icon": "./assets/icons/skill-wildfire-shard.png"
+    },
+    {
+      "id": "inferno-blast",
+      "name": "Inferno Blast",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "dot", "aoe", "channeling"],
+      "mpCost": 12,
+      "cooldown": "5.8s",
+      "range": "14m",
+      "description": "Continuously channels flames in target direction for 3s, dealing [Damage Rate: 50%] Magic Damage ([Damage Rate: 75%] to mobs) and inflicting [Burn] to all enemies in range every 0.5s. Can rotate but cannot move while channeling",
+      "effects": [
+        {
+          "type": "channeling",
+          "duration": "3s",
+          "interval": "0.5s",
+          "damage": "50% Magic Damage (75% to mobs)",
+          "movement": "cannot move, can rotate"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "interval": "0.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-inferno-blast.png"
+    },
+    {
+      "id": "molten-orb",
+      "name": "Molten Orb",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "aoe", "dot"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "castingTime": "0.48s",
+      "range": "18m",
+      "description": "Launches a molten orb in target direction that sticks to the first enemy hit, lasting 5s and dealing [Damage Rate: 110%] Magic Damage to enemies within 5m every 2s while inflicting 1 stack of [Burn]",
+      "effects": [
+        {
+          "type": "projectile",
+          "sticks": true,
+          "duration": "5s",
+          "damage": "110% Magic Damage",
+          "area": "5m",
+          "interval": "2s"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1,
+          "interval": "2s"
+        }
+      ],
+      "icon": "./assets/icons/skill-molten-orb.png"
+    },
+    {
+      "id": "blast-jump",
+      "name": "Blast Jump",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "dot", "aoe", "mobility"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "range": "10m",
+      "description": "Jumps in target direction, dealing [Damage Rate: 250%] Magic Damage and inflicting 2 stacks of [Burn] to nearby enemies upon takeoff",
+      "effects": [
+        {
+          "type": "movement",
+          "effect": "jump",
+          "damage": "250% Magic Damage"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-blast-jump.png"
+    },
+    {
+      "id": "oil-zone",
+      "name": "Oil Zone",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["slow", "CC", "magic damage", "dot", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "6m",
+      "description": "Spreads an Oil Zone in front of the caster, lasting 8s, inflicting [Oil Coated] on enemies entering the area. [Oil Coated]: Slows enemies by 50% for 4s. If [Burn] is applied while under this effect, [Oil Coated] immediately changes to [Volatile Burn], and the target cannot obtain [Oil Coated] again for 6s. [Volatile Burn]: Fears enemies and deals [Damage Rate: 56%] Magic Damage every 0.5s for 1.5s.",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Oil Zone",
+          "duration": "8s",
+          "range": "6m"
+        },
+        {
+          "type": "status_effect",
+          "name": "Oil Coated",
+          "slow": "50%",
+          "duration": "4s"
+        },
+        {
+          "type": "status_effect",
+          "name": "Volatile Burn",
+          "trigger": "Burn on Oil Coated",
+          "fear": true,
+          "damage": "56% Magic Damage",
+          "interval": "0.5s",
+          "duration": "1.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-oil-zone.png"
+    },
+    {
+      "id": "overdrive-mode",
+      "name": "Overdrive Mode",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["buff", "attack speed", "magic damage", "damage increase", "mp"],
+      "mpCost": 10,
+      "cooldown": "4.8s",
+      "range": "6m",
+      "description": "Activates Overdrive Mode, increasing Casting Speed by 60% and Magic Damage by 20%. Consumes 4 MP every second Use the skill again to deactivate Overdrive. Automatically deactivates when MP is insufficient",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Overdrive Mode",
+          "castingSpeed": "+60%",
+          "magicDamage": "+20%",
+          "mpConsumption": "4 MP per second",
+          "toggle": true
+        }
+      ],
+      "icon": "./assets/icons/skill-overdrive-mode.png"
+    },
+    {
+      "id": "hellfire",
+      "name": "Hellfire",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0.96s",
+      "range": "14m",
+      "description": "Launches scorching flames at the target location to create Hellfire. Hellfire lasts 6s, dealing [Damage Rate: 70%] Magic Damage to all players ([Damage Rate: 140%] Magic Damage to mobs) within and inflicting 1 stack of [Burn] every second",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Hellfire",
+          "duration": "6s",
+          "damage": "70% Magic Damage (140% to mobs)",
+          "interval": "1s"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1,
+          "interval": "1s"
+        }
+      ],
+      "icon": "./assets/icons/skill-hellfire.png"
+    },
+    {
+      "id": "hell-salvo",
+      "name": "Hell Salvo",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "resistance", "channeling"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0.96s",
+      "range": "18m",
+      "description": "Channels for 3s, continuously firing at target. Each projectile deals [Damage Rate: 40%] Magic Damage to enemies hit, inflicts 1 stack of [Burn], and reduces Magic Resistance by 27 for 4s. Stacks up to 6 times",
+      "effects": [
+        {
+          "type": "channeling",
+          "duration": "3s",
+          "damage": "40% Magic Damage per projectile"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        },
+        {
+          "type": "debuff",
+          "name": "Magic Resistance Reduction",
+          "value": "-27",
+          "duration": "4s",
+          "max_stacks": 6
+        }
+      ],
+      "icon": "./assets/icons/skill-hell-salvo.png"
+    },
+    {
+      "id": "core-flare",
+      "name": "Core Flare",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "aoe", "cooldown"],
+      "mpCost": 20,
+      "cooldown": "1.5s",
+      "range": "18m",
+      "description": "Launches 3 Core Flare orbs at the target location. Each nova deals [Damage Rate: 180%] Magic Damage to enemies along the way. Inflicts 1 stack of [Burn] and 1 stack of [Scorch]. Additional nova hits on the same target deal damage equal to 30% of the original damage. Gains 1 charge every 15s, up to 3 charges.",
+      "effects": [
+        {
+          "type": "projectile",
+          "count": 3,
+          "damage": "180% Magic Damage",
+          "damageReduction": "30% for additional hits"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        },
+        {
+          "type": "status_effect",
+          "name": "Scorch",
+          "stacks": 1,
+          "description": "Reduces healing received by 5% for 4s. Stacks up to 3 times"
+        },
+        {
+          "type": "charge_system",
+          "charges": 3,
+          "recharge_time": "15s"
+        }
+      ],
+      "icon": "./assets/icons/skill-core-flare.png"
+    },
+    {
+      "id": "scorching-surge",
+      "name": "Scorching Surge",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "CC", "aoe"],
+      "mpCost": 24,
+      "cooldown": "21s",
+      "castingTime": "0.96s",
+      "range": "17m",
+      "description": "Launches three scorching surges at the target location. After 1s, the flames erupt, each dealing [Damage Rate: 240%] Magic Damage and inflicting 1 stack of [Burn] and Knockup for 1s to enemies in range. Damage reduces to 50% for enemies that take damage from more than one scorching surge",
+      "effects": [
+        {
+          "type": "delayed_explosion",
+          "delay": "1s",
+          "count": 3,
+          "damage": "240% Magic Damage",
+          "damageReduction": "50% for multiple hits"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        },
+        {
+          "type": "crowd_control",
+          "effect": "knockup",
+          "duration": "1s"
+        }
+      ],
+      "icon": "./assets/icons/skill-scorching-surge.png"
+    },
+    {
+      "id": "molten-blast",
+      "name": "Molten Blast",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "CC", "aoe", "channeling"],
+      "mpCost": 22,
+      "cooldown": "1.5s",
+      "range": "10m",
+      "description": "Fires a Molten Blast in target direction that explodes on impact with the first target, dealing [Damage Rate: 150%] Magic Damage and inflicting 1 stack of [Burn]. Can be charged. At 2s charge time, the Molten Blast becomes empowered, dealing [Damage Rate: 300%] Magic Damage, inflicting 2 stacks of [Burn], and applying Knockback to enemies within the explosion range by 8m. Gains 1 charge every 18s, up to 2 charges",
+      "effects": [
+        {
+          "type": "projectile",
+          "damage": "150% Magic Damage (300% when charged)",
+          "explosion": true
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1,
+          "charged_stacks": 2
+        },
+        {
+          "type": "crowd_control",
+          "effect": "knockback",
+          "range": "8m",
+          "trigger": "charged"
+        },
+        {
+          "type": "charge_system",
+          "charges": 2,
+          "recharge_time": "18s",
+          "charge_time": "2s"
+        }
+      ],
+      "icon": "./assets/icons/skill-molten-blast.png"
+    },
+    {
+      "id": "molten-volley",
+      "name": "Molten Volley",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "aoe", "damage increase"],
+      "mpCost": 17,
+      "cooldown": "9.7s",
+      "range": "23m",
+      "description": "Enter Molten Volley Mode for 20s. Cannot move while active but can cancel manually. Basic Attack replaced: Fires magma at the target location that rolls forward after impact, dealing [Damage Rate: 165%] Magic Damage to enemies along the way and inflicting 1 stack of [Burn]. Damage increases by 8% after each enemy hit, up to 40%",
+      "effects": [
+        {
+          "type": "mode_change",
+          "name": "Molten Volley Mode",
+          "duration": "20s",
+          "movement": "cannot move",
+          "cancellable": true
+        },
+        {
+          "type": "projectile",
+          "damage": "165% Magic Damage",
+          "damageIncrease": "8% per enemy hit (max 40%)"
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        }
+      ],
+      "icon": "./assets/icons/skill-molten-volley.png"
+    },
+    {
+      "id": "starforge-beam",
+      "name": "Starforge Beam",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "aoe", "damage increase", "channeling", "shield"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0.96s",
+      "range": "20m",
+      "description": "Channels a starforge beam for 4s. Deals [Damage Rate: 85%] Magic Damage to enemies in range every 0.5s, inflicting 1 stack of [Burn] and [Scorch]. Each hit increases damage by 10%, up to 50%. Cannot be interrupted during channeling and grants a [Target-based Max HP 25%] shield. [Scorch]: Reduces healing received by 5% for 4s. Stacks up to 3 times",
+      "effects": [
+        {
+          "type": "channeling",
+          "duration": "4s",
+          "interval": "0.5s",
+          "damage": "85% Magic Damage",
+          "interruptible": false
+        },
+        {
+          "type": "status_effect",
+          "name": "Burn",
+          "stacks": 1
+        },
+        {
+          "type": "status_effect",
+          "name": "Scorch",
+          "stacks": 1,
+          "description": "Reduces healing received by 5% for 4s. Stacks up to 3 times"
+        },
+        {
+          "type": "damage_increase",
+          "per_hit": "10%",
+          "maximum": "50%"
+        },
+        {
+          "type": "shield",
+          "value": "25% of target's Max HP"
+        }
+      ],
+      "icon": "./assets/icons/skill-starforge-beam.png"
+    },
+    {
+      "id": "natural-armor",
+      "name": "Natural Armor",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["passive", "resistance"],
+      "description": "Gains 1 stack of Natural Armor every 5s, stacking up to 4 times. Each stack increases Damage Resistance by 8%. 1 stack is lost for each instance of damage taken.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "natural_armor_stacks",
+          "gain_interval": "5s",
+          "max_stacks": 4,
+          "resistance_per_stack": "8%"
+        },
+        {
+          "type": "passive",
+          "effect": "stack_loss",
+          "trigger": "damage_taken",
+          "loss_per_hit": 1
+        }
+      ],
+      "icon": "./assets/icons/passive-natural-armor.png"
+    },
+    {
+      "id": "evil-seed",
+      "name": "Evil Seed",
+      "type": "active",
+      "category": "basic",
+      "tags": ["magic damage", "slow", "dot", "aoe"],
+      "cooldown": "0.48s",
+      "castingTime": "0.48s",
+      "range": "14m",
+      "description": "[Normal Skill]: Deals [Damage Rate: 80%] Magic Damage. Throws an [Evil Seed] after 5 Basic Attacks. Throws an Evil Seed at the target location, creating a thorn zone that lasts 5s. The zone deals [Damage Rate: 40%] Magic Damage every second to up to 5 enemies and reduces their Movement Speed by 25%",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "80%",
+          "damageType": "Magic"
+        },
+        {
+          "type": "trigger",
+          "condition": "5_basic_attacks",
+          "effect": "evil_seed_zone"
+        },
+        {
+          "type": "area_effect",
+          "name": "Thorn Zone",
+          "duration": "5s",
+          "damage": "40% Magic Damage per second",
+          "slow": "25%",
+          "max_targets": 5
+        }
+      ],
+      "icon": "./assets/icons/skill-evil-seed.png"
+    },
+    {
+      "id": "soothing-mist",
+      "name": "Soothing Mist",
+      "type": "active",
+      "category": "basic",
+      "tags": ["heal", "magic damage", "dot", "aoe"],
+      "cooldown": "1.4s",
+      "range": "16m",
+      "description": "Releases soothing mist in the target direction, dealing [Damage Rate: 70%] Magic Damage to enemies along the path and applies 1 stack of [Recovery] to allies. [Recovery]: Restores HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "70%",
+          "damageType": "Magic",
+          "target": "enemies"
+        },
+        {
+          "type": "status_effect",
+          "name": "Recovery",
+          "stacks": 1,
+          "healing_per_second": "12% | 18% | 24%",
+          "duration": "12s",
+          "max_stacks": 3
+        }
+      ],
+      "icon": "./assets/icons/skill-soothing-mist.png"
+    },
+    {
+      "id": "healing-seed",
+      "name": "Healing Seed",
+      "type": "active",
+      "category": "basic",
+      "tags": ["heal", "aoe", "buff"],
+      "cooldown": "2.4s",
+      "range": "14m",
+      "description": "Throws a Healing Seed at the target location that blooms, restoring [Healing Rate: 66%] HP to allies in range and applying 1 stack of [Recovery]. [Recovery]: Recovers HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "effects": [
+        {
+          "type": "heal",
+          "value": "66%",
+          "target": "allies",
+          "aoe": true
+        },
+        {
+          "type": "status_effect",
+          "name": "Recovery",
+          "stacks": 1,
+          "healing_per_second": "12% | 18% | 24%",
+          "duration": "12s",
+          "max_stacks": 3
+        }
+      ],
+      "icon": "./assets/icons/skill-healing-seed.png"
+    },
+    {
+      "id": "winding-vines",
+      "name": "Winding Vines",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "CC", "aoe"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "range": "12m",
+      "description": "After a brief delay, creates an entangling zone lasting 4s. Deals [Damage Rate: 90%] Magic Damage every second and immobilizes enemies that enter for 1.5s",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Entangling Zone",
+          "duration": "4s",
+          "damage": "90% Magic Damage per second"
+        },
+        {
+          "type": "crowd_control",
+          "effect": "immobilize",
+          "duration": "1.5s",
+          "trigger": "enter_zone"
+        }
+      ],
+      "icon": "./assets/icons/skill-winding-vines.png"
+    },
+    {
+      "id": "energize",
+      "name": "Energize",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["heal", "mp", "buff", "aoe"],
+      "mpCost": 0,
+      "cooldown": "14s",
+      "range": "8m",
+      "description": "Creates an energizing aura around the caster, lasting 5s. Restores [Healing Rate: 39%] HP and 6 MP every second to up to 10 nearby allies",
+      "effects": [
+        {
+          "type": "aura",
+          "name": "Energizing Aura",
+          "duration": "5s",
+          "healing": "39% HP per second",
+          "mp_restore": "6 MP per second",
+          "max_targets": 10
+        }
+      ],
+      "icon": "./assets/icons/skill-energize.png"
+    },
+    {
+      "id": "vitality-seed",
+      "name": "Vitality Seed",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["heal", "buff", "attack speed", "aoe"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "range": "8m",
+      "description": "Applies Vitality Seeds to up to 5 nearby allies, healing for [Healing Rate: 96%] HP and applying 1 stack of [Recovery]. Vitality Seeds increase Attack Speed by 25% and Casting Speed by 40% for 6s. [Recovery]: Restores HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "effects": [
+        {
+          "type": "heal",
+          "value": "96%",
+          "target": "allies",
+          "max_targets": 5
+        },
+        {
+          "type": "status_effect",
+          "name": "Recovery",
+          "stacks": 1,
+          "healing_per_second": "12% | 18% | 24%",
+          "duration": "12s",
+          "max_stacks": 3
+        },
+        {
+          "type": "buff",
+          "name": "Vitality Seeds",
+          "attack_speed": "+25%",
+          "casting_speed": "+40%",
+          "duration": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-vitality-seed.png"
+    },
+    {
+      "id": "freshness",
+      "name": "Freshness",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["heal", "immunity", "buff"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "14m",
+      "description": "Cleanses all Hard Control (Stun, Fear, Freeze, Knockup, Petrify, Sleep), Silence, and 2 DoT effects on the caster and up to 20 nearby allies. Also heals for [Healing Rate: 72%] HP, applies 1 stack of [Recovery], and prevents the next 3 Hard Control or Silence effects. The effect lasts 4s. Can be used while skills are disabled. [Recovery]: Restores HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "effects": [
+        {
+          "type": "cleanse",
+          "effects": ["hard_control", "silence", "dot"],
+          "max_targets": 20
+        },
+        {
+          "type": "heal",
+          "value": "72%"
+        },
+        {
+          "type": "status_effect",
+          "name": "Recovery",
+          "stacks": 1,
+          "healing_per_second": "12% | 18% | 24%",
+          "duration": "12s",
+          "max_stacks": 3
+        },
+        {
+          "type": "immunity",
+          "effects": ["hard_control", "silence"],
+          "charges": 3,
+          "duration": "4s"
+        }
+      ],
+      "icon": "./assets/icons/skill-freshness.png"
+    },
+    {
+      "id": "regenerate",
+      "name": "Regenerate",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["heal", "buff"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "range": "14m",
+      "description": "Releases restorative energy at the target location, healing allies. Healing amount increases based on target's [Recovery] stacks. [Recovery] stacks: 0 | 1 | 2 | 3. Recovers HP: [Healing Rate: 90%] | [Healing Rate: 114%] | [Healing Rate: 138%] | [Healing Rate: 162%]",
+      "effects": [
+        {
+          "type": "heal",
+          "value": "90% | 114% | 138% | 162%",
+          "scaling": "based_on_recovery_stacks",
+          "target": "allies"
+        }
+      ],
+      "icon": "./assets/icons/skill-regenerate.png"
+    },
+    {
+      "id": "crater-surge",
+      "name": "Crater Surge",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "heal", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "12m",
+      "description": "Creates 3 Crater Surges in the target area. Each surge deals [Damage Rate: 100%] Magic Damage to players ([Damage Rate: 200%] Magic Damage to mobs). The caster is healed for [Healing Rate: 72%] HP if at least one enemy is hit",
+      "effects": [
+        {
+          "type": "area_effect",
+          "count": 3,
+          "damage": "100% Magic Damage (200% to mobs)",
+          "target": "players"
+        },
+        {
+          "type": "heal",
+          "value": "72%",
+          "trigger": "if_enemy_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-crater-surge.png"
+    },
+    {
+      "id": "toxin-injection",
+      "name": "Toxin Injection",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "dot", "slow", "attack speed"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "14m",
+      "description": "Inflicts natural toxins on the target, dealing [Damage Rate: 80%] Magic Damage every second while reducing Attack Speed by 30% and Movement Speed by 30% for 4s. The toxin's duration is refreshed whenever the target takes damage from the caster's Weapon Skills.",
+      "effects": [
+        {
+          "type": "dot",
+          "damage": "80% Magic Damage per second",
+          "duration": "4s"
+        },
+        {
+          "type": "debuff",
+          "name": "Toxin",
+          "attack_speed_reduction": "30%",
+          "movement_speed_reduction": "30%",
+          "duration": "4s"
+        },
+        {
+          "type": "refresh",
+          "trigger": "weapon_skill_damage",
+          "effect": "toxin_duration"
+        }
+      ],
+      "icon": "./assets/icons/skill-toxin-injection.png"
+    },
+    {
+      "id": "entangling-growth",
+      "name": "Entangling Growth",
+      "type": "active",
+      "category": "core",
+      "tags": ["magic damage", "CC", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "16m",
+      "description": "Launches Entangling Root Beetles toward the target. Upon hitting an enemy, they bounce to other enemies within 7 meters up to 9 times, with a maximum of 3 hits on the same target. Each hit deals [Damage Rate: 120%] Magic Damage, inflicts Stun for 1s; and reduces damage dealt by 20% for 9s.",
+      "effects": [
+        {
+          "type": "projectile",
+          "name": "Entangling Root Beetles",
+          "bounces": 9,
+          "bounce_range": "7m",
+          "max_hits_per_target": 3,
+          "damage": "120% Magic Damage per hit"
+        },
+        {
+          "type": "crowd_control",
+          "effect": "stun",
+          "duration": "1s"
+        },
+        {
+          "type": "debuff",
+          "name": "Damage Reduction",
+          "value": "20%",
+          "duration": "9s"
+        }
+      ],
+      "icon": "./assets/icons/skill-entangling-growth.png"
+    },
+    {
+      "id": "healing-bloom",
+      "name": "Healing Bloom",
+      "type": "active",
+      "category": "core",
+      "tags": ["heal", "buff", "mp"],
+      "mpCost": 10,
+      "cooldown": "4.8s",
+      "range": "12m",
+      "description": "Creates a Healing Bloom aura. Allies within gain 15% increased healing. Consumes 3 MP every second to restore [Healing Rate: 27%] HP to nearby allies",
+      "effects": [
+        {
+          "type": "aura",
+          "name": "Healing Bloom",
+          "healing_bonus": "15%",
+          "mp_consumption": "3 MP per second",
+          "healing": "27% HP per second"
+        }
+      ],
+      "icon": "./assets/icons/skill-healing-bloom.png"
+    },
+    {
+      "id": "rain-of-serenity",
+      "name": "Rain of Serenity",
+      "type": "active",
+      "category": "core",
+      "tags": ["heal", "buff", "magic damage", "aoe", "resistance"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "range": "12m",
+      "description": "Creates a Rain of Serenity at the target location for 8s. Allies in the rain gain 25% Damage Resistance and recover [Healing Rate: 30%] HP every second, while enemies take [Damage Rate: 50%] Magic Damage every second.",
+      "effects": [
+        {
+          "type": "area_effect",
+          "name": "Rain of Serenity",
+          "duration": "8s",
+          "allies": {
+            "damage_resistance": "25%",
+            "healing_per_second": "30%"
+          },
+          "enemies": {
+            "damage_per_second": "50% Magic Damage"
+          }
+        }
+      ],
+      "icon": "./assets/icons/skill-rain-of-serenity.png"
+    },
+    {
+      "id": "thorn-barrier",
+      "name": "Thorn Barrier",
+      "type": "active",
+      "category": "core",
+      "tags": ["buff", "aoe", "resistance", "attack speed", "heal", "slow"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "8m",
+      "description": "Grants Thorn Barrier to up to 5 nearby allies. Thorn Barrier increases Damage Resistance by 20%, Attack Speed by 25%, and Casting Speed by 40% for 6s. When taking direct damage, recovers [Healing Rate: 66%] HP up to 6 times; also Slows the attacker by 25% for 3s.",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Thorn Barrier",
+          "max_targets": 5,
+          "damage_resistance": "20%",
+          "attack_speed": "25%",
+          "casting_speed": "40%",
+          "duration": "6s"
+        },
+        {
+          "type": "heal",
+          "value": "66% HP",
+          "max_stacks": 6,
+          "trigger": "direct_damage"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "25%",
+          "duration": "3s",
+          "target": "attacker",
+          "trigger": "direct_damage"
+        }
+      ],
+      "icon": "./assets/icons/skill-thorn-barrier.png"
+    },
+    {
+      "id": "divine-rootfall",
+      "name": "Divine Rootfall",
+      "type": "active",
+      "category": "core",
+      "tags": ["heal", "magic damage", "CC", "aoe"],
+      "mpCost": 31,
+      "cooldown": "48s",
+      "range": "14m",
+      "description": "Plants a Divine Rootfall that lasts 20s. After 1s, the tree matures and restores [Healing Rate: 24%] HP every second to nearby allies. When enemies cast skills in range, it shoots sleep seeds that deal [Damage Rate: 200%] Magic Damage and inflict Sleep for 2.5s. The tree is destroyed after taking 10 Basic Attack hits",
+      "effects": [
+        {
+          "type": "summon",
+          "name": "Divine Rootfall Tree",
+          "duration": "20s",
+          "maturity_delay": "1s",
+          "healing_per_second": "24%",
+          "max_hp": 10
+        },
+        {
+          "type": "reactive",
+          "trigger": "enemy_skill_cast",
+          "damage": "200% Magic Damage",
+          "crowd_control": "sleep",
+          "duration": "2.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-divine-rootfall.png"
+    },
+    {
+      "id": "breeze-of-resurgence",
+      "name": "Breeze of Resurgence",
+      "type": "active",
+      "category": "core",
+      "tags": ["heal", "immunity", "buff"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "range": "24m",
+      "description": "Heals all allies hit for [Healing Rate: 210%], cleansing all control effects and 5 DoT stacks. Also grants immunity to DoTs and increases healing received by 35% for 6s",
+      "effects": [
+        {
+          "type": "heal",
+          "value": "210%",
+          "target": "all_allies_hit"
+        },
+        {
+          "type": "cleanse",
+          "effects": ["control_effects", "dot"],
+          "max_dot_stacks": 5
+        },
+        {
+          "type": "immunity",
+          "effects": ["dot"],
+          "duration": "6s"
+        },
+        {
+          "type": "buff",
+          "name": "Healing Received Increase",
+          "value": "35%",
+          "duration": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-breeze-of-resurgence.png"
     }
   ]
 }
