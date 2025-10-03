@@ -112,8 +112,76 @@ function renderCards(items, container, isSelected, onToggle) {
       card.classList.add('selected');
     }
     
-    // Check if this is a weapon with core skill or helmet with passive skill
-    if (item.coreSkill || item.passiveSkill) {
+    // Check if this is a weapon mod
+    if (item.type === 'weapon') {
+      // Weapon mod layout - smaller images, better alignment
+      card.style.display = 'flex';
+      card.style.alignItems = 'center';
+      card.style.padding = '8px 12px';
+      card.style.borderBottom = '1px solid var(--border)';
+      card.style.backgroundColor = 'var(--card-bg)';
+      card.style.transition = 'background-color 0.2s';
+      card.style.margin = '0';
+      card.style.borderRadius = '0';
+      card.style.gap = '12px';
+      card.style.width = '100%';
+      card.style.minWidth = '100%';
+      card.style.minHeight = '50px';
+      card.style.maxHeight = '50px';
+      card.style.overflow = 'hidden';
+      card.style.gridColumn = '1 / -1';
+      card.style.gridRow = 'auto';
+      card.style.cursor = 'pointer';
+      
+      // Weapon mod image - smaller size
+      const itemImg = document.createElement('img');
+      itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
+      itemImg.alt = item.name;
+      itemImg.className = 'item-icon';
+      itemImg.style.width = '32px';
+      itemImg.style.height = '32px';
+      itemImg.style.objectFit = 'contain';
+      itemImg.style.flexShrink = '0';
+      itemImg.style.borderRadius = '4px';
+      itemImg.style.border = '1px solid var(--border)';
+      itemImg.style.backgroundColor = 'var(--bg-elev)';
+      itemImg.onerror = () => { itemImg.style.display = 'none'; };
+      
+      // Weapon mod name and description container
+      const itemInfo = document.createElement('div');
+      itemInfo.style.display = 'flex';
+      itemInfo.style.flexDirection = 'column';
+      itemInfo.style.flex = '1';
+      itemInfo.style.minWidth = '0';
+      
+      const itemName = document.createElement('div');
+      itemName.className = 'card-name';
+      itemName.textContent = item.name;
+      itemName.style.fontSize = '0.9rem';
+      itemName.style.fontWeight = 'bold';
+      itemName.style.color = 'var(--text)';
+      itemName.style.marginBottom = '2px';
+      
+      const itemDesc = document.createElement('div');
+      itemDesc.className = 'card-sub';
+      itemDesc.textContent = item.description || '';
+      itemDesc.style.fontSize = '0.75rem';
+      itemDesc.style.color = 'var(--text-muted)';
+      itemDesc.style.lineHeight = '1.2';
+      itemDesc.style.maxHeight = '2.4em';
+      itemDesc.style.overflow = 'hidden';
+      itemDesc.style.display = '-webkit-box';
+      itemDesc.style.webkitLineClamp = '2';
+      itemDesc.style.webkitBoxOrient = 'vertical';
+      
+      itemInfo.appendChild(itemName);
+      itemInfo.appendChild(itemDesc);
+      
+      // Add elements to card
+      card.appendChild(itemImg);
+      card.appendChild(itemInfo);
+      
+    } else if (item.coreSkill || item.passiveSkill) {
       const skill = STATE.skills.find(s => s.id === (item.coreSkill || item.passiveSkill));
       
       // Simple horizontal row layout like the example
@@ -907,8 +975,8 @@ function renderGear(key) {
         }
       }
       
-      // Close the modal after selecting a weapon
-      if (key === 'weapon') {
+      // Close the modal after selecting a weapon or weapon mod
+      if (key === 'weapon' || key === 'weaponMod') {
         hideOverlay();
       }
       
