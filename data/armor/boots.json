@@ -121,6 +121,141 @@
       },
       "coreSkill": "berserk",
       "icon": "./assets/icons/boots-savagefoot-boots.png"
+    },
+    {
+      "id": "rallystep-boots",
+      "gameId": "rallystep-boots",
+      "name": "Rallystep Boots",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "rare",
+      "description": "Lightweight boots that allow for quick sidesteps and enhanced movement speed.",
+      "stats": {
+        "movementSpeed": "+12%",
+        "agility": 6,
+        "evasion": "+8%"
+      },
+      "coreSkill": "sidestep",
+      "icon": "./assets/icons/boots-rallystep-boots.png"
+    },
+    {
+      "id": "whirlwind-boots",
+      "gameId": "whirlwind-boots",
+      "name": "Whirlwind Boots",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "Boots that channel the power of wind, enhancing the combat abilities of nearby allies.",
+      "stats": {
+        "movementSpeed": "+18%",
+        "agility": 8,
+        "attackSpeed": "+10%",
+        "castingSpeed": "+8%"
+      },
+      "coreSkill": "cyclone",
+      "icon": "./assets/icons/boots-whirlwind-boots.png"
+    },
+    {
+      "id": "shadeveil-slippers",
+      "gameId": "shadeveil-slippers",
+      "name": "Shadeveil Slippers",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "Silent slippers that grant the wearer stealth abilities and enhanced movement speed.",
+      "stats": {
+        "movementSpeed": "+20%",
+        "agility": 10,
+        "stealth": "+15%",
+        "criticalChance": "+5%"
+      },
+      "coreSkill": "vanish",
+      "icon": "./assets/icons/boots-shadeveil-slippers.png"
+    },
+    {
+      "id": "deathwalker-boots",
+      "gameId": "deathwalker-boots",
+      "name": "Deathwalker Boots",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "Boots of an assassin that allow for deadly dashes and enhanced basic attack damage.",
+      "stats": {
+        "movementSpeed": "+15%",
+        "agility": 9,
+        "criticalChance": "+8%",
+        "basicAttackDamage": "+12%"
+      },
+      "coreSkill": "assassinate",
+      "icon": "./assets/icons/boots-deathwalker-boots.png"
+    },
+    {
+      "id": "fleeting-steps",
+      "gameId": "fleeting-steps",
+      "name": "Fleeting Steps",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "Graceful boots that allow for elegant dashes and enhanced critical strikes.",
+      "stats": {
+        "movementSpeed": "+16%",
+        "agility": 11,
+        "criticalChance": "+10%",
+        "evasion": "+12%"
+      },
+      "coreSkill": "grace",
+      "icon": "./assets/icons/boots-fleeting-steps.png"
+    },
+    {
+      "id": "swiftstride-boots",
+      "gameId": "swiftstride-boots",
+      "name": "Swiftstride Boots",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "Boots that enhance both movement and attack speed for rapid combat.",
+      "stats": {
+        "movementSpeed": "+22%",
+        "agility": 10,
+        "attackSpeed": "+15%",
+        "cooldownReduction": "+5%"
+      },
+      "coreSkill": "attack-speed",
+      "icon": "./assets/icons/boots-swiftstride-boots.png"
+    },
+    {
+      "id": "exodrift-slippers",
+      "gameId": "exodrift-slippers",
+      "name": "Exodrift Slippers",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "legendary",
+      "description": "Legendary slippers that allow for phase shifting between locations and weakening enemies.",
+      "stats": {
+        "movementSpeed": "+25%",
+        "agility": 15,
+        "magicResistance": 20,
+        "damageReduction": "+8%"
+      },
+      "coreSkill": "phase-shift",
+      "icon": "./assets/icons/boots-exodrift-slippers.png"
+    },
+    {
+      "id": "evasion-striders",
+      "gameId": "evasion-striders",
+      "name": "Evasion Striders",
+      "type": "boots",
+      "armorType": "Agility",
+      "rarity": "legendary",
+      "description": "Legendary boots that provide escape abilities and immunity to control effects.",
+      "stats": {
+        "movementSpeed": "+30%",
+        "agility": 18,
+        "evasion": "+20%",
+        "controlImmunity": "+25%"
+      },
+      "coreSkill": "escape",
+      "icon": "./assets/icons/boots-evasion-striders.png"
     }
   ]
 }
