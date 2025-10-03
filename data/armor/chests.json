@@ -256,6 +256,132 @@
       },
       "coreSkill": "rally",
       "icon": "./assets/icons/chest-heros-embrace.png"
+    },
+    {
+      "id": "guardians-blessing",
+      "gameId": "guardians-blessing",
+      "name": "Guardian's Blessing",
+      "type": "chest",
+      "armorType": "Strength",
+      "rarity": "rare",
+      "description": "A protective chest piece that allows for defensive blocking and threat management.",
+      "stats": {
+        "strength": 6,
+        "damageResistance": "+15%",
+        "threatControl": "+20%",
+        "defense": "+12%"
+      },
+      "coreSkill": "block",
+      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "icon": "./assets/icons/chest-guardians-blessing.png"
+    },
+    {
+      "id": "tangle-guard",
+      "gameId": "tangle-guard",
+      "name": "Tangle Guard",
+      "type": "chest",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A defensive chest piece that can root and pull enemies with grappling techniques.",
+      "stats": {
+        "strength": 8,
+        "pullPower": "+20%",
+        "immobilizeDuration": "+15%",
+        "range": "+12%"
+      },
+      "coreSkill": "root-grip",
+      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "icon": "./assets/icons/chest-tangle-guard.png"
+    },
+    {
+      "id": "tempest-charge",
+      "gameId": "tempest-charge",
+      "name": "Tempest Charge",
+      "type": "chest",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A powerful chest piece that enables charging abilities and team buffs.",
+      "stats": {
+        "strength": 9,
+        "auraRange": "+15%",
+        "resistance": "+18%",
+        "leadership": "+20%"
+      },
+      "coreSkill": "charge",
+      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "icon": "./assets/icons/chest-tempest-charge.png"
+    },
+    {
+      "id": "dazzling-guard",
+      "gameId": "dazzling-guard",
+      "name": "Dazzling Guard",
+      "type": "chest",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A stunning chest piece that can disorient and slow enemies with dazzling effects.",
+      "stats": {
+        "strength": 10,
+        "stunDuration": "+20%",
+        "slowPower": "+18%",
+        "damageDealt": "+15%"
+      },
+      "coreSkill": "stun",
+      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "icon": "./assets/icons/chest-dazzling-guard.png"
+    },
+    {
+      "id": "aegis-plate",
+      "gameId": "aegis-plate",
+      "name": "Aegis Plate",
+      "type": "chest",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A legendary chest piece that provides powerful shields to allies.",
+      "stats": {
+        "strength": 11,
+        "shieldPower": "+25%",
+        "hpScaling": "+20%",
+        "protection": "+22%"
+      },
+      "coreSkill": "shield",
+      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "icon": "./assets/icons/chest-aegis-plate.png"
+    },
+    {
+      "id": "magsurge-armor",
+      "gameId": "magsurge-armor",
+      "name": "Magsurge Armor",
+      "type": "chest",
+      "armorType": "Strength",
+      "rarity": "legendary",
+      "description": "A legendary chest piece that creates converging force fields to control the battlefield.",
+      "stats": {
+        "strength": 15,
+        "forceFieldPower": "+30%",
+        "pullStrength": "+25%",
+        "controlDuration": "+20%"
+      },
+      "coreSkill": "converge",
+      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "icon": "./assets/icons/chest-magsurge-armor.png"
+    },
+    {
+      "id": "wardens-shell",
+      "gameId": "wardens-shell",
+      "name": "Warden's Shell",
+      "type": "chest",
+      "armorType": "Strength",
+      "rarity": "legendary",
+      "description": "A legendary chest piece that creates vulnerability fields and enhances defensive capabilities.",
+      "stats": {
+        "strength": 18,
+        "vulnerabilityField": "+35%",
+        "damageResistance": "+25%",
+        "stealthDisable": "+30%"
+      },
+      "coreSkill": "vulnerability",
+      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "icon": "./assets/icons/chest-wardens-shell.png"
     }
   ]
 }

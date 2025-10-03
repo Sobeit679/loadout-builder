@@ -11284,6 +11284,299 @@
         }
       ],
       "icon": "./assets/icons/skill-lunge.png"
+    },
+    {
+      "id": "threat-nullifier",
+      "name": "Threat Nullifier",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["threat", "damage", "mob"],
+      "cooldown": "0s",
+      "description": "Does not generate additional Threat. Deals 25% additional damage to mobs.",
+      "effects": [
+        {
+          "type": "threat_reduction",
+          "value": "100%",
+          "target": "self"
+        },
+        {
+          "type": "damage_bonus",
+          "value": "25%",
+          "target": "mobs"
+        }
+      ],
+      "icon": "./assets/icons/passive-threat-nullifier.png"
+    },
+    {
+      "id": "threat-increase",
+      "name": "Threat Increase",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["threat", "damage", "mob"],
+      "cooldown": "0s",
+      "description": "Increases threat by 1000% and deals 25% additional damage to mobs.",
+      "effects": [
+        {
+          "type": "threat_increase",
+          "value": "1000%",
+          "target": "self"
+        },
+        {
+          "type": "damage_bonus",
+          "value": "25%",
+          "target": "mobs"
+        }
+      ],
+      "icon": "./assets/icons/passive-threat-increase.png"
+    },
+    {
+      "id": "block",
+      "name": "Block",
+      "type": "core",
+      "category": "defense",
+      "tags": ["buff", "defense", "channeling"],
+      "mpCost": 20,
+      "cooldown": "34s",
+      "range": "6m",
+      "description": "Channels for 2.5s, increasing Damage Resistance by 90%. Can move during channeling but Speed is reduced by 40%",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "damage resistance",
+          "value": "90%",
+          "duration": "2.5s",
+          "target": "self",
+          "channeling": true
+        },
+        {
+          "type": "debuff",
+          "effect": "movement speed reduction",
+          "value": "40%",
+          "duration": "2.5s",
+          "target": "self",
+          "condition": "channeling"
+        }
+      ],
+      "icon": "./assets/icons/skill-block.png"
+    },
+    {
+      "id": "root-grip",
+      "name": "Root Grip",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "pull", "immobilize", "physical"],
+      "mpCost": 25,
+      "cooldown": "34s",
+      "range": "16m",
+      "description": "Shoots a grappling rope that deals [Damage Rate: 100%] Physical Damage to the enemy, Immobilizes them for 2s, and pulls both toward the middle",
+      "effects": [
+        {
+          "type": "physical damage",
+          "value": "100%",
+          "target": "enemy"
+        },
+        {
+          "type": "immobilize",
+          "duration": "2s",
+          "target": "enemy"
+        },
+        {
+          "type": "pull",
+          "target": "both",
+          "direction": "middle"
+        }
+      ],
+      "icon": "./assets/icons/skill-root-grip.png"
+    },
+    {
+      "id": "charge",
+      "name": "Charge",
+      "type": "core",
+      "category": "buff",
+      "tags": ["buff", "resistance", "immunity", "aura"],
+      "mpCost": 30,
+      "cooldown": "34s",
+      "range": "7m",
+      "description": "Sounds a war horn, lasting 5s. Allies within 7m gain 30% Damage Resistance, 50 Control Resistance, and immunity to Forced Movement effects (Knockback, Pull)",
+      "effects": [
+        {
+          "type": "aura",
+          "effect": "damage resistance",
+          "value": "30%",
+          "duration": "5s",
+          "range": "7m",
+          "target": "allies"
+        },
+        {
+          "type": "aura",
+          "effect": "control resistance",
+          "value": "50",
+          "duration": "5s",
+          "range": "7m",
+          "target": "allies"
+        },
+        {
+          "type": "aura",
+          "effect": "forced movement immunity",
+          "duration": "5s",
+          "range": "7m",
+          "target": "allies"
+        }
+      ],
+      "icon": "./assets/icons/skill-charge.png"
+    },
+    {
+      "id": "stun",
+      "name": "Stun",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "slow", "hard control", "physical"],
+      "mpCost": 25,
+      "cooldown": "29s",
+      "range": "7m",
+      "description": "Deals [Damage Rate: 250%] Physical Damage to nearby enemies, stunning them for 2s and reducing their Speed by 40% for 4s",
+      "effects": [
+        {
+          "type": "physical damage",
+          "value": "250%",
+          "target": "enemies"
+        },
+        {
+          "type": "hard control",
+          "effect": "stun",
+          "duration": "2s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement speed reduction",
+          "value": "40%",
+          "duration": "4s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-stun.png"
+    },
+    {
+      "id": "shield",
+      "name": "Shield",
+      "type": "core",
+      "category": "defense",
+      "tags": ["shield", "hp", "scaling"],
+      "mpCost": 25,
+      "cooldown": "34s",
+      "range": "7m",
+      "description": "Grants a [Target-based Max HP 20%] Shield to nearby allies for 6s. Shield Value increases to [Target-based Max HP 35%] when HP is below 40%",
+      "effects": [
+        {
+          "type": "shield",
+          "value": "20%",
+          "duration": "6s",
+          "range": "7m",
+          "target": "allies",
+          "scaling": "max_hp"
+        },
+        {
+          "type": "shield",
+          "value": "35%",
+          "duration": "6s",
+          "range": "7m",
+          "target": "allies",
+          "scaling": "max_hp",
+          "condition": "low_hp",
+          "conditionThreshold": "40%"
+        }
+      ],
+      "icon": "./assets/icons/skill-shield.png"
+    },
+    {
+      "id": "converge",
+      "name": "Converge",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "hard control", "pull", "slow"],
+      "mpCost": 30,
+      "cooldown": "29s",
+      "range": "7m",
+      "description": "Creates a converging force field. After 1.5s, deals [Damage Rate: 250%] Physical Damage to enemies within 7m, pulls them to the center, Stuns them for 0.5s, and Slows them by 30% for 4s",
+      "effects": [
+        {
+          "type": "area_effect",
+          "value": "7m",
+          "duration": "1.5s",
+          "target": "area"
+        },
+        {
+          "type": "physical damage",
+          "value": "250%",
+          "target": "enemies",
+          "delay": "1.5s"
+        },
+        {
+          "type": "pull",
+          "direction": "center",
+          "target": "enemies",
+          "delay": "1.5s"
+        },
+        {
+          "type": "hard control",
+          "effect": "stun",
+          "duration": "0.5s",
+          "target": "enemies",
+          "delay": "1.5s"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement speed reduction",
+          "value": "30%",
+          "duration": "4s",
+          "target": "enemies",
+          "delay": "1.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-converge.png"
+    },
+    {
+      "id": "vulnerability",
+      "name": "Vulnerability",
+      "type": "core",
+      "category": "utility",
+      "tags": ["debuff", "buff", "area", "stealth disable"],
+      "mpCost": 25,
+      "cooldown": "39s",
+      "range": "7m",
+      "description": "Increases Damage Resistance by 30% and creates a weakening field around the caster, lasting 6s. Enemies within 7m deal 80% less damage and cannot enter Stealth",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "damage resistance",
+          "value": "30%",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "area_effect",
+          "value": "7m",
+          "duration": "6s",
+          "target": "area"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage reduction",
+          "value": "80%",
+          "duration": "6s",
+          "target": "enemies",
+          "condition": "in_field"
+        },
+        {
+          "type": "debuff",
+          "effect": "stealth disable",
+          "duration": "6s",
+          "target": "enemies",
+          "condition": "in_field"
+        }
+      ],
+      "icon": "./assets/icons/skill-vulnerability.png"
     }
   ]
 }
