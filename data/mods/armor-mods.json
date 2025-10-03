@@ -1,32 +1,430 @@
 {
   "armorMods": [
     {
-      "id": "void-resistance",
-      "name": "Void Resistance",
-      "rarity": "epic",
+      "id": "vitality",
+      "gameId": "vitality",
+      "name": "Vitality",
+      "type": "armor",
+      "rarity": "common",
       "slot": "armor",
-      "description": "Increases resistance to void magic and enhances magical abilities.",
+      "description": "Increases Max HP by [60~300]",
       "stats": {
-        "voidResistance": "+40%",
-        "magicResistance": 15,
-        "intelligence": 8,
-        "spellPower": "+12%"
+        "maxHpIncrease": "60 to 300"
       },
-      "icon": "./assets/icons/mod-void-resistance.png"
+      "icon": "./assets/icons/mod-vitality.png"
     },
     {
-      "id": "shadow-cloak",
-      "name": "Shadow Cloak",
-      "rarity": "rare",
+      "id": "armor",
+      "gameId": "armor",
+      "name": "Armor",
+      "type": "armor",
+      "rarity": "common",
       "slot": "armor",
-      "description": "Enhances stealth capabilities and provides shadow-based protection.",
+      "description": "Increases Armor by [4.8~24]",
       "stats": {
-        "stealth": "+25%",
-        "shadowResistance": "+30%",
-        "agility": 6,
-        "dodgeChance": "+12%"
+        "armorIncrease": "4.8 to 24"
       },
-      "icon": "./assets/icons/mod-shadow-cloak.png"
+      "icon": "./assets/icons/mod-armor.png"
+    },
+    {
+      "id": "magic-armor",
+      "gameId": "magic-armor",
+      "name": "Magic Armor",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "Increases Magic Resistance by [4.8~24]",
+      "stats": {
+        "magicResistanceIncrease": "4.8 to 24"
+      },
+      "icon": "./assets/icons/mod-magic-armor.png"
+    },
+    {
+      "id": "psyche",
+      "gameId": "psyche",
+      "name": "Psyche",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "Increases Max MP by [4~20]",
+      "stats": {
+        "maxMpIncrease": "4 to 20"
+      },
+      "icon": "./assets/icons/mod-psyche.png"
+    },
+    {
+      "id": "punish",
+      "gameId": "punish",
+      "name": "Punish",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking direct damage from Basic Attacks, has a (melee weapons [10%~20%] / ranged weapons [20%~40%]) chance to increase the attacker's Attack Speed by [-8%~-40%] for 6s. Trigger Interval: 30s",
+      "stats": {
+        "meleeTriggerRate": "10% to 20%",
+        "rangedTriggerRate": "20% to 40%",
+        "attackSpeedReduction": "-8% to -40%",
+        "duration": "6s",
+        "triggerInterval": "30s"
+      },
+      "icon": "./assets/icons/mod-punish.png"
+    },
+    {
+      "id": "physical-resistance",
+      "gameId": "physical-resistance",
+      "name": "Physical Resistance",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking direct Physical Damage, has a [17%~35%] chance to increase Armor by [8%~40%] for 4s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "17% to 35%",
+        "armorIncrease": "8% to 40%",
+        "duration": "4s",
+        "triggerInterval": "30s"
+      },
+      "icon": "./assets/icons/mod-physical-resistance.png"
+    },
+    {
+      "id": "valor-force",
+      "gameId": "valor-force",
+      "name": "Valor Force",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When affected by hard control effects (Stun, Fear, Frozen, Knockup, Petrify), has a [17%~35%] chance to increase Crowd Control Resistance by [5~25] for 6s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "17% to 35%",
+        "crowdControlResistanceIncrease": "5 to 25",
+        "duration": "6s",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-valor-force.png"
+    },
+    {
+      "id": "rebound",
+      "gameId": "rebound",
+      "name": "Rebound",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "Taking direct damage from Basic Attacks has a chance ([15%~30%] for ranged weapons / [10%~20%] for melee weapons) to grant a buff for 5s: Taking direct damage from Basic Attacks has a chance ([15%~30%] for ranged weapons / [10%~20%] for melee weapons) to deal [40%~200%] Physical Damage to the attacker. Trigger Interval: 25s",
+      "stats": {
+        "rangedTriggerRate": "15% to 30%",
+        "meleeTriggerRate": "10% to 20%",
+        "damageReflection": "40% to 200%",
+        "buffDuration": "5s",
+        "triggerInterval": "25s"
+      },
+      "icon": "./assets/icons/mod-rebound.png"
+    },
+    {
+      "id": "frenzy",
+      "gameId": "frenzy",
+      "name": "Frenzy",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking Direct Damage from Basic Attacks, has a [8%~40%] chance to increase Attack Speed by [6%~40%] for 5s. Enters 30s cooldown after triggering.",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "attackSpeedIncrease": "6% to 40%",
+        "duration": "5s",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-frenzy.png"
+    },
+    {
+      "id": "emulation",
+      "gameId": "emulation",
+      "name": "Emulation",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When hit by a critical hit, has [8%~40%] chance to increase Basic Attack's Critical Chance by [3%~15%] for 5s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "criticalChanceIncrease": "3% to 15%",
+        "duration": "5s",
+        "triggerInterval": "30s"
+      },
+      "icon": "./assets/icons/mod-emulation.png"
+    },
+    {
+      "id": "magic-resistance",
+      "gameId": "magic-resistance",
+      "name": "Magic Resistance",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When hit by Magic Damage, has a [17%~35%] chance to increase Magic Resistance by [8%~40%] for 4s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "17% to 35%",
+        "magicResistanceIncrease": "8% to 40%",
+        "duration": "4s",
+        "triggerInterval": "30s"
+      },
+      "icon": "./assets/icons/mod-magic-resistance.png"
+    },
+    {
+      "id": "barrier",
+      "gameId": "barrier",
+      "name": "Barrier",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking direct damage from skills, has a [17%~35%] chance to gain [Target-based Max HP [3%~15%]] Shield Points for 4s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "17% to 35%",
+        "shieldAmount": "3% to 15%",
+        "duration": "4s",
+        "triggerInterval": "30s"
+      },
+      "icon": "./assets/icons/mod-barrier.png"
+    },
+    {
+      "id": "absorb",
+      "gameId": "absorb",
+      "name": "Absorb",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking direct damage from skills, has a [6%~30%] chance to restore [1.6%~8%] HP and [6~30] MP. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "6% to 30%",
+        "hpRestore": "1.6% to 8%",
+        "mpRestore": "6 to 30",
+        "triggerInterval": "30s"
+      },
+      "icon": "./assets/icons/mod-absorb.png"
+    },
+    {
+      "id": "aggression",
+      "gameId": "aggression",
+      "name": "Aggression",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When gaining a Shield, there is an [8%~40%] chance to increase Basic Attack Critical Rate by [2.5%~12%] for 4 seconds. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "criticalRateIncrease": "2.5% to 12%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-aggression.png"
+    },
+    {
+      "id": "relentlessness",
+      "gameId": "relentlessness",
+      "name": "Relentlessness",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When gaining a Shield, [8%~40%] chance to increase Skill Critical Rate by [1.5%~7.5%] for 4s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "skillCriticalRateIncrease": "1.5% to 7.5%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-relentlessness.png"
+    },
+    {
+      "id": "footwork",
+      "gameId": "footwork",
+      "name": "Footwork",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When dodging a Basic Attack, [10%~50%] chance to heal for [1.6%~8%]. Cooldown: 20s",
+      "stats": {
+        "triggerRate": "10% to 50%",
+        "healAmount": "1.6% to 8%",
+        "cooldown": "20s"
+      },
+      "icon": "./assets/icons/mod-footwork.png"
+    },
+    {
+      "id": "roar",
+      "gameId": "roar",
+      "name": "Roar",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When affected by Hard Control effects (Stun, Fear, Frozen, Knockup, Petrify), has a [8%~40%] chance to cast a Bellow that deals [20%~100%] Physical Damage to nearby enemies and inflicts Fear for 1s. Cooldown: 20s after activation.",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "damageAmount": "20% to 100%",
+        "fearDuration": "1s",
+        "cooldown": "20s"
+      },
+      "icon": "./assets/icons/mod-roar.png"
+    },
+    {
+      "id": "counter",
+      "gameId": "counter",
+      "name": "Counter",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking direct damage from Basic Attacks, there is a [15%~30%] chance to trigger. If triggered, for the next 5 seconds, any direct damage from Basic Attacks reflects [16%~80%] Magic Damage to the attacker and modifies their Armor by [-4%~-20%] for 4 seconds. Cooldown: 25s",
+      "stats": {
+        "triggerRate": "15% to 30%",
+        "reflectionDuration": "5s",
+        "damageReflection": "16% to 80%",
+        "armorModification": "-4% to -20%",
+        "armorModificationDuration": "4s",
+        "cooldown": "25s"
+      },
+      "icon": "./assets/icons/mod-counter.png"
+    },
+    {
+      "id": "muzzle",
+      "gameId": "muzzle",
+      "name": "Muzzle",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking direct damage from skills, has a [15%~30%] chance to deal [Damage Rate: [12%~60%]] Magic Damage to all enemy targets within the damage source's range, drain [5~25] MP from affected enemies, and reduce the damage affected enemies deal by [-4%~-20%] for 4 seconds. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "15% to 30%",
+        "damageRate": "12% to 60%",
+        "mpDrain": "5 to 25",
+        "damageReduction": "-4% to -20%",
+        "damageReductionDuration": "4s",
+        "triggerInterval": "30s"
+      },
+      "icon": "./assets/icons/mod-muzzle.png"
+    },
+    {
+      "id": "fortune",
+      "gameId": "fortune",
+      "name": "Fortune",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When taking damage equal to more than 25% Max HP within 2s, [6%~30%] chance to recover [1.6%~8%] HP and gain Damage Immunity for [0.4%~2%]. Cooldown: 30s",
+      "stats": {
+        "damageThreshold": "25%",
+        "timeWindow": "2s",
+        "triggerRate": "6% to 30%",
+        "hpRecovery": "1.6% to 8%",
+        "damageImmunityDuration": "0.4% to 2%",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-fortune.png"
+    },
+    {
+      "id": "resolve",
+      "gameId": "resolve",
+      "name": "Resolve",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "armor",
+      "description": "When affected by Hard Control effects (Stun, Fear, Freeze, Knockup, Petrify, Sleep), [6%~30%] chance to increase Crowd Control Resistance Rate by [1.9%~9.5%] for 4s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "6% to 30%",
+        "crowdControlResistanceRateIncrease": "1.9% to 9.5%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-resolve.png"
+    },
+    {
+      "id": "intimidate",
+      "gameId": "intimidate",
+      "name": "Intimidate",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "chest",
+      "description": "When using Chest skills, there is a [12%~60%] chance to deal [Damage Rate: [20%~100%]] Magic Damage to nearby enemies and reduces their Movement Speed by [-6%~-30%] and damage dealt by [-3%~-15%] for 4s. Trigger Interval: 10s",
+      "stats": {
+        "triggerRate": "12% to 60%",
+        "damageRate": "20% to 100%",
+        "movementSpeedReduction": "-6% to -30%",
+        "damageDealtReduction": "-3% to -15%",
+        "duration": "4s",
+        "triggerInterval": "10s"
+      },
+      "icon": "./assets/icons/mod-intimidate.png"
+    },
+    {
+      "id": "charge-up",
+      "gameId": "charge-up",
+      "name": "Charge Up",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "chest",
+      "description": "When using Chest skills, detonates after 1s to deal [Damage Rate: [26%~130%]] Physical Damage to nearby enemies and reduce their Attack Speed by [-12%~-60%] for 6s. Trigger Interval: 10s",
+      "stats": {
+        "delay": "1s",
+        "damageRate": "26% to 130%",
+        "attackSpeedReduction": "-12% to -60%",
+        "duration": "6s",
+        "triggerInterval": "10s"
+      },
+      "icon": "./assets/icons/mod-charge-up.png"
+    },
+    {
+      "id": "pain-relief",
+      "gameId": "pain-relief",
+      "name": "Pain Relief",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "chest",
+      "description": "When using Chest skills, restores [1.6%~8.2%] HP and [10~50] MP to nearby allies. Trigger Interval: 10s",
+      "stats": {
+        "hpRestore": "1.6% to 8.2%",
+        "mpRestore": "10 to 50",
+        "triggerInterval": "10s"
+      },
+      "icon": "./assets/icons/mod-pain-relief.png"
+    },
+    {
+      "id": "protection",
+      "gameId": "protection",
+      "name": "Protection",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "boots",
+      "description": "When using Boots Skills, the character gains an additional [Target-based Max HP [5%~25%]] Shield Value for 4s. Trigger Interval: 20s",
+      "stats": {
+        "shieldValue": "5% to 25%",
+        "duration": "4s",
+        "triggerInterval": "20s"
+      },
+      "icon": "./assets/icons/mod-protection.png"
+    },
+    {
+      "id": "deception",
+      "gameId": "deception",
+      "name": "Deception",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "boots",
+      "description": "When using Boots skills, throw a trap at your feet; When triggered by an enemy, deal [Damage Rate: [16%~80%]] Physical Damage and stuns them for [0.4~2]s. Trigger Interval: 20s",
+      "stats": {
+        "damageRate": "16% to 80%",
+        "stunDuration": "0.4 to 2s",
+        "triggerInterval": "20s"
+      },
+      "icon": "./assets/icons/mod-deception.png"
+    },
+    {
+      "id": "divine-blessing",
+      "gameId": "divine-blessing",
+      "name": "Divine Blessing",
+      "type": "armor",
+      "rarity": "common",
+      "slot": "boots",
+      "description": "When using Boot skills, restores [1.3%~6.5%] HP and becomes immune to control effects for [0.4%~2]s. Cooldown: 20s",
+      "stats": {
+        "hpRestore": "1.3% to 6.5%",
+        "immunityDuration": "0.4s to 2s",
+        "cooldown": "20s"
+      },
+      "icon": "./assets/icons/mod-divine-blessing.png"
     }
   ]
 }

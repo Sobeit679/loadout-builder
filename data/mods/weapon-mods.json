@@ -18,8 +18,10 @@
       "name": "Tactics",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Increases Skill Effect by [0.6%~3%]",
+      "stats": {
+        "skillEffectIncrease": "0.6% to 3%"
+      },
       "icon": "./assets/icons/mod-tactics.png"
     },
     {
@@ -59,8 +61,13 @@
       "name": "Dominate",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When weapon skills or Basic Attacks deal Direct Damage to enemies under Hard Control effects (Stun, Fear, Freeze, Knockup, Petrify), there is a [17%~35%] chance to reduce their Damage Resistance by [-3%~-15%] for 4s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "17% to 35%",
+        "damageResistanceReduction": "-3% to -15%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
       "icon": "./assets/icons/mod-dominate.png"
     },
     {
@@ -69,8 +76,13 @@
       "name": "Upperhand",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When dealing direct damage with Basic Attacks, has a [17%~35%] chance to increase Basic Attack Damage by [7%~35%] for 4s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "17% to 35%",
+        "basicAttackDamageIncrease": "7% to 35%",
+        "duration": "4s",
+        "triggerInterval": "30s"
+      },
       "icon": "./assets/icons/mod-upperhand.png"
     },
     {
@@ -79,8 +91,14 @@
       "name": "Pursuit",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When dealing direct damage with Basic Attacks, has a (melee weapons [15%~30%] / ranged weapons [7.5%~15%]) chance to modify the target's Movement Speed by [-7%~-35%] for 4s. Trigger Interval: 10s",
+      "stats": {
+        "meleeTriggerRate": "15% to 30%",
+        "rangedTriggerRate": "7.5% to 15%",
+        "movementSpeedModification": "-7% to -35%",
+        "duration": "4s",
+        "triggerInterval": "10s"
+      },
       "icon": "./assets/icons/mod-pursuit.png"
     },
     {
@@ -104,8 +122,13 @@
       "name": "Magic Break",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When weapon skills deal direct Magic Damage, has a [8%~40%] chance to modify the target's Magic Resistance by [-4%~-20%] for 6s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "magicResistanceModification": "-4% to -20%",
+        "duration": "6s",
+        "triggerInterval": "30s"
+      },
       "icon": "./assets/icons/mod-magic-break.png"
     },
     {
@@ -114,8 +137,12 @@
       "name": "Charge",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When weapon skills deal direct damage, has a [10%~50%] chance to restore [10~50] MP. Trigger Interval: 8s",
+      "stats": {
+        "triggerRate": "10% to 50%",
+        "mpRestore": "10 to 50",
+        "triggerInterval": "8s"
+      },
       "icon": "./assets/icons/mod-charge.png"
     },
     {
@@ -124,8 +151,13 @@
       "name": "Haste",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When casting weapon skills, has a [20%~40%] chance to increase Cooldown Speed by [5%~25%] for 4s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "20% to 40%",
+        "cooldownSpeedIncrease": "5% to 25%",
+        "duration": "4s",
+        "triggerInterval": "30s"
+      },
       "icon": "./assets/icons/mod-haste.png"
     },
     {
@@ -134,8 +166,13 @@
       "name": "Nimbleness",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When landing a Basic Attack crit, [8%~40%] chance to increase Dodge by [3%~15%] for 4s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "dodgeIncrease": "3% to 15%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
       "icon": "./assets/icons/mod-nimbleness.png"
     },
     {
@@ -144,8 +181,13 @@
       "name": "Piercing Chill",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When inflicting Hard Control effects (Stun, Fear, Freeze, Knockup, Petrify, Sleep) with a Weapon Skill, [9%~45%] chance to lower the enemy's Healing Received by [-4%~-20%] for 4s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "9% to 45%",
+        "healingReceivedReduction": "-4% to -20%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
       "icon": "./assets/icons/mod-piercing-chill.png"
     },
     {
@@ -154,8 +196,12 @@
       "name": "Drain",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When inflicting a DOT with a Weapon Basic Attack or Skill, [8%~40%] chance to recover [2%~10%] HP. Cooldown: 20s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "hpRecovery": "2% to 10%",
+        "cooldown": "20s"
+      },
       "icon": "./assets/icons/mod-drain.png"
     },
     {
@@ -164,8 +210,14 @@
       "name": "Earthquake",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When a weapon skill inflicts Hard Control effects (Stun, Fear, Frozen, Knockup, Petrify) or Pull effects, it has a [22%~45%] chance to create an earthquake at the target's location. After a 1.5-second delay, it deals [Damage Rate: [16%~80%]] Physical Damage and applies Stun for [0.3~1.5] seconds. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "22% to 45%",
+        "damageRate": "16% to 80%",
+        "stunDuration": "0.3 to 1.5s",
+        "delay": "1.5s",
+        "cooldown": "30s"
+      },
       "icon": "./assets/icons/mod-earthquake.png"
     },
     {
@@ -174,8 +226,14 @@
       "name": "Rend",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When dealing direct damage with Basic Attacks, has a [12%~60%] chance to deal additional [Damage Rate: [20%~100%]] Physical Damage to the current target and reduce Movement Speed by [-10%~-50%] for 2s. Trigger Interval: 20s",
+      "stats": {
+        "triggerRate": "12% to 60%",
+        "damageRate": "20% to 100%",
+        "movementSpeedReduction": "-10% to -50%",
+        "duration": "2s",
+        "triggerInterval": "20s"
+      },
       "icon": "./assets/icons/mod-rend.png"
     },
     {
@@ -184,8 +242,14 @@
       "name": "Retribution",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When weapon skills deal direct damage, there is a [15%~30%] chance to trigger an explosion at the target location, dealing [Damage Rate: [10%~50%]] Magic Damage and increasing Damage Resistance by [-2%~-10%] for 6s. Trigger Interval: 30s",
+      "stats": {
+        "triggerRate": "15% to 30%",
+        "damageRate": "10% to 50%",
+        "damageResistanceIncrease": "-2% to -10%",
+        "duration": "6s",
+        "triggerInterval": "30s"
+      },
       "icon": "./assets/icons/mod-retribution.png"
     },
     {
@@ -194,8 +258,14 @@
       "name": "Bloodgrudge",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When dealing Direct Damage with a Weapon Basic Attack or Skill, [8%~40%] chance to gain 1 stack of a [0.6%~3%] damage boost buff for every 10% of missing HP. Buff lasts 4 seconds, stacks up to 5 times. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "damageBoostPerStack": "0.6% to 3%",
+        "buffDuration": "4s",
+        "maxStacks": "5",
+        "cooldown": "30s"
+      },
       "icon": "./assets/icons/mod-bloodgrudge.png"
     },
     {
@@ -204,8 +274,12 @@
       "name": "Shadowstep",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When using a Weapon Skill, [9%~45%] chance to reduce the CD of weapon-exclusive skills by [0.4%~2%] s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "9% to 45%",
+        "cooldownReduction": "0.4% to 2%",
+        "cooldown": "30s"
+      },
       "icon": "./assets/icons/mod-shadowstep.png"
     },
     {
@@ -214,8 +288,17 @@
       "name": "Valor",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Greatswords. When weapon skills or Basic Attacks deal direct damage, has a [15%~30%] chance to gain 1 stacks of Sword Momentum and increase Damage Resistance by [3%~15%] for 4s. Trigger Interval: 15s. Sword Momentum: Damage Boost: +3% (3% per stack, can stack) Damage Resistance: +4% (4% per stack, can stack) Attack Speed: +4% (4% per stack, can stack)",
+      "stats": {
+        "weaponType": "greatsword",
+        "triggerRate": "15% to 30%",
+        "damageResistanceIncrease": "3% to 15%",
+        "duration": "4s",
+        "triggerInterval": "15s",
+        "swordMomentumDamageBoost": "3% per stack",
+        "swordMomentumDamageResistance": "4% per stack",
+        "swordMomentumAttackSpeed": "4% per stack"
+      },
       "icon": "./assets/icons/mod-valor.png"
     },
     {
@@ -258,8 +341,14 @@
       "name": "Detonate",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Bows. When arrows deal direct damage, has a [15%~30%] chance of creating an explosion at the target location dealing [Damage Rate: [20%~100%]] Physical Damage and applying [Target Mark]. Also stun for 1.5 seconds. Trigger Interval: 20s",
+      "stats": {
+        "weaponType": "bow",
+        "triggerRate": "15% to 30%",
+        "damageRate": "20% to 100%",
+        "stunDuration": "1.5s",
+        "triggerInterval": "20s"
+      },
       "icon": "./assets/icons/mod-detonate.png"
     },
     {
@@ -268,8 +357,14 @@
       "name": "Synergy",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Spears when scoring a Critical Hit, has a [17%~35%] chance to increase Attack Speed by [6%~30%] for 6s. Cooldown: 20s",
+      "stats": {
+        "weaponType": "spear",
+        "triggerRate": "17% to 35%",
+        "attackSpeedIncrease": "6% to 30%",
+        "duration": "6s",
+        "cooldown": "20s"
+      },
       "icon": "./assets/icons/mod-synergy.png"
     },
     {
@@ -278,8 +373,19 @@
       "name": "Annihilate",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Daggers. Against targets below 40%, Basic Attacks have a [15%~30%] chance to deal additional [Damage Rate: [20%~100%]] Physical Damage and apply 2 stacks of [Bleed]. Trigger Interval: 15s. [Bleed]: Deals [Damage Rate: 30%] Physical Damage every second for 8s, stacking up to 6 times. At max stacks, causes Hemorrhage, removing all stacks and instantly dealing [Damage Rate: 100%] Physical Damage.",
+      "stats": {
+        "weaponType": "dagger",
+        "healthThreshold": "40%",
+        "triggerRate": "15% to 30%",
+        "damageRate": "20% to 100%",
+        "bleedStacks": "2",
+        "triggerInterval": "15s",
+        "bleedDamageRate": "30%",
+        "bleedDuration": "8s",
+        "maxBleedStacks": "6",
+        "hemorrhageDamageRate": "100%"
+      },
       "icon": "./assets/icons/mod-annihilate.png"
     },
     {
@@ -288,8 +394,18 @@
       "name": "Wild Growth",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Bloom Staves. When weapon skills or Basic Attacks directly heal an ally with Recovery, has a [7.5%~15%] * Recovery stacks chance to grant [Target-based Max HP [3%~15%]] Shield for 4s. Trigger Interval: 15s. Recovery: Restores [Healing Rate: 12%] HP every second for 12s, stacking up to 3 times. Trigger Interval: 20s",
+      "stats": {
+        "weaponType": "bloom_staff",
+        "triggerRate": "7.5% to 15%",
+        "shieldAmount": "3% to 15%",
+        "shieldDuration": "4s",
+        "triggerInterval": "15s",
+        "recoveryHealingRate": "12%",
+        "recoveryDuration": "12s",
+        "maxRecoveryStacks": "3",
+        "recoveryTriggerInterval": "20s"
+      },
       "icon": "./assets/icons/mod-wild-growth.png"
     },
     {
@@ -298,8 +414,16 @@
       "name": "Ice Blast",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Ice Foci. When weapon skills or Basic Attacks deal direct damage, has a [15%~30%] chance to trigger a frost explosion at the target location that deals [Damage Rate: [12%~60%]] Magic Damage to all enemies within 4m and inflicts Frost. Trigger Interval: 20s. Frost: Movement Speed is reduced by -40% for 4s, Slow gradually diminishes over time",
+      "stats": {
+        "weaponType": "ice_focus",
+        "triggerRate": "15% to 30%",
+        "damageRate": "12% to 60%",
+        "areaOfEffect": "4m",
+        "triggerInterval": "20s",
+        "frostMovementSpeedReduction": "-40%",
+        "frostDuration": "4s"
+      },
       "icon": "./assets/icons/mod-ice-blast.png"
     },
     {
@@ -308,8 +432,20 @@
       "name": "Flame Blast",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Cannonades. When weapon skills or Basic Attacks deal direct damage, has a [12%~30%] chance to trigger a flame explosion at the target location that deals [Damage Rate: [26%~130%]] Magic Damage to all enemies within 4m and inflicts 2 stacks of Burn. Trigger Interval: 15s. Burn: Deals [Damage Rate: 25%] Magic Damage every second for 8s, stacking up to 6 times. At 6 stacks, removes the effect and deals [Damage Rate: 80%] Magic Damage to enemy targets within 4m of the carrier.",
+      "stats": {
+        "weaponType": "cannonade",
+        "triggerRate": "12% to 30%",
+        "damageRate": "26% to 130%",
+        "areaOfEffect": "4m",
+        "burnStacks": "2",
+        "triggerInterval": "15s",
+        "burnDamageRate": "25%",
+        "burnDuration": "8s",
+        "maxBurnStacks": "6",
+        "explosionDamageRate": "80%",
+        "explosionAreaOfEffect": "4m"
+      },
       "icon": "./assets/icons/mod-flame-blast.png"
     },
     {
@@ -318,8 +454,14 @@
       "name": "Blessing",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Radiant Fluxes. When weapon skills or Basic Attacks apply direct healing to allies, has a [15%~30%] chance to increase target's Damage Resistance by [5%~25%] for 5s. Trigger Interval: 15s",
+      "stats": {
+        "weaponType": "radiant_flux",
+        "triggerRate": "15% to 30%",
+        "damageResistanceIncrease": "5% to 25%",
+        "duration": "5s",
+        "triggerInterval": "15s"
+      },
       "icon": "./assets/icons/mod-blessing.png"
     },
     {
@@ -328,8 +470,17 @@
       "name": "Curse",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "Only triggers with Voidcallers. When weapon skills or Basic Attacks inflict DoT effects on enemies, has a [12%~60%] chance to inflict 2 stacks of Plague. Trigger Interval: [30~12]s. Plague: Deals [Damage Rate: 20%] Magic Damage every 3s for 13s. Stacks up to 10 times.",
+      "stats": {
+        "weaponType": "voidcaller",
+        "triggerRate": "12% to 60%",
+        "plagueStacks": "2",
+        "triggerInterval": "30 to 12s",
+        "plagueDamageRate": "20%",
+        "plagueInterval": "3s",
+        "plagueDuration": "13s",
+        "maxPlagueStacks": "10"
+      },
       "icon": "./assets/icons/mod-curse.png"
     },
     {
@@ -338,8 +489,14 @@
       "name": "Retrofit",
       "type": "weapon",
       "rarity": "common",
-      "description": "",
-      "stats": {},
+      "description": "When Weapon Skills or Basic Attacks deal direct damage, has a [15%~30%] chance to restore 2 bullet and boosts Basic Attack Damage by [7%~35%] for 6s. Trigger Interval: 15s",
+      "stats": {
+        "triggerRate": "15% to 30%",
+        "bulletRestore": "2",
+        "basicAttackDamageIncrease": "7% to 35%",
+        "duration": "6s",
+        "triggerInterval": "15s"
+      },
       "icon": "./assets/icons/mod-retrofit.png"
     }
   ]

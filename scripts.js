@@ -200,6 +200,93 @@ function renderCards(items, container, isSelected, onToggle) {
       card.appendChild(itemImg);
       card.appendChild(itemInfo);
       
+    } else if (item.type === 'armor') {
+      // Armor mod layout - same style as weapon mods
+      card.style.display = 'flex';
+      card.style.alignItems = 'center';
+      card.style.padding = '8px 12px';
+      card.style.borderBottom = '1px solid var(--border)';
+      card.style.backgroundColor = 'var(--card-bg)';
+      card.style.transition = 'background-color 0.2s';
+      card.style.margin = '0';
+      card.style.borderRadius = '0';
+      card.style.gap = '12px';
+      card.style.width = '100%';
+      card.style.minWidth = '100%';
+      card.style.minHeight = '60px';
+      card.style.maxHeight = 'none';
+      card.style.overflow = 'hidden';
+      card.style.gridColumn = '1 / -1';
+      card.style.gridRow = 'auto';
+      card.style.cursor = 'pointer';
+      
+      // Armor mod image - smaller size
+      const itemImg = document.createElement('img');
+      itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
+      itemImg.alt = item.name;
+      itemImg.className = 'item-icon';
+      itemImg.style.width = '32px';
+      itemImg.style.height = '32px';
+      itemImg.style.objectFit = 'contain';
+      itemImg.style.flexShrink = '0';
+      itemImg.style.borderRadius = '4px';
+      itemImg.style.border = '1px solid var(--border)';
+      itemImg.style.backgroundColor = 'var(--bg-elev)';
+      itemImg.onerror = () => { itemImg.style.display = 'none'; };
+      
+      // Armor mod name and description container
+      const itemInfo = document.createElement('div');
+      itemInfo.style.display = 'flex';
+      itemInfo.style.flexDirection = 'column';
+      itemInfo.style.flex = '1';
+      itemInfo.style.minWidth = '0';
+      
+      const itemName = document.createElement('div');
+      itemName.className = 'card-name';
+      itemName.textContent = item.name;
+      itemName.style.fontSize = '0.9rem';
+      itemName.style.fontWeight = 'bold';
+      itemName.style.color = 'var(--text)';
+      itemName.style.marginBottom = '2px';
+      
+      const itemDesc = document.createElement('div');
+      itemDesc.className = 'card-sub';
+      
+      // Build description with stats
+      let descText = item.description || '';
+      if (item.stats && Object.keys(item.stats).length > 0) {
+        const statsText = Object.entries(item.stats)
+          .map(([key, value]) => {
+            // Format key names for display
+            const displayKey = key
+              .replace(/([A-Z])/g, ' $1')
+              .replace(/^./, str => str.toUpperCase())
+              .replace(/_/g, ' ');
+            return `${displayKey}: ${value}`;
+          })
+          .join(', ');
+        
+        if (descText) {
+          descText += ` | ${statsText}`;
+        } else {
+          descText = statsText;
+        }
+      }
+      
+      itemDesc.textContent = descText;
+      itemDesc.style.fontSize = '0.75rem';
+      itemDesc.style.color = 'var(--text-muted)';
+      itemDesc.style.lineHeight = '1.3';
+      itemDesc.style.wordWrap = 'break-word';
+      itemDesc.style.whiteSpace = 'normal';
+      
+      itemInfo.appendChild(itemName);
+      itemInfo.appendChild(itemDesc);
+      
+      // Add elements to card
+      card.appendChild(itemImg);
+      card.appendChild(itemInfo);
+      
     } else if (item.coreSkill || item.passiveSkill) {
       const skill = STATE.skills.find(s => s.id === (item.coreSkill || item.passiveSkill));
       
@@ -600,8 +687,8 @@ function handleSearch() {
       }
     }
     
-    // Search by description and stats (for weapon mods)
-    if (item && item.type === 'weapon') {
+    // Search by description and stats (for weapon and armor mods)
+    if (item && (item.type === 'weapon' || item.type === 'armor')) {
       const description = item.description?.toLowerCase() || '';
       if (description.includes(searchTerm)) {
         matchesSearch = true;
@@ -948,8 +1035,19 @@ function renderGear(key) {
     // For weapon mods, show weapon mods
     items = STATE.mods.weapon;
   } else if (key === 'helmMod' || key === 'chestMod' || key === 'bootsMod') {
-    // For armor mods, show armor mods
-    items = STATE.mods.armor;
+    // For armor mods, filter by slot
+    if (key === 'chestMod') {
+      // Show both universal armor mods and chest-specific mods
+      items = STATE.mods.armor.filter(mod => mod.slot === 'armor' || mod.slot === 'chest');
+    } else if (key === 'helmMod') {
+      // Show only universal armor mods (no slot-specific mods)
+      items = STATE.mods.armor.filter(mod => mod.slot === 'armor');
+    } else if (key === 'bootsMod') {
+      // Show both universal armor mods and boots-specific mods
+      items = STATE.mods.armor.filter(mod => mod.slot === 'armor' || mod.slot === 'boots');
+    } else {
+      items = STATE.mods.armor;
+    }
   } else {
     // Fallback
     items = [];
