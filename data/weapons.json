@@ -1743,6 +1743,246 @@
         "frost-arrow"
       ],
       "icon": "./assets/icons/weapon-menders-ruin.png"
+    },
+    {
+      "id": "shattercoil",
+      "gameId": "shattercoil",
+      "name": "Shattercoil",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "rare",
+      "stats": {
+        "damage": "70-100",
+        "attackSpeed": "1.2",
+        "criticalChance": "6%",
+        "strength": "+15"
+      },
+      "coreSkill": "scatterblast",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-shattercoil.png"
+    },
+    {
+      "id": "photonic-rifle",
+      "gameId": "photonic-rifle",
+      "name": "Photonic Rifle",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "85-115",
+        "attackSpeed": "1.1",
+        "criticalChance": "8%",
+        "strength": "+20"
+      },
+      "coreSkill": "photon-bolt",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-photonic-rifle.png"
+    },
+    {
+      "id": "shadowhunter-rifle",
+      "gameId": "shadowhunter-rifle",
+      "name": "Shadowhunter Rifle",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-120",
+        "attackSpeed": "1.0",
+        "criticalChance": "10%",
+        "strength": "+25"
+      },
+      "coreSkill": "snipe",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-shadowhunter-rifle.png"
+    },
+    {
+      "id": "blightspitter",
+      "gameId": "blightspitter",
+      "name": "Blightspitter",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "95-125",
+        "attackSpeed": "1.1",
+        "criticalChance": "9%",
+        "strength": "+22"
+      },
+      "coreSkill": "toxic-shroud",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-blightspitter.png"
+    },
+    {
+      "id": "burstfire-rifle",
+      "gameId": "burstfire-rifle",
+      "name": "Burstfire Rifle",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "100-130",
+        "attackSpeed": "1.3",
+        "criticalChance": "7%",
+        "strength": "+18"
+      },
+      "coreSkill": "rapid-fire",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-burstfire-rifle.png"
+    },
+    {
+      "id": "sentinel-barrage",
+      "gameId": "sentinel-barrage",
+      "name": "Sentinel Barrage",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "105-135",
+        "attackSpeed": "1.0",
+        "criticalChance": "8%",
+        "strength": "+20"
+      },
+      "coreSkill": "sentinel-barrage",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-sentinel-barrage.png"
+    },
+    {
+      "id": "prism-cloak",
+      "gameId": "prism-cloak",
+      "name": "Prism Cloak",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "120-150",
+        "attackSpeed": "0.9",
+        "criticalChance": "12%",
+        "strength": "+30"
+      },
+      "coreSkill": "photon-activation",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-prism-cloak.png"
+    },
+    {
+      "id": "voideye",
+      "gameId": "voideye",
+      "name": "Voideye",
+      "type": "gun",
+      "weaponType": "Strength",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "130-160",
+        "attackSpeed": "0.8",
+        "criticalChance": "15%",
+        "strength": "+35"
+      },
+      "coreSkill": "deadshot",
+      "passiveSkill": "reload",
+      "basicAttacks": [
+        "headshot",
+        "ricochet",
+        "armor-break"
+      ],
+      "weaponSkills": [
+        "trap",
+        "quick-load",
+        "concussion-grenade",
+        "blinding-flash",
+        "aim"
+      ],
+      "icon": "./assets/icons/weapon-voideye.png"
     }
   ]
 }

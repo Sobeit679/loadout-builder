@@ -7445,6 +7445,491 @@
         }
       ],
       "icon": "./assets/icons/skill-severance-shot.png"
+    },
+    {
+      "id": "reload",
+      "name": "Reload",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["passive", "mp"],
+      "mpCost": 0,
+      "cooldown": "0s",
+      "castingTime": "0s",
+      "range": "Self",
+      "description": "Automatically reloads ammunition over time. Gain 1 bullet every 2 seconds. Maximum 6 bullets.",
+      "effects": [
+        {
+          "type": "resource_generation",
+          "resource": "bullets",
+          "amount": 1,
+          "interval": "2s",
+          "max_amount": 6
+        }
+      ],
+      "icon": "./assets/icons/passive-reload.png"
+    },
+    {
+      "id": "headshot",
+      "name": "Headshot",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "crit"],
+      "mpCost": 0,
+      "cooldown": "0s",
+      "castingTime": "0s",
+      "range": "20m",
+      "description": "Aim for the head, dealing [Damage Rate: 120%] Physical Damage. Critical hits deal 150% damage.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "single_enemy"
+        },
+        {
+          "type": "critical_hit",
+          "damage_multiplier": "150%",
+          "condition": "critical_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-headshot.png"
+    },
+    {
+      "id": "ricochet",
+      "name": "Ricochet",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "aoe"],
+      "mpCost": 0,
+      "cooldown": "0s",
+      "castingTime": "0s",
+      "range": "20m",
+      "description": "Fire a bullet that bounces between enemies, dealing [Damage Rate: 80%] Physical Damage to each target. Bounces up to 3 times.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "80%",
+          "target": "multiple_enemies",
+          "max_bounces": 3
+        }
+      ],
+      "icon": "./assets/icons/skill-ricochet.png"
+    },
+    {
+      "id": "armor-break",
+      "name": "Armor Break",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "debuff"],
+      "mpCost": 0,
+      "cooldown": "0s",
+      "castingTime": "0s",
+      "range": "20m",
+      "description": "Piercing shot that reduces enemy armor by 20% for 5 seconds. Deals [Damage Rate: 100%] Physical Damage.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "100%",
+          "target": "single_enemy"
+        },
+        {
+          "type": "debuff",
+          "effect": "armor_reduction",
+          "value": "20%",
+          "duration": "5s",
+          "target": "enemy"
+        }
+      ],
+      "icon": "./assets/icons/skill-armor-break.png"
+    },
+    {
+      "id": "trap",
+      "name": "Trap",
+      "type": "weapon-skill",
+      "category": "utility",
+      "tags": ["physical damage", "aoe", "debuff"],
+      "mpCost": 15,
+      "cooldown": "12s",
+      "castingTime": "1s",
+      "range": "15m",
+      "description": "Place a trap that triggers when enemies step on it. Deals [Damage Rate: 150%] Physical Damage and slows enemies by 40% for 3 seconds.",
+      "effects": [
+        {
+          "type": "trap",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "trigger": "enemy_step",
+          "duration": "30s"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "40%",
+          "duration": "3s",
+          "target": "triggered_enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-trap.png"
+    },
+    {
+      "id": "quick-load",
+      "name": "Quick Load",
+      "type": "weapon-skill",
+      "category": "utility",
+      "tags": ["mp", "buff"],
+      "mpCost": 20,
+      "cooldown": "15s",
+      "castingTime": "0.5s",
+      "range": "Self",
+      "description": "Instantly reload all bullets and gain 30% attack speed for 8 seconds.",
+      "effects": [
+        {
+          "type": "resource_restore",
+          "resource": "bullets",
+          "amount": "max"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed",
+          "value": "30%",
+          "duration": "8s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-quick-load.png"
+    },
+    {
+      "id": "concussion-grenade",
+      "name": "Concussion Grenade",
+      "type": "weapon-skill",
+      "category": "damage",
+      "tags": ["physical damage", "aoe", "stun"],
+      "mpCost": 25,
+      "cooldown": "18s",
+      "castingTime": "1.2s",
+      "range": "20m",
+      "description": "Throw a grenade that explodes on impact, dealing [Damage Rate: 200%] Physical Damage in a 5m radius and stunning enemies for 2 seconds.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "enemies_in_radius",
+          "radius": "5m"
+        },
+        {
+          "type": "stun",
+          "duration": "2s",
+          "target": "enemies_in_radius"
+        }
+      ],
+      "icon": "./assets/icons/skill-concussion-grenade.png"
+    },
+    {
+      "id": "blinding-flash",
+      "name": "Blinding Flash",
+      "type": "weapon-skill",
+      "category": "utility",
+      "tags": ["aoe", "debuff"],
+      "mpCost": 18,
+      "cooldown": "14s",
+      "castingTime": "0.8s",
+      "range": "15m",
+      "description": "Create a bright flash that blinds all enemies in a 8m radius for 4 seconds, reducing their accuracy by 50%.",
+      "effects": [
+        {
+          "type": "debuff",
+          "effect": "blind",
+          "duration": "4s",
+          "target": "enemies_in_radius",
+          "radius": "8m"
+        },
+        {
+          "type": "debuff",
+          "effect": "accuracy_reduction",
+          "value": "50%",
+          "duration": "4s",
+          "target": "enemies_in_radius"
+        }
+      ],
+      "icon": "./assets/icons/skill-blinding-flash.png"
+    },
+    {
+      "id": "aim",
+      "name": "Aim",
+      "type": "weapon-skill",
+      "category": "utility",
+      "tags": ["buff", "crit"],
+      "mpCost": 12,
+      "cooldown": "10s",
+      "castingTime": "0.5s",
+      "range": "Self",
+      "description": "Enter aiming mode for 6 seconds. Gain 25% critical chance and 20% damage increase for all attacks.",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "critical_chance",
+          "value": "25%",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_increase",
+          "value": "20%",
+          "duration": "6s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-aim.png"
+    },
+    {
+      "id": "scatterblast",
+      "name": "Scatterblast",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "aoe"],
+      "mpCost": 30,
+      "cooldown": "20s",
+      "castingTime": "1.5s",
+      "range": "15m",
+      "description": "Fire a spread of pellets in a cone, dealing [Damage Rate: 60%] Physical Damage per pellet. Each enemy can be hit by multiple pellets.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "60%",
+          "target": "enemies_in_cone",
+          "multiple_hits": true
+        }
+      ],
+      "icon": "./assets/icons/skill-scatterblast.png"
+    },
+    {
+      "id": "photon-bolt",
+      "name": "Photon Bolt",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["magic damage", "aoe"],
+      "mpCost": 35,
+      "cooldown": "22s",
+      "castingTime": "2s",
+      "range": "25m",
+      "description": "Fire a concentrated energy bolt that pierces through enemies, dealing [Damage Rate: 180%] Magic Damage and creating an explosion at the end dealing [Damage Rate: 120%] Magic Damage in a 4m radius.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "180%",
+          "target": "piercing_line"
+        },
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "120%",
+          "target": "enemies_in_radius",
+          "radius": "4m",
+          "trigger": "end_of_pierce"
+        }
+      ],
+      "icon": "./assets/icons/skill-photon-bolt.png"
+    },
+    {
+      "id": "snipe",
+      "name": "Snipe",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "crit"],
+      "mpCost": 40,
+      "cooldown": "25s",
+      "castingTime": "3s",
+      "range": "40m",
+      "description": "Take careful aim and fire a high-damage shot. Deals [Damage Rate: 300%] Physical Damage with guaranteed critical hit. Cannot be interrupted while aiming.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "target": "single_enemy"
+        },
+        {
+          "type": "guaranteed_critical",
+          "condition": "successful_hit"
+        },
+        {
+          "type": "status",
+          "effect": "uninterruptible",
+          "duration": "3s"
+        }
+      ],
+      "icon": "./assets/icons/skill-snipe.png"
+    },
+    {
+      "id": "toxic-shroud",
+      "name": "Toxic Shroud",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["magic damage", "dot", "aoe", "debuff"],
+      "mpCost": 28,
+      "cooldown": "18s",
+      "castingTime": "1.8s",
+      "range": "20m",
+      "description": "Create a toxic cloud that deals [Damage Rate: 80%] Magic Damage per second for 8 seconds. Enemies in the cloud are poisoned and take 15% more damage from all sources.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "80%",
+          "target": "enemies_in_cloud",
+          "duration": "8s",
+          "interval": "1s"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage_vulnerability",
+          "value": "15%",
+          "duration": "8s",
+          "target": "enemies_in_cloud"
+        }
+      ],
+      "icon": "./assets/icons/skill-toxic-shroud.png"
+    },
+    {
+      "id": "rapid-fire",
+      "name": "Rapid Fire",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "channeling"],
+      "mpCost": 25,
+      "cooldown": "16s",
+      "castingTime": "0s",
+      "range": "20m",
+      "description": "Channel for 4 seconds, firing bullets rapidly. Each bullet deals [Damage Rate: 40%] Physical Damage. Consumes 1 bullet per 0.2 seconds.",
+      "effects": [
+        {
+          "type": "channeling",
+          "duration": "4s",
+          "resource_cost": "1 bullet per 0.2s"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "40%",
+          "target": "single_enemy",
+          "frequency": "every 0.2s"
+        }
+      ],
+      "icon": "./assets/icons/skill-rapid-fire.png"
+    },
+    {
+      "id": "sentinel-barrage",
+      "name": "Sentinel Barrage",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "channeling", "aoe", "shield", "debuff", "mp", "cooldown"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0.96s",
+      "range": "20m",
+      "description": "Channels for 6s (requires 1+ bullets). Consumes 1 bullet per second, stopping at 0 bullets. Fires a hail of bullets every 0.25s at enemies in a frontal cone, dealing [Damage Rate: 85%] Physical Damage. Damage reduced to as low as 70% on enemies the further away they are. Gains [Target-based Max HP 40%] Shield during channeling. Cannot be interrupted and rotates slowly.",
+      "effects": [
+        {
+          "type": "channeling",
+          "duration": "6s",
+          "resource_cost": "1 bullet/s",
+          "stop_condition": "0 bullets"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "85%",
+          "frequency": "every 0.25s",
+          "target": "enemies_in_frontal_cone"
+        },
+        {
+          "type": "damage_modifier",
+          "effect": "reduced_damage_by_distance",
+          "min_value": "70%",
+          "condition": "further_away_enemies"
+        },
+        {
+          "type": "shield",
+          "value": "Target-based Max HP 40%",
+          "duration": "during_channeling"
+        },
+        {
+          "type": "status",
+          "effect": "uninterruptible",
+          "condition": "during_channeling"
+        },
+        {
+          "type": "movement",
+          "effect": "slow_rotation",
+          "condition": "during_channeling"
+        }
+      ],
+      "icon": "./assets/icons/skill-sentinel-barrage.png"
+    },
+    {
+      "id": "photon-activation",
+      "name": "Photon Activation",
+      "type": "core-skill",
+      "category": "utility",
+      "tags": ["buff", "mp"],
+      "mpCost": 50,
+      "cooldown": "30s",
+      "castingTime": "2.5s",
+      "range": "Self",
+      "description": "Activate photon mode for 15 seconds. All attacks become energy-based, dealing Magic Damage instead of Physical Damage, and gain 25% mana cost reduction for all skills.",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "damage_type_conversion",
+          "from": "physical",
+          "to": "magic",
+          "duration": "15s",
+          "target": "all_attacks"
+        },
+        {
+          "type": "buff",
+          "effect": "mana_cost_reduction",
+          "value": "25%",
+          "duration": "15s",
+          "target": "all_skills"
+        }
+      ],
+      "icon": "./assets/icons/skill-photon-activation.png"
+    },
+    {
+      "id": "deadshot",
+      "name": "Deadshot",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "crit", "aoe"],
+      "mpCost": 45,
+      "cooldown": "35s",
+      "castingTime": "4s",
+      "range": "50m",
+      "description": "Take perfect aim and fire a devastating shot that deals [Damage Rate: 500%] Physical Damage. If it kills the target, the bullet explodes dealing [Damage Rate: 200%] Physical Damage to all enemies within 8m of the original target.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "500%",
+          "target": "single_enemy"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "enemies_in_radius",
+          "radius": "8m",
+          "condition": "if_original_target_killed"
+        }
+      ],
+      "icon": "./assets/icons/skill-deadshot.png"
     }
   ]
 }

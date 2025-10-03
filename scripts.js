@@ -136,7 +136,7 @@ function renderCards(items, container, isSelected, onToggle) {
       
       // Weapon image
       const itemImg = document.createElement('img');
-      itemImg.src = item.icon || '';
+      itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
       itemImg.alt = item.name;
       itemImg.className = 'item-icon';
       itemImg.style.width = '40px';
@@ -200,7 +200,7 @@ function renderCards(items, container, isSelected, onToggle) {
         
         const tooltipContent = `
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <img src="${skill.icon}" alt="${skill.name}" style="width: 32px; height: 32px; border-radius: 4px; border: 1px solid var(--border);">
+            <img src="${skill.icon}?v=${Date.now()}" alt="${skill.name}" style="width: 32px; height: 32px; border-radius: 4px; border: 1px solid var(--border);">
             <div>
               <div style="font-weight: bold; color: var(--text); margin-bottom: 4px;">${skill.name}</div>
             </div>
@@ -863,7 +863,8 @@ function updateWeaponSkill() {
   if (weapon && weapon.coreSkill) {
     const coreSkill = STATE.skills.find(s => s.id === weapon.coreSkill);
     if (coreSkill && coreSkill.icon) {
-      wIcon.style.backgroundImage = `url(${coreSkill.icon})`;
+      const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
+      wIcon.style.backgroundImage = `url(${iconUrl})`;
       wSlot.classList.remove('empty');
     } else {
       wIcon.style.backgroundImage = '';
@@ -871,11 +872,13 @@ function updateWeaponSkill() {
     }
   } else if (weapon && weapon.skill && weapon.skill.icon) {
     // Fallback for old weapon format
-    wIcon.style.backgroundImage = `url(${weapon.skill.icon})`;
+    const iconUrl = `${weapon.skill.icon}?v=${Date.now()}`;
+    wIcon.style.backgroundImage = `url(${iconUrl})`;
     wSlot.classList.remove('empty');
   } else if (weapon && weapon.skillIcon) {
     // Fallback for old weapon format
-    wIcon.style.backgroundImage = `url(${weapon.skillIcon})`;
+    const iconUrl = `${weapon.skillIcon}?v=${Date.now()}`;
+    wIcon.style.backgroundImage = `url(${iconUrl})`;
     wSlot.classList.remove('empty');
   } else {
     wIcon.style.backgroundImage = '';
@@ -952,7 +955,8 @@ function updateChestSkill() {
   if (chest && chest.coreSkill) {
     const coreSkill = STATE.skills.find(s => s.id === chest.coreSkill);
     if (coreSkill && coreSkill.icon) {
-      dIcon.style.backgroundImage = `url(${coreSkill.icon})`;
+      const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
+      dIcon.style.backgroundImage = `url(${iconUrl})`;
       dSlot.classList.remove('empty');
     } else {
       dIcon.style.backgroundImage = '';
@@ -979,7 +983,8 @@ function updateBootsSkill() {
   if (boots && boots.coreSkill) {
     const coreSkill = STATE.skills.find(s => s.id === boots.coreSkill);
     if (coreSkill && coreSkill.icon) {
-      fIcon.style.backgroundImage = `url(${coreSkill.icon})`;
+      const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
+      fIcon.style.backgroundImage = `url(${iconUrl})`;
       fSlot.classList.remove('empty');
     } else {
       fIcon.style.backgroundImage = '';
@@ -1131,7 +1136,7 @@ function showSkillCascade(slotKey, skills, onSelect) {
     skillOption.style.cssText = `
       width: 50px;
       height: 50px;
-      background-image: url(${skill.icon});
+      background-image: url(${skill.icon}?v=${Date.now()});
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
