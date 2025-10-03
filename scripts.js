@@ -435,8 +435,11 @@ function showOverlay(title, key) {
     if (key === 'weapon') {
       setTimeout(() => {
         const weaponCards = selectionGrid.querySelectorAll('.selector-card');
-        weaponCards.forEach(card => {
-          card.style.display = 'block';
+        console.log('Making weapon cards visible, found:', weaponCards.length);
+        weaponCards.forEach((card, index) => {
+          console.log(`Card ${index}:`, card, 'Current display:', card.style.display);
+          card.style.display = 'flex'; // Use flex since that's how they're created
+          console.log(`Card ${index} after setting display:`, card.style.display);
         });
       }, 100);
     }
@@ -897,6 +900,7 @@ function renderGear(key) {
   if (key === 'weapon') {
     const bloodthirstWeapon = items.find(w => w.id === 'bloodthirst');
     console.log('Bloodthirst weapon in items to render:', bloodthirstWeapon);
+    console.log('Total weapons to render:', items.length);
   }
     
   renderCards(
