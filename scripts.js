@@ -391,7 +391,7 @@ function showOverlay(title, key) {
   
   // Show/hide search container based on selection type
   if (searchContainer) {
-    if (key === 'weapon' || key === 'chest' || key === 'boots') {
+    if (key === 'weapon' || key === 'chest' || key === 'boots' || key === 'weaponMod') {
       searchContainer.style.display = 'flex';
     } else {
       searchContainer.style.display = 'none';
@@ -468,6 +468,9 @@ function handleSearch() {
     if (!item && STATE.gear.boots) {
       item = STATE.gear.boots.find(b => b.id === itemId);
     }
+    if (!item && STATE.mods.weapon) {
+      item = STATE.mods.weapon.find(m => m.id === itemId);
+    }
     
     let matchesSearch = false;
     
@@ -476,8 +479,8 @@ function handleSearch() {
       matchesSearch = true;
     }
     
-    // Search by skill tags
-    if (item) {
+    // Search by skill tags (for weapons, armor)
+    if (item && item.type !== 'weapon') {
       const allSkills = [
         ...(item.basicAttacks || []),
         ...(item.weaponSkills || []),
@@ -503,6 +506,22 @@ function handleSearch() {
               break;
             }
           }
+        }
+      }
+    }
+    
+    // Search by description and stats (for weapon mods)
+    if (item && item.type === 'weapon') {
+      const description = item.description?.toLowerCase() || '';
+      if (description.includes(searchTerm)) {
+        matchesSearch = true;
+      }
+      
+      // Search by stats
+      if (item.stats) {
+        const statsText = Object.entries(item.stats).map(([key, value]) => `${key}: ${value}`).join(' ').toLowerCase();
+        if (statsText.includes(searchTerm)) {
+          matchesSearch = true;
         }
       }
     }
@@ -830,43 +849,69 @@ async function init() {
 function renderGear(key) {
   const gearKey = SLOT_MAPPINGS[key].key;
   
-  // For weapons, helmets, chests, and boots, only show actual items, not mods
-  const items = (gearKey === 'weapons' || gearKey === 'armors/head' || gearKey === 'armors/chest' || gearKey === 'armors/boots')
-    ? STATE.gear[gearKey]
-    : [...STATE.gear[gearKey], ...STATE.mods.armor];
+  // Handle different types of items
+  let items;
+  if (gearKey === 'weapons' || gearKey === 'armors/head' || gearKey === 'armors/chest' || gearKey === 'armors/boots') {
+    // For weapons, helmets, chests, and boots, only show actual items, not mods
+    items = STATE.gear[gearKey];
+  } else if (key === 'weaponMod') {
+    // For weapon mods, show weapon mods
+    items = STATE.mods.weapon;
+  } else {
+    // For other mods, show armor mods
+    items = [...STATE.gear[gearKey], ...STATE.mods.armor];
+  }
     
   
     
   renderCards(
     items,
     selectionGrid,
-    (item) => STATE.selected.gear[gearKey]?.gameId === item.gameId,
     (item) => {
-      if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
-        delete STATE.selected.gear[gearKey];
+      if (key === 'weaponMod') {
+        return STATE.selected.mods.weaponMod?.gameId === item.gameId;
       } else {
-        STATE.selected.gear[gearKey] = item;
-        if (item.slot) {
-          STATE.selected.mods[resolveSlotKey(item)] = item;
+        return STATE.selected.gear[gearKey]?.gameId === item.gameId;
+      }
+    },
+    (item) => {
+      if (key === 'weaponMod') {
+        if (STATE.selected.mods.weaponMod?.gameId === item.gameId) {
+          delete STATE.selected.mods.weaponMod;
+        } else {
+          STATE.selected.mods.weaponMod = item;
         }
-               // Auto-fill ability slots with weapon skills
-               if (item.basicAttacks && item.basicAttacks.length > 0) {
-                 const firstBasicAttack = STATE.skills.find(s => s.id === item.basicAttacks[0]);
-                 if (firstBasicAttack) {
-                   STATE.selected.gear['basic-attack'] = firstBasicAttack;
-                 }
-               }
-               
-               if (item.weaponSkills && item.weaponSkills.length > 0) {
-                 const firstWeaponSkill = STATE.skills.find(s => s.id === item.weaponSkills[0]);
-                 if (firstWeaponSkill) {
-                   STATE.selected.gear['weapon-skill'] = firstWeaponSkill;
-                 }
-               }
-               
-               // Close the modal after selecting a weapon
-               hideOverlay();
-             }
+      } else {
+        if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
+          delete STATE.selected.gear[gearKey];
+        } else {
+          STATE.selected.gear[gearKey] = item;
+          if (item.slot) {
+            STATE.selected.mods[resolveSlotKey(item)] = item;
+          }
+        }
+      }
+      
+      // Auto-fill ability slots with weapon skills (only for weapons, not mods)
+      if (key !== 'weaponMod' && item.basicAttacks && item.basicAttacks.length > 0) {
+        const firstBasicAttack = STATE.skills.find(s => s.id === item.basicAttacks[0]);
+        if (firstBasicAttack) {
+          STATE.selected.gear['basic-attack'] = firstBasicAttack;
+        }
+      }
+      
+      if (key !== 'weaponMod' && item.weaponSkills && item.weaponSkills.length > 0) {
+        const firstWeaponSkill = STATE.skills.find(s => s.id === item.weaponSkills[0]);
+        if (firstWeaponSkill) {
+          STATE.selected.gear['weapon-skill'] = firstWeaponSkill;
+        }
+      }
+      
+      // Close the modal after selecting a weapon
+      if (key === 'weapon') {
+        hideOverlay();
+      }
+    }
       populateLoadoutBoard();
     }
   );
