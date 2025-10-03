@@ -118,6 +118,125 @@
       },
       "passiveSkill": "repulsion",
       "icon": "./assets/icons/helmet-sanctum-shroud.png"
+    },
+    {
+      "id": "vital-mantle",
+      "gameId": "vital-mantle",
+      "name": "Vital Mantle",
+      "type": "helmet",
+      "armorType": "Agility",
+      "rarity": "rare",
+      "description": "A lightweight mantle that provides life-saving healing when critically wounded.",
+      "stats": {
+        "agility": 6,
+        "healthRegen": "+12%",
+        "healingPower": "+15%",
+        "survivability": "+10%"
+      },
+      "passiveSkill": "life-flash",
+      "icon": "./assets/icons/helmet-vital-mantle.png"
+    },
+    {
+      "id": "purifiers-shroud",
+      "gameId": "purifiers-shroud",
+      "name": "Purifier's Shroud",
+      "type": "helmet",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A protective shroud that enhances evasion against basic attacks.",
+      "stats": {
+        "agility": 8,
+        "evasion": "+20%",
+        "dodgeChance": "+15%",
+        "defense": "+12%"
+      },
+      "passiveSkill": "dodge",
+      "icon": "./assets/icons/helmet-purifiers-shroud.png"
+    },
+    {
+      "id": "wrathveil-shade",
+      "gameId": "wrathveil-shade",
+      "name": "Wrathveil Shade",
+      "type": "helmet",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A shadowy helm that channels rage into enhanced combat abilities.",
+      "stats": {
+        "agility": 9,
+        "criticalChance": "+12%",
+        "attackSpeed": "+18%",
+        "damageDealt": "+10%"
+      },
+      "passiveSkill": "rage",
+      "icon": "./assets/icons/helmet-wrathveil-shade.png"
+    },
+    {
+      "id": "shadeveil-mask",
+      "gameId": "shadeveil-mask",
+      "name": "Shadeveil Mask",
+      "type": "helmet",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A mysterious mask that allows the wearer to fade into stealth when critically wounded.",
+      "stats": {
+        "agility": 10,
+        "stealth": "+25%",
+        "movementSpeed": "+15%",
+        "evasion": "+18%"
+      },
+      "passiveSkill": "fade-out",
+      "icon": "./assets/icons/helmet-shadeveil-mask.png"
+    },
+    {
+      "id": "stormcallers-hood",
+      "gameId": "stormcallers-hood",
+      "name": "Stormcaller's Hood",
+      "type": "helmet",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A hood that channels electrical energy through basic attacks.",
+      "stats": {
+        "agility": 11,
+        "lightningDamage": "+20%",
+        "chainLightning": "+15%",
+        "criticalChance": "+8%"
+      },
+      "passiveSkill": "electrified-strike",
+      "icon": "./assets/icons/helmet-stormcallers-hood.png"
+    },
+    {
+      "id": "folly-helm",
+      "gameId": "folly-helm",
+      "name": "Folly Helm",
+      "type": "helmet",
+      "armorType": "Agility",
+      "rarity": "legendary",
+      "description": "A legendary helm that grants immunity to control effects and enhanced mobility.",
+      "stats": {
+        "agility": 15,
+        "controlImmunity": "+30%",
+        "movementSpeed": "+20%",
+        "resistance": "+25%"
+      },
+      "passiveSkill": "break-free",
+      "icon": "./assets/icons/helmet-folly-helm.png"
+    },
+    {
+      "id": "ironwill-veil",
+      "gameId": "ironwill-veil",
+      "name": "Ironwill Veil",
+      "type": "helmet",
+      "armorType": "Agility",
+      "rarity": "legendary",
+      "description": "A legendary veil that prevents death and provides powerful regeneration.",
+      "stats": {
+        "agility": 18,
+        "healthLock": "+100%",
+        "healingPower": "+25%",
+        "survivability": "+35%"
+      },
+      "passiveSkill": "defiance",
+      "icon": "./assets/icons/helmet-ironwill-veil.png"
     }
   ]
 }

@@ -10887,6 +10887,163 @@
         }
       ],
       "icon": "./assets/icons/skill-armor-breaker-core.png"
+    },
+    {
+      "id": "life-flash",
+      "name": "Life Flash",
+      "type": "passive",
+      "category": "healing",
+      "tags": ["healing", "healing over time"],
+      "cooldown": "60s",
+      "description": "When taking damage at below 30% HP, immediately restores [Healing Rate: 48%] HP every second for 5s",
+      "effects": [
+        {
+          "type": "heal_over_time",
+          "value": "48%",
+          "duration": "5s",
+          "interval": "1s",
+          "target": "self",
+          "trigger": "low_health_damage",
+          "triggerThreshold": "30%"
+        }
+      ],
+      "triggerInterval": "60s",
+      "icon": "./assets/icons/passive-life-flash.png"
+    },
+    {
+      "id": "dodge",
+      "name": "Dodge",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff", "evasion"],
+      "cooldown": "25s",
+      "description": "When taking damage from Basic Attacks, immediately gains +50% Dodge Enhancement for 8s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "dodge enhancement",
+          "value": "50%",
+          "duration": "8s",
+          "target": "self",
+          "trigger": "basic_attack_damage"
+        }
+      ],
+      "triggerInterval": "25s",
+      "icon": "./assets/icons/passive-dodge.png"
+    },
+    {
+      "id": "fade-out",
+      "name": "Fade Out",
+      "type": "passive",
+      "category": "stealth",
+      "tags": ["stealth", "buff", "movement speed"],
+      "cooldown": "60s",
+      "description": "When taking damage at below 30% HP, instantly enters Stealth and increases Movement Speed by 30% for 5s. After 1.5 seconds in Stealth, using a skill, dealing damage, or direct healing will break Stealth.",
+      "effects": [
+        {
+          "type": "stealth",
+          "duration": "5s",
+          "target": "self",
+          "trigger": "low_health_damage",
+          "triggerThreshold": "30%"
+        },
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "30%",
+          "duration": "5s",
+          "target": "self",
+          "condition": "stealth"
+        }
+      ],
+      "triggerInterval": "60s",
+      "icon": "./assets/icons/passive-fade-out.png"
+    },
+    {
+      "id": "electrified-strike",
+      "name": "Electrified Strike",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "chain lightning", "physical"],
+      "cooldown": "30s",
+      "description": "When using Basic Attack, the next 5 Basic Attacks (including the triggering one) within 8s cast additional Chain Lightning onto enemies. Upon hitting, it automatically ricochets to the nearest target, up to 5 times, dealing [Damage Rate: 60%] Physical Damage per hit. (Trigger Interval: 0.6 seconds) Damage is influenced by Basic Attack damage boost and can crit based on Basic Attack critical rate",
+      "effects": [
+        {
+          "type": "chain_lightning",
+          "value": "60%",
+          "target": "enemies",
+          "maxTargets": 5,
+          "maxBounces": 5,
+          "bounceInterval": "0.6s",
+          "duration": "8s",
+          "trigger": "basic_attack",
+          "triggerCount": 5
+        }
+      ],
+      "triggerInterval": "30s",
+      "icon": "./assets/icons/passive-electrified-strike.png"
+    },
+    {
+      "id": "break-free",
+      "name": "Break Free",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["buff", "cleanse", "immunity"],
+      "cooldown": "45s",
+      "description": "When affected by hard control effects (Stun, Fear, Freeze, Knockup, Petrify, Sleep), Silence, or Immobilize: Instantly removes all control effects and debuffs, and grants immunity to control effects and Silence, and increases Speed by 25% for 3s",
+      "effects": [
+        {
+          "type": "cleanse",
+          "target": "self",
+          "trigger": "hard_control_effects"
+        },
+        {
+          "type": "control_immunity",
+          "duration": "3s",
+          "target": "self",
+          "trigger": "hard_control_effects"
+        },
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "25%",
+          "duration": "3s",
+          "target": "self",
+          "trigger": "hard_control_effects"
+        }
+      ],
+      "triggerInterval": "45s",
+      "icon": "./assets/icons/passive-break-free.png"
+    },
+    {
+      "id": "defiance",
+      "name": "Defiance",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff", "healing over time", "immunity"],
+      "cooldown": "120s",
+      "description": "When taking damage and HP is below 20%, immediately gains an effect that prevents HP from falling below 1 and regenerates [Healing Rate: 36%] HP per second for 4s. Cannot be dispelled",
+      "effects": [
+        {
+          "type": "health_lock",
+          "value": "1",
+          "duration": "4s",
+          "target": "self",
+          "trigger": "low_health_damage",
+          "triggerThreshold": "20%"
+        },
+        {
+          "type": "heal_over_time",
+          "value": "36%",
+          "duration": "4s",
+          "interval": "1s",
+          "target": "self",
+          "trigger": "low_health_damage",
+          "triggerThreshold": "20%"
+        }
+      ],
+      "triggerInterval": "120s",
+      "icon": "./assets/icons/passive-defiance.png"
     }
   ]
 }
