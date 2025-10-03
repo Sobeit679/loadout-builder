@@ -457,6 +457,15 @@ function handleSearch() {
   const weaponCards = selectionGrid.querySelectorAll('.selector-card');
   console.log('Total weapon cards found:', weaponCards.length);
   
+  // If search term is empty, show all cards and return early
+  if (searchTerm === '') {
+    console.log('Empty search term, showing all cards');
+    weaponCards.forEach(card => {
+      card.style.display = 'block';
+    });
+    return;
+  }
+  
   weaponCards.forEach(card => {
     const weaponName = card.querySelector('.card-name')?.textContent?.toLowerCase() || '';
     const weaponSub = card.querySelector('.card-sub')?.textContent?.toLowerCase() || '';
@@ -474,40 +483,36 @@ function handleSearch() {
     
     let matchesSearch = false;
     
-    if (searchTerm === '') {
+    // Search by weapon name
+    if (weaponName.includes(searchTerm) || weaponSub.includes(searchTerm)) {
       matchesSearch = true;
-    } else {
-      // Search by weapon name
-      if (weaponName.includes(searchTerm) || weaponSub.includes(searchTerm)) {
-        matchesSearch = true;
-      }
+    }
+    
+    // Search by skill tags
+    if (weapon) {
+      const allSkills = [
+        ...(weapon.basicAttacks || []),
+        ...(weapon.weaponSkills || []),
+        weapon.coreSkill,
+        weapon.passiveSkill
+      ].filter(Boolean);
       
-      // Search by skill tags
-      if (weapon) {
-        const allSkills = [
-          ...(weapon.basicAttacks || []),
-          ...(weapon.weaponSkills || []),
-          weapon.coreSkill,
-          weapon.passiveSkill
-        ].filter(Boolean);
-        
-        for (const skillId of allSkills) {
-          const skill = STATE.skills.find(s => s.id === skillId);
-          if (skill) {
-            // Search by skill name
-            const skillName = skill.name?.toLowerCase() || '';
-            if (skillName.includes(searchTerm)) {
+      for (const skillId of allSkills) {
+        const skill = STATE.skills.find(s => s.id === skillId);
+        if (skill) {
+          // Search by skill name
+          const skillName = skill.name?.toLowerCase() || '';
+          if (skillName.includes(searchTerm)) {
+            matchesSearch = true;
+            break;
+          }
+          
+          // Search by skill tags
+          if (skill.tags) {
+            const skillTags = skill.tags.join(' ').toLowerCase();
+            if (skillTags.includes(searchTerm)) {
               matchesSearch = true;
               break;
-            }
-            
-            // Search by skill tags
-            if (skill.tags) {
-              const skillTags = skill.tags.join(' ').toLowerCase();
-              if (skillTags.includes(searchTerm)) {
-                matchesSearch = true;
-                break;
-              }
             }
           }
         }
@@ -515,6 +520,9 @@ function handleSearch() {
     }
     
     // Show/hide card based on search match
+    if (card.dataset.itemId === 'bloodthirst') {
+      console.log('Bloodthirst card - matchesSearch:', matchesSearch, 'searchTerm:', searchTerm);
+    }
     card.style.display = matchesSearch ? 'block' : 'none';
   });
 }
