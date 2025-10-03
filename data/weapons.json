@@ -1263,6 +1263,216 @@
         "shadow-move"
       ],
       "icon": "./assets/icons/weapon-bloodthirst.png"
+    },
+    {
+      "id": "shardspike",
+      "gameId": "shardspike",
+      "name": "Shardspike",
+      "type": "spear",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "rare",
+      "stats": {
+        "damage": "80-110",
+        "attackSpeed": "1.5",
+        "criticalChance": "5%",
+        "agility": "+10"
+      },
+      "coreSkill": "bloodeye-burst-spear",
+      "passiveSkill": "spear-scar",
+      "basicAttacks": [
+        "leap-strike",
+        "piercing-spear",
+        "sweeping-strike"
+      ],
+      "weaponSkills": [
+        "lance-thrust",
+        "lance-impale",
+        "warding-flourish",
+        "skyward-lance",
+        "lance-recall"
+      ],
+      "icon": "./assets/icons/weapon-shardspike.png"
+    },
+    {
+      "id": "drakespike",
+      "gameId": "drakespike",
+      "name": "Drakespike",
+      "type": "spear",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-120",
+        "attackSpeed": "1.6",
+        "criticalChance": "8%",
+        "agility": "+15"
+      },
+      "coreSkill": "rapid-thrust",
+      "passiveSkill": "spear-scar",
+      "basicAttacks": [
+        "leap-strike",
+        "piercing-spear",
+        "sweeping-strike"
+      ],
+      "weaponSkills": [
+        "lance-thrust",
+        "lance-impale",
+        "warding-flourish",
+        "skyward-lance",
+        "lance-recall"
+      ],
+      "icon": "./assets/icons/weapon-drakespike.png"
+    },
+    {
+      "id": "storm-spear",
+      "gameId": "storm-spear",
+      "name": "Storm Spear",
+      "type": "spear",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "95-125",
+        "attackSpeed": "1.6",
+        "criticalChance": "8%",
+        "agility": "+18"
+      },
+      "coreSkill": "aegis-arc",
+      "passiveSkill": "spear-scar",
+      "basicAttacks": [
+        "leap-strike",
+        "piercing-spear",
+        "sweeping-strike"
+      ],
+      "weaponSkills": [
+        "lance-thrust",
+        "lance-impale",
+        "warding-flourish",
+        "skyward-lance",
+        "lance-recall"
+      ],
+      "icon": "./assets/icons/weapon-storm-spear.png"
+    },
+    {
+      "id": "stormfang-lance",
+      "gameId": "stormfang-lance",
+      "name": "Stormfang Lance",
+      "type": "spear",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "100-130",
+        "attackSpeed": "1.7",
+        "criticalChance": "10%",
+        "agility": "+20"
+      },
+      "coreSkill": "surgin-throw",
+      "passiveSkill": "spear-scar",
+      "basicAttacks": [
+        "leap-strike",
+        "piercing-spear",
+        "sweeping-strike"
+      ],
+      "weaponSkills": [
+        "lance-thrust",
+        "lance-impale",
+        "warding-flourish",
+        "skyward-lance",
+        "lance-recall"
+      ],
+      "icon": "./assets/icons/weapon-stormfang-lance.png"
+    },
+    {
+      "id": "sentinels-lance",
+      "gameId": "sentinels-lance",
+      "name": "Sentinel's Lance",
+      "type": "spear",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "100-130",
+        "attackSpeed": "1.7",
+        "criticalChance": "10%",
+        "agility": "+20"
+      },
+      "coreSkill": "banner-of-justice",
+      "passiveSkill": "spear-scar",
+      "basicAttacks": [
+        "leap-strike",
+        "piercing-spear",
+        "sweeping-strike"
+      ],
+      "weaponSkills": [
+        "lance-thrust",
+        "lance-impale",
+        "warding-flourish",
+        "skyward-lance",
+        "lance-recall"
+      ],
+      "icon": "./assets/icons/weapon-sentinels-lance.png"
+    },
+    {
+      "id": "phantom-spear",
+      "gameId": "phantom-spear",
+      "name": "Phantom Spear",
+      "type": "spear",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "110-140",
+        "attackSpeed": "1.8",
+        "criticalChance": "12%",
+        "agility": "+25"
+      },
+      "coreSkill": "shadow-dash",
+      "passiveSkill": "spear-scar",
+      "basicAttacks": [
+        "leap-strike",
+        "piercing-spear",
+        "sweeping-strike"
+      ],
+      "weaponSkills": [
+        "lance-thrust",
+        "lance-impale",
+        "warding-flourish",
+        "skyward-lance",
+        "lance-recall"
+      ],
+      "icon": "./assets/icons/weapon-phantom-spear.png"
+    },
+    {
+      "id": "corrosive-piercer",
+      "gameId": "corrosive-piercer",
+      "name": "Corrosive Piercer",
+      "type": "spear",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "115-145",
+        "attackSpeed": "1.8",
+        "criticalChance": "15%",
+        "agility": "+30"
+      },
+      "coreSkill": "blightfall",
+      "passiveSkill": "spear-scar",
+      "basicAttacks": [
+        "leap-strike",
+        "piercing-spear",
+        "sweeping-strike"
+      ],
+      "weaponSkills": [
+        "lance-thrust",
+        "lance-impale",
+        "warding-flourish",
+        "skyward-lance",
+        "lance-recall"
+      ],
+      "icon": "./assets/icons/weapon-corrosive-piercer.png"
     }
   ]
 }

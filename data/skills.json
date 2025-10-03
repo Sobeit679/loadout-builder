@@ -6196,6 +6196,657 @@
         }
       ],
       "icon": "./assets/icons/skill-sanguine-pounce.png"
+    },
+    {
+      "id": "spear-scar",
+      "name": "Spear Scar",
+      "type": "passive",
+      "category": "buff",
+      "tags": ["passive", "attack speed", "buff", "shield"],
+      "description": "Using a weapon skill grants [Spear Scar]: The next 3 Basic Attacks gain +60% Attack Speed, +2.5m range, and +30% Basic Attack Lifesteal. This effect lasts 6s. Also has a 45% chance to grant [Target-based Max HP 15%] Shield for 2s",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "on_weapon_skill_use",
+          "description": "Next 3 Basic Attacks gain +60% Attack Speed, +2.5m range, and +30% Basic Attack Lifesteal for 6s. 45% chance to grant [Target-based Max HP 15%] Shield for 2s.",
+          "basic_attack_buff": {
+            "attack_speed": "+60%",
+            "range": "+2.5m",
+            "lifesteal": "+30%",
+            "duration": "6s",
+            "applies_to": "next_3_basic_attacks"
+          },
+          "shield_chance": {
+            "chance": "45%",
+            "amount": "15% of Max HP",
+            "duration": "2s"
+          }
+        }
+      ],
+      "icon": "./assets/icons/passive-spear-scar.png"
+    },
+    {
+      "id": "leap-strike",
+      "name": "Leap Strike",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "buff", "attack speed", "mobility"],
+      "description": "Deals [Damage Rate: 100%] Physical Damage to the target. Can cast [Leap Strike] every 5s, charging toward the enemy, dealing [Damage Rate: 170%] Physical Damage and increasing Attack Speed by 20% for 4s.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "100%"
+        },
+        {
+          "type": "active",
+          "effect": "leap_strike_cast",
+          "description": "Charges toward the enemy",
+          "cooldown": "5s",
+          "damage_type": "physical",
+          "damage_rate": "170%"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed_increase",
+          "value": "20%",
+          "duration": "4s"
+        }
+      ],
+      "icon": "./assets/icons/skill-leap-strike.png"
+    },
+    {
+      "id": "piercing-spear",
+      "name": "Piercing Spear",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "buff", "mobility"],
+      "description": "Deals [Damage Rate: 80%] Physical Damage to the target. Performs a piercing spear throw toward the target after 5 Basic Attacks, dealing [Damage Rate: 180%] Physical Damage to enemies along the path and increases own Movement Speed by 20% for 2s.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "80%"
+        },
+        {
+          "type": "active",
+          "effect": "piercing_throw",
+          "trigger": "after_5_basic_attacks",
+          "damage_type": "physical",
+          "damage_rate": "180%",
+          "description": "Pierces through enemies along path"
+        },
+        {
+          "type": "buff",
+          "effect": "movement_speed_increase",
+          "value": "20%",
+          "duration": "2s"
+        }
+      ],
+      "icon": "./assets/icons/skill-piercing-spear.png"
+    },
+    {
+      "id": "sweeping-strike",
+      "name": "Sweeping Strike",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "buff", "aoe", "resistance"],
+      "description": "Deals [Damage Rate: 100%] Physical Damage to the target. Can cast [Sweeping Strike] every 5s, dealing [Damage Rate: 240%] Physical Damage to enemies in range, each enemy hit increasing Damage Resistance by 6% for 4s. Stacks up to 5 times.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "100%"
+        },
+        {
+          "type": "active",
+          "effect": "sweeping_strike_cast",
+          "cooldown": "5s",
+          "damage_type": "physical",
+          "damage_rate": "240%",
+          "description": "Hits enemies in range"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance_increase",
+          "value": "6%",
+          "duration": "4s",
+          "max_stacks": 5,
+          "trigger": "per_enemy_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-sweeping-strike.png"
+    },
+    {
+      "id": "lance-thrust",
+      "name": "Lance Thrust",
+      "type": "weapon-skill",
+      "category": "damage",
+      "tags": ["physical damage", "aoe"],
+      "mpCost": 14,
+      "cooldown": "7.8s",
+      "castingTime": "Instant",
+      "range": "7m",
+      "description": "Repeatedly thrusts at enemies in a frontal cone 4 times, dealing [Damage Rate: 60%] Physical Damage per hit, then slashes forward to deal [Damage Rate: 130%] Physical Damage to enemies in range",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "60%",
+          "hits": 4,
+          "area": "frontal_cone"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "130%",
+          "area": "enemies_in_range"
+        }
+      ],
+      "icon": "./assets/icons/skill-lance-thrust.png"
+    },
+    {
+      "id": "lance-impale",
+      "name": "Lance Impale",
+      "type": "weapon-skill",
+      "category": "control",
+      "tags": ["physical damage", "slow", "buff", "debuff", "aoe", "mobility", "attack speed", "cooldown"],
+      "mpCost": 18,
+      "cooldown": "1.5s",
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "Throws a Lance Impale at the target location, dealing [Damage Rate: 160%] Physical Damage to enemies in range and slowing them by 25% for 3s. The lance remains at the target location for 6s. Moving to the lance's position retrieves it, granting +20% Movement Speed and +20% Attack Speed for 4s. Gains 1 charge every 12s, up to 2 charges.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "160%"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "value": "25%",
+          "duration": "3s"
+        },
+        {
+          "type": "buff",
+          "effect": "movement_speed_increase",
+          "value": "+20%",
+          "duration": "4s",
+          "trigger": "retrieve_lance"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed_increase",
+          "value": "+20%",
+          "duration": "4s",
+          "trigger": "retrieve_lance"
+        },
+        {
+          "type": "charges",
+          "effect": "gain_charge",
+          "interval": "12s",
+          "max_charges": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-lance-impale.png"
+    },
+    {
+      "id": "warding-flourish",
+      "name": "Warding Flourish",
+      "type": "weapon-skill",
+      "category": "defense",
+      "tags": ["physical damage", "debuff", "immunity", "resistance", "channeling", "aoe", "mobility"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "4s",
+      "range": "4m",
+      "description": "Channels for 4s, gaining Control Immunity and +60% Damage Resistance. While channeling, reflects 80% Physical Damage back to attackers when taking damage. Deals [Damage Rate: 40%] Physical Damage to nearby enemies every 0.5s. Recast again while channeling to charge forward, dealing [Damage Rate: 150%] Physical Damage to enemies hit and reducing their Armor by 64 for 4s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "control_immunity",
+          "duration": "4s"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "+60%",
+          "duration": "4s"
+        },
+        {
+          "type": "passive",
+          "effect": "damage_reflection",
+          "value": "80%",
+          "damage_type": "physical",
+          "trigger": "while_channeling"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "40%",
+          "interval": "0.5s",
+          "area": "nearby_enemies",
+          "duration": "4s"
+        },
+        {
+          "type": "active",
+          "effect": "charge_forward",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "trigger": "recast_while_channeling"
+        },
+        {
+          "type": "debuff",
+          "effect": "armor_reduction",
+          "value": "64",
+          "duration": "4s"
+        }
+      ],
+      "icon": "./assets/icons/skill-warding-flourish.png"
+    },
+    {
+      "id": "skyward-lance",
+      "name": "Skyward Lance",
+      "type": "weapon-skill",
+      "category": "damage",
+      "tags": ["physical damage", "debuff", "CC", "aoe", "slow"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "Instant",
+      "range": "10m",
+      "description": "Deals [Damage Rate: 150%] Physical Damage to enemies in front and inflicts Knockup for 1s. Can be recast within 6s to slam down, dealing [Damage Rate: 150%] Physical Damage to enemies in range and reducing their Movement Speed by 45% for 3s.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "area": "enemies_in_front"
+        },
+        {
+          "type": "cc",
+          "effect": "knockup",
+          "duration": "1s"
+        },
+        {
+          "type": "active",
+          "effect": "slam_down",
+          "cooldown": "6s",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "area": "enemies_in_range"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "value": "45%",
+          "duration": "3s"
+        }
+      ],
+      "icon": "./assets/icons/skill-skyward-lance.png"
+    },
+    {
+      "id": "lance-recall",
+      "name": "Lance Recall",
+      "type": "weapon-skill",
+      "category": "damage",
+      "tags": ["physical damage", "mobility"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "Instant",
+      "range": "6m",
+      "description": "Instantly removes Control effects, deals [Damage Rate: 280%] Physical Damage to enemies in front, and leaps back 8m. Increases Movement Speed by 30% for 4s. Can be used while skills are disabled.",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "remove_control_effects",
+          "instant": true
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "280%",
+          "area": "enemies_in_front"
+        },
+        {
+          "type": "mobility",
+          "effect": "leap_back",
+          "distance": "8m"
+        },
+        {
+          "type": "buff",
+          "effect": "movement_speed_increase",
+          "value": "30%",
+          "duration": "4s"
+        },
+        {
+          "type": "special",
+          "effect": "usable_while_disabled"
+        }
+      ],
+      "icon": "./assets/icons/skill-lance-recall.png"
+    },
+    {
+      "id": "bloodeye-burst-spear",
+      "name": "Bloodeye Burst Spear",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "debuff", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "Instant",
+      "range": "5m",
+      "description": "Strikes continuously, dealing [Damage Rate: 120%] Physical Damage to players ([Damage Rate: 240%] Physical Damage to mobs). The final strike deals [Damage Rate: 180%] Physical Damage to players ([Damage Rate: 360%] Physical Damage to mobs). Each hit reduces Armor by 22 for 6s, stacking up to 4 times",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "players",
+          "continuous": true
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "240%",
+          "target": "mobs",
+          "continuous": true
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "180%",
+          "target": "players",
+          "effect": "final_strike"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "360%",
+          "target": "mobs",
+          "effect": "final_strike"
+        },
+        {
+          "type": "debuff",
+          "effect": "armor_reduction",
+          "value": "22",
+          "duration": "6s",
+          "max_stacks": 4,
+          "trigger": "per_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-bloodeye-burst-spear.png"
+    },
+    {
+      "id": "rapid-thrust",
+      "name": "Rapid Thrust",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "heal", "mobility", "aoe", "cooldown", "mp"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "Instant",
+      "range": "10m",
+      "description": "Charges forward, dealing [Damage Rate: 67%] Physical Damage to all enemies hit. Upon reaching the destination, performs 3 strikes, each dealing [Damage Rate: 67%] Physical Damage. Each strike that hits at least one enemy restores [Healing Rate: 67%] HP. Can be cast again within 6s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "67%",
+          "area": "all_enemies_hit",
+          "effect": "charge_forward"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "67%",
+          "hits": 3,
+          "effect": "destination_strikes"
+        },
+        {
+          "type": "heal",
+          "healing_rate": "67%",
+          "trigger": "per_strike_that_hits_enemy"
+        },
+        {
+          "type": "active",
+          "effect": "recast_within_6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-rapid-thrust.png"
+    },
+    {
+      "id": "aegis-arc",
+      "name": "Aegis Arc",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "CC", "buff", "resistance", "aoe", "slow", "debuff", "mp", "cooldown"],
+      "mpCost": 25,
+      "cooldown": "22s",
+      "castingTime": "Instant",
+      "range": "7m",
+      "description": "Sweeps around the caster, dealing [Damage Rate: 300%] Physical Damage to enemies in range and knocking them back 8m. Increases own Damage Resistance by 50% for 6s. Also creates a Disruption Field that lasts 8s. Enemies within 8m are Slowed by 30% and take 20% less Damage.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%"
+        },
+        {
+          "type": "cc",
+          "effect": "knockback",
+          "value": "8m"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "+50%",
+          "duration": "6s"
+        },
+        {
+          "type": "debuff",
+          "effect": "disruption_field",
+          "duration": "8s",
+          "range": "8m",
+          "slow": "30%",
+          "damage_reduction_taken_by_enemies": "20%"
+        }
+      ],
+      "icon": "./assets/icons/skill-aegis-arc.png"
+    },
+    {
+      "id": "surgin-throw",
+      "name": "Surgin Throw",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "slow", "CC", "pull", "stun", "debuff", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "Charges at the enemy, dealing [Damage Rate: 150%] Physical Damage and inflicting Stun for 1s (ignores Control Resistance). Throws the target backward, dealing [Damage Rate: 200%] Physical Damage to enemies in the landing area and reducing their Movement Speed by 30% for 3s.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "effect": "charge_at_enemy"
+        },
+        {
+          "type": "cc",
+          "effect": "stun",
+          "duration": "1s",
+          "special": "ignores_control_resistance"
+        },
+        {
+          "type": "cc",
+          "effect": "pull",
+          "description": "Throws the target backward"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "area": "landing_area"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "value": "30%",
+          "duration": "3s",
+          "target": "enemies_in_landing_area"
+        }
+      ],
+      "icon": "./assets/icons/skill-surgin-throw.png"
+    },
+    {
+      "id": "banner-of-justice",
+      "name": "Banner of Justice",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "immobilize", "buff", "resistance", "attack speed", "aoe", "mobility"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "Instant",
+      "range": "10m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 300%] Physical Damage and inflicting Immobilize for 2.5s to enemies in range upon landing. Plants a Banner of Justice that lasts 8s. Allies within its area gain 30% Damage Resistance and 35% Attack Speed.",
+      "effects": [
+        {
+          "type": "mobility",
+          "effect": "leap_to_target"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "area": "enemies_in_range"
+        },
+        {
+          "type": "cc",
+          "effect": "immobilize",
+          "duration": "2.5s"
+        },
+        {
+          "type": "buff",
+          "effect": "banner_of_justice",
+          "duration": "8s",
+          "target": "allies_within_area"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "30%",
+          "target": "allies_within_area",
+          "duration": "8s"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed_increase",
+          "value": "35%",
+          "target": "allies_within_area",
+          "duration": "8s"
+        }
+      ],
+      "icon": "./assets/icons/skill-banner-of-justice.png"
+    },
+    {
+      "id": "shadow-dash",
+      "name": "Shadow Dash",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "CC", "disarm", "debuff", "mobility"],
+      "mpCost": 22,
+      "cooldown": "1.5s",
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "Dashes in the target direction, dealing [Damage Rate: 260%] Physical Damage and inflicting Knockup for 1s. Inflicts Disarm and reduces Movement Speed by 30% for 4s. Gains 1 charge every 18s, up to 2 charges.",
+      "effects": [
+        {
+          "type": "mobility",
+          "effect": "dash_in_target_direction"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "260%"
+        },
+        {
+          "type": "cc",
+          "effect": "knockup",
+          "duration": "1s"
+        },
+        {
+          "type": "debuff",
+          "effect": "disarm"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "value": "30%",
+          "duration": "4s"
+        },
+        {
+          "type": "charges",
+          "effect": "gain_charge",
+          "interval": "18s",
+          "max_charges": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-shadow-dash.png"
+    },
+    {
+      "id": "blightfall",
+      "name": "Blightfall",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "slow", "debuff", "magic damage", "dot", "aoe"],
+      "mpCost": 25,
+      "cooldown": "1.5s",
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "Throws a Blightfall Spear at the target location, dealing [Damage Rate: 200%] Physical Damage to enemies in range upon impact and reducing their Max HP by 15% for 4s. Also generates a Corrosion Field that expands slowly over 5s, slowing enemies within it by 40% and dealing [Damage Rate: 80%] Magic Damage per second to those inside. Gains 1 charge every 25s, up to a maximum of 2 charges.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "area": "enemies_in_range",
+          "effect": "spear_impact"
+        },
+        {
+          "type": "debuff",
+          "effect": "max_hp_reduction",
+          "value": "15%",
+          "duration": "4s"
+        },
+        {
+          "type": "debuff",
+          "effect": "corrosion_field",
+          "duration": "5s",
+          "expansion_rate": "slow"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "value": "40%",
+          "target": "enemies_within_field"
+        },
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "80%",
+          "interval": "1s",
+          "target": "enemies_within_field",
+          "duration": "5s"
+        },
+        {
+          "type": "charges",
+          "effect": "gain_charge",
+          "interval": "25s",
+          "max_charges": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-blightfall.png"
     }
   ]
 }
