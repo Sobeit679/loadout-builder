@@ -5,7 +5,7 @@
       "name": "Null Pulse",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "slow", "knockback", "silence", "control"],
+      "tags": ["physical damage", "slow", "CC"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "9m",
@@ -42,7 +42,7 @@
       "name": "Overclocking Reflex",
       "type": "passive",
       "category": "defense",
-      "tags": ["defense", "dodge", "passive"],
+      "tags": ["passive", "dodge"],
       "description": "Has a 35% chance to dodge Basic Attack damage.",
       "effects": [
         {
@@ -59,7 +59,7 @@
       "name": "Shield Bash",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "stun", "control", "tank"],
+      "tags": ["physical damage", "stun", "slow", "CC"],
       "mpCost": 18,
       "cooldown": "12s",
       "range": "3m",
@@ -92,7 +92,7 @@
       "name": "Fortress",
       "type": "passive",
       "category": "defense",
-      "tags": ["defense", "armor", "passive"],
+      "tags": ["passive", "resistance"],
       "description": "Gains 15% additional Armor and Magic Resistance. Reduces incoming damage by 8%.",
       "effects": [
         {
@@ -121,7 +121,7 @@
       "name": "Meteor Storm",
       "type": "active",
       "category": "damage",
-      "tags": ["magic_damage", "aoe", "magic", "control", "dot"],
+      "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 35,
       "cooldown": "25s",
       "range": "12m",
@@ -147,7 +147,7 @@
       "name": "Elemental Mastery",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "magic", "passive"],
+      "tags": ["passive", "magic damage", "damage increase"],
       "description": "Increases Magic Damage by 20%. Skills have 25% chance to apply random elemental effect.",
       "effects": [
         {
@@ -170,7 +170,7 @@
       "name": "Shadow Strike",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "stealth", "critical", "mobility", "dot"],
+      "tags": ["physical damage", "stealth", "crit", "mobility", "bleed"],
       "mpCost": 28,
       "cooldown": "15s",
       "range": "8m",
@@ -196,7 +196,7 @@
       "name": "Shadow Dance",
       "type": "passive",
       "category": "mobility",
-      "tags": ["mobility", "stealth", "passive"],
+      "tags": ["passive", "mobility", "stealth"],
       "description": "Gains 30% Movement Speed. After dealing damage, has 20% chance to enter stealth for 3s.",
       "effects": [
         {
@@ -219,7 +219,7 @@
       "name": "Divine Blessing",
       "type": "active",
       "category": "healing",
-      "tags": ["healing", "buff", "support"],
+      "tags": ["heal", "buff", "damage increase"],
       "mpCost": 25,
       "cooldown": "18s",
       "range": "10m",
@@ -241,34 +241,11 @@
       "icon": "./assets/icons/skill-divine-blessing.png"
     },
     {
-      "id": "sanctuary",
-      "name": "Sanctuary",
-      "type": "passive",
-      "category": "healing",
-      "tags": ["healing", "support", "passive"],
-      "description": "Increases healing effectiveness by 35%. Allies within 5m gain 15% damage reduction.",
-      "effects": [
-        {
-          "type": "passive",
-          "effect": "healing bonus",
-          "value": "35%",
-          "target": "self"
-        },
-        {
-          "type": "passive",
-          "effect": "damage reduction aura",
-          "value": "15%",
-          "target": "allies"
-        }
-      ],
-      "icon": "./assets/icons/passive-sanctuary.png"
-    },
-    {
       "id": "whirlwind-slash",
       "name": "Whirlwind Slash",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "aoe", "physical", "mobility"],
+      "tags": ["physical damage", "aoe", "slow"],
       "mpCost": 22,
       "cooldown": "16s",
       "range": "4m",
@@ -295,7 +272,7 @@
       "name": "Berserker Rage",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "physical", "passive"],
+      "tags": ["passive", "attack speed", "physical damage", "damage increase"],
       "description": "Gains 2% Attack Speed and 1% Physical Damage for each 10% missing health. Stacks up to 10 times.",
       "effects": [
         {
@@ -318,7 +295,7 @@
       "name": "Shield of Conviction",
       "type": "active",
       "category": "defense",
-      "tags": ["defense", "shield", "healing", "damage"],
+      "tags": ["shield", "buff", "magic damage"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -352,7 +329,7 @@
       "name": "Defiant Resolve",
       "type": "passive",
       "category": "defense",
-      "tags": ["defense", "immunity", "damage", "passive"],
+      "tags": ["passive", "immunity", "damage increase"],
       "description": "Gains immunity to control effects and 20% Damage Increase for 10s after obtaining any shield effect, while the shield is active (Cooldown: 20s).",
       "effects": [
         {
@@ -380,7 +357,7 @@
       "name": "Astral Gate",
       "type": "active",
       "category": "utility",
-      "tags": ["damage", "shield", "hard_control", "buff", "teleport"],
+      "tags": ["magic damage", "shield", "stun", "buff", "mobility", "CC"],
       "mpCost": 35,
       "cooldown": "97s",
       "range": "40m",
@@ -417,7 +394,7 @@
       "name": "Celestial Rotation",
       "type": "passive",
       "category": "utility",
-      "tags": ["cooldown_reduction", "passive"],
+      "tags": ["passive", "cooldown"],
       "description": "Reduces the cooldown of all skills (not including Tactical Item skills) by 0.3s when this skill deals damage. (Cooldown: 0.5s)",
       "effects": [
         {
@@ -434,7 +411,7 @@
       "name": "Skyward Leap",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "hard_control", "buff", "skill"],
+      "tags": ["physical damage", "buff", "heal", "resistance", "dodge", "mobility", "CC"],
       "mpCost": 30,
       "cooldown": "44s",
       "castingRange": "16 m",
@@ -486,7 +463,7 @@
       "name": "Healing Guardian",
       "type": "passive",
       "category": "support",
-      "tags": ["shield", "healing"],
+      "tags": ["passive", "heal", "resistance"],
       "description": "Gains 25% Damage Resistance for 6s if HP is below 75%. Sends healing radiation waves in all directions, healing allies in range for [Healing Rate: 60%] HP. (Cooldown: 20s)",
       "effects": [
         {
@@ -510,7 +487,7 @@
       "name": "Tempest Slash",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "physical", "area", "immunity", "damage_immunity", "critical"],
+      "tags": ["physical damage", "aoe", "immunity", "crit"],
       "mpCost": 27,
       "cooldown": "28s",
       "range": "8m",
@@ -542,7 +519,7 @@
       "name": "Cyclone Reap",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "physical", "area", "critical", "cooldown"],
+      "tags": ["passive", "physical damage", "aoe", "crit", "cooldown"],
       "description": "Critical hits have a 25% chance to trigger Cyclone Reap, dealing [Damage Rate: 80%] Physical Damage to all nearby enemies. Cooldown: 3s.",
       "effects": [
         {
@@ -566,7 +543,7 @@
       "name": "Shackled Grip",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "hard_control", "pull", "skill"],
+      "tags": ["physical damage", "stun", "CC", "channeling", "resistance", "mobility"],
       "mpCost": 27,
       "cooldown": "25s",
       "range": "4m",
@@ -620,7 +597,7 @@
       "name": "Imprisonment",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "immobilize", "passive"],
+      "tags": ["passive", "magic damage", "CC", "aoe"],
       "description": "When inflicting Forced Movement (Pull, Knockback) on enemies, creates a circular prison lasting 4s. Enemies touching the prison take [Damage Rate: 100%] Magic Damage and are Immobilized until the prison ends (Cooldown: 20s)",
       "effects": [
         {
@@ -652,7 +629,7 @@
       "name": "Protector's Radiance",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "shield", "skill"],
+      "tags": ["magic damage", "shield", "buff", "immunity", "channeling", "slow"],
       "mpCost": 30,
       "cooldown": "38s",
       "range": "10m",
@@ -706,7 +683,7 @@
       "name": "Reflective Shield",
       "type": "passive",
       "category": "defense",
-      "tags": ["buff", "passive"],
+      "tags": ["passive", "resistance", "magic damage"],
       "description": "Taking damage equal to 10% of Max HP within 5s after skill cast grants 25% Damage Resistance for 6s. During this time, reflect Magic Damage equal to 65% + 1.5% of Max HP to the attacker. (Cooldown: 25s)",
       "effects": [
         {
@@ -738,7 +715,7 @@
       "name": "Storm Pulse",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "area", "physical"],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 29,
       "cooldown": "39s",
       "range": "7m",
@@ -769,7 +746,7 @@
       "name": "Static Overdrive",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "passive", "stacking"],
+      "tags": ["passive", "physical damage", "aoe"],
       "description": "Basic Attacks grant 1 stack of Electric Charge. At 5 stacks, the next attack triggers EMP Blast, dealing [Damage Rate: 160%] Physical Damage to enemies in range.",
       "effects": [
         {
@@ -795,7 +772,7 @@
       "name": "Spiral Strike",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "physical", "melee"],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 25,
       "cooldown": "15s",
       "range": "3m",
@@ -816,7 +793,7 @@
       "name": "Elemental Flow",
       "type": "passive",
       "category": "utility",
-      "tags": ["passive", "elemental", "mana"],
+      "tags": ["passive", "mp"],
       "description": "Elemental skills have 20% reduced mana cost and 15% increased effectiveness.",
       "effects": [
         {
@@ -839,7 +816,7 @@
       "name": "Swarm Command",
       "type": "active",
       "category": "summon",
-      "tags": ["summon", "control", "area"],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 30,
       "cooldown": "25s",
       "range": "8m",
@@ -860,7 +837,7 @@
       "name": "Hive Mind",
       "type": "passive",
       "category": "utility",
-      "tags": ["passive", "summon", "coordination"],
+      "tags": ["passive", "damage increase", "mobility"],
       "description": "Summoned creatures gain 25% increased damage and move 30% faster.",
       "effects": [
         {
@@ -877,7 +854,7 @@
       "name": "Reality Distortion",
       "type": "active",
       "category": "control",
-      "tags": ["control", "debuff", "area"],
+      "tags": ["slow", "aoe"],
       "mpCost": 35,
       "cooldown": "30s",
       "range": "6m",
@@ -905,7 +882,7 @@
       "name": "Illusion Mastery",
       "type": "passive",
       "category": "utility",
-      "tags": ["passive", "illusion", "stealth"],
+      "tags": ["passive", "mp"],
       "description": "Illusion skills last 50% longer and have 30% reduced mana cost.",
       "effects": [
         {
@@ -928,7 +905,7 @@
       "name": "Genetic Cascade",
       "type": "active",
       "category": "support",
-      "tags": ["healing", "debuff", "buff", "damage"],
+      "tags": ["heal", "buff", "magic damage", "damage increase"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "12m",
@@ -988,7 +965,7 @@
       "name": "Helical Convergence",
       "type": "passive",
       "category": "utility",
-      "tags": ["damage", "healing", "debuff", "buff"],
+      "tags": ["passive", "magic damage", "heal", "aoe"],
       "description": "After dealing damage 5 times, creates two Yin Vortexes around the caster that deal [Damage Rate: 100%] Magic Damage to enemies hit and reduce healing received by 5% for 4s. Stacks up to 3 times. (Cooldown: 0.5s) After healing 5 times, creates two Yang Vortexes around self that restore [Healing Rate: 60%] HP to allies hit and increase healing received by 5% for 4s. Stacks up to 3 times. (Cooldown: 0.5s)",
       "effects": [
         {
@@ -1040,7 +1017,7 @@
       "name": "Abyssal Sovereignty",
       "type": "active",
       "category": "utility",
-      "tags": ["damage", "healing", "buff", "cleanse", "skill"],
+      "tags": ["magic damage", "heal", "immunity", "mobility"],
       "mpCost": 31,
       "cooldown": "48s",
       "range": "5m",
@@ -1079,7 +1056,7 @@
       "name": "Hive Exaltation",
       "type": "passive",
       "category": "healing",
-      "tags": ["buff", "healing"],
+      "tags": ["buff", "heal"],
       "description": "Dealing damage with a skill grants 1 stack of Swarm, restoring [Healing Rate: 9%] HP every 2s for 6s (stacks do not boost healing effect). During this time, Damage Resistance increases by 5%, stacking up to 5 times. (Cooldown: 0.5s)",
       "effects": [
         {
@@ -1107,7 +1084,7 @@
       "name": "Spectral Disguise",
       "type": "active",
       "category": "utility",
-      "tags": ["stealth", "buff", "skill"],
+      "tags": ["stealth", "buff", "resistance"],
       "mpCost": 31,
       "cooldown": "48s",
       "range": "8m",
@@ -1144,7 +1121,7 @@
       "name": "Echo Reflection",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage"],
+      "tags": ["passive", "physical damage", "crit"],
       "description": "Skill and Basic Attack hits from the rear deal [Damage Rate: 60%] additional Physical Damage (Cooldown: 0.3s). Basic Attack Damage Bonuses affect damage and basic attack critical hits can cause the damage to crit",
       "effects": [
         {
@@ -1169,7 +1146,7 @@
       "name": "Acid Blast",
       "type": "active",
       "category": "damage",
-      "tags": ["slow", "debuff", "damage", "skill"],
+      "tags": ["slow", "magic damage", "dot", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -1219,7 +1196,7 @@
       "name": "Corrosion Barrier",
       "type": "passive",
       "category": "defense",
-      "tags": ["damage", "slow", "debuff"],
+      "tags": ["magic damage", "slow"],
       "description": "After taking 5 instances of damage, releases acid outward, dealing [Damage Rate: 70%] Magic Damage to enemies in range, reducing their damage dealt by 25% and Movement Speed by 25% for 4s",
       "effects": [
         {
@@ -1257,7 +1234,7 @@
       "name": "Frozen Maelstrom",
       "type": "active",
       "category": "damage",
-      "tags": ["magic_damage", "slow", "debuff", "hard_control", "skill"],
+      "tags": ["magic damage", "slow", "CC", "attack speed"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "10m",
@@ -1308,7 +1285,7 @@
       "name": "Fractured Ice",
       "type": "passive",
       "category": "defense",
-      "tags": ["damage", "slow"],
+      "tags": ["passive", "magic damage", "slow", "resistance", "attack speed"],
       "description": "After casting the skill, if damage is dealt within 5 seconds, increases Damage Resistance by 25% for 6s, while emitting cold mist around itself, dealing [Damage Rate: 80%] Magic Damage and reducing Attack Speed by 30% and movement speed by 30% per second for 4s. (Cooldown: 20s)",
       "effects": [
         {
@@ -1357,7 +1334,7 @@
       "name": "Cannonade Mode",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "buff", "transformation", "slow", "aoe"],
+      "tags": ["physical damage", "aoe", "resistance"],
       "mpCost": 25,
       "cooldown": "9.7s",
       "range": "30m",
@@ -1398,7 +1375,7 @@
       "name": "Resolve",
       "type": "passive",
       "category": "defense",
-      "tags": ["buff", "stacking"],
+      "tags": ["passive", "buff", "crit", "resistance"],
       "description": "While standing still, gain 1 stack of [Steadfast] every second [Steadfast]: +2% Critical Rate, +2% Damage Resistance for 2s. Stacks up to 15 times",
       "effects": [
         {
@@ -1432,7 +1409,7 @@
       "name": "Mole's Escape",
       "type": "active",
       "category": "utility",
-      "tags": ["damage", "movement", "pull", "skill"],
+      "tags": ["magic damage", "mobility", "CC"],
       "mpCost": 27,
       "cooldown": "44s",
       "range": "14m",
@@ -1480,7 +1457,7 @@
       "name": "Survivability Resilience",
       "type": "passive",
       "category": "utility",
-      "tags": ["buff"],
+      "tags": ["passive", "buff"],
       "description": "Increases own weight limit by 200",
       "effects": [
         {
@@ -1498,7 +1475,7 @@
       "name": "Twinlance Infusion",
       "type": "active",
       "category": "support",
-      "tags": ["damage", "mp", "skill"],
+      "tags": ["magic damage", "shield", "buff", "mobility", "channeling"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "10m",
@@ -1560,7 +1537,7 @@
       "name": "Lunar Rebirth",
       "type": "passive",
       "category": "support",
-      "tags": ["mp"],
+      "tags": ["passive", "buff"],
       "description": "Every 2s restores Moonveil Max MP +1%MP to other allies within 12m",
       "effects": [
         {
@@ -1584,7 +1561,7 @@
       "name": "Soul Feast",
       "type": "active",
       "category": "damage",
-      "tags": ["slow", "buff", "skill"],
+      "tags": ["magic damage", "slow", "immunity", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -1665,7 +1642,7 @@
       "name": "Voidshape",
       "type": "passive",
       "category": "damage",
-      "tags": ["passive", "magic_damage", "debuff"],
+      "tags": ["passive", "magic damage"],
       "description": "Converts Basic Attack Damage from Physical to Magic. Basic Attacks also reduce the enemy's Magic Resistance by 4% for 4s, stacking up to 10 times",
       "effects": [
         {
@@ -1692,7 +1669,7 @@
       "name": "Flamecore Rampage",
       "type": "active",
       "category": "damage",
-      "tags": ["buff", "skill", "damage", "cleanse", "immunity", "aoe"],
+      "tags": ["physical damage", "attack speed", "mobility", "crit", "immunity", "aoe"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "7m",
@@ -1761,7 +1738,7 @@
       "name": "Hell Salvo's Embrace",
       "type": "passive",
       "category": "utility",
-      "tags": ["buff"],
+      "tags": ["passive", "buff", "crit"],
       "description": "While without Plating, gains 5 Energy per second, and gains 5 Energy on Basic Attack Crit. When Energy reaches 100, restores [Target-based Max HP 15%] Plating values. While with Plating, gains [Target-based Max HP 3%] Plating values on Basic Attack Crit. Plating restored cannot exceed [Target-based Max HP 25%]. (Trigger Interval: 1 seconds)",
       "effects": [
         {
@@ -1816,7 +1793,7 @@
       "name": "Raven's Gaze",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "dispel", "skill"],
+      "tags": ["magic damage", "slow", "aoe"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "14m",
@@ -1873,7 +1850,7 @@
       "name": "Summon Raven",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "healing", "dispel"],
+      "tags": ["magic damage", "heal"],
       "description": "Skills dealing damage grant the caster Raven's Call. At 6 stacks, the next skill damage within 8s that hits an enemy target will summon ravens at the location, dealing [Damage Rate: 120%] Magic Damage to up to 5 enemies in range. This effect removes 1 stack of buffs from hit targets and restores [Healing Rate: 72%] HP to self. (Stack gain interval: 0.5; Raven's Call interval: 10s)",
       "effects": [
         {
@@ -1922,7 +1899,7 @@
       "name": "Sanctification",
       "type": "active",
       "category": "healing",
-      "tags": ["healing", "cleanse", "skill"],
+      "tags": ["heal", "channeling", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "16m",
@@ -1964,7 +1941,7 @@
       "name": "Holy Covenant",
       "type": "passive",
       "category": "defense",
-      "tags": ["buff"],
+      "tags": ["passive", "heal", "resistance"],
       "description": "When healing with skills, the target gains 5% additional Damage Resistance for 4s. Stacks up to 6 times",
       "effects": [
         {
@@ -1991,7 +1968,7 @@
       "name": "Hemophage",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "healing", "skill"],
+      "tags": ["magic damage", "heal", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -2043,7 +2020,7 @@
       "name": "Blood Contract",
       "type": "passive",
       "category": "defense",
-      "tags": ["buff"],
+      "tags": ["buff", "passive", "defense", "attack-speed", "damage-resistance", "hp-based"],
       "description": "Gains +4% Damage Resistance and +6% Attack Speed for every 10% HP lost.",
       "effects": [
         {
@@ -2076,7 +2053,7 @@
       "name": "Shadow Cascade",
       "type": "active",
       "category": "damage",
-      "tags": ["magic_damage", "skill"],
+      "tags": ["magic damage", "channeling", "aoe"],
       "mpCost": 29,
       "cooldown": "39s",
       "range": "20m",
@@ -2136,7 +2113,7 @@
       "name": "Umbra Resonance",
       "type": "passive",
       "category": "utility",
-      "tags": ["buff"],
+      "tags": ["passive", "buff", "mobility", "dot"],
       "description": "Gains 5% Movement Speed for 3s when inflicting an enemy with a DoT effect, stacking up to 6 times",
       "effects": [
         {
@@ -2164,7 +2141,7 @@
       "name": "Sandstorm Dominion",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "slow", "knockback", "dispel", "skill"],
+      "tags": ["physical damage", "slow", "resistance", "immunity", "channeling", "aoe"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "8m",
@@ -2229,7 +2206,7 @@
       "name": "Sand Veil",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "debuff", "silence"],
+      "tags": ["magic damage", "CC"],
       "description": "Creates a circular storm field around the caster for 4s when causing Forced Movement (Pull, Knockback). Deals [Damage Rate: 100%] Physical Damage to enemies in the field, inflicting Silence and a 40% chance to miss Basic Attacks for 3s. (Cooldown: 20s)",
       "effects": [
         {
@@ -2277,7 +2254,7 @@
       "name": "Bond of Light",
       "type": "active",
       "category": "healing",
-      "tags": ["damage", "healing", "skill"],
+      "tags": ["heal", "magic damage", "channeling", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "10m",
@@ -2318,7 +2295,7 @@
       "name": "Light's Echo",
       "type": "passive",
       "category": "support",
-      "tags": ["buff"],
+      "tags": ["passive", "buff"],
       "description": "Other allies within 12m receive +20% healing",
       "effects": [
         {
@@ -2343,7 +2320,7 @@
       "name": "Shadow Rift",
       "type": "active",
       "category": "damage",
-      "tags": ["buff", "skill"],
+      "tags": ["physical damage", "aoe", "shield", "mobility", "attack speed", "cooldown"],
       "mpCost": 29,
       "cooldown": "39s",
       "range": "15m",
@@ -2416,7 +2393,7 @@
       "name": "Umbra Kinetics",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage"],
+      "tags": ["passive", "physical damage", "crit"],
       "description": "Grants Basic Attacks a 30% chance to trigger a shadow strike for 6s, dealing [Damage Rate: 100%] Physical Damage (Cooldown: 0.8s). Basic Attack Damage Bonuses affect damage and basic attack critical hits can cause the damage to crit",
       "effects": [
         {
@@ -2446,7 +2423,7 @@
       "name": "Magma Slam",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "hard_control", "skill"],
+      "tags": ["magic damage", "CC"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "10m",
@@ -2485,7 +2462,7 @@
       "name": "Seismic Impact",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "slow"],
+      "tags": ["passive", "physical damage", "slow", "CC"],
       "description": "When inflicting Immobilize or Hard Control (Stun, Fear, Freeze, Knockup, Petrify), drops a meteor after 1s, dealing [Damage Rate: 150%] Physical Damage and 30% Slow for 3s. (Cooldown: 5s)",
       "effects": [
         {
@@ -2522,7 +2499,7 @@
       "name": "Serpent's Whisper",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "hard_control", "skill"],
+      "tags": ["magic damage", "CC"],
       "mpCost": 31,
       "cooldown": "48s",
       "range": "14m",
@@ -2591,7 +2568,7 @@
       "name": "Shedskin",
       "type": "passive",
       "category": "defense",
-      "tags": ["damage", "hard_control"],
+      "tags": ["magic damage", "CC"],
       "description": "Retains 1 HP upon taking lethal damage, transforming into a spirit serpent, cleansing all negative effects (control, DoT, and debuffs), gaining immunity to control, debuffs and damage for 2s, and +100% Movement Speed, and healing 5% HP every 0.5s. (CD: 120s)",
       "effects": [
         {
@@ -2647,7 +2624,7 @@
       "name": "Bloodstorm",
       "type": "active",
       "category": "damage",
-      "tags": ["magic_damage", "healing", "skill"],
+      "tags": ["magic damage", "heal", "channeling", "aoe", "mobility"],
       "mpCost": 30,
       "cooldown": "44s",
       "castingTime": "0.96s",
@@ -2701,7 +2678,7 @@
       "name": "Blood Curse",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "healing"],
+      "tags": ["magic damage", "heal"],
       "description": "When Skills or Basic Attacks deal direct damage, they apply Blood Curse to the target for 6s. 30% of the damage dealt to cursed targets will explode as True Damage when the curse ends, while also restoring [Healing Rate: 20%] Vitality to the caster. (Cooldown: 25s)",
       "effects": [
         {
@@ -2748,7 +2725,7 @@
       "name": "Engulfing Shadows",
       "type": "active",
       "category": "damage",
-      "tags": ["magic_damage", "shield", "stealth", "skill"],
+      "tags": ["magic damage", "shield", "stealth", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "description": "Enters Stealth and gains [Shadow Ward] and the skill [Phantom Bind] for 9 seconds. Shadow Ward: Grants [Target-based Max HP 25%] Shield. If Shadow Ward is dispelled, the Shadow Dive effect ends prematurely. Phantom Bind: Summon phantoms that track enemies in range, dealing [Damage Rate: 183%] Magic Damage and replenishing [Target-based Max HP 5%] Spectral Shield. Doesn't break Engulfing Shadows Stealth. Using any skill other than Phantom Bind, dealing direct healing or damage while in Stealth will break invisibility for 2 seconds before re-entering Stealth.",
@@ -2804,7 +2781,7 @@
       "name": "Healing Bloom Hunter",
       "type": "passive",
       "category": "utility",
-      "tags": ["stealth", "healing"],
+      "tags": ["stealth", "heal"],
       "description": "Enters Stealth when standing still unhurt and not using skills for a short duration. Taking damage, using skills, or moving breaks Stealth. Warning appears when enemies are within 7 to 14 meters. Stealth is lost if an enemy remains within 7 meters for over 3 seconds. Gains 3% HP per second while in any Stealth state",
       "effects": [
         {
@@ -2846,7 +2823,7 @@
       "name": "Null Pulse",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "slow", "knockback", "skill"],
+      "tags": ["physical damage", "slow", "CC"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "9m",
@@ -2918,7 +2895,7 @@
       "name": "Plague Outbreak",
       "type": "passive",
       "category": "damage",
-      "tags": ["damage", "debuff", "passive", "dot", "stacking"],
+      "tags": ["passive", "magic damage", "dot"],
       "description": "[Plague]: Deals [Damage Rate: 20%] Magic Damage every 3s for 13s. Stacks up to 10 times. When a target affected by [Plague] dies, deals [Damage Rate: 120%] Magic Damage to up to 5 other nearby enemies.",
       "effects": [
         {
@@ -2958,7 +2935,7 @@
       "name": "Rot Manifest",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "skill", "dot"],
+      "tags": ["magic damage", "dot"],
       "mpCost": 22,
       "cooldown": "17s",
       "castingTime": "0.96s",
@@ -3002,7 +2979,7 @@
       "name": "Touch of Plague",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "skill", "dot"],
+      "tags": ["magic damage", "dot"],
       "cooldown": "0.48s",
       "castingTime": "0.96s",
       "range": "14m",
@@ -3027,7 +3004,7 @@
       "name": "Plague Strike",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "skill", "dot"],
+      "tags": ["magic damage", "dot"],
       "cooldown": "0.48s",
       "castingTime": "1.1s",
       "range": "18m",
@@ -3054,7 +3031,7 @@
       "name": "Venom Pool",
       "type": "active",
       "category": "damage",
-      "tags": ["slow", "damage", "skill"],
+      "tags": ["slow", "magic damage", "dot", "aoe"],
       "cooldown": "1.9s",
       "range": "16m",
       "description": "Throws a pool of venom at the target location, lasting 3s, slowing enemies inside by 20% and inflicting [Plague] every second",
@@ -3089,7 +3066,7 @@
       "name": "Scourge",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "healing", "skill"],
+      "tags": ["magic damage", "heal"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "12m",
@@ -3127,7 +3104,7 @@
       "name": "Plague Surge",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "skill", "dot"],
+      "tags": ["magic damage", "dot"],
       "mpCost": 17,
       "cooldown": "9.7s",
       "range": "18m",
@@ -3163,7 +3140,7 @@
       "name": "Spread Plague",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "skill", "dot"],
+      "tags": ["magic damage", "dot"],
       "mpCost": 10,
       "cooldown": "4.8s",
       "range": "9m",
@@ -3200,7 +3177,7 @@
       "name": "Exhaustion",
       "type": "active",
       "category": "control",
-      "tags": ["debuff", "hard_control", "skill"],
+      "tags": ["CC"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "12m",
@@ -3254,7 +3231,7 @@
       "name": "Toxic Matter",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "skill"],
+      "tags": ["magic damage"],
       "mpCost": 18,
       "cooldown": "11s",
       "castingTime": "0.48s",
@@ -3298,7 +3275,7 @@
       "name": "Crippling Curse",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "slow", "debuff", "dispel", "skill"],
+      "tags": ["magic damage", "aoe"],
       "mpCost": 22,
       "cooldown": "17s",
       "castingTime": "0.48s",
@@ -3364,7 +3341,7 @@
       "name": "Heal",
       "type": "active",
       "category": "healing",
-      "tags": ["healing", "skill"],
+      "tags": ["heal"],
       "mpCost": 0,
       "cooldown": "34s",
       "castingTime": "instant",
@@ -3385,7 +3362,7 @@
       "name": "Abundance",
       "type": "active",
       "category": "buff",
-      "tags": ["mp", "buff", "skill"],
+      "tags": ["mp", "buff", "mobility"],
       "mpCost": 0,
       "cooldown": "29s",
       "castingTime": "instant",
@@ -3419,7 +3396,7 @@
       "name": "Parasitic Swarm",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "skill", "dot"],
+      "tags": ["magic damage", "dot"],
       "mpCost": 25,
       "cooldown": "23s",
       "castingTime": "0.48s",
@@ -3457,7 +3434,7 @@
       "name": "Pestilence",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "skill", "dot", "aoe"],
+      "tags": ["magic damage", "dot", "aoe"],
       "mpCost": 20,
       "cooldown": "14s",
       "castingTime": "instant",
@@ -3504,7 +3481,7 @@
       "name": "Hexbound Malice",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "skill", "aoe"],
+      "tags": ["magic damage", "aoe"],
       "mpCost": 22,
       "cooldown": "17s",
       "castingTime": "0.48s",
@@ -3557,7 +3534,7 @@
       "name": "Bloom of Malice",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "skill", "aoe", "stacking"],
+      "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 27,
       "cooldown": "29s",
       "castingTime": "3s",
@@ -3612,7 +3589,7 @@
       "name": "Necrotic Eruption",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "debuff", "skill", "aoe", "dot"],
+      "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 28,
       "cooldown": "34s",
       "castingTime": "instant",
@@ -3691,7 +3668,7 @@
       "name": "Aegisflare",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "shield", "healing", "skill"],
+      "tags": ["magic damage", "shield", "heal"],
       "mpCost": 20,
       "cooldown": "14s",
       "castingTime": "instant",
@@ -3724,7 +3701,7 @@
       "name": "Holy Feather",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "healing", "skill"],
+      "tags": ["magic damage", "heal"],
       "mpCost": 0,
       "cooldown": "0.48s",
       "castingTime": "0.48s",
@@ -3765,7 +3742,7 @@
       "name": "Holy Smite",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "buff", "skill"],
+      "tags": ["magic damage", "heal", "aoe"],
       "mpCost": 0,
       "cooldown": "0.48s",
       "castingTime": "1.1s",
@@ -3804,7 +3781,7 @@
       "name": "Holy Heal",
       "type": "active",
       "category": "healing",
-      "tags": ["healing", "skill"],
+      "tags": ["heal"],
       "mpCost": 0,
       "cooldown": "0.48s",
       "castingTime": "1.4s",
@@ -3826,7 +3803,7 @@
       "name": "Holy Wave",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "healing", "skill"],
+      "tags": ["magic damage", "heal"],
       "mpCost": 17,
       "cooldown": "9.7s",
       "castingTime": "instant",
@@ -3865,7 +3842,7 @@
       "name": "Divine Link",
       "type": "active",
       "category": "damage",
-      "tags": ["damage", "healing", "skill"],
+      "tags": ["magic damage", "heal"],
       "mpCost": 21,
       "cooldown": "15s",
       "castingTime": "6s",
@@ -3910,7 +3887,7 @@
       "name": "Holy Energy",
       "type": "active",
       "category": "healing",
-      "tags": ["damage", "healing", "skill"],
+      "tags": ["magic damage", "heal"],
       "mpCost": 20,
       "cooldown": "13s",
       "castingTime": "instant",
@@ -3941,7 +3918,7 @@
       "name": "Holy Wall",
       "type": "active",
       "category": "damage",
-      "tags": ["shield", "hard-control", "skill"],
+      "tags": ["magic damage", "shield", "stun", "CC"],
       "mpCost": 21,
       "cooldown": "15s",
       "castingTime": "instant",
@@ -3979,7 +3956,7 @@
       "name": "Holy Baptism",
       "type": "active",
       "category": "healing",
-      "tags": ["healing", "buff", "cleanse", "skill"],
+      "tags": ["heal", "buff"],
       "mpCost": 20,
       "cooldown": "14s",
       "castingTime": "instant",
@@ -4023,6 +4000,523 @@
         }
       ],
       "icon": "./assets/icons/skill-holy-baptism.png"
+    },
+    {
+      "id": "sacred-flare",
+      "name": "Sacred Flare",
+      "type": "active",
+      "category": "damage",
+      "tags": ["magic damage", "heal", "CC"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "12m",
+      "description": "Casts holy radiance at the target location. Heals allies in range for [Healing Rate: 120%] HP and deals [Damage Rate: 300%] Magic Damage to enemies, knocking them back 7m from the center. Gives enemies 60% chance to miss Basic Attacks and reveals Stealth for 6s",
+      "effects": [
+        {
+          "type": "healing",
+          "value": "120%",
+          "target": "allies",
+          "area": "target_location"
+        },
+        {
+          "type": "damage",
+          "value": "300%",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "target_location"
+        },
+        {
+          "type": "knockback",
+          "value": "7m",
+          "target": "enemies",
+          "area": "from_center"
+        },
+        {
+          "type": "debuff",
+          "effect": "miss_chance",
+          "value": "60%",
+          "target": "basic_attacks",
+          "duration": "6s"
+        },
+        {
+          "type": "utility",
+          "effect": "reveal_stealth",
+          "duration": "6s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-sacred-flare.png"
+    },
+    {
+      "id": "sanctified-domain",
+      "name": "Sanctified Domain",
+      "type": "active",
+      "category": "damage",
+      "tags": ["magic damage", "heal", "buff", "CC"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "7m",
+      "description": "Creates a holy domain that deals [Damage Rate: 300%] Magic Damage to enemies in range and knocks them back 10m. Channels for 3s, healing allies in range for [Healing Rate: 60%] HP every 0.5s and increasing their Damage Resistance by 10% for 6s. Stacks up to 3 times",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "300%",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "range"
+        },
+        {
+          "type": "knockback",
+          "value": "10m",
+          "target": "enemies"
+        },
+        {
+          "type": "healing",
+          "value": "60%",
+          "target": "allies",
+          "duration": "3s",
+          "interval": "0.5s"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "10%",
+          "target": "allies",
+          "duration": "6s",
+          "maxStacks": 3
+        }
+      ],
+      "icon": "./assets/icons/skill-sanctified-domain.png"
+    },
+    {
+      "id": "sanctum-arc",
+      "name": "Sanctum Arc",
+      "type": "active",
+      "category": "healing",
+      "tags": ["heal", "magic damage", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "range": "12m",
+      "description": "Launches a Holy Chain that bounces to the nearest ally within 9 meters after hitting an ally, restoring [Healing Rate: 120%] HP with each hit. It deals [Damage Rate: 100%] Magic Damage to up to 5 enemies in range, with damage reduced to 20% for subsequent explosions. The chain can bounce up to 9 times, and each target can be hit a maximum of 3 times",
+      "effects": [
+        {
+          "type": "healing",
+          "value": "120%",
+          "target": "allies",
+          "bounces": 9,
+          "maxHitsPerTarget": 3
+        },
+        {
+          "type": "damage",
+          "value": "100%",
+          "damageType": "Magic",
+          "target": "enemies",
+          "maxTargets": 5,
+          "damageReduction": "20%"
+        }
+      ],
+      "icon": "./assets/icons/skill-sanctum-arc.png"
+    },
+    {
+      "id": "divine-vault",
+      "name": "Divine Vault",
+      "type": "active",
+      "category": "mobility",
+      "tags": ["magic damage", "heal", "mobility", "dodge", "CC"],
+      "mpCost": 22,
+      "cooldown": "17s",
+      "range": "11m",
+      "description": "Leaps to the target location. Upon landing, deals [Damage Rate: 300%] Magic Damage to enemies in range and knocks them up for 0.75s. Heals allies in range for [Healing Rate: 180%] HP and increases their Dodge by 30% for 6s",
+      "effects": [
+        {
+          "type": "damage",
+          "value": "300%",
+          "damageType": "Magic",
+          "target": "enemies",
+          "area": "range"
+        },
+        {
+          "type": "hard_control",
+          "effect": "knock_up",
+          "duration": "0.75s",
+          "target": "enemies",
+          "area": "range"
+        },
+        {
+          "type": "healing",
+          "value": "180%",
+          "target": "allies",
+          "area": "range"
+        },
+        {
+          "type": "buff",
+          "effect": "dodge",
+          "value": "30%",
+          "target": "allies",
+          "duration": "6s",
+          "area": "range"
+        }
+      ],
+      "icon": "./assets/icons/skill-divine-vault.png"
+    },
+    {
+      "id": "sanctuary-skill",
+      "name": "Sanctuary",
+      "type": "active",
+      "category": "healing",
+      "tags": ["heal", "immunity", "buff"],
+      "mpCost": 29,
+      "cooldown": "39s",
+      "range": "15m",
+      "description": "Cleanses an ally or the caster of all Slow and Immobilize effects, heals [Healing Rate: 360%] HP and grants Sanctuary for 5s. Sanctuary grants immunity to Slow and Immobilize, and prevents HP from falling below 1. Each 10% of missing HP increases healing received by 5%. Sanctuary cannot be dispelled",
+      "effects": [
+        {
+          "type": "cleanse",
+          "effects": ["slow", "immobilize"],
+          "target": "ally_or_self"
+        },
+        {
+          "type": "healing",
+          "value": "360%",
+          "target": "ally_or_self"
+        },
+        {
+          "type": "buff",
+          "effect": "sanctuary",
+          "duration": "5s",
+          "target": "ally_or_self",
+          "description": "Immunity to Slow and Immobilize, prevents HP from falling below 1, increases healing received by 5% per 10% missing HP, cannot be dispelled"
+        }
+      ],
+      "icon": "./assets/icons/skill-sanctuary.png"
+    },
+    {
+      "id": "blessed-halo",
+      "name": "Blessed Halo",
+      "type": "active",
+      "category": "healing",
+      "tags": ["heal", "buff"],
+      "mpCost": 28,
+      "cooldown": "34s",
+      "range": "14m",
+      "description": "Creates a Blessed Halo at the target location. After 1s, heals all allies in range for [Healing Rate: 360%] HP, cleanses all control effects and 5 debuffs, and grants immunity to Control and Slow for 4s",
+      "effects": [
+        {
+          "type": "healing",
+          "value": "360%",
+          "target": "allies",
+          "area": "range",
+          "delay": "1s"
+        },
+        {
+          "type": "cleanse",
+          "effects": ["control", "debuffs"],
+          "maxDebuffs": 5,
+          "target": "allies",
+          "area": "range"
+        },
+        {
+          "type": "buff",
+          "effect": "immunity",
+          "effects": ["control", "slow"],
+          "duration": "4s",
+          "target": "allies",
+          "area": "range"
+        }
+      ],
+      "icon": "./assets/icons/skill-blessed-halo.png"
+    },
+    {
+      "id": "frost-torrent",
+      "name": "Frost Torrent",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "channeling"],
+      "mpCost": 23,
+      "cooldown": 19,
+      "castingTime": "3s channel",
+      "range": "11m",
+      "description": "Channels for 3s, releasing frost winds in the target direction that deal [Damage Rate: 100%] Magic Damage to players ([Damage Rate: 200%] Magic Damage to mobs) every 0.5s and reduce Movement Speed by 30% for 3s. Can move slowly while channeling.",
+      "icon": "./assets/icons/skill-frost-torrent.png"
+    },
+    {
+      "id": "ice-shards",
+      "name": "Ice Shards",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "buff"],
+      "mpCost": 23,
+      "cooldown": 19,
+      "castingTime": "Instant",
+      "range": "6m",
+      "description": "Removes control effects and summons 6 ice shards to orbit the caster for 10s. While active, gain 40% Casting Speed and +25% Damage Resistance. When other weapon skills deal damage, a shard fires at the target, dealing [Damage Rate: 100%] Magic Damage and reducing their Attack Speed by 10% for 4s. Stacks up to 4 times",
+      "icon": "./assets/icons/skill-ice-shards.png"
+    },
+    {
+      "id": "frozen-phase",
+      "name": "Frozen Phase",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "stun", "CC", "aoe"],
+      "mpCost": 27,
+      "cooldown": 29,
+      "castingTime": "Instant",
+      "range": "20m",
+      "description": "Launches a frost orb in the target direction, dealing [Damage Rate: 50%] Magic Damage per second to enemies in range and applying 30% Slow for 3s. For 4s, the skill can be recast to blink the caster to the current orb's location, dealing [Damage Rate: 250%] Magic Damage to nearby enemies and Freezing them for 1.5s. Allies in range gain a [Target-based Max HP 15%] Shield for 4s. While the shield is active, taking Basic Attack Damage applies [Frost] to the source of damage. [Frost]: Reduces Attack Speed and Movement Speed by 30% for 4s",
+      "icon": "./assets/icons/skill-frozen-phase.png"
+    },
+    {
+      "id": "frost-nova",
+      "name": "Frost Nova",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "aoe"],
+      "mpCost": 20,
+      "cooldown": 1.5,
+      "castingTime": "Instant",
+      "range": "14m",
+      "description": "Places a Frost Nova at the target location, lasting 15s. When triggered by an enemy, deals [Damage Rate: 250%] Magic Damage and reduces Movement Speed by 35% and 15% reduced healing for 6s. Gains 1 charge every 15s, up to 3 charges",
+      "icon": "./assets/icons/skill-frost-nova.png"
+    },
+    {
+      "id": "frostbound-echo",
+      "name": "Frostbound Echo",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "shield", "aoe"],
+      "mpCost": 23,
+      "cooldown": 19,
+      "castingTime": "Instant",
+      "range": "14m",
+      "description": "Fires an ice bolt at the target, dealing [Damage Rate: 160%] Magic Damage, slowing by 30% and inflicting [Frigid] for 4s. The bolt then bounces up to 9 times within 9m to random enemies. Bounces to the caster if there are no enemies in range, granting [Target-based Max HP 10%] Shield value for 4s. While the shield is active, inflict [Frost] onto any attacker that hits with basic attacks. [Frost]: Reduces Attack Speed and Movement Speed by 30% for 4s. [Frigid]: At 3 stacks, Freezes for 1.5s",
+      "icon": "./assets/icons/skill-frostbound-echo.png"
+    },
+    {
+      "id": "frostbite",
+      "name": "Frostbite",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "aoe", "dot"],
+      "mpCost": 25,
+      "cooldown": 24,
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "Creates a freezing cyclone at the target location, lasting 5s. Enemies inside are Slowed by 60% and take [Damage Rate: 90%] Magic Damage every second",
+      "icon": "./assets/icons/skill-frostbite.png"
+    },
+    {
+      "id": "frosts-caller",
+      "name": "Frost's Caller",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "dot", "immunity", "CC", "mobility"],
+      "mpCost": 23,
+      "cooldown": 19,
+      "castingTime": "Instant",
+      "range": "6m",
+      "description": "Empowers with extreme cold energy for 20s, granting immunity to Slow and Immobilize effects, and obtaining the [Frost Slash] and [Frost Drift] skills. --[Frost Slash]--: Fires an ice blade forward, dealing [Damage Rate: 120%] Magic Damage to enemies along the path and applying 1 stack of [Hypothermia] and 30% Slow for 4s. After firing two ice blades, the third ice blade's damage increases to [Damage Rate: 145%] Magic Damage. When [Hypothermia] reaches 6 stacks, the target gains [Deep Frost]. [Deep Frost]: Cannot perform Basic Attacks or Move. Lasts 1.5s. --[Frost Drift]--: Instantly removes control effects and leaps in the target direction",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Frost Empowerment",
+          "duration": "20s",
+          "description": "Grants immunity to Slow and Immobilize effects, and provides access to Frost Slash and Frost Drift skills"
+        },
+        {
+          "type": "damage",
+          "name": "Frost Slash",
+          "damageType": "magic",
+          "damageRate": "120%",
+          "description": "Fires an ice blade dealing Magic Damage to enemies along the path"
+        },
+        {
+          "type": "debuff",
+          "name": "Hypothermia",
+          "stacks": true,
+          "maxStacks": 6,
+          "description": "Applies stacking debuff that can lead to Deep Frost immobilization"
+        },
+        {
+          "type": "debuff",
+          "name": "Slow",
+          "value": "30%",
+          "duration": "4s",
+          "description": "Reduces target movement speed"
+        },
+        {
+          "type": "debuff",
+          "name": "Deep Frost",
+          "condition": "6 Hypothermia stacks",
+          "duration": "1.5s",
+          "description": "Immobilizes target, preventing Basic Attacks and Movement"
+        },
+        {
+          "type": "utility",
+          "name": "Frost Drift",
+          "description": "Removes control effects and provides mobility"
+        }
+      ],
+      "icon": "./assets/icons/skill-frosts-caller.png"
+    },
+    {
+      "id": "ice-blast",
+      "name": "Ice Blast",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "stun", "CC", "slow", "attack speed"],
+      "mpCost": 24,
+      "cooldown": 21,
+      "castingTime": "Instant",
+      "range": "14m",
+      "description": "Creates a frost crystal at the target location that forms after 0.7s, dealing [Damage Rate: 75%] Magic Damage and Freezing enemies for 1.5s. After 1s, the crystal shatters, dealing [Damage Rate: 400%] Magic Damage, and reducing Movement Speed by 40% and Attack Speed by 40% for 6s",
+      "icon": "./assets/icons/skill-ice-blast.png"
+    },
+    {
+      "id": "frost-armor",
+      "name": "Frost Armor",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["passive", "resistance"],
+      "description": "Passive skill that provides defensive benefits to Frost weapons",
+      "effects": [
+        {
+          "type": "buff",
+          "name": "Frost Armor",
+          "duration": "permanent",
+          "description": "Provides defensive benefits while wielding Frost weapons"
+        }
+      ],
+      "icon": "./assets/icons/passive-frost-armor.png"
+    },
+    {
+      "id": "ice-burst",
+      "name": "Ice Burst",
+      "type": "active",
+      "category": "basic",
+      "tags": ["magic damage", "CC"],
+      "mpCost": 0,
+      "cooldown": "0.48s",
+      "castingTime": "0.96s",
+      "range": "16m",
+      "description": "[Normal Skill]: Deals [Damage Rate: 90%] Magic Damage. Can cast [Ice Burst] every 5s. Deals [Damage Rate: 150%] Magic Damage to the enemy and Immobilizes them for 1.5s.",
+      "icon": "./assets/icons/skill-ice-burst.png"
+    },
+    {
+      "id": "frostbite-zone",
+      "name": "Frostbite Zone",
+      "type": "active",
+      "category": "basic",
+      "tags": ["magic damage", "slow", "aoe"],
+      "mpCost": 0,
+      "cooldown": "2.9s",
+      "castingTime": "Instant",
+      "range": "16m",
+      "description": "Creates a zone of deep frost in the target direction, dealing [Damage Rate: 130%] Magic Damage to enemies in range and Slowing them by 25% for 4s.",
+      "icon": "./assets/icons/skill-frostbite-zone.png"
+    },
+    {
+      "id": "frost-burst",
+      "name": "Frost Burst",
+      "type": "active",
+      "category": "basic",
+      "tags": ["magic damage", "aoe"],
+      "mpCost": 0,
+      "cooldown": "1.4s",
+      "castingTime": "Instant",
+      "range": "16m",
+      "description": "Creates three Frost Bursts that fly toward the target direction after a brief delay, each dealing [Damage Rate: 110%] Magic Damage to enemies hit. Additional frost shards beyond the first deal damage equal to 25% of the original damage.",
+      "icon": "./assets/icons/skill-frost-burst.png"
+    },
+    {
+      "id": "frost-beam",
+      "name": "Frost Beam",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "channeling"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "castingTime": "3s channel",
+      "range": "16m",
+      "description": "Channels for 3s, continuously firing a frost beam in the target direction that deals [Damage Rate: 60%] Magic Damage to players ([Damage Rate: 120%] Magic Damage to mobs) every 0.5s to those hit and inflicts [Frost Beam Slow] for 3s, stacking up to 5 times.",
+      "effects": [
+        {
+          "type": "debuff",
+          "name": "Frost Beam Slow",
+          "duration": "3s",
+          "description": "Movement Speed Bonus: -8% (-8% per stack, can stack)",
+          "maxStacks": 5
+        }
+      ],
+      "icon": "./assets/icons/skill-frost-beam.png"
+    },
+    {
+      "id": "crystal-frost",
+      "name": "Crystal Frost",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "CC", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "Instant",
+      "range": "16m",
+      "description": "Launches crystalline frost in the target direction. Upon hitting the first enemy, it explodes to deal [Damage Rate: 250%] Magic Damage and Immobilize enemies in range for 2s",
+      "icon": "./assets/icons/skill-crystal-frost.png"
+    },
+    {
+      "id": "frost-blink",
+      "name": "Frost Blink",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "stun", "CC", "mobility"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "castingTime": "Instant",
+      "range": "10m",
+      "description": "Deals [Damage Rate: 200%] Magic Damage to nearby enemies and Freezes them for 0.5s, then blinks in the target direction.",
+      "icon": "./assets/icons/skill-frost-blink.png"
+    },
+    {
+      "id": "frost-wall",
+      "name": "Frost Wall",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "stun", "CC", "aoe", "dot"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "Instant",
+      "range": "6m",
+      "description": "Creates a frost wall before the caster that lasts 8s. Enemies inside are Slowed by 70%, take [Damage Rate: 50%] Magic Damage every second, and gain [Chill] stacks. Stacks up to 2 times. [Chill]: At max stacks, enemies are Frozen for 1.5s and become immune to [Chill] for 6s",
+      "effects": [
+        {
+          "type": "debuff",
+          "name": "Chill",
+          "duration": "8s",
+          "description": "At max stacks, enemies are Frozen for 1.5s and become immune to [Chill] for 6s",
+          "maxStacks": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-frost-wall.png"
+    },
+    {
+      "id": "frost-roar",
+      "name": "Frost Roar",
+      "type": "active",
+      "category": "weapon",
+      "tags": ["magic damage", "slow", "attack speed", "aoe"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "Instant",
+      "range": "14m",
+      "description": "Unleashes a freezing roar in the target direction, dealing [Damage Rate: 150%] Magic Damage and knocking enemies back 14m. Reduces Movement Speed by 30% and Attack Speed by 30% for 4s.",
+      "effects": [
+        {
+          "type": "debuff",
+          "name": "Frost Roar Debuff",
+          "duration": "4s",
+          "description": "Reduces Movement Speed by 30% and Attack Speed by 30%"
+        }
+      ],
+      "icon": "./assets/icons/skill-frost-roar.png"
     }
   ]
 }

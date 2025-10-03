@@ -111,7 +111,7 @@ function renderCards(items, container, isSelected, onToggle) {
     if (item.coreSkill || item.passiveSkill) {
       const skill = STATE.skills.find(s => s.id === (item.coreSkill || item.passiveSkill));
       
-      // Make the card itself the weapon bar - completely horizontal flow
+      // Simple horizontal row layout like the example
       card.style.display = 'flex';
       card.style.alignItems = 'center';
       card.style.padding = '12px 16px';
@@ -123,17 +123,18 @@ function renderCards(items, container, isSelected, onToggle) {
       card.style.gap = '16px';
       card.style.width = '100%';
       card.style.minWidth = '100%';
-      card.style.minHeight = 'auto';
-      card.style.maxHeight = 'none';
-      card.style.overflow = 'visible';
+      card.style.minHeight = '60px';
+      card.style.maxHeight = '60px';
+      card.style.overflow = 'hidden';
       card.style.gridColumn = '1 / -1';
       card.style.gridRow = 'auto';
+      card.style.cursor = 'pointer';
       
       console.log('=== CARD CONTAINER DEBUG ===');
       console.log('Card element created:', card);
       console.log('Card classes:', card.className);
       
-      // Item image
+      // Weapon image
       const itemImg = document.createElement('img');
       itemImg.src = item.icon || '';
       itemImg.alt = item.name;
@@ -142,13 +143,17 @@ function renderCards(items, container, isSelected, onToggle) {
       itemImg.style.height = '40px';
       itemImg.style.objectFit = 'contain';
       itemImg.style.flexShrink = '0';
+      itemImg.style.borderRadius = '4px';
+      itemImg.style.border = '1px solid var(--border)';
+      itemImg.style.backgroundColor = 'var(--bg-elev)';
       itemImg.onerror = () => { itemImg.style.display = 'none'; };
       
-      // Item name and type container
+      // Weapon name and type container
       const itemInfo = document.createElement('div');
       itemInfo.style.display = 'flex';
       itemInfo.style.flexDirection = 'column';
-      itemInfo.style.marginRight = '16px';
+      itemInfo.style.flex = '1';
+      itemInfo.style.minWidth = '0';
       
       const itemName = document.createElement('div');
       itemName.textContent = item.name;
@@ -174,77 +179,87 @@ function renderCards(items, container, isSelected, onToggle) {
       itemInfo.appendChild(itemName);
       itemInfo.appendChild(itemType);
       
-      // Skill image
-      const skillImg = document.createElement('img');
-      skillImg.src = skill?.icon || '';
-      skillImg.alt = skill?.name || 'Skill';
-      skillImg.className = 'skill-icon';
-      skillImg.style.width = '40px';
-      skillImg.style.height = '40px';
-      skillImg.style.objectFit = 'contain';
-      skillImg.style.flexShrink = '0';
-      skillImg.onerror = () => { skillImg.style.display = 'none'; };
-      
-      // Core skill info container
-      const skillInfo = document.createElement('div');
-      skillInfo.style.display = 'flex';
-      skillInfo.style.flexDirection = 'column';
-      skillInfo.style.flex = '1';
-      
-      // Skill name
-      const skillName = document.createElement('div');
-      skillName.textContent = skill?.name || 'No skill';
-      skillName.style.fontWeight = 'bold';
-      skillName.style.fontSize = '0.95rem';
-      skillName.style.color = 'var(--text)';
-      skillName.style.marginBottom = '4px';
-      
-      // Skill tags
-      const skillTags = document.createElement('div');
-      skillTags.style.display = 'flex';
-      skillTags.style.gap = '4px';
-      skillTags.style.marginBottom = '4px';
-      
-      if (skill?.tags) {
-        skill.tags.forEach(tag => {
-          const tagElement = document.createElement('span');
-          tagElement.textContent = tag;
-          tagElement.className = `skill-tag ${getTagClass(tag)}`;
-          skillTags.appendChild(tagElement);
-        });
+      // Add tooltip functionality for skill details
+      if (skill) {
+        // Create skill tags exactly like ability tooltips
+        let skillTags = '';
+        if (skill.tags && skill.tags.length > 0) {
+          const allTags = skill.tags.map(tag => {
+            const tagClass = getTagClass(tag);
+            let displayTag = tag;
+            if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+            else if (tag === 'control_immunity') displayTag = 'control immunity';
+            else if (tag === 'damage_immunity') displayTag = 'immunity';
+            else if (tag === 'hard_control') displayTag = 'hard control';
+            return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+          }).join(' ');
+          skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+        }
+        
+        const formattedDescription = skill.description.replace(/\n/g, '<br><br>');
+        
+        const tooltipContent = `
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <img src="${skill.icon}" alt="${skill.name}" style="width: 32px; height: 32px; border-radius: 4px; border: 1px solid var(--border);">
+            <div>
+              <div style="font-weight: bold; color: var(--text); margin-bottom: 4px;">${skill.name}</div>
+            </div>
+          </div>
+          ${skillTags}
+          <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">${formattedDescription}</div>
+        `;
+        
+        card.title = ''; // Clear default title
+        card.setAttribute('data-tooltip', tooltipContent);
       }
-      
-      // Skill description
-      const skillDesc = document.createElement('div');
-      skillDesc.textContent = skill?.description || '';
-      skillDesc.style.fontSize = '0.8rem';
-      skillDesc.style.color = 'var(--text-muted)';
-      skillDesc.style.lineHeight = '1.3';
-      skillDesc.style.width = '100%';
-      skillDesc.style.minWidth = '0';
-      skillDesc.style.overflow = 'visible';
-      skillDesc.style.whiteSpace = 'normal';
       
       // Debug logging
       console.log('=== ITEM CARD DEBUG ===');
       console.log('Card element:', card);
       console.log('Card computed styles:', window.getComputedStyle(card));
-      console.log('SkillInfo element:', skillInfo);
-      console.log('SkillInfo computed styles:', window.getComputedStyle(skillInfo));
-      console.log('SkillDesc element:', skillDesc);
-      console.log('SkillDesc computed styles:', window.getComputedStyle(skillDesc));
       console.log('Description text length:', skill?.description?.length);
       console.log('Description text:', skill?.description);
       
-      skillInfo.appendChild(skillName);
-      skillInfo.appendChild(skillTags);
-      skillInfo.appendChild(skillDesc);
-      
-      // Add all elements in horizontal order
+      // Add elements to card in simple horizontal order
       card.appendChild(itemImg);
       card.appendChild(itemInfo);
-      card.appendChild(skillImg);
-      card.appendChild(skillInfo);
+      
+      // Add tooltip event listeners
+      if (skill) {
+        card.addEventListener('mouseenter', (e) => {
+          const tooltip = createGlobalTooltip();
+          tooltip.innerHTML = card.getAttribute('data-tooltip');
+          tooltip.style.display = 'block';
+          tooltip.style.opacity = '1';
+          tooltip.style.visibility = 'visible';
+          
+          // Position tooltip
+          const cardRect = card.getBoundingClientRect();
+          const tooltipRect = tooltip.getBoundingClientRect();
+          
+          let top = cardRect.top - tooltipRect.height - 10;
+          let left = cardRect.left + (cardRect.width / 2) - (tooltipRect.width / 2);
+          
+          // Keep within viewport
+          if (left < 10) left = 10;
+          if (left + tooltipRect.width > window.innerWidth - 10) {
+            left = window.innerWidth - tooltipRect.width - 10;
+          }
+          if (top < 10) {
+            top = cardRect.bottom + 10;
+          }
+          
+          tooltip.style.top = `${top}px`;
+          tooltip.style.left = `${left}px`;
+        });
+        
+        card.addEventListener('mouseleave', (e) => {
+          const tooltip = createGlobalTooltip();
+          tooltip.style.display = 'none';
+          tooltip.style.opacity = '0';
+          tooltip.style.visibility = 'hidden';
+        });
+      }
       
       // Debug parent container
       console.log('=== PARENT CONTAINER DEBUG ===');
@@ -257,8 +272,6 @@ function renderCards(items, container, isSelected, onToggle) {
       console.log('Card computed min-width:', window.getComputedStyle(card).minWidth);
       console.log('Card computed max-width:', window.getComputedStyle(card).maxWidth);
       console.log('ItemInfo computed width:', window.getComputedStyle(itemInfo).width);
-      console.log('SkillInfo computed width:', window.getComputedStyle(skillInfo).width);
-      console.log('SkillDesc computed width:', window.getComputedStyle(skillDesc).width);
     } else {
       // Regular item rendering
     const img = document.createElement('img');
@@ -1765,103 +1778,121 @@ function getAbilityCategory(ability) {
 function getTagClass(tag) {
   const tagLower = tag.toLowerCase();
   switch (tagLower) {
-    case 'damage':
-      return 'tag-damage';
-    case 'shield':
-      return 'tag-shield';
-    case 'hard_control':
-    case 'control':
-      return 'tag-control';
-    case 'buff':
-      return 'tag-buff';
-    case 'debuff':
-      return 'tag-debuff';
-    case 'teleport':
-      return 'tag-teleport';
-    case 'healing':
-    case 'heal':
-      return 'tag-healing';
-    case 'defense':
-    case 'defensive':
-      return 'tag-defense';
-    case 'utility':
-      return 'tag-utility';
-    case 'cooldown_reduction':
-      return 'tag-cooldown';
-    case 'cooldown':
-      return 'tag-cooldown';
-    case 'control_immunity':
-      return 'tag-control-immunity';
-    case 'damage_immunity':
-      return 'tag-damage-immunity';
-    case 'slow':
-      return 'tag-slow';
-    case 'knockback':
-      return 'tag-knockback';
-    case 'silence':
-      return 'tag-silence';
-    case 'stun':
-      return 'tag-stun';
-    case 'dodge':
-      return 'tag-dodge';
-    case 'armor':
-      return 'tag-armor';
-    case 'aoe':
-      return 'tag-aoe';
-    case 'area':
-      return 'tag-area';
-    case 'magic':
-      return 'tag-magic';
-    case 'physical':
-      return 'tag-physical';
-    case 'stealth':
-      return 'tag-stealth';
-    case 'critical':
-      return 'tag-critical';
-    case 'mobility':
-      return 'tag-mobility';
-    case 'support':
-      return 'tag-support';
-    case 'tank':
-      return 'tag-tank';
+    // New simplified tag system
+    case 'physical damage':
+      return 'tag-physical-damage';
+    case 'magic damage':
+      return 'tag-magic-damage';
+    case 'dot':
+      return 'tag-dot';
     case 'immunity':
       return 'tag-immunity';
-    case 'skill':
-      return 'tag-skill';
+    case 'slow':
+      return 'tag-slow';
+    case 'aoe':
+      return 'tag-aoe';
     case 'passive':
       return 'tag-passive';
-    case 'hard_control':
-      return 'tag-hard-control';
-    case 'immobilize':
-      return 'tag-immobilize';
-    case 'pull':
-      return 'tag-pull';
-    case 'summon':
-      return 'tag-summon';
-    case 'stacking':
-      return 'tag-stacking';
-    case 'melee':
-      return 'tag-melee';
-    case 'elemental':
-      return 'tag-elemental';
-    case 'coordination':
-      return 'tag-coordination';
-    case 'illusion':
-      return 'tag-illusion';
+    case 'crit':
+      return 'tag-crit';
+    case 'bleed':
+      return 'tag-bleed';
+    case 'stealth':
+      return 'tag-stealth';
+    case 'mobility':
+      return 'tag-mobility';
+    case 'dodge':
+      return 'tag-dodge';
     case 'mp':
       return 'tag-mp';
-    case 'dispel':
-      return 'tag-dispel';
-        case 'cleanse':
-          return 'tag-cleanse';
-        case 'dot':
-          return 'tag-dot';
-        case 'stacking':
-          return 'tag-dot';
-    case 'cooldown_reduction':
-      return 'tag-cooldown';
+    case 'heal':
+      return 'tag-heal';
+    case 'buff':
+      return 'tag-buff';
+    case 'attack speed':
+      return 'tag-attack-speed';
+    case 'shield':
+      return 'tag-shield';
+    case 'damage increase':
+      return 'tag-damage-increase';
     case 'cooldown':
       return 'tag-cooldown';
+    case 'stun':
+      return 'tag-stun';
+    case 'resistance':
+      return 'tag-resistance';
+    case 'cc':
+      return 'tag-cc';
+    case 'channeling':
+      return 'tag-channeling';
+    
+    // Legacy support for old tag names
+    case 'damage':
+      return 'tag-physical-damage';
+    case 'healing':
+      return 'tag-heal';
+    case 'critical':
+      return 'tag-crit';
+    case 'hard_control':
+    case 'control':
+      return 'tag-cc';
+    case 'debuff':
+      return 'tag-default';
+    case 'teleport':
+      return 'tag-mobility';
+    case 'defense':
+    case 'defensive':
+      return 'tag-resistance';
+    case 'utility':
+      return 'tag-default';
+    case 'cooldown_reduction':
+      return 'tag-cooldown';
+    case 'control_immunity':
+      return 'tag-immunity';
+    case 'damage_immunity':
+      return 'tag-immunity';
+    case 'knockback':
+      return 'tag-cc';
+    case 'silence':
+      return 'tag-cc';
+    case 'dodge':
+      return 'tag-mobility';
+    case 'armor':
+      return 'tag-resistance';
+    case 'area':
+      return 'tag-aoe';
+    case 'magic':
+      return 'tag-magic-damage';
+    case 'physical':
+      return 'tag-physical-damage';
+    case 'support':
+      return 'tag-buff';
+    case 'tank':
+      return 'tag-resistance';
+    case 'skill':
+      return 'tag-default';
+    case 'immobilize':
+      return 'tag-cc';
+    case 'pull':
+      return 'tag-cc';
+    case 'summon':
+      return 'tag-default';
+    case 'stacking':
+      return 'tag-dot';
+    case 'melee':
+      return 'tag-physical-damage';
+    case 'elemental':
+      return 'tag-magic-damage';
+    case 'coordination':
+      return 'tag-buff';
+    case 'illusion':
+      return 'tag-stealth';
+    case 'mp':
+      return 'tag-default';
+    case 'dispel':
+      return 'tag-default';
+    case 'cleanse':
+      return 'tag-default';
     default:
       return 'tag-default';
   }

@@ -8,7 +8,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "epic",
-      "description": "A cursed staff that channels the power of decay and plague. Its very presence spreads corruption and disease.",
       "stats": {
         "damage": "85-120",
         "attackSpeed": "1.2",
@@ -39,7 +38,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "epic",
-      "description": "A staff of pure nihilistic energy that drains hope and cripples the will to fight. Its curse spreads despair and weakness.",
       "stats": {
         "damage": "90-125",
         "attackSpeed": "1.1",
@@ -70,7 +68,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "epic",
-      "description": "A staff that channels the power of parasitic infestation. Its curse spreads living parasites that feed on the enemy's life force.",
       "stats": {
         "damage": "88-130",
         "attackSpeed": "1.15",
@@ -101,7 +98,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "epic",
-      "description": "A staff that spreads disease and pestilence across the battlefield. Its curse creates a spreading plague that weakens all who come near.",
       "stats": {
         "damage": "82-128",
         "attackSpeed": "1.25",
@@ -132,7 +128,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "epic",
-      "description": "A cursed staff that binds enemies with hexes and malice. Its dark magic punishes those who dare to use their abilities while under its influence.",
       "stats": {
         "damage": "85-132",
         "attackSpeed": "1.20",
@@ -163,7 +158,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "legendary",
-      "description": "A staff imbued with ancient decay, capable of summoning blighted blooms that wither the life from foes.",
       "stats": {
         "damage": "90-140",
         "attackSpeed": "1.15",
@@ -194,7 +188,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "legendary",
-      "description": "A staff shrouded in necrotic mist, capable of unleashing eruptions of death clouds that spread decay and weaken enemies.",
       "stats": {
         "damage": "92-145",
         "attackSpeed": "1.10",
@@ -225,7 +218,6 @@
       "weaponType": "Intelligence",
       "range": "Ranged",
       "rarity": "legendary",
-      "description": "A divine staff of judgment, capable of both healing allies and smiting enemies with holy power.",
       "stats": {
         "damage": "88-135",
         "attackSpeed": "1.20",
@@ -247,6 +239,370 @@
         "holy-baptism"
       ],
       "icon": "./assets/icons/weapon-judgments-staff.png"
+    },
+    {
+      "id": "radiant-nova",
+      "gameId": "radiant-nova",
+      "name": "Radiant Nova",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "95-135",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+30"
+      },
+      "coreSkill": "sacred-flare",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-radiant-nova.png"
+    },
+    {
+      "id": "divine-resonator",
+      "gameId": "divine-resonator",
+      "name": "Divine Resonator",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-130",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+28"
+      },
+      "coreSkill": "sanctified-domain",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-divine-resonator.png"
+    },
+    {
+      "id": "luminous-ward",
+      "gameId": "luminous-ward",
+      "name": "Luminous Ward",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-130",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+28"
+      },
+      "coreSkill": "sanctum-arc",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-luminous-ward.png"
+    },
+    {
+      "id": "guardians-embrace",
+      "gameId": "guardians-embrace",
+      "name": "Guardian's Embrace",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-130",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+28"
+      },
+      "coreSkill": "divine-vault",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-guardians-embrace.png"
+    },
+    {
+      "id": "sol-protector",
+      "gameId": "sol-protector",
+      "name": "Sol Protector",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "95-135",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+30"
+      },
+      "coreSkill": "sanctuary-skill",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-sol-protector.png"
+    },
+    {
+      "id": "celestial-redeemer",
+      "gameId": "celestial-redeemer",
+      "name": "Celestial Redeemer",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "95-135",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "magicPower": "+30"
+      },
+      "coreSkill": "blessed-halo",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-celestial-redeemer.png"
+    },
+    {
+      "id": "glacier-prism",
+      "name": "Glacier Prism",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "rare",
+      "coreSkill": "frost-torrent",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-glacier-prism.png",
+      "gameId": "glacier-prism"
+    },
+    {
+      "id": "shard-of-fractured-ice",
+      "name": "Shard of Fractured Ice",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "epic",
+      "coreSkill": "ice-shards",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-shard-of-fractured-ice.png",
+      "gameId": "shard-of-fractured-ice"
+    },
+    {
+      "id": "frozen-conduit",
+      "name": "Frozen Conduit",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "epic",
+      "coreSkill": "frozen-phase",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-frozen-conduit.png",
+      "gameId": "frozen-conduit"
+    },
+    {
+      "id": "iceshard-comet",
+      "name": "Iceshard Comet",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "epic",
+      "coreSkill": "frost-nova",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-iceshard-comet.png",
+      "gameId": "iceshard-comet"
+    },
+    {
+      "id": "cryoshard-mask",
+      "name": "Cryoshard Mask",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "epic",
+      "coreSkill": "frostbound-echo",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-cryoshard-mask.png",
+      "gameId": "cryoshard-mask"
+    },
+    {
+      "id": "frost-matrix",
+      "name": "Frost Matrix",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "epic",
+      "coreSkill": "frostbite",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-frost-matrix.png",
+      "gameId": "frost-matrix"
+    },
+    {
+      "id": "frosts-caller",
+      "name": "Frost's Caller",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "epic",
+      "coreSkill": "frosts-caller",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-frosts-caller.png",
+      "gameId": "frosts-caller"
+    },
+    {
+      "id": "glacier-spark",
+      "name": "Glacier Spark",
+      "type": "frost",
+      "weaponType": "Intelligence, Ranged",
+      "rarity": "epic",
+      "coreSkill": "ice-blast",
+      "passiveSkill": "frost-armor",
+      "basicAttacks": [
+        "ice-burst",
+        "frostbite-zone",
+        "frost-burst"
+      ],
+      "weaponSkills": [
+        "frost-beam",
+        "crystal-frost",
+        "frost-blink",
+        "frost-wall",
+        "frost-roar"
+      ],
+      "icon": "./assets/icons/weapon-glacier-spark.png",
+      "gameId": "glacier-spark"
     }
   ]
 }

@@ -3192,3 +3192,170 @@ main {
   color: var(--accent);
   text-decoration: underline;
 }
+
+/* ===== SKILL TAG STYLES ===== */
+.ability-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 1px 2px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.ability-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+/* Tag Colors as specified */
+.tag-physical-damage {
+  background-color: #ff4444;
+  color: white;
+  border-color: #cc0000;
+}
+
+.tag-magic-damage {
+  background-color: #8844ff;
+  color: white;
+  border-color: #6600cc;
+}
+
+.tag-dot {
+  background-color: #ff8800;
+  color: white;
+  border-color: #cc6600;
+}
+
+.tag-immunity {
+  background-color: #44ff44;
+  color: #003300;
+  border-color: #00cc00;
+}
+
+.tag-slow {
+  background-color: #4488ff;
+  color: white;
+  border-color: #0066cc;
+}
+
+.tag-aoe {
+  background-color: #ff8844;
+  color: white;
+  border-color: #cc6600;
+}
+
+.tag-passive {
+  background-color: #666666;
+  color: white;
+  border-color: #444444;
+}
+
+.tag-crit {
+  background-color: #ffaa00;
+  color: #330000;
+  border-color: #cc8800;
+}
+
+.tag-bleed {
+  background-color: #cc0000;
+  color: white;
+  border-color: #990000;
+}
+
+.tag-stealth {
+  background-color: #444444;
+  color: white;
+  border-color: #222222;
+}
+
+.tag-mobility {
+  background-color: #00aaff;
+  color: white;
+  border-color: #0088cc;
+}
+
+.tag-dodge {
+  background-color: #ff8800;
+  color: white;
+  border-color: #cc6600;
+}
+
+.tag-mp {
+  background-color: #8a2be2;
+  color: white;
+  border-color: #6a1b9a;
+}
+
+.tag-heal {
+  background-color: #00ff00;
+  color: #003300;
+  border-color: #00cc00;
+}
+
+.tag-buff {
+  background-color: #44aaff;
+  color: white;
+  border-color: #2288cc;
+}
+
+.tag-attack-speed {
+  background-color: #ffff00;
+  color: #333300;
+  border-color: #cccc00;
+}
+
+.tag-shield {
+  background-color: #88aaff;
+  color: white;
+  border-color: #6688cc;
+}
+
+.tag-damage-increase {
+  background-color: #ff6666;
+  color: white;
+  border-color: #cc3333;
+}
+
+.tag-cooldown {
+  background-color: #87ceeb;
+  color: #003366;
+  border-color: #66a3cc;
+}
+
+.tag-stun {
+  background-color: #ff0000;
+  color: white;
+  border-color: #cc0000;
+}
+
+.tag-resistance {
+  background-color: #8888ff;
+  color: white;
+  border-color: #6666cc;
+}
+
+.tag-cc {
+  background-color: #ff0088;
+  color: white;
+  border-color: #cc0066;
+}
+
+.tag-channeling {
+  background-color: #ff44aa;
+  color: white;
+  border-color: #cc2288;
+}
+
+/* Default tag style for any unhandled tags */
+.tag-default {
+  background-color: #666666;
+  color: white;
+  border-color: #444444;
+}
