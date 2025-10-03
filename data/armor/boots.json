@@ -17,6 +17,110 @@
       },
       "coreSkill": "abundance",
       "icon": "./assets/icons/boots-arcaneflow-boots.png"
+    },
+    {
+      "id": "shifters-strides",
+      "gameId": "shifters-strides",
+      "name": "Shifter's Strides",
+      "type": "boots",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "Mystical boots that allow for instantaneous displacement and position swapping with allies.",
+      "stats": {
+        "movementSpeed": "+15%",
+        "magicResistance": 15,
+        "intelligence": 8,
+        "cooldownReduction": "+10%"
+      },
+      "coreSkill": "displacement",
+      "icon": "./assets/icons/boots-shifters-strides.png"
+    },
+    {
+      "id": "miasma-stompers",
+      "gameId": "miasma-stompers",
+      "name": "Miasma Stompers",
+      "type": "boots",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "Corrupted boots that leave a trail of decay, weakening enemies who follow in your path.",
+      "stats": {
+        "movementSpeed": "+20%",
+        "magicResistance": 12,
+        "intelligence": 7,
+        "debuffDuration": "+25%"
+      },
+      "coreSkill": "decay",
+      "icon": "./assets/icons/boots-miasma-stompers.png"
+    },
+    {
+      "id": "frostwalker-boots",
+      "gameId": "frostwalker-boots",
+      "name": "Frostwalker Boots",
+      "type": "boots",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "Enchanted boots that create a path of frost, slowing and weakening enemies who dare to follow.",
+      "stats": {
+        "movementSpeed": "+18%",
+        "magicResistance": 14,
+        "intelligence": 8,
+        "slowEffectiveness": "+30%"
+      },
+      "coreSkill": "frost",
+      "icon": "./assets/icons/boots-frostwalker-boots.png"
+    },
+    {
+      "id": "blinkstep-boots",
+      "gameId": "blinkstep-boots",
+      "name": "Blinkstep Boots",
+      "type": "boots",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "Swift boots that allow for rapid teleportation and provide healing energy with each step.",
+      "stats": {
+        "movementSpeed": "+25%",
+        "magicResistance": 10,
+        "intelligence": 9,
+        "healingBonus": "+15%"
+      },
+      "coreSkill": "flash-step",
+      "icon": "./assets/icons/boots-blinkstep-boots.png"
+    },
+    {
+      "id": "phantomstep-boots",
+      "gameId": "phantomstep-boots",
+      "name": "Phantomstep Boots",
+      "type": "boots",
+      "armorType": "Intelligence",
+      "rarity": "legendary",
+      "description": "Ethereal boots that grant the wearer ghostly powers, becoming untouchable and swift.",
+      "stats": {
+        "movementSpeed": "+30%",
+        "magicResistance": 20,
+        "intelligence": 12,
+        "evasion": "+25%",
+        "immunityDuration": "+50%"
+      },
+      "coreSkill": "ghost",
+      "icon": "./assets/icons/boots-phantomstep-boots.png"
+    },
+    {
+      "id": "savagefoot-boots",
+      "gameId": "savagefoot-boots",
+      "name": "Savagefoot Boots",
+      "type": "boots",
+      "armorType": "Intelligence",
+      "rarity": "legendary",
+      "description": "Berserker boots that enhance the wearer's combat prowess but at the cost of temporary vulnerability.",
+      "stats": {
+        "movementSpeed": "+35%",
+        "magicResistance": 18,
+        "intelligence": 10,
+        "damageBonus": "+25%",
+        "attackSpeed": "+20%"
+      },
+      "coreSkill": "berserk",
+      "icon": "./assets/icons/boots-savagefoot-boots.png"
     }
   ]
 }

@@ -9893,6 +9893,191 @@
         }
       ],
       "icon": "./assets/icons/skill-obliteration.png"
+    },
+    {
+      "id": "displacement",
+      "name": "Displacement",
+      "type": "core",
+      "category": "movement",
+      "tags": ["movement", "teleport", "shield"],
+      "mpCost": 25,
+      "cooldown": "29s",
+      "range": "16m",
+      "description": "Grants a [Target-based Max HP 25%] shield lasting 4s and swaps positions with target player",
+      "effects": [
+        {
+          "type": "shield",
+          "value": "25%",
+          "duration": "4s",
+          "target": "self"
+        },
+        {
+          "type": "teleport",
+          "target": "player"
+        }
+      ],
+      "icon": "./assets/icons/skill-displacement.png"
+    },
+    {
+      "id": "decay",
+      "name": "Decay",
+      "type": "core",
+      "category": "movement",
+      "tags": ["debuff", "buff", "movement speed"],
+      "mpCost": 20,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Increases Movement Speed by 55%, lasting 5s; creates a path of corruption lasting 4s along movement path. Enemies in the path suffer 35% reduced damage dealt and 30% reduced healing received for 5s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "55%",
+          "duration": "5s",
+          "target": "self"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage reduction",
+          "value": "35%",
+          "duration": "5s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "healing reduction",
+          "value": "30%",
+          "duration": "5s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-decay.png"
+    },
+    {
+      "id": "frost",
+      "name": "Frost",
+      "type": "core",
+      "category": "movement",
+      "tags": ["slow", "buff", "movement speed"],
+      "mpCost": 20,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Increases Movement Speed by 55% for 5s. Creates a frost path that lasts 4s. Enemies in the path are slowed by 40% and their Attack Speed is reduced by 45% for 2s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "55%",
+          "duration": "5s",
+          "target": "self"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "40%",
+          "duration": "2s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "attack speed reduction",
+          "value": "45%",
+          "duration": "2s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-frost.png"
+    },
+    {
+      "id": "flash-step",
+      "name": "Flash Step",
+      "type": "core",
+      "category": "movement",
+      "tags": ["buff", "movement speed", "heal"],
+      "mpCost": 20,
+      "cooldown": "24s",
+      "range": "12m",
+      "description": "Move 12m in target direction. Restore [Healing Rate: 180%] HP and 25 MP",
+      "effects": [
+        {
+          "type": "movement",
+          "value": "12m",
+          "target": "direction"
+        },
+        {
+          "type": "heal",
+          "value": "180%",
+          "target": "self"
+        },
+        {
+          "type": "mana restore",
+          "value": "25",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-flash-step.png"
+    },
+    {
+      "id": "ghost",
+      "name": "Ghost",
+      "type": "core",
+      "category": "utility",
+      "tags": ["buff", "movement speed", "immunity"],
+      "mpCost": 30,
+      "cooldown": "39s",
+      "range": "6m",
+      "description": "After 1.5s cast time, enters Ghost Form, increases Movement Speed by 70%, gains immunity to damage and control effects for 3s. Cannot cast other Skills or Attack while in Ghost Form.",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "70%",
+          "duration": "3s",
+          "target": "self"
+        },
+        {
+          "type": "immunity",
+          "effects": ["damage", "control"],
+          "duration": "3s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-ghost.png"
+    },
+    {
+      "id": "berserk",
+      "name": "Berserk",
+      "type": "core",
+      "category": "buff",
+      "tags": ["buff", "movement speed", "damage", "debuff"],
+      "mpCost": 20,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Increases Movement Speed by 70% and damage by 20% for 5s. When effect ends, reduces Damage Resistance by 20% for 5s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "movement speed",
+          "value": "70%",
+          "duration": "5s",
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "damage",
+          "value": "20%",
+          "duration": "5s",
+          "target": "self"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage resistance reduction",
+          "value": "20%",
+          "duration": "5s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-berserk.png"
     }
   ]
 }
