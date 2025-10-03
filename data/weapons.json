@@ -1473,6 +1473,246 @@
         "lance-recall"
       ],
       "icon": "./assets/icons/weapon-corrosive-piercer.png"
+    },
+    {
+      "id": "novice-longbow",
+      "gameId": "novice-longbow",
+      "name": "Novice Longbow",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "common",
+      "stats": {
+        "damage": "60-80",
+        "attackSpeed": "1.0",
+        "criticalChance": "3%",
+        "agility": "+5"
+      },
+      "coreSkill": "barrage",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-novice-longbow.png"
+    },
+    {
+      "id": "hailfire",
+      "gameId": "hailfire",
+      "name": "Hailfire",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "rare",
+      "stats": {
+        "damage": "70-90",
+        "attackSpeed": "1.1",
+        "criticalChance": "5%",
+        "agility": "+8"
+      },
+      "coreSkill": "barrage",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-hailfire.png"
+    },
+    {
+      "id": "windbreaker",
+      "gameId": "windbreaker",
+      "name": "Windbreaker",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "80-100",
+        "attackSpeed": "1.2",
+        "criticalChance": "7%",
+        "agility": "+12"
+      },
+      "coreSkill": "windrend-splitters",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-windbreaker.png"
+    },
+    {
+      "id": "thunderstrike",
+      "gameId": "thunderstrike",
+      "name": "Thunderstrike",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "85-105",
+        "attackSpeed": "1.2",
+        "criticalChance": "8%",
+        "agility": "+15"
+      },
+      "coreSkill": "arcbolt",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-thunderstrike.png"
+    },
+    {
+      "id": "kinetic-arc",
+      "gameId": "kinetic-arc",
+      "name": "Kinetic Arc",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-110",
+        "attackSpeed": "1.3",
+        "criticalChance": "9%",
+        "agility": "+18"
+      },
+      "coreSkill": "powershot",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-kinetic-arc.png"
+    },
+    {
+      "id": "predators-splitbow",
+      "gameId": "predators-splitbow",
+      "name": "Predator's Splitbow",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "epic",
+      "stats": {
+        "damage": "95-115",
+        "attackSpeed": "1.3",
+        "criticalChance": "10%",
+        "agility": "+20"
+      },
+      "coreSkill": "splintershot",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-predators-splitbow.png"
+    },
+    {
+      "id": "eclipse-bow",
+      "gameId": "eclipse-bow",
+      "name": "Eclipse Bow",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "105-125",
+        "attackSpeed": "1.4",
+        "criticalChance": "12%",
+        "agility": "+25"
+      },
+      "coreSkill": "shadow-vortex",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-eclipse-bow.png"
+    },
+    {
+      "id": "menders-ruin",
+      "gameId": "menders-ruin",
+      "name": "Mender's Ruin",
+      "type": "bow",
+      "weaponType": "Agility",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "110-130",
+        "attackSpeed": "1.4",
+        "criticalChance": "15%",
+        "agility": "+28"
+      },
+      "coreSkill": "severance-shot",
+      "passiveSkill": "target-mark",
+      "basicAttacks": [
+        "venom-arrow",
+        "split-arrow",
+        "piercing-arrow"
+      ],
+      "weaponSkills": [
+        "binding-arrow",
+        "sleeper-arrow",
+        "blast-arrow",
+        "silencing-arrow",
+        "frost-arrow"
+      ],
+      "icon": "./assets/icons/weapon-menders-ruin.png"
     }
   ]
 }

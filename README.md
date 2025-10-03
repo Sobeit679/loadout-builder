@@ -47,7 +47,7 @@ Each data entry follows a consistent structure:
 
 ## 🎮 Credits
 
-- **Game**: [Warborne](https://warborne.qoolandgames.com/) - All in-game assets used with permission
+- **Game**: [Warborne](https://warborne.qoolandgames.com/) - All in-game assets belong to Qooland Games
 - **Tool**: Fan-made loadout builder (not officially affiliated)
 
 ## 📄 License
