@@ -565,7 +565,7 @@ function showOverlay(title, key) {
   
   // Show/hide search container based on selection type
   if (searchContainer) {
-    if (key === 'weapon' || key === 'chest' || key === 'boots' || key === 'weaponMod' || key === 'helmMod' || key === 'chestMod' || key === 'bootsMod') {
+    if (key === 'weapon' || key === 'chest' || key === 'boots' || key === 'helm' || key === 'weaponMod' || key === 'helmMod' || key === 'chestMod' || key === 'bootsMod') {
       searchContainer.style.display = 'flex';
     } else {
       searchContainer.style.display = 'none';
@@ -633,14 +633,14 @@ function handleSearch() {
     if (STATE.gear.weapons) {
       item = STATE.gear.weapons.find(w => w.id === itemId);
     }
-    if (!item && STATE.gear.helmets) {
-      item = STATE.gear.helmets.find(h => h.id === itemId);
+    if (!item && STATE.gear['armors/head']) {
+      item = STATE.gear['armors/head'].find(h => h.id === itemId);
     }
-    if (!item && STATE.gear.chests) {
-      item = STATE.gear.chests.find(c => c.id === itemId);
+    if (!item && STATE.gear['armors/chest']) {
+      item = STATE.gear['armors/chest'].find(c => c.id === itemId);
     }
-    if (!item && STATE.gear.boots) {
-      item = STATE.gear.boots.find(b => b.id === itemId);
+    if (!item && STATE.gear['armors/boots']) {
+      item = STATE.gear['armors/boots'].find(b => b.id === itemId);
     }
     if (!item && STATE.mods.weapon) {
       item = STATE.mods.weapon.find(m => m.id === itemId);
@@ -2398,16 +2398,30 @@ function clearDrifterAbilities() {
 
 // Loadout Save/Load/Export/Import/Share Functions
 function exportLoadout(event) {
+  // Create compact loadout object with only essential data
   const loadout = {
-    version: '1.0',
-    timestamp: new Date().toISOString(),
-    drifter: STATE.selected.drifters[0] || null,
-    gear: STATE.selected.gear || {},
-    mods: STATE.selected.mods || {},
-    masteryLevel: parseInt(document.getElementById('masteryLevel')?.textContent || '1')
+    v: '1.0', // version
+    d: STATE.selected.drifters[0]?.gameId || null, // drifter
+    g: {}, // gear
+    m: {}, // mods
+    l: parseInt(document.getElementById('masteryLevel')?.textContent || '1') // mastery level
   };
   
-  const dataStr = JSON.stringify(loadout, null, 2);
+  // Only include selected gear
+  Object.keys(STATE.selected.gear).forEach(key => {
+    if (STATE.selected.gear[key]) {
+      loadout.g[key] = STATE.selected.gear[key].gameId;
+    }
+  });
+  
+  // Only include selected mods
+  Object.keys(STATE.selected.mods).forEach(key => {
+    if (STATE.selected.mods[key]) {
+      loadout.m[key] = STATE.selected.mods[key].gameId;
+    }
+  });
+  
+  const dataStr = JSON.stringify(loadout);
   const encodedData = btoa(dataStr);
   
   // Show modal with the code string near the clicked button
@@ -2420,16 +2434,30 @@ function importLoadout(event) {
 }
 
 function shareLoadout() {
+  // Create compact loadout object with only essential data
   const loadout = {
-    version: '1.0',
-    timestamp: new Date().toISOString(),
-    drifter: STATE.selected.drifters[0] || null,
-    gear: STATE.selected.gear || {},
-    mods: STATE.selected.mods || {},
-    masteryLevel: parseInt(document.getElementById('masteryLevel')?.textContent || '1')
+    v: '1.0', // version
+    d: STATE.selected.drifters[0]?.gameId || null, // drifter
+    g: {}, // gear
+    m: {}, // mods
+    l: parseInt(document.getElementById('masteryLevel')?.textContent || '1') // mastery level
   };
   
-  const dataStr = JSON.stringify(loadout, null, 2);
+  // Only include selected gear
+  Object.keys(STATE.selected.gear).forEach(key => {
+    if (STATE.selected.gear[key]) {
+      loadout.g[key] = STATE.selected.gear[key].gameId;
+    }
+  });
+  
+  // Only include selected mods
+  Object.keys(STATE.selected.mods).forEach(key => {
+    if (STATE.selected.mods[key]) {
+      loadout.m[key] = STATE.selected.mods[key].gameId;
+    }
+  });
+  
+  const dataStr = JSON.stringify(loadout);
   const encodedData = btoa(dataStr);
   const shareUrl = `${window.location.origin}${window.location.pathname}?loadout=${encodedData}`;
   
@@ -2454,27 +2482,69 @@ function loadLoadoutData(loadout) {
       throw new Error('Invalid loadout data');
     }
     
+    // Handle both old and new format
+    const isNewFormat = loadout.v !== undefined;
+    
     // Load drifter
-    if (loadout.drifter) {
-      STATE.selected.drifters = [loadout.drifter];
-      updateAvatar();
+    const drifterId = isNewFormat ? loadout.d : loadout.drifter;
+    if (drifterId) {
+      const drifter = STATE.drifters.find(d => d.gameId === drifterId);
+      if (drifter) {
+        STATE.selected.drifters = [drifter];
+        updateAvatar();
+      }
     }
     
     // Load gear
-    if (loadout.gear) {
-      STATE.selected.gear = { ...STATE.selected.gear, ...loadout.gear };
+    const gearData = isNewFormat ? loadout.g : loadout.gear;
+    if (gearData) {
+      Object.keys(gearData).forEach(key => {
+        const gameId = gearData[key];
+        if (gameId) {
+          // Find the item in the appropriate gear category
+          let item = null;
+          if (key === 'weapons') {
+            item = STATE.gear.weapons.find(w => w.gameId === gameId);
+          } else if (key === 'armors/head') {
+            item = STATE.gear['armors/head'].find(h => h.gameId === gameId);
+          } else if (key === 'armors/chest') {
+            item = STATE.gear['armors/chest'].find(c => c.gameId === gameId);
+          } else if (key === 'armors/boots') {
+            item = STATE.gear['armors/boots'].find(b => b.gameId === gameId);
+          }
+          
+          if (item) {
+            STATE.selected.gear[key] = item;
+          }
+        }
+      });
     }
     
     // Load mods
-    if (loadout.mods) {
-      STATE.selected.mods = { ...STATE.selected.mods, ...loadout.mods };
+    const modsData = isNewFormat ? loadout.m : loadout.mods;
+    if (modsData) {
+      Object.keys(modsData).forEach(key => {
+        const gameId = modsData[key];
+        if (gameId) {
+          // Find the mod in weapon or armor mods
+          let mod = STATE.mods.weapon.find(m => m.gameId === gameId);
+          if (!mod) {
+            mod = STATE.mods.armor.find(m => m.gameId === gameId);
+          }
+          
+          if (mod) {
+            STATE.selected.mods[key] = mod;
+          }
+        }
+      });
     }
     
     // Load mastery level
-    if (loadout.masteryLevel) {
-      const masteryLevel = document.getElementById('masteryLevel');
-      if (masteryLevel) {
-        masteryLevel.textContent = loadout.masteryLevel.toString();
+    const masteryLevel = isNewFormat ? loadout.l : loadout.masteryLevel;
+    if (masteryLevel) {
+      const masteryLevelEl = document.getElementById('masteryLevel');
+      if (masteryLevelEl) {
+        masteryLevelEl.textContent = masteryLevel.toString();
       }
     }
     
