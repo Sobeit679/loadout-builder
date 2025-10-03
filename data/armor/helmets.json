@@ -237,6 +237,142 @@
       },
       "passiveSkill": "defiance",
       "icon": "./assets/icons/helm-ironwill-veil.png"
+    },
+    {
+      "id": "furors-helm",
+      "gameId": "furors-helm",
+      "name": "Furor's Helm",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "rare",
+      "description": "A fierce helm that channels rage into enhanced physical damage.",
+      "stats": {
+        "strength": 6,
+        "physicalDamage": "+15%",
+        "rage": "+20%",
+        "attackPower": "+12%"
+      },
+      "passiveSkill": "enrage",
+      "icon": "./assets/icons/helm-furors-helm.png"
+    },
+    {
+      "id": "riposte-helm",
+      "gameId": "riposte-helm",
+      "name": "Riposte Helm",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A defensive helm that hardens when taking multiple attacks, providing block protection.",
+      "stats": {
+        "strength": 8,
+        "block": "+25%",
+        "defense": "+18%",
+        "resistance": "+15%"
+      },
+      "passiveSkill": "hardened-guard",
+      "icon": "./assets/icons/helm-riposte-helm.png"
+    },
+    {
+      "id": "savage-helm",
+      "gameId": "savage-helm",
+      "name": "Savage Helm",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A brutal helm that triggers devastating EMP blasts when dealing damage.",
+      "stats": {
+        "strength": 9,
+        "empPower": "+20%",
+        "stunDuration": "+15%",
+        "damageDealt": "+18%"
+      },
+      "passiveSkill": "emp-blast",
+      "icon": "./assets/icons/helm-savage-helm.png"
+    },
+    {
+      "id": "reptilian-helm",
+      "gameId": "reptilian-helm",
+      "name": "Reptilian Helm",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A scaly helm that provides protective armor when affected by control effects.",
+      "stats": {
+        "strength": 10,
+        "shieldPower": "+22%",
+        "controlResistance": "+20%",
+        "protection": "+18%"
+      },
+      "passiveSkill": "scale-armor",
+      "icon": "./assets/icons/helm-reptilian-helm.png"
+    },
+    {
+      "id": "hellfire-visor",
+      "gameId": "hellfire-visor",
+      "name": "Hellfire Visor",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A fiery helm that creates flame stars and reduces enemy magic resistance.",
+      "stats": {
+        "strength": 11,
+        "flamePower": "+25%",
+        "magicPenetration": "+20%",
+        "burnDamage": "+18%"
+      },
+      "passiveSkill": "flame-star",
+      "icon": "./assets/icons/helm-hellfire-visor.png"
+    },
+    {
+      "id": "ironclad-helm",
+      "gameId": "ironclad-helm",
+      "name": "Ironclad Helm",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A heavily armored helm that provides massive damage resistance when critically wounded.",
+      "stats": {
+        "strength": 12,
+        "damageResistance": "+30%",
+        "armor": "+25%",
+        "survivability": "+22%"
+      },
+      "passiveSkill": "iron-wall",
+      "icon": "./assets/icons/helm-ironclad-helm.png"
+    },
+    {
+      "id": "wardens-gaze",
+      "gameId": "wardens-gaze",
+      "name": "Warden's Gaze",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "legendary",
+      "description": "A legendary helm that provides forward guard protection against control effects.",
+      "stats": {
+        "strength": 15,
+        "controlImmunity": "+35%",
+        "damageResistance": "+25%",
+        "wardenPower": "+30%"
+      },
+      "passiveSkill": "forward-guard",
+      "icon": "./assets/icons/helm-wardens-gaze.png"
+    },
+    {
+      "id": "stormveil-mask",
+      "gameId": "stormveil-mask",
+      "name": "Stormveil Mask",
+      "type": "helmet",
+      "armorType": "Strength",
+      "rarity": "epic",
+      "description": "A mysterious mask that creates sandstorms and disables enemy weapons.",
+      "stats": {
+        "strength": 13,
+        "sandstormPower": "+28%",
+        "disarmDuration": "+20%",
+        "slowPower": "+22%"
+      },
+      "passiveSkill": "sandstorm",
+      "icon": "./assets/icons/helm-stormveil-mask.png"
     }
   ]
 }

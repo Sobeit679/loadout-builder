@@ -11577,6 +11577,239 @@
         }
       ],
       "icon": "./assets/icons/skill-vulnerability.png"
+    },
+    {
+      "id": "enrage",
+      "name": "Enrage",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["buff", "physical damage"],
+      "cooldown": "30s",
+      "description": "When dealing direct damage with Basic Attacks, increases Physical Damage by 20% for 6s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "physical damage",
+          "value": "20%",
+          "duration": "6s",
+          "target": "self",
+          "trigger": "basic_attack_damage"
+        }
+      ],
+      "triggerInterval": "30s",
+      "icon": "./assets/icons/passive-enrage.png"
+    },
+    {
+      "id": "hardened-guard",
+      "name": "Hardened Guard",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff", "block"],
+      "cooldown": "25s",
+      "description": "Taking damage from 3 basic attacks within 5s grants 136 Block for 6s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "block",
+          "value": "136",
+          "duration": "6s",
+          "target": "self",
+          "trigger": "basic_attack_damage",
+          "triggerCount": 3,
+          "triggerWindow": "5s"
+        }
+      ],
+      "triggerInterval": "25s",
+      "icon": "./assets/icons/passive-hardened-guard.png"
+    },
+    {
+      "id": "emp-blast",
+      "name": "EMP Blast",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "debuff", "hard control"],
+      "cooldown": "30s",
+      "description": "When dealing direct Basic Attack Damage, triggers an EMP blast at the current position. After 1s, deals [Damage Rate: 250%] Physical Damage to enemies within 6m, Stuns them for 1s and reduces their damage dealt by 20% for 6s",
+      "effects": [
+        {
+          "type": "area_effect",
+          "value": "6m",
+          "duration": "1s",
+          "target": "area",
+          "trigger": "basic_attack_damage"
+        },
+        {
+          "type": "physical damage",
+          "value": "250%",
+          "target": "enemies",
+          "delay": "1s"
+        },
+        {
+          "type": "hard control",
+          "effect": "stun",
+          "duration": "1s",
+          "target": "enemies",
+          "delay": "1s"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage reduction",
+          "value": "20%",
+          "duration": "6s",
+          "target": "enemies",
+          "delay": "1s"
+        }
+      ],
+      "triggerInterval": "30s",
+      "icon": "./assets/icons/passive-emp-blast.png"
+    },
+    {
+      "id": "scale-armor",
+      "name": "Scale Armor",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["shield", "hard control"],
+      "cooldown": "30s",
+      "description": "When affected by hard control effects (Stun, Fear, Freeze, Knockup, Petrify): Gains a [Target-based Max HP 25%] shield for 6s",
+      "effects": [
+        {
+          "type": "shield",
+          "value": "25%",
+          "duration": "6s",
+          "target": "self",
+          "scaling": "max_hp",
+          "trigger": "hard_control_effects"
+        }
+      ],
+      "triggerInterval": "30s",
+      "icon": "./assets/icons/passive-scale-armor.png"
+    },
+    {
+      "id": "flame-star",
+      "name": "Flame Star",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "debuff", "magic"],
+      "cooldown": "30s",
+      "description": "When dealing direct Basic Attack Damage, creates a Flame Star around the caster, lasting 6s. Reduces enemies' Magic Resistance by 135 within 7m, and deals [Damage Rate: 50%] Magic Damage every second",
+      "effects": [
+        {
+          "type": "area_effect",
+          "value": "7m",
+          "duration": "6s",
+          "target": "area",
+          "trigger": "basic_attack_damage"
+        },
+        {
+          "type": "debuff",
+          "effect": "magic resistance reduction",
+          "value": "135",
+          "duration": "6s",
+          "target": "enemies",
+          "condition": "in_field"
+        },
+        {
+          "type": "magic damage",
+          "value": "50%",
+          "duration": "6s",
+          "interval": "1s",
+          "target": "enemies",
+          "condition": "in_field"
+        }
+      ],
+      "triggerInterval": "30s",
+      "icon": "./assets/icons/passive-flame-star.png"
+    },
+    {
+      "id": "iron-wall",
+      "name": "Iron Wall",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff", "damage resistance"],
+      "cooldown": "60s",
+      "description": "When taking damage at below 30% HP, increases Damage Resistance by 50% for 6s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "damage resistance",
+          "value": "50%",
+          "duration": "6s",
+          "target": "self",
+          "trigger": "low_health_damage",
+          "triggerThreshold": "30%"
+        }
+      ],
+      "triggerInterval": "60s",
+      "icon": "./assets/icons/passive-iron-wall.png"
+    },
+    {
+      "id": "forward-guard",
+      "name": "Forward Guard",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["buff", "cleanse", "immunity"],
+      "cooldown": "30s",
+      "description": "When affected by Immobilize or Forced Movement (Knockback, Pull): Immediately removes all Immobilize, Slow and Forced Movement effects, and increases Damage Resistance by 25%, grants immunity to Slow, Immobilize, and Forced Movement for 8s",
+      "effects": [
+        {
+          "type": "cleanse",
+          "effects": ["immobilize", "slow", "forced_movement"],
+          "target": "self",
+          "trigger": "immobilize_or_forced_movement"
+        },
+        {
+          "type": "buff",
+          "effect": "damage resistance",
+          "value": "25%",
+          "duration": "8s",
+          "target": "self",
+          "trigger": "immobilize_or_forced_movement"
+        },
+        {
+          "type": "immunity",
+          "effects": ["slow", "immobilize", "forced_movement"],
+          "duration": "8s",
+          "target": "self",
+          "trigger": "immobilize_or_forced_movement"
+        }
+      ],
+      "triggerInterval": "30s",
+      "icon": "./assets/icons/passive-forward-guard.png"
+    },
+    {
+      "id": "sandstorm",
+      "name": "Sandstorm",
+      "type": "passive",
+      "category": "utility",
+      "tags": ["slow", "disarm", "area"],
+      "cooldown": "30s",
+      "description": "When dealing direct Basic Attack Damage, creates a sandstorm around the caster, lasting 6s. Enemies within 6m are slowed by 40% and disarmed",
+      "effects": [
+        {
+          "type": "area_effect",
+          "value": "6m",
+          "duration": "6s",
+          "target": "area",
+          "trigger": "basic_attack_damage"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement speed reduction",
+          "value": "40%",
+          "duration": "6s",
+          "target": "enemies",
+          "condition": "in_field"
+        },
+        {
+          "type": "debuff",
+          "effect": "disarm",
+          "duration": "6s",
+          "target": "enemies",
+          "condition": "in_field"
+        }
+      ],
+      "triggerInterval": "30s",
+      "icon": "./assets/icons/passive-sandstorm.png"
     }
   ]
 }
