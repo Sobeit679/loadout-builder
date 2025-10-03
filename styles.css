@@ -34,6 +34,47 @@
   justify-content: center;
 }
 
+/* Custom tooltip styles for equipment slots */
+#global-tooltip {
+  position: fixed;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  max-width: 200px;
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
+#global-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--border);
+}
+
+#global-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--bg-elev-2);
+  margin-top: -1px;
+}
+
 .drifter-select-card {
   background: var(--bg-elev-2);
   border: 1px solid var(--border);

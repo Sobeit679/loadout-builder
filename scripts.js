@@ -164,7 +164,29 @@ function renderCards(items, container, isSelected, onToggle) {
       
       const itemDesc = document.createElement('div');
       itemDesc.className = 'card-sub';
-      itemDesc.textContent = item.description || '';
+      
+      // Build description with stats
+      let descText = item.description || '';
+      if (item.stats && Object.keys(item.stats).length > 0) {
+        const statsText = Object.entries(item.stats)
+          .map(([key, value]) => {
+            // Format key names for display
+            const displayKey = key
+              .replace(/([A-Z])/g, ' $1')
+              .replace(/^./, str => str.toUpperCase())
+              .replace(/_/g, ' ');
+            return `${displayKey}: ${value}`;
+          })
+          .join(', ');
+        
+        if (descText) {
+          descText += ` | ${statsText}`;
+        } else {
+          descText = statsText;
+        }
+      }
+      
+      itemDesc.textContent = descText;
       itemDesc.style.fontSize = '0.75rem';
       itemDesc.style.color = 'var(--text-muted)';
       itemDesc.style.lineHeight = '1.3';
@@ -456,7 +478,7 @@ function showOverlay(title, key) {
   
   // Show/hide search container based on selection type
   if (searchContainer) {
-    if (key === 'weapon' || key === 'chest' || key === 'boots' || key === 'weaponMod') {
+    if (key === 'weapon' || key === 'chest' || key === 'boots' || key === 'weaponMod' || key === 'helmMod' || key === 'chestMod' || key === 'bootsMod') {
       searchContainer.style.display = 'flex';
     } else {
       searchContainer.style.display = 'none';
@@ -535,6 +557,9 @@ function handleSearch() {
     }
     if (!item && STATE.mods.weapon) {
       item = STATE.mods.weapon.find(m => m.id === itemId);
+    }
+    if (!item && STATE.mods.armor) {
+      item = STATE.mods.armor.find(m => m.id === itemId);
     }
     
     let matchesSearch = false;
@@ -922,9 +947,12 @@ function renderGear(key) {
   } else if (key === 'weaponMod') {
     // For weapon mods, show weapon mods
     items = STATE.mods.weapon;
+  } else if (key === 'helmMod' || key === 'chestMod' || key === 'bootsMod') {
+    // For armor mods, show armor mods
+    items = STATE.mods.armor;
   } else {
-    // For other mods, show armor mods
-    items = [...STATE.gear[gearKey], ...STATE.mods.armor];
+    // Fallback
+    items = [];
   }
     
   
@@ -935,6 +963,12 @@ function renderGear(key) {
     (item) => {
       if (key === 'weaponMod') {
         return STATE.selected.mods.weaponMod?.gameId === item.gameId;
+      } else if (key === 'helmMod') {
+        return STATE.selected.mods.helmMod?.gameId === item.gameId;
+      } else if (key === 'chestMod') {
+        return STATE.selected.mods.chestMod?.gameId === item.gameId;
+      } else if (key === 'bootsMod') {
+        return STATE.selected.mods.bootsMod?.gameId === item.gameId;
       } else {
         return STATE.selected.gear[gearKey]?.gameId === item.gameId;
       }
@@ -946,6 +980,24 @@ function renderGear(key) {
         } else {
           STATE.selected.mods.weaponMod = item;
         }
+      } else if (key === 'helmMod') {
+        if (STATE.selected.mods.helmMod?.gameId === item.gameId) {
+          delete STATE.selected.mods.helmMod;
+        } else {
+          STATE.selected.mods.helmMod = item;
+        }
+      } else if (key === 'chestMod') {
+        if (STATE.selected.mods.chestMod?.gameId === item.gameId) {
+          delete STATE.selected.mods.chestMod;
+        } else {
+          STATE.selected.mods.chestMod = item;
+        }
+      } else if (key === 'bootsMod') {
+        if (STATE.selected.mods.bootsMod?.gameId === item.gameId) {
+          delete STATE.selected.mods.bootsMod;
+        } else {
+          STATE.selected.mods.bootsMod = item;
+        }
       } else {
         if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
           delete STATE.selected.gear[gearKey];
@@ -956,6 +1008,10 @@ function renderGear(key) {
           }
         }
       }
+      
+      // Debug logging
+      console.log('Item selected:', item.name, 'Key:', key, 'GearKey:', gearKey);
+      console.log('Current selection:', STATE.selected.gear[gearKey]);
       
       // Auto-fill ability slots with weapon skills (only for weapons, not mods)
       if (key !== 'weaponMod' && item.basicAttacks && item.basicAttacks.length > 0) {
@@ -972,8 +1028,8 @@ function renderGear(key) {
         }
       }
       
-      // Close the modal after selecting a weapon or weapon mod
-      if (key === 'weapon' || key === 'weaponMod') {
+      // Close the modal after selecting equipment or mods
+      if (key === 'weapon' || key === 'weaponMod' || key === 'helm' || key === 'chest' || key === 'boots' || key === 'helmMod' || key === 'chestMod' || key === 'bootsMod') {
         hideOverlay();
       }
       
@@ -1004,6 +1060,14 @@ function populateLoadoutBoard() {
     if (!item) {
       card.classList.add('empty');
       card.innerHTML = '<span class="slot-empty-label">Empty Slot</span>';
+      // Remove any existing tooltip
+      slot.removeAttribute('title');
+      slot.removeAttribute('data-tooltip');
+      // Remove tooltip event listeners without breaking click handlers
+      slot.removeEventListener('mouseenter', slot._tooltipMouseEnter);
+      slot.removeEventListener('mouseleave', slot._tooltipMouseLeave);
+      delete slot._tooltipMouseEnter;
+      delete slot._tooltipMouseLeave;
       return;
     }
 
@@ -1018,6 +1082,57 @@ function populateLoadoutBoard() {
       img.alt = item.name || 'Icon';
       card.appendChild(img);
     }
+
+    // Add custom tooltip functionality
+    slot.removeAttribute('title'); // Remove default tooltip
+    slot.setAttribute('data-tooltip', item.name || 'Unknown Item');
+    
+    // Remove existing tooltip event listeners if they exist
+    if (slot._tooltipMouseEnter) {
+      slot.removeEventListener('mouseenter', slot._tooltipMouseEnter);
+    }
+    if (slot._tooltipMouseLeave) {
+      slot.removeEventListener('mouseleave', slot._tooltipMouseLeave);
+    }
+    
+    // Create new tooltip event listeners
+    slot._tooltipMouseEnter = (e) => {
+      const tooltip = createGlobalTooltip();
+      tooltip.textContent = item.name || 'Unknown Item';
+      tooltip.style.display = 'block';
+      tooltip.style.opacity = '1';
+      tooltip.style.visibility = 'visible';
+      
+      // Position tooltip
+      const slotRect = slot.getBoundingClientRect();
+      const tooltipRect = tooltip.getBoundingClientRect();
+      
+      let top = slotRect.top - tooltipRect.height - 10;
+      let left = slotRect.left + (slotRect.width / 2) - (tooltipRect.width / 2);
+      
+      // Keep within viewport
+      if (left < 10) left = 10;
+      if (left + tooltipRect.width > window.innerWidth - 10) {
+        left = window.innerWidth - tooltipRect.width - 10;
+      }
+      if (top < 10) {
+        top = slotRect.bottom + 10;
+      }
+      
+      tooltip.style.top = `${top}px`;
+      tooltip.style.left = `${left}px`;
+    };
+    
+    slot._tooltipMouseLeave = (e) => {
+      const tooltip = createGlobalTooltip();
+      tooltip.style.display = 'none';
+      tooltip.style.opacity = '0';
+      tooltip.style.visibility = 'hidden';
+    };
+    
+    // Add the event listeners
+    slot.addEventListener('mouseenter', slot._tooltipMouseEnter);
+    slot.addEventListener('mouseleave', slot._tooltipMouseLeave);
   });
 
   // Update ability slot W with weapon skill
