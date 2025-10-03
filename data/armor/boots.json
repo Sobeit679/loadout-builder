@@ -275,8 +275,8 @@
       "icon": "./assets/icons/boots-energizer-boots.png"
     },
     {
-      "id": "vanuards-march",
-      "gameId": "vanuards-march",
+      "id": "vanguards-march",
+      "gameId": "vanguards-march",
       "name": "Vanguard's March",
       "type": "boots",
       "armorType": "Strength",
@@ -289,7 +289,7 @@
         "leadership": "+12%"
       },
       "coreSkill": "vanguard",
-      "icon": "./assets/icons/boots-vanuards-march.png"
+      "icon": "./assets/icons/boots-vanguards-march.png"
     },
     {
       "id": "titan-walkers",
