@@ -1,34 +1,346 @@
 {
   "weaponMods": [
     {
-      "id": "void-enhancement",
-      "gameId": "void-enhancement",
-      "name": "Void Enhancement",
-      "rarity": "epic",
-      "slot": "weapon",
-      "description": "Enhances weapon with void energy, increasing magical damage and adding void effects.",
+      "id": "advance",
+      "gameId": "advance",
+      "name": "Advance",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "Physical Damage increased by % [0.6% - 3%]",
       "stats": {
-        "magicDamage": "+30%",
-        "voidDamage": "+15%",
-        "spellPower": "+20",
-        "manaCost": "-10%"
+        "physicalDamage": "+0.6% to +3%"
       },
-      "icon": "./assets/icons/mod-void-enhancement.png"
+      "icon": "./assets/icons/mod-advance.png"
     },
     {
-      "id": "shadow-edge",
-      "gameId": "shadow-edge",
-      "name": "Shadow Edge",
+      "id": "tactics",
+      "gameId": "tactics",
+      "name": "Tactics",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-tactics.png"
+    },
+    {
+      "id": "armor-breaker",
+      "gameId": "armor-breaker",
+      "name": "Armor Breaker",
+      "type": "weapon",
       "rarity": "rare",
-      "slot": "weapon",
-      "description": "Sharpens the weapon's edge with shadow magic, increasing critical damage and stealth.",
+      "description": "When weapon skills deal direct Physical Damage, has a % change to modify the target's Armor by -% for 6s. Trigger Interval: 30s",
       "stats": {
-        "criticalDamage": "+25%",
-        "stealthDamage": "+20%",
-        "agility": 5,
-        "criticalChance": "+8%"
+        "triggerRate": "8% to 40%",
+        "armorReduction": "-4% to -20%",
+        "duration": "6s",
+        "cooldown": "30s"
       },
-      "icon": "./assets/icons/mod-shadow-edge.png"
+      "icon": "./assets/icons/mod-armor-breaker.png"
+    },
+    {
+      "id": "fortify",
+      "gameId": "fortify",
+      "name": "Fortify",
+      "type": "weapon",
+      "rarity": "rare",
+      "description": "When Basic Attacks deal direct damage, has a (melee weapons % / ranged weapons %) chance to gain [Target-based Max HP %] Shield for 4s. Trigger Interval: 30s",
+      "stats": {
+        "meleeTriggerRate": "8% to 40%",
+        "rangedTriggerRate": "4% to 20%",
+        "shieldRatio": "3% to 15%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-fortify.png"
+    },
+    {
+      "id": "dominate",
+      "gameId": "dominate",
+      "name": "Dominate",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-dominate.png"
+    },
+    {
+      "id": "upperhand",
+      "gameId": "upperhand",
+      "name": "Upperhand",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-upperhand.png"
+    },
+    {
+      "id": "pursuit",
+      "gameId": "pursuit",
+      "name": "Pursuit",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-pursuit.png"
+    },
+    {
+      "id": "ravage",
+      "gameId": "ravage",
+      "name": "Ravage",
+      "type": "weapon",
+      "rarity": "rare",
+      "description": "When landing a Basic Attack Critical Hit, has a % chance to reduce the target's Damage Resistance by -% for 4s. Cooldown: 30s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "damageResistanceReduction": "-2% to -10%",
+        "duration": "4s",
+        "cooldown": "30s"
+      },
+      "icon": "./assets/icons/mod-ravage.png"
+    },
+    {
+      "id": "magic-break",
+      "gameId": "magic-break",
+      "name": "Magic Break",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-magic-break.png"
+    },
+    {
+      "id": "charge",
+      "gameId": "charge",
+      "name": "Charge",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-charge.png"
+    },
+    {
+      "id": "haste",
+      "gameId": "haste",
+      "name": "Haste",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-haste.png"
+    },
+    {
+      "id": "nimbleness",
+      "gameId": "nimbleness",
+      "name": "Nimbleness",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-nimbleness.png"
+    },
+    {
+      "id": "piercing-chill",
+      "gameId": "piercing-chill",
+      "name": "Piercing Chill",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-piercing-chill.png"
+    },
+    {
+      "id": "drain",
+      "gameId": "drain",
+      "name": "Drain",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-drain.png"
+    },
+    {
+      "id": "earthquake",
+      "gameId": "earthquake",
+      "name": "Earthquake",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-earthquake.png"
+    },
+    {
+      "id": "rend",
+      "gameId": "rend",
+      "name": "Rend",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-rend.png"
+    },
+    {
+      "id": "retribution",
+      "gameId": "retribution",
+      "name": "Retribution",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-retribution.png"
+    },
+    {
+      "id": "bloodgrudge",
+      "gameId": "bloodgrudge",
+      "name": "Bloodgrudge",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-bloodgrudge.png"
+    },
+    {
+      "id": "shadowstep",
+      "gameId": "shadowstep",
+      "name": "Shadowstep",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-shadowstep.png"
+    },
+    {
+      "id": "valor",
+      "gameId": "valor",
+      "name": "Valor",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-valor.png"
+    },
+    {
+      "id": "disrupt",
+      "gameId": "disrupt",
+      "name": "Disrupt",
+      "type": "weapon",
+      "rarity": "epic",
+      "description": "*Only triggers with Maces* When skills or Basic Attacks deal Direct Damage, has a % chance to create a disruption field around the caster. Enemies within take -% reduced damage and have their Attack Speed reduced by % for 4s. Cooldown: 20s",
+      "stats": {
+        "triggerRate": "6% to 30%",
+        "damageReduction": "-5% to -25%",
+        "attackSpeedReduction": "-8% to -40%",
+        "duration": "4s",
+        "cooldown": "20s",
+        "weaponType": "mace"
+      },
+      "icon": "./assets/icons/mod-disrupt.png"
+    },
+    {
+      "id": "seize-chance",
+      "gameId": "seize-chance",
+      "name": "Seize Chance",
+      "type": "weapon",
+      "rarity": "epic",
+      "description": "*Only triggers with Axes* When gaining [Bloodthirst] buff, has a % chance to increase Attack Speed by % and Damage by % for 6s. Trigger Interval: 20s",
+      "stats": {
+        "triggerRate": "8% to 40%",
+        "damageIncrease": "2% to 10%",
+        "attackSpeedIncrease": "8% to 40%",
+        "duration": "6s",
+        "cooldown": "20s",
+        "weaponType": "axe"
+      },
+      "icon": "./assets/icons/mod-seize-chance.png"
+    },
+    {
+      "id": "detonate",
+      "gameId": "detonate",
+      "name": "Detonate",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-detonate.png"
+    },
+    {
+      "id": "synergy",
+      "gameId": "synergy",
+      "name": "Synergy",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-synergy.png"
+    },
+    {
+      "id": "annihilate",
+      "gameId": "annihilate",
+      "name": "Annihilate",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-annihilate.png"
+    },
+    {
+      "id": "wild-growth",
+      "gameId": "wild-growth",
+      "name": "Wild Growth",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-wild-growth.png"
+    },
+    {
+      "id": "ice-blast",
+      "gameId": "ice-blast",
+      "name": "Ice Blast",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-ice-blast.png"
+    },
+    {
+      "id": "flame-blast",
+      "gameId": "flame-blast",
+      "name": "Flame Blast",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-flame-blast.png"
+    },
+    {
+      "id": "blessing",
+      "gameId": "blessing",
+      "name": "Blessing",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-blessing.png"
+    },
+    {
+      "id": "curse",
+      "gameId": "curse",
+      "name": "Curse",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-curse.png"
+    },
+    {
+      "id": "retrofit",
+      "gameId": "retrofit",
+      "name": "Retrofit",
+      "type": "weapon",
+      "rarity": "common",
+      "description": "",
+      "stats": {},
+      "icon": "./assets/icons/mod-retrofit.png"
     }
   ]
 }
