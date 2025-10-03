@@ -10280,6 +10280,154 @@
         }
       ],
       "icon": "./assets/icons/skill-panic.png"
+    },
+    {
+      "id": "grievous-wounds",
+      "name": "Grievous Wounds",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "debuff", "magic", "aoe"],
+      "cooldown": "25s",
+      "description": "When the skill damages an enemy, it triggers an explosion at their location, dealing [Damage Rate: 180%] Magic Damage to enemies in range and reducing their healing received by 40% for 6s",
+      "effects": [
+        {
+          "type": "magic damage",
+          "value": "180%",
+          "target": "enemies",
+          "trigger": "skill_damage"
+        },
+        {
+          "type": "healing reduction",
+          "value": "40%",
+          "duration": "6s",
+          "target": "enemies"
+        }
+      ],
+      "triggerInterval": "25s",
+      "icon": "./assets/icons/passive-grievous-wounds.png"
+    },
+    {
+      "id": "miasma",
+      "name": "Miasma",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["damage", "debuff", "magic", "aoe"],
+      "cooldown": "30s",
+      "description": "When skills deal direct damage, creates a miasma lasting 6s. Enemies within 5m take [Damage Rate: 55%] Magic Damage every second and have their Magic Resistance reduced by 84",
+      "effects": [
+        {
+          "type": "damage over time",
+          "value": "55%",
+          "damageType": "magic",
+          "duration": "6s",
+          "interval": "1s",
+          "radius": "5m",
+          "target": "enemies"
+        },
+        {
+          "type": "magic resistance reduction",
+          "value": 84,
+          "duration": "6s",
+          "radius": "5m",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/passive-miasma.png"
+    },
+    {
+      "id": "swift-aid",
+      "name": "Swift Aid",
+      "type": "passive",
+      "category": "support",
+      "tags": ["shield", "heal", "support"],
+      "cooldown": "20s",
+      "description": "When healing, grants target a [Target-based Max HP 20%] shield for 6s",
+      "effects": [
+        {
+          "type": "shield",
+          "value": "20%",
+          "duration": "6s",
+          "target": "heal_target"
+        }
+      ],
+      "triggerInterval": "20s",
+      "icon": "./assets/icons/passive-swift-aid.png"
+    },
+    {
+      "id": "overflow",
+      "name": "Overflow",
+      "type": "passive",
+      "category": "resource",
+      "tags": ["mp", "mana regen", "buff"],
+      "cooldown": "45s",
+      "description": "When casting skills with MP below 40%, gains 15 MP every second for 8s",
+      "effects": [
+        {
+          "type": "mana regeneration",
+          "value": 15,
+          "duration": "8s",
+          "interval": "1s",
+          "target": "self"
+        }
+      ],
+      "triggerInterval": "45s",
+      "icon": "./assets/icons/passive-overflow.png"
+    },
+    {
+      "id": "last-stand",
+      "name": "Last Stand",
+      "type": "passive",
+      "category": "support",
+      "tags": ["healing", "cleanse", "support"],
+      "cooldown": "45s",
+      "description": "When damage taken within 3s exceeds 35% of max HP, creates a healing wave that restores [Healing Rate: 240%] HP to nearby allies and removes control effects",
+      "effects": [
+        {
+          "type": "heal",
+          "value": "240%",
+          "target": "allies",
+          "trigger": "high_damage_taken"
+        },
+        {
+          "type": "cleanse",
+          "target": "allies",
+          "trigger": "high_damage_taken"
+        }
+      ],
+      "triggerInterval": "45s",
+      "icon": "./assets/icons/passive-last-stand.png"
+    },
+    {
+      "id": "repulsion",
+      "name": "Repulsion",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["damage", "shield", "knockback"],
+      "cooldown": "45s",
+      "description": "When taking damage at below 40% HP, gains a [Target-based Max HP 25%] shield and generates a repulsion field lasting 6s. Enemies touching the field take [Damage Rate: 100%] Magic Damage and are knocked back 7m",
+      "effects": [
+        {
+          "type": "shield",
+          "value": "25%",
+          "duration": "6s",
+          "target": "self",
+          "trigger": "low_health_damage"
+        },
+        {
+          "type": "magic damage",
+          "value": "100%",
+          "target": "enemies",
+          "trigger": "field_contact"
+        },
+        {
+          "type": "knockback",
+          "value": "7m",
+          "target": "enemies",
+          "trigger": "field_contact"
+        }
+      ],
+      "triggerInterval": "45s",
+      "icon": "./assets/icons/passive-repulsion.png"
     }
   ]
 }

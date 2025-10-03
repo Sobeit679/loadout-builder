@@ -16,6 +16,108 @@
       },
       "passiveSkill": "amplify",
       "icon": "./assets/icons/helmet-breezeweaver-hood.png"
+    },
+    {
+      "id": "crimson-breeze",
+      "gameId": "crimson-breeze",
+      "name": "Crimson Breeze",
+      "type": "helmet",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A hood infused with crimson energy that causes devastating explosions when dealing damage to enemies.",
+      "stats": {
+        "magicResistance": 20,
+        "intelligence": 12,
+        "spellPower": "+15%",
+        "criticalChance": "+8%"
+      },
+      "passiveSkill": "grievous-wounds",
+      "icon": "./assets/icons/helmet-crimson-breeze.png"
+    },
+    {
+      "id": "earth-vein-hood",
+      "gameId": "earth-vein-hood",
+      "name": "Earth Vein Hood",
+      "type": "helmet",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A hood connected to the earth's energy that creates a toxic miasma when dealing damage to enemies.",
+      "stats": {
+        "magicResistance": 18,
+        "intelligence": 10,
+        "manaRegen": "+2/s",
+        "debuffDuration": "+20%"
+      },
+      "passiveSkill": "miasma",
+      "icon": "./assets/icons/helmet-earth-vein-hood.png"
+    },
+    {
+      "id": "healers-hood",
+      "gameId": "healers-hood",
+      "name": "Healer's Hood",
+      "type": "helmet",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A blessed hood that enhances healing abilities and provides protective shields to those you heal.",
+      "stats": {
+        "magicResistance": 15,
+        "intelligence": 11,
+        "healingBonus": "+25%",
+        "cooldownReduction": "+10%"
+      },
+      "passiveSkill": "swift-aid",
+      "icon": "./assets/icons/helmet-healers-hood.png"
+    },
+    {
+      "id": "mystic-surge",
+      "gameId": "mystic-surge",
+      "name": "Mystic Surge",
+      "type": "helmet",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A hood that channels overflowing magical energy, providing mana regeneration when casting skills with low MP.",
+      "stats": {
+        "magicResistance": 16,
+        "intelligence": 13,
+        "mana": 80,
+        "manaRegen": "+4/s"
+      },
+      "passiveSkill": "overflow",
+      "icon": "./assets/icons/helmet-mystic-surge.png"
+    },
+    {
+      "id": "twilight-mantle",
+      "gameId": "twilight-mantle",
+      "name": "Twilight Mantle",
+      "type": "helmet",
+      "armorType": "Intelligence",
+      "rarity": "legendary",
+      "description": "A legendary hood that provides a final burst of healing and cleansing when taking critical damage.",
+      "stats": {
+        "magicResistance": 25,
+        "intelligence": 15,
+        "health": 100,
+        "healingReceived": "+20%"
+      },
+      "passiveSkill": "last-stand",
+      "icon": "./assets/icons/helmet-twilight-mantle.png"
+    },
+    {
+      "id": "sanctum-shroud",
+      "gameId": "sanctum-shroud",
+      "name": "Sanctum Shroud",
+      "type": "helmet",
+      "armorType": "Intelligence",
+      "rarity": "legendary",
+      "description": "A sacred hood that creates a repulsion field when taking damage at low health, protecting the wearer and punishing attackers.",
+      "stats": {
+        "magicResistance": 22,
+        "intelligence": 18,
+        "health": 120,
+        "damageReduction": "+12%"
+      },
+      "passiveSkill": "repulsion",
+      "icon": "./assets/icons/helmet-sanctum-shroud.png"
     }
   ]
 }
