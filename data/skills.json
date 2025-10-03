@@ -5598,7 +5598,7 @@
       "icon": "./assets/icons/skill-ricocheting-blades.png"
     },
     {
-      "id": "armor-breaker",
+      "id": "armor-breaker-v2",
       "name": "Armor Breaker",
       "type": "basic-attack",
       "category": "damage",
