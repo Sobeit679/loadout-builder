@@ -7930,6 +7930,1219 @@
         }
       ],
       "icon": "./assets/icons/skill-deadshot.png"
+    },
+    {
+      "id": "guardian",
+      "name": "Guardian",
+      "type": "passive",
+      "category": "defense",
+      "tags": ["passive", "damage resistance", "control resistance"],
+      "description": "Using a weapon skill increases Damage Resistance by 30% and Control Resistance by 35 for 6s",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "on_weapon_skill_use",
+          "damage_resistance": "+30%",
+          "control_resistance": "+35",
+          "duration": "6s"
+        }
+      ],
+      "icon": "./assets/icons/passive-guardian.png"
+    },
+    {
+      "id": "swing",
+      "name": "Swing",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.1s",
+      "castingTime": "0s",
+      "range": "5m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies. Can cast [Swing] every 4s Deals [Damage Rate: 240%] Physical Damage to all players ([Damage Rate: 480%] Physical Damage to mobs) in a frontal cone",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "240%",
+          "target": "players",
+          "cooldown": "4s"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "480%",
+          "target": "mobs",
+          "cooldown": "4s"
+        }
+      ],
+      "icon": "./assets/icons/skill-swing.png"
+    },
+    {
+      "id": "smash",
+      "name": "Smash",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "healing", "buff", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.1s",
+      "castingTime": "0s",
+      "range": "3.5m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies. Can cast [Smash] every 7s Deals [Damage Rate: 150%] Physical Damage to enemies in range and restores [Healing Rate: 90%] HP to nearby allies. Increases Damage Resistance by 15% for 6s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies",
+          "cooldown": "7s"
+        },
+        {
+          "type": "healing",
+          "healing_rate": "90%",
+          "target": "nearby_allies",
+          "cooldown": "7s"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "+15%",
+          "duration": "6s",
+          "cooldown": "7s"
+        }
+      ],
+      "icon": "./assets/icons/skill-smash.png"
+    },
+    {
+      "id": "crushing-smash",
+      "name": "Crushing Smash",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "slow", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.1s",
+      "castingTime": "0s",
+      "range": "7m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies. Can cast [Crushing Smash] every 6s Charges toward target, dealing [Damage Rate: 160%] Physical Damage to enemies in range and inflicting Slow 35% for 3s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "160%",
+          "target": "enemies",
+          "cooldown": "6s"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "35%",
+          "duration": "3s",
+          "target": "enemies",
+          "cooldown": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-crushing-smash.png"
+    },
+    {
+      "id": "frenzied-smash",
+      "name": "Frenzied Smash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["physical damage", "hard control", "skill"],
+      "mpCost": 15,
+      "cooldown": "8.8s",
+      "castingTime": "0s",
+      "range": "3m",
+      "description": "Smashes the ground 4 times. The first three hits deal [Damage Rate: 120%] Physical Damage to players ([Damage Rate: 180%] Physical Damage to mobs). The final hit deals [Damage Rate: 200%] Physical Damage to players ([Damage Rate: 300%] Physical Damage to mobs) and Knocks Up for 0.5s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "players",
+          "hits": 3
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "180%",
+          "target": "mobs",
+          "hits": 3
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "players"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "target": "mobs"
+        },
+        {
+          "type": "hard_control",
+          "effect": "knockup",
+          "duration": "0.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-frenzied-smash.png"
+    },
+    {
+      "id": "binding-smash",
+      "name": "Binding Smash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["physical damage", "immobilize", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting Immobilize for 2.5s to enemies in the area",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "enemies_in_area"
+        },
+        {
+          "type": "hard_control",
+          "effect": "immobilize",
+          "duration": "2.5s",
+          "target": "enemies_in_area"
+        }
+      ],
+      "icon": "./assets/icons/skill-binding-smash.png"
+    },
+    {
+      "id": "guardian-field",
+      "name": "Guardian Field",
+      "type": "active",
+      "category": "buff",
+      "tags": ["buff", "skill"],
+      "mpCost": 17,
+      "cooldown": "9.7s",
+      "castingTime": "0s",
+      "range": "12m",
+      "description": "Creates a Guardian Field at the target location that increases allies' Max HP by 25% and grants Immunity to Forced Movement (Pull, Knockback) and Hard Control (Stun, Fear, Freeze, Knockup, Petrify, Sleep). Lasts 5s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "max_hp_increase",
+          "value": "25%",
+          "target": "allies_in_field",
+          "duration": "5s"
+        },
+        {
+          "type": "immunity",
+          "effects": ["forced_movement", "hard_control"],
+          "target": "allies_in_field",
+          "duration": "5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-guardian-field.png"
+    },
+    {
+      "id": "field-of-silence",
+      "name": "Field of Silence",
+      "type": "active",
+      "category": "damage",
+      "tags": ["magic damage", "silence", "skill"],
+      "mpCost": 15,
+      "cooldown": "8.8s",
+      "castingTime": "0s",
+      "range": "4m",
+      "description": "Deals [Damage Rate: 200%] Magic Damage to enemies in range and creates a Field of Silence, lasting 4s. Enemies in the field are Slowed by 25% and Silenced. Once they leave the area, they become immune to the field's Silence for 6s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "200%",
+          "target": "enemies_in_range"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "25%",
+          "target": "enemies_in_field",
+          "duration": "4s"
+        },
+        {
+          "type": "debuff",
+          "effect": "silence",
+          "target": "enemies_in_field",
+          "duration": "4s"
+        },
+        {
+          "type": "immunity",
+          "effect": "silence",
+          "target": "enemies_who_left_field",
+          "duration": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-field-of-silence.png"
+    },
+    {
+      "id": "vengeful-thunder",
+      "name": "Vengeful Thunder",
+      "type": "active",
+      "category": "damage",
+      "tags": ["physical damage", "buff", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "0s",
+      "range": "9m",
+      "description": "Activates [Vengeful Thunder] on self or an ally. [Vengeful Thunder]: Increases own Damage Resistance by 25% for 8s. While active, when taking damage or dealing direct damage with Basic Attack, calls down lightning at the target location, dealing [Damage Rate: 51%] Physical Damage to enemies in range (Internal Cooldown: 0.8s)",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "25%",
+          "duration": "8s",
+          "target": "self_or_ally"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "51%",
+          "target": "enemies_in_range",
+          "trigger": "on_damage_taken_or_basic_attack",
+          "internal_cooldown": "0.8s"
+        }
+      ],
+      "icon": "./assets/icons/skill-vengeful-thunder.png"
+    },
+    {
+      "id": "unyielding-smash",
+      "name": "Unyielding Smash",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "shield", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 250%] Physical Damage to all players ([Damage Rate: 375%] Physical Damage to mobs) in range. Grants [Target-based Max HP 6%] Shield for each enemy hit, lasting 6s. Stacks up to 5 times.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "250%",
+          "target": "players"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "375%",
+          "target": "mobs"
+        },
+        {
+          "type": "shield",
+          "value": "6% of target max HP",
+          "duration": "6s",
+          "stacks": 5,
+          "per_enemy_hit": true
+        }
+      ],
+      "icon": "./assets/icons/skill-unyielding-smash.png"
+    },
+    {
+      "id": "shield-slam",
+      "name": "Shield Slam",
+      "type": "core-skill",
+      "category": "buff",
+      "tags": ["buff", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "3m",
+      "description": "Initiates a Raise Shield status for 20s. During this status, gains immunity to control effects and +50% Damage Resistance, with an increased hit box. Can re-cast the skill during this period to deal [Damage Rate: 300%] Physical Damage to enemies in range and apply 50% Slow for 3s. The large shield will break after taking [Target-based Max HP 30%] damage, immediately ending the Raise Shield status.",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "raise_shield",
+          "duration": "20s",
+          "damage_resistance": "50%",
+          "immunity": ["control_effects"]
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "target": "enemies_in_range",
+          "condition": "during_raise_shield"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "50%",
+          "duration": "3s",
+          "target": "enemies_in_range",
+          "condition": "during_raise_shield"
+        },
+        {
+          "type": "shield_break",
+          "threshold": "30% of target max HP",
+          "effect": "end_raise_shield"
+        }
+      ],
+      "icon": "./assets/icons/skill-shield-slam.png"
+    },
+    {
+      "id": "grappling-strike",
+      "name": "Grappling Strike",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "hard control", "pull", "skill"],
+      "mpCost": 22,
+      "cooldown": "17s",
+      "castingTime": "0s",
+      "range": "18m",
+      "description": "Launches a mechanical hook forward. The first enemy hit is Stunned (ignores Control Resistance) for 1.5s, takes [Damage Rate: 450%] Physical Damage, and is Pulled to the caster",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "450%",
+          "target": "first_enemy_hit"
+        },
+        {
+          "type": "hard_control",
+          "effect": "stun",
+          "duration": "1.5s",
+          "ignores_control_resistance": true,
+          "target": "first_enemy_hit"
+        },
+        {
+          "type": "pull",
+          "target": "first_enemy_hit",
+          "destination": "caster"
+        }
+      ],
+      "icon": "./assets/icons/skill-grappling-strike.png"
+    },
+    {
+      "id": "void-slam",
+      "name": "Void Slam",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["magic damage", "dispel", "silence", "skill"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0s",
+      "range": "6m",
+      "description": "Slams the ground, dealing [Damage Rate: 300%] Magic Damage to up to 15 nearby enemies, dispelling all Buffs from them, reducing their damage output by 50% for 8s, and Silencing them for 3s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "300%",
+          "target": "up_to_15_nearby_enemies"
+        },
+        {
+          "type": "dispel",
+          "target": "up_to_15_nearby_enemies",
+          "effects": "all_buffs"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage_reduction",
+          "value": "50%",
+          "duration": "8s",
+          "target": "up_to_15_nearby_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "silence",
+          "duration": "3s",
+          "target": "up_to_15_nearby_enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-void-slam.png"
+    },
+    {
+      "id": "pulverizing-slam",
+      "name": "Pulverizing Slam",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "slow", "pull", "skill"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0s",
+      "range": "4m",
+      "description": "Hold the skill to charge, up to 3s; damage range increases gradually with charge time and reaches max at 2s. Cannot be interrupted during charging. Every 0.5s during charging, deals [Damage Rate: 80%] Physical Damage to enemies in range. Upon releasing the skill button, if fully charged, pulls enemies in range toward the caster, dealing [Damage Rate: 250%] Physical Damage and applying 40% Slow for 3s. If not fully charged, only deals damage and applies Slow.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "80%",
+          "target": "enemies_in_range",
+          "interval": "0.5s",
+          "condition": "during_charge"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "250%",
+          "target": "enemies_in_range",
+          "condition": "fully_charged"
+        },
+        {
+          "type": "pull",
+          "target": "enemies_in_range",
+          "destination": "caster",
+          "condition": "fully_charged"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "40%",
+          "duration": "3s",
+          "target": "enemies_in_range"
+        }
+      ],
+      "icon": "./assets/icons/skill-pulverizing-slam.png"
+    },
+    {
+      "id": "thunderclap-impact",
+      "name": "Thunderclap Impact",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "debuff", "skill"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0s",
+      "range": "12m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting 1.5s Knockup on enemies hit. Creates a thunderstorm field that lasts 6s. Enemies within 7m have their Damage Resistance reduced by 15% and take [Damage Rate: 70%] Physical Damage every second.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "enemies_hit"
+        },
+        {
+          "type": "hard_control",
+          "effect": "knockup",
+          "duration": "1.5s",
+          "target": "enemies_hit"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage_resistance_reduction",
+          "value": "15%",
+          "target": "enemies_within_7m",
+          "duration": "6s"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "70%",
+          "target": "enemies_within_7m",
+          "interval": "1s",
+          "duration": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-thunderclap-impact.png"
+    },
+    {
+      "id": "void-devour",
+      "name": "Void Devour",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["magic damage", "slow", "hard control", "pull", "skill"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "castingTime": "0s",
+      "range": "20m",
+      "description": "Fires two heavy rounds that create a gravity vortex where they meet. Enemies in the vortex are Slowed by 25% Deals [Damage Rate: 300%] Magic Damage to enemies in the vortex after 1.5s, pulling them to the center and Stunning for 1s",
+      "effects": [
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "25%",
+          "target": "enemies_in_vortex"
+        },
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "300%",
+          "target": "enemies_in_vortex",
+          "delay": "1.5s"
+        },
+        {
+          "type": "pull",
+          "target": "enemies_in_vortex",
+          "destination": "vortex_center"
+        },
+        {
+          "type": "hard_control",
+          "effect": "stun",
+          "duration": "1s",
+          "target": "enemies_in_vortex"
+        }
+      ],
+      "icon": "./assets/icons/skill-void-devour.png"
+    },
+    {
+      "id": "bloodthirst",
+      "name": "Bloodthirst",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["passive", "lifesteal", "attack speed", "movement speed"],
+      "description": "Applies Bloodthirst Mark to up to 5 nearby enemies in a 15m frontal area every 12s, lasting 12s. Weapon skills against marked targets restore 6% of missing HP, deal +5% extra damage, while also granting +10% Attack Speed and +8% Movement Speed for 4s. Stacks up to 3 times. Consumes Bloodthirst Mark when triggered.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "bloodthirst_mark",
+          "targets": "up_to_5_enemies",
+          "range": "15m",
+          "interval": "12s",
+          "duration": "12s"
+        },
+        {
+          "type": "passive",
+          "effect": "on_weapon_skill_vs_marked",
+          "lifesteal": "6% of missing HP",
+          "damage_bonus": "+5%",
+          "attack_speed": "+10%",
+          "movement_speed": "+8%",
+          "duration": "4s",
+          "stacks": 3,
+          "consumes_mark": true
+        }
+      ],
+      "icon": "./assets/icons/passive-bloodthirst.png"
+    },
+    {
+      "id": "jump-slash",
+      "name": "Jump Slash",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "debuff", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.2s",
+      "castingTime": "0s",
+      "range": "7m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Jump Slash] every 6s Performs a powerful leap attack, dealing [Damage Rate: 220%] Physical Damage and reducing Armor by 32 for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "130%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "220%",
+          "target": "enemies",
+          "cooldown": "6s"
+        },
+        {
+          "type": "debuff",
+          "effect": "armor_reduction",
+          "value": "32",
+          "duration": "4s",
+          "target": "enemies",
+          "cooldown": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-jump-slash.png"
+    },
+    {
+      "id": "cleaving-strike",
+      "name": "Cleaving Strike",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.2s",
+      "castingTime": "0s",
+      "range": "3.5m",
+      "description": "Replaces Basic Attack with [Cleaving Strike]. Deals [Damage Rate: 160%] Physical Damage to enemies in a frontal cone",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "160%",
+          "target": "enemies_in_cone"
+        }
+      ],
+      "icon": "./assets/icons/skill-cleaving-strike.png"
+    },
+    {
+      "id": "cyclone-slash",
+      "name": "Cyclone Slash",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "debuff", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.2s",
+      "castingTime": "0s",
+      "range": "3.5m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Cyclone Slash] every 5s Deals [Damage Rate: 240%] Physical Damage to nearby enemies and reduces the healing they receive by 15% for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "130%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "240%",
+          "target": "nearby_enemies",
+          "cooldown": "5s"
+        },
+        {
+          "type": "debuff",
+          "effect": "healing_reduction",
+          "value": "15%",
+          "duration": "4s",
+          "target": "nearby_enemies",
+          "cooldown": "5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-cyclone-slash.png"
+    },
+    {
+      "id": "tempest-strike",
+      "name": "Tempest Strike",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "skill"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "castingTime": "0s",
+      "range": "6m",
+      "description": "Channels for 3s. Damage Resistance is increased by 25% while channeling. Deals [Damage Rate: 90%] Physical Damage to players ([Damage Rate: 135%] Physical Damage to mobs) every 0.4s. On completion, deals [Damage Rate: 200%] Physical Damage to nearby enemies. Channeling can be ended early to perform the final strike",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "25%",
+          "duration": "3s",
+          "condition": "while_channeling"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "90%",
+          "target": "players",
+          "interval": "0.4s",
+          "condition": "while_channeling"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "135%",
+          "target": "mobs",
+          "interval": "0.4s",
+          "condition": "while_channeling"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "nearby_enemies",
+          "condition": "on_completion_or_early_end"
+        }
+      ],
+      "icon": "./assets/icons/skill-tempest-strike.png"
+    },
+    {
+      "id": "rock-smash",
+      "name": "Rock Smash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "hard control", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "0s",
+      "range": "6m",
+      "description": "Swings a giant axe to perform Rock Smash, dealing [Damage Rate: 150%] Physical Damage and Stunning enemies before the caster for 1.2s. Stones deal [Damage Rate: 50%] Physical Damage to those hit and [Damage Rate: 150%] Physical Damage on landing, also inflicting 30% Slow for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies_before_caster"
+        },
+        {
+          "type": "hard_control",
+          "effect": "stun",
+          "duration": "1.2s",
+          "target": "enemies_before_caster"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "50%",
+          "target": "enemies_hit_by_stones"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies_on_landing"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "30%",
+          "duration": "4s",
+          "target": "enemies_on_landing"
+        }
+      ],
+      "icon": "./assets/icons/skill-rock-smash.png"
+    },
+    {
+      "id": "primal-rush",
+      "name": "Primal Rush",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "knockback", "skill"],
+      "mpCost": 19,
+      "cooldown": "12s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Charges forward to deal [Damage Rate: 30%] Physical Damage 6 times to up to 5 enemies hit, continuously knocking them back. The final impact deals [Damage Rate: 160%] Physical Damage to enemies in range",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "30%",
+          "target": "up_to_5_enemies",
+          "hits": 6
+        },
+        {
+          "type": "control",
+          "effect": "knockback",
+          "target": "enemies_hit",
+          "continuous": true
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "160%",
+          "target": "enemies_in_range",
+          "hit_type": "final_impact"
+        }
+      ],
+      "icon": "./assets/icons/skill-primal-rush.png"
+    },
+    {
+      "id": "axehook",
+      "name": "Axehook",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "hard control", "pull", "skill"],
+      "mpCost": 19,
+      "cooldown": "12s",
+      "castingTime": "0s",
+      "range": "8m",
+      "description": "Swings an axehook forward to pull up to 5 enemies to the caster, also deals [Damage Rate: 200%] Physical Damage and inflicts 50% Slow for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "up_to_5_enemies"
+        },
+        {
+          "type": "pull",
+          "target": "up_to_5_enemies",
+          "destination": "caster"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "50%",
+          "duration": "4s",
+          "target": "up_to_5_enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-axehook.png"
+    },
+    {
+      "id": "rage",
+      "name": "Rage",
+      "type": "active",
+      "category": "buff",
+      "tags": ["buff", "skill"],
+      "mpCost": 25,
+      "cooldown": "20s",
+      "castingTime": "0s",
+      "range": "Self",
+      "description": "Enter a berserker rage for 8s, increasing Physical Damage by 30%, Attack Speed by 20%, and Movement Speed by 15%. While in rage, taking damage increases these bonuses by 5% each, stacking up to 5 times",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "physical_damage",
+          "value": "30%",
+          "duration": "8s"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed",
+          "value": "20%",
+          "duration": "8s"
+        },
+        {
+          "type": "buff",
+          "effect": "movement_speed",
+          "value": "15%",
+          "duration": "8s"
+        },
+        {
+          "type": "buff",
+          "effect": "rage_stacking",
+          "trigger": "on_damage_taken",
+          "bonus_per_stack": "5%",
+          "max_stacks": 5,
+          "affects": ["physical_damage", "attack_speed", "movement_speed"]
+        }
+      ],
+      "icon": "./assets/icons/skill-rage.png"
+    },
+    {
+      "id": "whirlwind-slash",
+      "name": "Whirlwind Slash",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "skill"],
+      "mpCost": 25,
+      "cooldown": "22s",
+      "castingTime": "0s",
+      "range": "4m",
+      "description": "Deals [Damage Rate: 50%] Physical Damage to all nearby players ([Damage Rate: 75%] Physical Damage to mobs) every 0.5s for 5s. Can move freely while channeling. Cannot be interrupted, and cannot cancel skill. Upon stopping the whirlwind, deals [Damage Rate: 200%] Physical Damage to nearby enemies. The damage of the final slash increases based on hits while spinning, up to [Damage Rate: 400%] Physical Damage",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "50%",
+          "target": "nearby_players",
+          "interval": "0.5s",
+          "duration": "5s"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "75%",
+          "target": "nearby_mobs",
+          "interval": "0.5s",
+          "duration": "5s"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "nearby_enemies",
+          "condition": "on_stop"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "400%",
+          "target": "nearby_enemies",
+          "condition": "final_slash",
+          "scales_with_hits": true
+        }
+      ],
+      "icon": "./assets/icons/skill-whirlwind-slash.png"
+    },
+    {
+      "id": "vortex-toss",
+      "name": "Vortex Toss",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "knockback", "debuff", "skill"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0s",
+      "range": "18m",
+      "description": "Throws a massive axe in the target direction, dealing [Damage Rate: 90%] Physical Damage and knocking back enemies hit along its path. Reduces Damage dealt by 20% for 4s. The axe returns but does not knock back enemies",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "90%",
+          "target": "enemies_along_path"
+        },
+        {
+          "type": "control",
+          "effect": "knockback",
+          "target": "enemies_along_path"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage_reduction",
+          "value": "20%",
+          "duration": "4s",
+          "target": "enemies_hit"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "90%",
+          "target": "enemies_on_return",
+          "no_knockback": true
+        }
+      ],
+      "icon": "./assets/icons/skill-vortex-toss.png"
+    },
+    {
+      "id": "bonecrusher-leap",
+      "name": "Bonecrusher Leap",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "buff", "skill"],
+      "mpCost": 22,
+      "cooldown": "17s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 300%] Physical Damage to nearby enemies. Gains [Basic Attack True Damage] and +30% Attack Speed for 6s. Duration extends by 2s for each player (0.6s for each mob) hit, up to an extra 6s. [Basic Attack True Damage]: Basic Attacks deal [Damage Rate: 50%] additional True Damage.",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "buff",
+          "effect": "basic_attack_true_damage",
+          "value": "50%",
+          "duration": "6s"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed",
+          "value": "30%",
+          "duration": "6s"
+        },
+        {
+          "type": "buff",
+          "effect": "duration_extension",
+          "per_player_hit": "2s",
+          "per_mob_hit": "0.6s",
+          "max_extension": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-bonecrusher-leap.png"
+    },
+    {
+      "id": "execution",
+      "name": "Execution",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "skill"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0s",
+      "range": "6m",
+      "description": "Deals [Damage Rate: 300%] Physical Damage to nearby enemies and applies [Grievous Wounds]. Increases to [Damage Rate: 450%] against targets below 40% HP. Hold to charge up, gaining interrupt immunity and +80% Damage Resistance. After 1.5s charge, Skill Damage +150%. [Grievous Wounds]: Reduces healing by 40% for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "450%",
+          "target": "enemies_below_40_percent_hp"
+        },
+        {
+          "type": "debuff",
+          "effect": "grievous_wounds",
+          "healing_reduction": "40%",
+          "duration": "4s",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "buff",
+          "effect": "interrupt_immunity",
+          "condition": "while_charging"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "80%",
+          "condition": "while_charging"
+        },
+        {
+          "type": "buff",
+          "effect": "skill_damage",
+          "value": "150%",
+          "condition": "after_1.5s_charge"
+        }
+      ],
+      "icon": "./assets/icons/skill-execution.png"
+    },
+    {
+      "id": "runic-rebound",
+      "name": "Runic Rebound",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "healing", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "14m",
+      "description": "Throws two axes forward, each dealing [Damage Rate: 120%] Physical Damage to enemies hit. The axes return automatically, dealing [Damage Rate: 120%] Physical Damage to enemies hit. The first enemy hit by each returning axe restores [Healing Rate: 144%] HP",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "enemies_hit",
+          "axes": 2
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "target": "enemies_hit",
+          "condition": "on_return"
+        },
+        {
+          "type": "healing",
+          "healing_rate": "144%",
+          "target": "caster",
+          "condition": "first_enemy_hit_by_each_returning_axe"
+        }
+      ],
+      "icon": "./assets/icons/skill-runic-rebound.png"
+    },
+    {
+      "id": "twinstorm",
+      "name": "Twinstorm",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "debuff", "hard control", "skill"],
+      "mpCost": 24,
+      "cooldown": "21s",
+      "castingTime": "0s",
+      "range": "12m",
+      "description": "Spins toward the target location, reducing the Damage Resistance of enemies hit by 15% for 4s. Attacks each enemy 4 times, each dealing [Damage Rate: 60%] Physical Damage. The final hit deals [Damage Rate: 220%] Physical Damage and knocks enemies up for 1.5s. Creates dual spinning axes that last 6s and deal [Damage Rate: 50%] Physical Damage every 0.5s",
+      "effects": [
+        {
+          "type": "debuff",
+          "effect": "damage_resistance_reduction",
+          "value": "15%",
+          "duration": "4s",
+          "target": "enemies_hit"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "60%",
+          "target": "each_enemy",
+          "hits": 4
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "220%",
+          "target": "enemies_hit",
+          "hit_type": "final"
+        },
+        {
+          "type": "hard_control",
+          "effect": "knockup",
+          "duration": "1.5s",
+          "target": "enemies_hit",
+          "hit_type": "final"
+        },
+        {
+          "type": "summon",
+          "summon_type": "dual_spinning_axes",
+          "duration": "6s",
+          "damage_rate": "50%",
+          "damage_type": "physical",
+          "interval": "0.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-twinstorm.png"
+    },
+    {
+      "id": "bladewheel-throw",
+      "name": "Bladewheel Throw",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "slow", "debuff", "skill"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Launches a spinning bladewheel toward the target location that cuts enemies along the path, dealing [Damage Rate: 150%] Physical Damage, and the destination. Spins for 5s, Slowing enemies by 30% and dealing [Damage Rate: 75%] Physical Damage every 0.5s while also inflicting [Grievous Wounds]. Each hit increases the wheel's damage by 10% up to 50%. The wheel returns to the caster afterward. [Grievous Wounds]: Reduces healing by 40% for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies_along_path"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "75%",
+          "target": "enemies_at_destination",
+          "interval": "0.5s",
+          "duration": "5s"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "30%",
+          "target": "enemies_at_destination",
+          "duration": "5s"
+        },
+        {
+          "type": "debuff",
+          "effect": "grievous_wounds",
+          "healing_reduction": "40%",
+          "duration": "4s",
+          "target": "enemies_at_destination"
+        },
+        {
+          "type": "damage_scaling",
+          "per_hit_increase": "10%",
+          "max_increase": "50%",
+          "target": "bladewheel_damage"
+        },
+        {
+          "type": "return",
+          "target": "caster",
+          "no_damage_on_return": true
+        }
+      ],
+      "icon": "./assets/icons/skill-bladewheel-throw.png"
     }
   ]
 }

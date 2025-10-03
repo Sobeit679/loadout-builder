@@ -1983,6 +1983,426 @@
         "aim"
       ],
       "icon": "./assets/icons/weapon-voideye.png"
+    },
+    {
+      "id": "breakers-resolve",
+      "gameId": "breakers-resolve",
+      "name": "Breaker's Resolve",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "rare",
+      "stats": {
+        "damage": "95-130",
+        "attackSpeed": "1.0",
+        "criticalChance": "6%",
+        "strength": "+20"
+      },
+      "coreSkill": "unyielding-smash",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-breakers-resolve.png"
+    },
+    {
+      "id": "bulwark-core",
+      "gameId": "bulwark-core",
+      "name": "Bulwark Core",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "110-145",
+        "attackSpeed": "0.9",
+        "criticalChance": "8%",
+        "strength": "+25"
+      },
+      "coreSkill": "shield-slam",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-bulwark-core.png"
+    },
+    {
+      "id": "rippers-grasp",
+      "gameId": "rippers-grasp",
+      "name": "Ripper's Grasp",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "115-150",
+        "attackSpeed": "0.8",
+        "criticalChance": "10%",
+        "strength": "+28"
+      },
+      "coreSkill": "grappling-strike",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-rippers-grasp.png"
+    },
+    {
+      "id": "voidbreaker",
+      "gameId": "voidbreaker",
+      "name": "Voidbreaker",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "120-155",
+        "attackSpeed": "0.9",
+        "criticalChance": "9%",
+        "strength": "+30"
+      },
+      "coreSkill": "void-slam",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-voidbreaker.png"
+    },
+    {
+      "id": "gravity-hammer",
+      "gameId": "gravity-hammer",
+      "name": "Gravity Hammer",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "125-160",
+        "attackSpeed": "0.7",
+        "criticalChance": "12%",
+        "strength": "+32"
+      },
+      "coreSkill": "pulverizing-slam",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-gravity-hammer.png"
+    },
+    {
+      "id": "thunderlords-wrath",
+      "gameId": "thunderlords-wrath",
+      "name": "Thunderlord's Wrath",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "140-175",
+        "attackSpeed": "0.8",
+        "criticalChance": "15%",
+        "strength": "+40"
+      },
+      "coreSkill": "thunderclap-impact",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-thunderlords-wrath.png"
+    },
+    {
+      "id": "abyssal-conduit",
+      "gameId": "abyssal-conduit",
+      "name": "Abyssal Conduit",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "150-185",
+        "attackSpeed": "0.6",
+        "criticalChance": "18%",
+        "strength": "+45"
+      },
+      "coreSkill": "void-devour",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-abyssal-conduit.png"
+    },
+    {
+      "id": "berserkers-fury",
+      "gameId": "berserkers-fury",
+      "name": "Berserker's Fury",
+      "type": "axe",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "rare",
+      "stats": {
+        "damage": "100-140",
+        "attackSpeed": "1.1",
+        "criticalChance": "7%",
+        "strength": "+22"
+      },
+      "coreSkill": "whirlwind-slash",
+      "passiveSkill": "bloodthirst",
+      "basicAttacks": [
+        "jump-slash",
+        "cleaving-strike",
+        "cyclone-slash"
+      ],
+      "weaponSkills": [
+        "tempest-strike",
+        "rock-smash",
+        "primal-rush",
+        "axehook",
+        "rage"
+      ],
+      "icon": "./assets/icons/weapon-berserkers-fury.png"
+    },
+    {
+      "id": "cyclone-cleave",
+      "gameId": "cyclone-cleave",
+      "name": "Cyclone Cleave",
+      "type": "axe",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "110-155",
+        "attackSpeed": "1.05",
+        "criticalChance": "8%",
+        "strength": "+28"
+      },
+      "coreSkill": "vortex-toss",
+      "passiveSkill": "bloodthirst",
+      "basicAttacks": [
+        "jump-slash",
+        "cleaving-strike",
+        "cyclone-slash"
+      ],
+      "weaponSkills": [
+        "tempest-strike",
+        "rock-smash",
+        "primal-rush",
+        "axehook",
+        "rage"
+      ],
+      "icon": "./assets/icons/weapon-cyclone-cleave.png"
+    },
+    {
+      "id": "bonefang-reaper",
+      "gameId": "bonefang-reaper",
+      "name": "Bonefang Reaper",
+      "type": "axe",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "115-160",
+        "attackSpeed": "1.0",
+        "criticalChance": "8%",
+        "strength": "+30"
+      },
+      "coreSkill": "bonecrusher-leap",
+      "passiveSkill": "bloodthirst",
+      "basicAttacks": [
+        "jump-slash",
+        "cleaving-strike",
+        "cyclone-slash"
+      ],
+      "weaponSkills": [
+        "tempest-strike",
+        "rock-smash",
+        "primal-rush",
+        "axehook",
+        "rage"
+      ],
+      "icon": "./assets/icons/weapon-bonefang-reaper.png"
+    },
+    {
+      "id": "ravagers-cleave",
+      "gameId": "ravagers-cleave",
+      "name": "Ravager's Cleave",
+      "type": "axe",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "120-165",
+        "attackSpeed": "1.0",
+        "criticalChance": "9%",
+        "strength": "+32"
+      },
+      "coreSkill": "execution",
+      "passiveSkill": "bloodthirst",
+      "basicAttacks": [
+        "jump-slash",
+        "cleaving-strike",
+        "cyclone-slash"
+      ],
+      "weaponSkills": [
+        "tempest-strike",
+        "rock-smash",
+        "primal-rush",
+        "axehook",
+        "rage"
+      ],
+      "icon": "./assets/icons/weapon-ravagers-cleave.png"
+    },
+    {
+      "id": "emerald-edge",
+      "gameId": "emerald-edge",
+      "name": "Emerald Edge",
+      "type": "axe",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "118-162",
+        "attackSpeed": "1.08",
+        "criticalChance": "8%",
+        "strength": "+30"
+      },
+      "coreSkill": "runic-rebound",
+      "passiveSkill": "bloodthirst",
+      "basicAttacks": [
+        "jump-slash",
+        "cleaving-strike",
+        "cyclone-slash"
+      ],
+      "weaponSkills": [
+        "tempest-strike",
+        "rock-smash",
+        "primal-rush",
+        "axehook",
+        "rage"
+      ],
+      "icon": "./assets/icons/weapon-emerald-edge.png"
+    },
+    {
+      "id": "wingblade",
+      "gameId": "wingblade",
+      "name": "Wingblade",
+      "type": "axe",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "130-180",
+        "attackSpeed": "1.15",
+        "criticalChance": "10%",
+        "strength": "+40"
+      },
+      "coreSkill": "twinstorm",
+      "passiveSkill": "bloodthirst",
+      "basicAttacks": [
+        "jump-slash",
+        "cleaving-strike",
+        "cyclone-slash"
+      ],
+      "weaponSkills": [
+        "tempest-strike",
+        "rock-smash",
+        "primal-rush",
+        "axehook",
+        "rage"
+      ],
+      "icon": "./assets/icons/weapon-wingblade.png"
+    },
+    {
+      "id": "wreckingsaw",
+      "gameId": "wreckingsaw",
+      "name": "Wreckingsaw",
+      "type": "axe",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "135-185",
+        "attackSpeed": "1.1",
+        "criticalChance": "10%",
+        "strength": "+42"
+      },
+      "coreSkill": "bladewheel-throw",
+      "passiveSkill": "bloodthirst",
+      "basicAttacks": [
+        "jump-slash",
+        "cleaving-strike",
+        "cyclone-slash"
+      ],
+      "weaponSkills": [
+        "tempest-strike",
+        "rock-smash",
+        "primal-rush",
+        "axehook",
+        "rage"
+      ],
+      "icon": "./assets/icons/weapon-wreckingsaw.png"
     }
   ]
 }

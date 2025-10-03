@@ -1824,6 +1824,10 @@ function getTagClass(tag) {
       return 'tag-buff';
     case 'attack speed':
       return 'tag-attack-speed';
+    case 'lifesteal':
+      return 'tag-lifesteal';
+    case 'movement speed':
+      return 'tag-movement-speed';
     case 'shield':
       return 'tag-shield';
     case 'damage increase':

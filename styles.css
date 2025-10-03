@@ -3365,6 +3365,18 @@ main {
   border-color: #cc2288;
 }
 
+.tag-lifesteal {
+  background-color: #ff1493;
+  color: white;
+  border-color: #cc1166;
+}
+
+.tag-movement-speed {
+  background-color: #9370db;
+  color: white;
+  border-color: #7a5fb8;
+}
+
 /* Default tag style for any unhandled tags */
 .tag-default {
   background-color: #666666;
