@@ -17,6 +17,126 @@
       },
       "coreSkill": "heal",
       "icon": "./assets/icons/chest-vigorcloak.png"
+    },
+    {
+      "id": "aegis-robe",
+      "gameId": "aegis-robe",
+      "name": "Aegis Robe",
+      "type": "chest",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A protective robe imbued with ancient warding magic that shields the wearer and punishes attackers.",
+      "stats": {
+        "magicResistance": 20,
+        "intelligence": 10,
+        "health": 50,
+        "armor": 15
+      },
+      "coreSkill": "warding",
+      "icon": "./assets/icons/chest-aegis-robe.png"
+    },
+    {
+      "id": "cleansing-robe",
+      "gameId": "cleansing-robe",
+      "name": "Cleansing Robe",
+      "type": "chest",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A sacred garment that purifies the wearer of all ailments and grants immunity to control effects.",
+      "stats": {
+        "magicResistance": 18,
+        "intelligence": 12,
+        "cooldownReduction": "+5%",
+        "healingReceived": "+15%"
+      },
+      "coreSkill": "purify",
+      "icon": "./assets/icons/chest-cleansing-robe.png"
+    },
+    {
+      "id": "exorcists-robe",
+      "gameId": "exorcists-robe",
+      "name": "Exorcist's Robe",
+      "type": "chest",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "Woven with threads of divine light, capable of dispelling dark magic and weakening enemies.",
+      "stats": {
+        "magicResistance": 22,
+        "intelligence": 10,
+        "manaRegen": "+2",
+        "spellPower": "+8%"
+      },
+      "coreSkill": "dispel",
+      "icon": "./assets/icons/chest-exorcists-robe.png"
+    },
+    {
+      "id": "repulsor-mantle",
+      "gameId": "repulsor-mantle",
+      "name": "Repulsor Mantle",
+      "type": "chest",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A mantle that pushes back foes with an unseen force, disarming and slowing them.",
+      "stats": {
+        "magicResistance": 15,
+        "intelligence": 10,
+        "health": 60,
+        "knockbackResistance": "+20%"
+      },
+      "coreSkill": "repulse",
+      "icon": "./assets/icons/chest-repulsor-mantle.png"
+    },
+    {
+      "id": "archaneweaver",
+      "gameId": "archaneweaver",
+      "name": "Archaneweaver",
+      "type": "chest",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "description": "A robe that channels raw arcane energy, enhancing mana flow and casting speed for allies.",
+      "stats": {
+        "magicResistance": 10,
+        "intelligence": 15,
+        "mana": 100,
+        "castingSpeed": "+10%"
+      },
+      "coreSkill": "mana-font",
+      "icon": "./assets/icons/chest-archaneweaver.png"
+    },
+    {
+      "id": "warding-shroud",
+      "gameId": "warding-shroud",
+      "name": "Warding Shroud",
+      "type": "chest",
+      "armorType": "Intelligence",
+      "rarity": "legendary",
+      "description": "A legendary shroud that creates an impenetrable barrier against all threats and restores mana when damaged.",
+      "stats": {
+        "magicResistance": 25,
+        "intelligence": 15,
+        "health": 100,
+        "cooldownReduction": "+15%",
+        "manaRegen": "+3"
+      },
+      "coreSkill": "barrier",
+      "icon": "./assets/icons/chest-warding-shroud.png"
+    },
+    {
+      "id": "dreadcloak",
+      "gameId": "dreadcloak",
+      "name": "Dreadcloak",
+      "type": "chest",
+      "armorType": "Intelligence",
+      "rarity": "legendary",
+      "description": "A terrifying cloak that strikes fear into the hearts of all who behold it, punishing those who dare to use skills nearby.",
+      "stats": {
+        "magicResistance": 20,
+        "intelligence": 18,
+        "spellPower": 20,
+        "fearResistance": "+25%"
+      },
+      "coreSkill": "panic",
+      "icon": "./assets/icons/chest-dreadcloak.png"
     }
   ]
 }

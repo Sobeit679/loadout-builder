@@ -10078,6 +10078,208 @@
         }
       ],
       "icon": "./assets/icons/skill-berserk.png"
+    },
+    {
+      "id": "warding",
+      "name": "Warding",
+      "type": "core",
+      "category": "defense",
+      "tags": ["buff", "debuff", "armor", "movement speed"],
+      "mpCost": 25,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Grants 406 Armor for 6s. While active, any attacker that hits with basic attack or skill damage has their damage reduced by 40% and Movement Speed by 30% for 4s",
+      "effects": [
+        {
+          "type": "armor",
+          "value": 406,
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "damage reduction",
+          "value": "40%",
+          "duration": "4s",
+          "target": "attacker"
+        },
+        {
+          "type": "movement speed reduction",
+          "value": "30%",
+          "duration": "4s",
+          "target": "attacker"
+        }
+      ],
+      "icon": "./assets/icons/skill-warding.png"
+    },
+    {
+      "id": "purify",
+      "name": "Purify",
+      "type": "core",
+      "category": "utility",
+      "tags": ["cleanse", "heal", "immunity"],
+      "mpCost": 30,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Immediately removes all control effects, restores [Healing Rate: 180%] HP, and grants Control Immunity for 2s. Can be used while skills are disabled.",
+      "effects": [
+        {
+          "type": "cleanse",
+          "target": "self"
+        },
+        {
+          "type": "heal",
+          "value": "180%",
+          "target": "self"
+        },
+        {
+          "type": "control_immunity",
+          "duration": "2s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-purify.png"
+    },
+    {
+      "id": "dispel",
+      "name": "Dispel",
+      "type": "core",
+      "category": "utility",
+      "tags": ["damage", "dispel", "debuff"],
+      "mpCost": 30,
+      "cooldown": "29s",
+      "range": "16m",
+      "description": "Launches a Dispel projectile in the target direction that deals [Damage Rate: 120%] Magic Damage to enemies in the impact area, removes all Buffs and Shield effects, and reduces their Physical Damage output by 40% for 6s",
+      "effects": [
+        {
+          "type": "magic damage",
+          "value": "120%",
+          "target": "enemies"
+        },
+        {
+          "type": "dispel",
+          "target": "enemies"
+        },
+        {
+          "type": "physical damage reduction",
+          "value": "40%",
+          "duration": "6s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-dispel.png"
+    },
+    {
+      "id": "repulse",
+      "name": "Repulse",
+      "type": "core",
+      "category": "control",
+      "tags": ["damage", "knockback", "disarm"],
+      "mpCost": 30,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Deals [Damage Rate: 200%] Magic Damage to nearby enemies, knocks them back 10m, disarms them, and reduces their Movement Speed by 40% for 4s",
+      "effects": [
+        {
+          "type": "magic damage",
+          "value": "200%",
+          "target": "enemies"
+        },
+        {
+          "type": "knockback",
+          "value": "10m",
+          "target": "enemies"
+        },
+        {
+          "type": "disarm",
+          "target": "enemies"
+        },
+        {
+          "type": "movement speed reduction",
+          "value": "40%",
+          "duration": "4s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-repulse.png"
+    },
+    {
+      "id": "mana-font",
+      "name": "Mana Font",
+      "type": "core",
+      "category": "support",
+      "tags": ["mp", "buff", "mana regen"],
+      "mpCost": 0,
+      "cooldown": "34s",
+      "range": "7m",
+      "description": "Creates a 7m radius Mana Font around the caster, lasting 6s. Allies within gain +80% Casting Speed and restores 10 MP every second to allies within range",
+      "effects": [
+        {
+          "type": "mana regeneration",
+          "value": 10,
+          "duration": "6s",
+          "target": "allies",
+          "perSecond": true
+        },
+        {
+          "type": "casting speed",
+          "value": "80%",
+          "duration": "6s",
+          "target": "allies"
+        }
+      ],
+      "icon": "./assets/icons/skill-mana-font.png"
+    },
+    {
+      "id": "barrier",
+      "name": "Barrier",
+      "type": "core",
+      "category": "defense",
+      "tags": ["shield", "buff"],
+      "mpCost": 30,
+      "cooldown": "29s",
+      "range": "6m",
+      "description": "Gains a [Target-based Max HP 45%] shield for 6s. Restores 10 MP each time damage is taken while the shield is active.",
+      "effects": [
+        {
+          "type": "shield",
+          "value": "45%",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "mana restore",
+          "value": 10,
+          "target": "self",
+          "trigger": "damage_taken"
+        }
+      ],
+      "icon": "./assets/icons/skill-barrier.png"
+    },
+    {
+      "id": "panic",
+      "name": "Panic",
+      "type": "core",
+      "category": "control",
+      "tags": ["damage", "hard control", "fear"],
+      "mpCost": 40,
+      "cooldown": "48s",
+      "range": "6m",
+      "description": "Creates a panic curse field around the caster that lasts 6s. Enemies within 6m who use skills take [Damage Rate: 200%] Magic Damage and are affected by Fear for 1.5s",
+      "effects": [
+        {
+          "type": "magic damage",
+          "value": "200%",
+          "target": "enemies",
+          "trigger": "skill_use"
+        },
+        {
+          "type": "fear",
+          "duration": "1.5s",
+          "target": "enemies",
+          "trigger": "skill_use"
+        }
+      ],
+      "icon": "./assets/icons/skill-panic.png"
     }
   ]
 }
