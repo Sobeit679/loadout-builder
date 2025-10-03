@@ -2403,6 +2403,246 @@
         "rage"
       ],
       "icon": "./assets/icons/weapon-wreckingsaw.png"
+    },
+    {
+      "id": "novice-cleaver",
+      "gameId": "novice-cleaver",
+      "name": "Novice Cleaver",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "common",
+      "stats": {
+        "damage": "80-110",
+        "attackSpeed": "1.0",
+        "criticalChance": "5%",
+        "strength": "+15"
+      },
+      "coreSkill": "tempest-slash",
+      "passiveSkill": null,
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-novice-cleaver.png"
+    },
+    {
+      "id": "storm-cleaver",
+      "gameId": "storm-cleaver",
+      "name": "Storm Cleaver",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "rare",
+      "stats": {
+        "damage": "95-130",
+        "attackSpeed": "1.05",
+        "criticalChance": "6%",
+        "strength": "+22"
+      },
+      "coreSkill": "tempest-slash",
+      "passiveSkill": "aura-and-blade",
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-storm-cleaver.png"
+    },
+    {
+      "id": "titans-spineblade",
+      "gameId": "titans-spineblade",
+      "name": "Titan's Spineblade",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "110-150",
+        "attackSpeed": "1.1",
+        "criticalChance": "7%",
+        "strength": "+28"
+      },
+      "coreSkill": "titan-s-stride",
+      "passiveSkill": "aura-and-blade",
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-titans-spineblade.png"
+    },
+    {
+      "id": "lordbreaker",
+      "gameId": "lordbreaker",
+      "name": "Lordbreaker",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "115-155",
+        "attackSpeed": "1.08",
+        "criticalChance": "8%",
+        "strength": "+30"
+      },
+      "coreSkill": "sovereign-strike",
+      "passiveSkill": "aura-and-blade",
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-lordbreaker.png"
+    },
+    {
+      "id": "voidblade",
+      "gameId": "voidblade",
+      "name": "Voidblade",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "120-160",
+        "attackSpeed": "1.12",
+        "criticalChance": "8%",
+        "strength": "+32"
+      },
+      "coreSkill": "force-pierce",
+      "passiveSkill": "aura-and-blade",
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-voidblade.png"
+    },
+    {
+      "id": "hellcore-cleaver",
+      "gameId": "hellcore-cleaver",
+      "name": "Hellcore Cleaver",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "125-165",
+        "attackSpeed": "1.15",
+        "criticalChance": "9%",
+        "strength": "+35"
+      },
+      "coreSkill": "overload-slash",
+      "passiveSkill": "aura-and-blade",
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-hellcore-cleaver.png"
+    },
+    {
+      "id": "sovereigns-radiance",
+      "gameId": "sovereigns-radiance",
+      "name": "Sovereign's Radiance",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "140-185",
+        "attackSpeed": "1.2",
+        "criticalChance": "10%",
+        "strength": "+42"
+      },
+      "coreSkill": "thousandfold-strike",
+      "passiveSkill": "aura-and-blade",
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-sovereigns-radiance.png"
+    },
+    {
+      "id": "judicator",
+      "gameId": "judicator",
+      "name": "Judicator",
+      "type": "sword",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "145-190",
+        "attackSpeed": "1.18",
+        "criticalChance": "10%",
+        "strength": "+45"
+      },
+      "coreSkill": "obliteration",
+      "passiveSkill": "aura-and-blade",
+      "basicAttacks": [
+        "sword-slash",
+        "sword-cleave",
+        "sword-energy"
+      ],
+      "weaponSkills": [
+        "vacuum-slash",
+        "crippling-strike",
+        "power-flash",
+        "defensive-slash",
+        "heart-of-steel"
+      ],
+      "icon": "./assets/icons/weapon-judicator.png"
     }
   ]
 }

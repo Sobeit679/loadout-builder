@@ -9143,6 +9143,756 @@
         }
       ],
       "icon": "./assets/icons/skill-bladewheel-throw.png"
+    },
+    {
+      "id": "aura-and-blade",
+      "name": "Aura and Blade",
+      "type": "passive",
+      "category": "buff",
+      "tags": ["passive", "buff", "damage", "defense"],
+      "description": "Gains [Momentum] every second while in combat, 2 stacks when dealing damage with Basic Attacks, 4 stacks on Critical Hit, 1 stack when taking Basic Attack Damage, and 2 stacks when taking Skill Damage. At 10 [Momentum] stacks, increases [Sword Momentum] by 1 level. [Momentum] lasts 20s. [Sword Momentum] grants +3% Damage, +4% Attack Speed, and +4% Damage Resistance per level, lasting 8s. Stacks up to 6 times.",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "momentum_gain",
+          "per_second": 1,
+          "on_basic_attack_damage": 2,
+          "on_critical_hit": 4,
+          "on_take_basic_attack_damage": 1,
+          "on_take_skill_damage": 2,
+          "duration": "20s"
+        },
+        {
+          "type": "passive",
+          "effect": "sword_momentum_conversion",
+          "trigger": "at_10_momentum_stacks",
+          "conversion_rate": "1_level_per_10_momentum"
+        },
+        {
+          "type": "passive",
+          "effect": "sword_momentum_bonus",
+          "damage_per_level": "+3%",
+          "attack_speed_per_level": "+4%",
+          "damage_resistance_per_level": "+4%",
+          "duration": "8s",
+          "max_stacks": 6
+        }
+      ],
+      "icon": "./assets/icons/passive-aura-and-blade.png"
+    },
+    {
+      "id": "sword-slash",
+      "name": "Sword Slash",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "buff", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.2s",
+      "castingTime": "0s",
+      "range": "7m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Sword Slash] every 6s Charges toward an enemy to deal [Damage Rate: 180%] Physical Damage and inflict 40% Slow for 2s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "130%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "180%",
+          "target": "enemy",
+          "cooldown": "6s"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "40%",
+          "duration": "2s",
+          "target": "enemy",
+          "cooldown": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-sword-slash.png"
+    },
+    {
+      "id": "sword-cleave",
+      "name": "Sword Cleave",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "buff", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.2s",
+      "castingTime": "0s",
+      "range": "3.5m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Sword Cleave] every 5s Deals [Damage Rate: 220%] Physical Damage to surrounding enemies. Grants [Target-based Max HP 3%] Shield for each enemy hit, lasting 4s. Stacks up to 5 times",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "130%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "220%",
+          "target": "surrounding_enemies",
+          "cooldown": "5s"
+        },
+        {
+          "type": "buff",
+          "effect": "shield",
+          "value": "3% of target's Max HP",
+          "per_enemy_hit": true,
+          "duration": "4s",
+          "max_stacks": 5,
+          "cooldown": "5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-sword-cleave.png"
+    },
+    {
+      "id": "sword-energy",
+      "name": "Sword Energy",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "buff", "basic attack"],
+      "mpCost": 0,
+      "cooldown": "1.2s",
+      "castingTime": "0s",
+      "range": "20m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Sword Energy] every 6s Unleashes sword energy forward, dealing [Damage Rate: 140%] Physical Damage to enemies hit. Increases Movement Speed by 25% for 2s if at least 1 enemy is hit",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "130%",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "140%",
+          "target": "enemies_hit",
+          "cooldown": "6s"
+        },
+        {
+          "type": "buff",
+          "effect": "movement_speed",
+          "value": "25%",
+          "duration": "2s",
+          "condition": "if_at_least_1_enemy_hit",
+          "cooldown": "6s"
+        }
+      ],
+      "icon": "./assets/icons/skill-sword-energy.png"
+    },
+    {
+      "id": "vacuum-slash",
+      "name": "Vacuum Slash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "skill"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "castingTime": "0s",
+      "range": "5m",
+      "description": "Performs 4 forward slashes, each dealing [Damage Rate: 60%] Physical Damage to players ([Damage Rate: 90%] Physical Damage to mobs). The final hit unleashes sword energy forward, dealing [Damage Rate: 150%] Physical Damage to all enemies hit",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "60%",
+          "target": "players",
+          "hits": 4
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "90%",
+          "target": "mobs",
+          "hits": 4
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "all_enemies_hit",
+          "hit_type": "final_hit"
+        }
+      ],
+      "icon": "./assets/icons/skill-vacuum-slash.png"
+    },
+    {
+      "id": "crippling-strike",
+      "name": "Crippling Strike",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting 50% Slow for 3s to nearby enemies upon landing. Gains [Target-based Max HP 20%] Shield for 4s when hitting at least 1 enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "50%",
+          "duration": "3s",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "buff",
+          "effect": "shield",
+          "value": "20% of target's Max HP",
+          "duration": "4s",
+          "condition": "when_hitting_at_least_1_enemy"
+        }
+      ],
+      "icon": "./assets/icons/skill-crippling-strike-sword.png"
+    },
+    {
+      "id": "power-slash",
+      "name": "Power Slash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "slow", "hard control", "skill"],
+      "mpCost": 18,
+      "cooldown": "11s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Hold the skill to charge. During charging, immune to control effects and gains +20% Damage Resistance. Deals [Damage Rate: 150%] Physical Damage to enemies in range and inflicts Stun for 0.5s. When fully charged at 1.5s, deals [Damage Rate: 200%] Physical Damage to enemies in range, inflicting Stun for 1.5s, and releases a shockwave forward that deals [Damage Rate: 150%] Physical Damage to hit enemies, applying Slow by 40% for 4s",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "control_immunity",
+          "condition": "while_charging"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "20%",
+          "condition": "while_charging"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies_in_range"
+        },
+        {
+          "type": "hard_control",
+          "effect": "stun",
+          "duration": "0.5s",
+          "target": "enemies_in_range"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "enemies_in_range",
+          "condition": "when_fully_charged_at_1.5s"
+        },
+        {
+          "type": "hard_control",
+          "effect": "stun",
+          "duration": "1.5s",
+          "target": "enemies_in_range",
+          "condition": "when_fully_charged_at_1.5s"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies_hit_by_shockwave",
+          "condition": "when_fully_charged_at_1.5s"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "40%",
+          "duration": "4s",
+          "target": "enemies_hit_by_shockwave",
+          "condition": "when_fully_charged_at_1.5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-power-slash.png"
+    },
+    {
+      "id": "defensive-slash",
+      "name": "Defensive Slash",
+      "type": "active",
+      "category": "damage",
+      "tags": ["damage", "debuff", "buff", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "0s",
+      "range": "6m",
+      "description": "Begins Blocking for 3s. While Blocking, reduces Movement Speed but gains control immunity and +70% Damage Resistance. Afterward, deals [Damage Rate: 320%] Physical Damage to nearby enemies and reduces their Armor by 6450% for 4s. Block can be canceled early",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "blocking",
+          "duration": "3s",
+          "can_cancel_early": true
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "condition": "while_blocking"
+        },
+        {
+          "type": "buff",
+          "effect": "control_immunity",
+          "condition": "while_blocking"
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "70%",
+          "condition": "while_blocking"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "320%",
+          "target": "nearby_enemies",
+          "condition": "after_blocking"
+        },
+        {
+          "type": "debuff",
+          "effect": "armor_reduction",
+          "value": "6450%",
+          "duration": "4s",
+          "target": "nearby_enemies",
+          "condition": "after_blocking"
+        }
+      ],
+      "icon": "./assets/icons/skill-defensive-slash.png"
+    },
+    {
+      "id": "heart-of-steel",
+      "name": "Heart of Steel",
+      "type": "active",
+      "category": "buff",
+      "tags": ["buff", "cleanse", "skill"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "0s",
+      "range": "6m",
+      "description": "Immediately removes all control effects, gains 1 stack of [Sword Momentum], increases Damage Resistance by 25%, and the Attack Speed of the next 3 Basic Attacks by 80% for 8s. Can be used while skills are disabled",
+      "effects": [
+        {
+          "type": "cleanse",
+          "effect": "remove_all_control_effects"
+        },
+        {
+          "type": "buff",
+          "effect": "sword_momentum",
+          "stacks": 1
+        },
+        {
+          "type": "buff",
+          "effect": "damage_resistance",
+          "value": "25%",
+          "duration": "8s"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed",
+          "value": "80%",
+          "duration": "8s",
+          "applies_to": "next_3_basic_attacks"
+        },
+        {
+          "type": "special",
+          "effect": "usable_while_skills_disabled"
+        }
+      ],
+      "icon": "./assets/icons/skill-heart-of-steel.png"
+    },
+    {
+      "id": "tempest-slash",
+      "name": "Tempest Slash",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "10m",
+      "description": "Spins toward the target location, dealing [Damage Rate: 75%] Physical Damage to all players ([Damage Rate: 150%] Physical Damage to mobs) hit. At 3+ Sword Momentum stacks, creates a tornado on arrival, dealing [Damage Rate: 50%] Physical Damage every second for 5s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "75%",
+          "target": "players_hit"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "mobs_hit"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "50%",
+          "target": "enemies_in_tornado",
+          "interval": "1s",
+          "duration": "5s",
+          "condition": "at_3_plus_sword_momentum_stacks"
+        }
+      ],
+      "icon": "./assets/icons/skill-tempest-slash-sword.png"
+    },
+    {
+      "id": "titans-stride",
+      "name": "Titan's Stride",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "slow", "debuff", "skill"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "0s",
+      "range": "6m",
+      "description": "Gains immunity to Forced Movement (Pull, Knockback). Attack range and Max HP increase based on [Sword Momentum] stacks for 10s (Cannot be dispelled). Can use [Titan's Stride] to deal [Damage Rate: 150%] Physical Damage and Knockup enemies for 0.5s. At 3+ stacks, creates a titan aura that Slows enemies by 30% and reduces Attack Speed by 30%",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "forced_movement_immunity",
+          "duration": "10s"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_range_scaling",
+          "scales_with": "sword_momentum_stacks",
+          "duration": "10s",
+          "cannot_be_dispelled": true
+        },
+        {
+          "type": "buff",
+          "effect": "max_hp_scaling",
+          "scales_with": "sword_momentum_stacks",
+          "duration": "10s",
+          "cannot_be_dispelled": true
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies"
+        },
+        {
+          "type": "hard_control",
+          "effect": "knockup",
+          "duration": "0.5s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "30%",
+          "target": "enemies",
+          "condition": "at_3_plus_stacks"
+        },
+        {
+          "type": "debuff",
+          "effect": "attack_speed_reduction",
+          "value": "30%",
+          "target": "enemies",
+          "condition": "at_3_plus_stacks"
+        }
+      ],
+      "icon": "./assets/icons/skill-titans-stride.png"
+    },
+    {
+      "id": "sovereign-strike",
+      "name": "Sovereign Strike",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "knockback", "debuff", "hard control", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "7m",
+      "description": "Knocks enemies back 8m and deals [Damage Rate: 450%] Physical Damage. Reduces Damage dealt based on [Sword Momentum] stacks for 6s. At 3+ stacks, Knockback increased to 12m and Stuns for 2s on collision",
+      "effects": [
+        {
+          "type": "control",
+          "effect": "knockback",
+          "distance": "8m",
+          "target": "enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "450%",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage_reduction",
+          "scales_with": "sword_momentum_stacks",
+          "duration": "6s",
+          "target": "enemies"
+        },
+        {
+          "type": "control",
+          "effect": "knockback",
+          "distance": "12m",
+          "target": "enemies",
+          "condition": "at_3_plus_stacks"
+        },
+        {
+          "type": "hard_control",
+          "effect": "stun",
+          "duration": "2s",
+          "target": "enemies",
+          "condition": "at_3_plus_stacks_on_collision"
+        }
+      ],
+      "icon": "./assets/icons/skill-sovereign-strike.png"
+    },
+    {
+      "id": "force-pierce",
+      "name": "Force Pierce",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "slow", "silence", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "20m",
+      "description": "Unleashes powerful sword energy toward the target direction, dealing [Damage Rate: 300%] Magic Damage to enemies hit. At 1+ Sword Momentum stacks: 30% Slow for 2s. At 2+ stacks: 30% Slow for 2s and Silence for 2s. At 3-6 stacks: 30% Slow for 4s and Silence for 4s. At 3+ stacks: Unleashes 2 extra Sword Energy. Additional Sword Energy beyond the first deals damage equal to 30% of the original damage",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "300%",
+          "target": "enemies_hit"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "30%",
+          "duration": "2s",
+          "target": "enemies_hit",
+          "condition": "at_1_plus_sword_momentum_stacks"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "30%",
+          "duration": "2s",
+          "target": "enemies_hit",
+          "condition": "at_2_plus_sword_momentum_stacks"
+        },
+        {
+          "type": "hard_control",
+          "effect": "silence",
+          "duration": "2s",
+          "target": "enemies_hit",
+          "condition": "at_2_plus_sword_momentum_stacks"
+        },
+        {
+          "type": "debuff",
+          "effect": "slow",
+          "value": "30%",
+          "duration": "4s",
+          "target": "enemies_hit",
+          "condition": "at_3_to_6_sword_momentum_stacks"
+        },
+        {
+          "type": "hard_control",
+          "effect": "silence",
+          "duration": "4s",
+          "target": "enemies_hit",
+          "condition": "at_3_to_6_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "magic",
+          "damage_rate": "90%",
+          "target": "enemies_hit",
+          "extra_sword_energy": 2,
+          "condition": "at_3_plus_sword_momentum_stacks"
+        }
+      ],
+      "icon": "./assets/icons/skill-force-pierce.png"
+    },
+    {
+      "id": "overload-slash",
+      "name": "Overload Slash",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "debuff", "hard control", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "12m",
+      "description": "Briefly charges up and then rushes at the target enemy, inflicting [Heal Block] for 4s and dealing Physical Damage based on [Sword Momentum] stacks. At 3+ stacks, creates an explosion dealing [Damage Rate: 200%] Physical Damage and Stunning for 1.5s. [Heal Block]: Cannot receive healing",
+      "effects": [
+        {
+          "type": "debuff",
+          "effect": "heal_block",
+          "duration": "4s",
+          "target": "target_enemy"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "210%",
+          "target": "target_enemy",
+          "condition": "at_0_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "240%",
+          "target": "target_enemy",
+          "condition": "at_1_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "270%",
+          "target": "target_enemy",
+          "condition": "at_2_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "target": "target_enemy",
+          "condition": "at_3_to_6_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "enemies_in_explosion",
+          "condition": "at_3_plus_sword_momentum_stacks"
+        },
+        {
+          "type": "hard_control",
+          "effect": "stun",
+          "duration": "1.5s",
+          "target": "enemies_in_explosion",
+          "condition": "at_3_plus_sword_momentum_stacks"
+        }
+      ],
+      "icon": "./assets/icons/skill-overload-slash.png"
+    },
+    {
+      "id": "thousandfold-strike",
+      "name": "Thousandfold Strike",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "hard control", "skill"],
+      "mpCost": 23,
+      "cooldown": "19s",
+      "castingTime": "0s",
+      "range": "12m",
+      "description": "Leaps to the target location, creating countless blades. Physical Damage scales with [Sword Momentum] stacks. At 3+ stacks, creates two sets of blades forming outward, each dealing [Damage Rate: 150%] Physical Damage and inflicting 1s Knockup",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "280%",
+          "target": "enemies_in_area",
+          "condition": "at_0_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "320%",
+          "target": "enemies_in_area",
+          "condition": "at_1_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "360%",
+          "target": "enemies_in_area",
+          "condition": "at_2_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "400%",
+          "target": "enemies_in_area",
+          "condition": "at_3_to_6_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "enemies_hit_by_outward_blades",
+          "condition": "at_3_plus_sword_momentum_stacks"
+        },
+        {
+          "type": "hard_control",
+          "effect": "knockup",
+          "duration": "1s",
+          "target": "enemies_hit_by_outward_blades",
+          "condition": "at_3_plus_sword_momentum_stacks"
+        }
+      ],
+      "icon": "./assets/icons/skill-thousandfold-strike.png"
+    },
+    {
+      "id": "obliteration",
+      "name": "Obliteration",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["damage", "debuff", "skill"],
+      "mpCost": 27,
+      "cooldown": "29s",
+      "castingTime": "0s",
+      "range": "12m",
+      "description": "Dashes forward, dealing [Damage Rate: 250%] Physical Damage to all enemies hit. Reduces Damage Resistance based on [Sword Momentum] stacks for 4s. At 3+ stacks, Pulls enemies to the center on arrival and slashes multiple times over 1.8s, dealing [Damage Rate: 30%] Physical Damage every 0.3s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "250%",
+          "target": "all_enemies_hit"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage_resistance_reduction",
+          "scales_with": "sword_momentum_stacks",
+          "duration": "4s",
+          "target": "all_enemies_hit"
+        },
+        {
+          "type": "pull",
+          "target": "enemies",
+          "destination": "center",
+          "condition": "at_3_plus_sword_momentum_stacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "30%",
+          "target": "enemies",
+          "interval": "0.3s",
+          "duration": "1.8s",
+          "condition": "at_3_plus_sword_momentum_stacks"
+        }
+      ],
+      "icon": "./assets/icons/skill-obliteration.png"
     }
   ]
 }

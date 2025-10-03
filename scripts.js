@@ -18,6 +18,8 @@ let drifterTrigger, selectionOverlay, selectionGrid, selectionTitle, closeSelect
 let drifterGrid, gearGrid, gearCategorySelect, avatarTitle, avatarDescription;
 // These will be initialized in init()
 let masterySection, supportEffects, supportList;
+// Search elements
+let searchContainer, searchInput, clearSearchBtn;
 // import { loadDataSets, renderCards, updateSummary, bindCopy } from './scripts/utils.js';
 
 // Imported functions from utils.js
@@ -29,7 +31,7 @@ async function loadDataSets(notify) {
         if (!r.ok) throw new Error(`Failed to load drifters: ${r.status}`);
         return r.json();
       }),
-      fetch('./data/weapons.json').then(r => {
+      fetch(`./data/weapons.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load weapons: ${r.status}`);
         return r.json();
       }),
@@ -37,23 +39,23 @@ async function loadDataSets(notify) {
         if (!r.ok) throw new Error(`Failed to load skills: ${r.status}`);
         return r.json();
       }),
-      fetch('./data/armor/helmets.json').then(r => {
+      fetch(`./data/armor/helmets.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load helmets: ${r.status}`);
         return r.json();
       }),
-      fetch('./data/armor/chests.json').then(r => {
+      fetch(`./data/armor/chests.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load chests: ${r.status}`);
         return r.json();
       }),
-      fetch('./data/armor/boots.json').then(r => {
+      fetch(`./data/armor/boots.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load boots: ${r.status}`);
         return r.json();
       }),
-      fetch('./data/mods/weapon-mods.json').then(r => {
+      fetch(`./data/mods/weapon-mods.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load weapon mods: ${r.status}`);
         return r.json();
       }),
-      fetch('./data/mods/armor-mods.json').then(r => {
+      fetch(`./data/mods/armor-mods.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load armor mods: ${r.status}`);
         return r.json();
       })
@@ -67,11 +69,15 @@ async function loadDataSets(notify) {
     }));
     
 
+    const weapons = weaponsData.weapons || [];
+    const bloodthirstWeapon = weapons.find(w => w.id === 'bloodthirst');
+    console.log('Bloodthirst weapon loaded:', bloodthirstWeapon);
+    
     return {
       drifters: processedDrifters,
       skills: skillsData.skills || [],
       gear: {
-        weapons: weaponsData.weapons || [],
+        weapons: weapons,
         'armors/head': helmetsData.helmets || [],
         'armors/chest': chestsData.chests || [],
         'armors/boots': bootsData.boots || []
@@ -103,6 +109,12 @@ function renderCards(items, container, isSelected, onToggle) {
   items.forEach(item => {
     const card = document.createElement('div');
     card.className = 'selector-card';
+    card.dataset.itemId = item.id;
+    
+    if (item.id === 'bloodthirst') {
+      console.log('Creating Bloodthirst weapon card:', item);
+    }
+    
     if (isSelected(item)) {
       card.classList.add('selected');
     }
@@ -402,6 +414,15 @@ function showOverlay(title, key) {
     selectionTitle.textContent = title;
   }
   
+  // Show/hide search container based on selection type
+  if (searchContainer) {
+    if (key === 'weapon') {
+      searchContainer.style.display = 'flex';
+    } else {
+      searchContainer.style.display = 'none';
+    }
+  }
+  
   if (key === 'drifters') {
     renderDrifterSelection();
   } else if (key === 'basic-attacks' || key === 'weapon-skills') {
@@ -416,6 +437,93 @@ function hideOverlay() {
   if (selectionOverlay) {
     selectionOverlay.style.display = 'none';
     selectionOverlay.hidden = true;
+  }
+  // Clear search when hiding overlay
+  if (searchInput) {
+    searchInput.value = '';
+  }
+}
+
+// Search functionality
+function handleSearch() {
+  if (!searchInput) return;
+  
+  const searchTerm = searchInput.value.toLowerCase().trim();
+  console.log('Searching for:', searchTerm);
+  console.log('Total weapons in STATE.gear.weapons:', STATE.gear.weapons?.length);
+  console.log('Bloodthirst weapon in STATE.gear.weapons:', STATE.gear.weapons?.find(w => w.id === 'bloodthirst'));
+  
+  // Get all weapon cards in the selection grid
+  const weaponCards = selectionGrid.querySelectorAll('.selector-card');
+  console.log('Total weapon cards found:', weaponCards.length);
+  
+  weaponCards.forEach(card => {
+    const weaponName = card.querySelector('.card-name')?.textContent?.toLowerCase() || '';
+    const weaponSub = card.querySelector('.card-sub')?.textContent?.toLowerCase() || '';
+    const weaponDesc = card.querySelector('.card-desc')?.textContent?.toLowerCase() || '';
+    
+    if (weaponName.includes('bloodthirst')) {
+      console.log('Found Bloodthirst weapon card:', weaponName, 'Search term:', searchTerm);
+    }
+    
+    
+    // Get weapon data to check skill tags
+    const weaponId = card.dataset.itemId;
+    const weapon = STATE.gear.weapons?.find(w => w.id === weaponId);
+    
+    
+    let matchesSearch = false;
+    
+    if (searchTerm === '') {
+      matchesSearch = true;
+    } else {
+      // Search by weapon name
+      if (weaponName.includes(searchTerm) || weaponSub.includes(searchTerm)) {
+        matchesSearch = true;
+      }
+      
+      // Search by skill tags
+      if (weapon) {
+        const allSkills = [
+          ...(weapon.basicAttacks || []),
+          ...(weapon.weaponSkills || []),
+          weapon.coreSkill,
+          weapon.passiveSkill
+        ].filter(Boolean);
+        
+        for (const skillId of allSkills) {
+          const skill = STATE.skills.find(s => s.id === skillId);
+          if (skill) {
+            // Search by skill name
+            const skillName = skill.name?.toLowerCase() || '';
+            if (skillName.includes(searchTerm)) {
+              matchesSearch = true;
+              break;
+            }
+            
+            // Search by skill tags
+            if (skill.tags) {
+              const skillTags = skill.tags.join(' ').toLowerCase();
+              if (skillTags.includes(searchTerm)) {
+                matchesSearch = true;
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    // Show/hide card based on search match
+    card.style.display = matchesSearch ? 'block' : 'none';
+  });
+}
+
+function clearSearch() {
+  if (searchInput) {
+    searchInput.value = '';
+    handleSearch();
+    searchInput.focus();
   }
 }
 
@@ -542,6 +650,9 @@ async function init() {
   masterySection = document.getElementById('masterySection');
   supportEffects = document.getElementById('supportEffects');
   supportList = document.getElementById('supportList');
+  searchContainer = document.getElementById('searchContainer');
+  searchInput = document.getElementById('searchInput');
+  clearSearchBtn = document.getElementById('clearSearch');
   
   
   
@@ -665,6 +776,14 @@ async function init() {
   if (importLoadoutBtn) {
     importLoadoutBtn.addEventListener('click', importLoadout);
   }
+  
+  // Search functionality
+  if (searchInput) {
+    searchInput.addEventListener('input', handleSearch);
+  }
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', clearSearch);
+  }
 
   // Check for shared loadout in URL
   checkForSharedLoadout();
@@ -756,6 +875,11 @@ function renderGear(key) {
     
   console.log('Rendering gear for key:', key, 'Items:', items);
   console.log('Weapons in STATE.gear[weapons]:', STATE.gear[gearKey]);
+  
+  if (key === 'weapon') {
+    const bloodthirstWeapon = items.find(w => w.id === 'bloodthirst');
+    console.log('Bloodthirst weapon in items to render:', bloodthirstWeapon);
+  }
     
   renderCards(
     items,
