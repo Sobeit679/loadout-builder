@@ -1,5 +1,4 @@
 
-console.log('Script loading...');
 
 const SLOT_MAPPINGS = {
   weapon: { key: 'weapons', title: 'Select Weapon', type: 'weapon' },
@@ -25,7 +24,6 @@ let searchContainer, searchInput, clearSearchBtn;
 // Imported functions from utils.js
 async function loadDataSets(notify) {
   try {
-    console.log('Loading data sets on GitHub Pages...');
     const [driftersData, weaponsData, skillsData, helmetsData, chestsData, bootsData, weaponModsData, armorModsData] = await Promise.all([
       fetch(`./data/drifters.json?v=${Date.now()}`).then(r => {
         if (!r.ok) throw new Error(`Failed to load drifters: ${r.status}`);
@@ -60,7 +58,6 @@ async function loadDataSets(notify) {
         return r.json();
       })
     ]);
-    console.log('Data loaded successfully on GitHub Pages');
 
     // Process drifters to add gameId field
     const processedDrifters = (driftersData.drifters || []).map(drifter => ({
@@ -71,7 +68,6 @@ async function loadDataSets(notify) {
 
     const weapons = weaponsData.weapons || [];
     const bloodthirstWeapon = weapons.find(w => w.id === 'bloodthirst');
-    console.log('Bloodthirst weapon loaded:', bloodthirstWeapon);
     
     return {
       drifters: processedDrifters,
@@ -111,9 +107,6 @@ function renderCards(items, container, isSelected, onToggle) {
     card.className = 'selector-card';
     card.dataset.itemId = item.id;
     
-    if (item.id === 'bloodthirst') {
-      console.log('Creating Bloodthirst weapon card:', item);
-    }
     
     if (isSelected(item)) {
       card.classList.add('selected');
@@ -142,9 +135,6 @@ function renderCards(items, container, isSelected, onToggle) {
       card.style.gridRow = 'auto';
       card.style.cursor = 'pointer';
       
-      console.log('=== CARD CONTAINER DEBUG ===');
-      console.log('Card element created:', card);
-      console.log('Card classes:', card.className);
       
       // Weapon image
       const itemImg = document.createElement('img');
@@ -168,6 +158,7 @@ function renderCards(items, container, isSelected, onToggle) {
       itemInfo.style.minWidth = '0';
       
       const itemName = document.createElement('div');
+      itemName.className = 'card-name';
       itemName.textContent = item.name;
       itemName.style.fontSize = '1rem';
       itemName.style.fontWeight = 'bold';
@@ -175,6 +166,7 @@ function renderCards(items, container, isSelected, onToggle) {
       itemName.style.marginBottom = '2px';
       
       const itemType = document.createElement('div');
+      itemType.className = 'card-sub';
       if (item.type) {
         // Convert weapon type from kebab-case to display format
         const weaponTypeDisplay = item.type
@@ -225,12 +217,6 @@ function renderCards(items, container, isSelected, onToggle) {
         card.setAttribute('data-tooltip', tooltipContent);
       }
       
-      // Debug logging
-      console.log('=== ITEM CARD DEBUG ===');
-      console.log('Card element:', card);
-      console.log('Card computed styles:', window.getComputedStyle(card));
-      console.log('Description text length:', skill?.description?.length);
-      console.log('Description text:', skill?.description);
       
       // Add elements to card in simple horizontal order
       card.appendChild(itemImg);
@@ -273,17 +259,6 @@ function renderCards(items, container, isSelected, onToggle) {
         });
       }
       
-      // Debug parent container
-      console.log('=== PARENT CONTAINER DEBUG ===');
-      console.log('Parent container:', container);
-      console.log('Parent computed styles:', window.getComputedStyle(container));
-      console.log('Parent width:', container.offsetWidth);
-      console.log('Card width after append:', card.offsetWidth);
-      console.log('Card height after append:', card.offsetHeight);
-      console.log('Card computed width:', window.getComputedStyle(card).width);
-      console.log('Card computed min-width:', window.getComputedStyle(card).minWidth);
-      console.log('Card computed max-width:', window.getComputedStyle(card).maxWidth);
-      console.log('ItemInfo computed width:', window.getComputedStyle(itemInfo).width);
     } else {
       // Regular item rendering
     const img = document.createElement('img');
@@ -435,11 +410,8 @@ function showOverlay(title, key) {
     if (key === 'weapon') {
       setTimeout(() => {
         const weaponCards = selectionGrid.querySelectorAll('.selector-card');
-        console.log('Making weapon cards visible, found:', weaponCards.length);
-        weaponCards.forEach((card, index) => {
-          console.log(`Card ${index}:`, card, 'Current display:', card.style.display);
+        weaponCards.forEach((card) => {
           card.style.display = 'flex'; // Use flex since that's how they're created
-          console.log(`Card ${index} after setting display:`, card.style.display);
         });
       }, 100);
     }
@@ -462,19 +434,14 @@ function handleSearch() {
   if (!searchInput) return;
   
   const searchTerm = searchInput.value.toLowerCase().trim();
-  console.log('Searching for:', searchTerm);
-  console.log('Total weapons in STATE.gear.weapons:', STATE.gear.weapons?.length);
-  console.log('Bloodthirst weapon in STATE.gear.weapons:', STATE.gear.weapons?.find(w => w.id === 'bloodthirst'));
   
   // Get all weapon cards in the selection grid
   const weaponCards = selectionGrid.querySelectorAll('.selector-card');
-  console.log('Total weapon cards found:', weaponCards.length);
   
   // If search term is empty, show all cards and return early
   if (searchTerm === '') {
-    console.log('Empty search term, showing all cards');
     weaponCards.forEach(card => {
-      card.style.display = 'block';
+      card.style.display = 'flex';
     });
     return;
   }
@@ -484,9 +451,6 @@ function handleSearch() {
     const weaponSub = card.querySelector('.card-sub')?.textContent?.toLowerCase() || '';
     const weaponDesc = card.querySelector('.card-desc')?.textContent?.toLowerCase() || '';
     
-    if (weaponName.includes('bloodthirst')) {
-      console.log('Found Bloodthirst weapon card:', weaponName, 'Search term:', searchTerm);
-    }
     
     
     // Get weapon data to check skill tags
@@ -533,10 +497,7 @@ function handleSearch() {
     }
     
     // Show/hide card based on search match
-    if (card.dataset.itemId === 'bloodthirst') {
-      console.log('Bloodthirst card - matchesSearch:', matchesSearch, 'searchTerm:', searchTerm);
-    }
-    card.style.display = matchesSearch ? 'block' : 'none';
+    card.style.display = matchesSearch ? 'flex' : 'none';
   });
 }
 
@@ -739,7 +700,6 @@ async function init() {
       loadingDiv.parentNode.removeChild(loadingDiv);
     }
     
-    console.log('Loadout builder initialized successfully');
   } catch (error) {
     console.error('Failed to initialize loadout builder:', error);
     loadingDiv.innerHTML = 'Failed to load. Please refresh the page.';
@@ -771,7 +731,6 @@ async function init() {
   
   if (aSlot) {
     aSlot.addEventListener('click', (e) => {
-      console.log('Ability slot A clicked');
       e.stopPropagation();
       e.preventDefault();
       showBasicAttackSelection();
@@ -780,7 +739,6 @@ async function init() {
   
   if (qSlot) {
     qSlot.addEventListener('click', (e) => {
-      console.log('Ability slot Q clicked');
       e.stopPropagation();
       e.preventDefault();
       showWeaponSkillSelection();
@@ -809,34 +767,6 @@ async function init() {
   // Check for shared loadout in URL
   checkForSharedLoadout();
   
-  // Debug: Check if loadout buttons are found
-  console.log('=== LOADOUT BUTTONS DEBUG ===');
-  console.log('Export button:', document.getElementById('exportLoadoutBtn'));
-  console.log('Import button:', document.getElementById('importLoadoutBtn'));
-  
-  // Debug: Check CSS loading
-  console.log('=== CSS DEBUG ===');
-  const stylesheet = document.querySelector('link[href*="styles.css"]');
-  console.log('Stylesheet link:', stylesheet);
-  console.log('Stylesheet href:', stylesheet?.href);
-  
-  // Debug: Check if our CSS classes exist
-  const testElement = document.createElement('div');
-  testElement.className = 'loadout-btn';
-  document.body.appendChild(testElement);
-  const computedStyle = window.getComputedStyle(testElement);
-  console.log('Loadout button computed styles:', {
-    display: computedStyle.display,
-    background: computedStyle.background,
-    borderRadius: computedStyle.borderRadius,
-    padding: computedStyle.padding
-  });
-  document.body.removeChild(testElement);
-  
-  // Debug: Check if text buttons are found
-  console.log('=== LOADOUT TEXT BUTTONS DEBUG ===');
-  const textButtons = document.querySelectorAll('.loadout-text-btn');
-  console.log('Found loadout text buttons:', textButtons.length);
   
   // Force correct positioning with inline styles
   const header = document.querySelector('.panel-header');
@@ -870,7 +800,6 @@ async function init() {
   
   // Add hover effects to text buttons
   textButtons.forEach((btn, index) => {
-    console.log(`Text Button ${index + 1}:`, btn);
     
     // Add hover effect
     btn.addEventListener('mouseenter', () => {
@@ -894,26 +823,16 @@ function renderGear(key) {
     ? STATE.gear[gearKey]
     : [...STATE.gear[gearKey], ...STATE.mods.armor];
     
-  console.log('Rendering gear for key:', key, 'Items:', items);
-  console.log('Weapons in STATE.gear[weapons]:', STATE.gear[gearKey]);
   
-  if (key === 'weapon') {
-    const bloodthirstWeapon = items.find(w => w.id === 'bloodthirst');
-    console.log('Bloodthirst weapon in items to render:', bloodthirstWeapon);
-    console.log('Total weapons to render:', items.length);
-  }
     
   renderCards(
     items,
     selectionGrid,
     (item) => STATE.selected.gear[gearKey]?.gameId === item.gameId,
     (item) => {
-             console.log('Weapon selection clicked:', item);
       if (STATE.selected.gear[gearKey]?.gameId === item.gameId) {
-               console.log('Deselecting weapon');
         delete STATE.selected.gear[gearKey];
       } else {
-               console.log('Selecting weapon:', item.name);
         STATE.selected.gear[gearKey] = item;
         if (item.slot) {
           STATE.selected.mods[resolveSlotKey(item)] = item;
@@ -936,7 +855,6 @@ function renderGear(key) {
                // Close the modal after selecting a weapon
                hideOverlay();
              }
-             console.log('Selected weapon:', STATE.selected.gear[gearKey]);
       populateLoadoutBoard();
     }
   );
@@ -1195,7 +1113,6 @@ function updateWeaponAbilitySkill() {
 function showBasicAttackSelection() {
   const weapon = STATE.selected.gear['weapons'];
   if (!weapon || !weapon.basicAttacks) {
-    console.log('No weapon selected or no basic attacks available');
     return;
   }
   
@@ -1205,7 +1122,6 @@ function showBasicAttackSelection() {
   ).filter(skill => skill);
   
   if (basicAttackSkills.length === 0) {
-    console.log('No basic attack skills found');
     return;
   }
   
@@ -1219,7 +1135,6 @@ function showBasicAttackSelection() {
 function showWeaponSkillSelection() {
   const weapon = STATE.selected.gear['weapons'];
   if (!weapon || !weapon.weaponSkills) {
-    console.log('No weapon selected or no weapon skills available');
     return;
   }
   
@@ -1229,7 +1144,6 @@ function showWeaponSkillSelection() {
   ).filter(skill => skill);
   
   if (weaponSkills.length === 0) {
-    console.log('No weapon skills found');
     return;
   }
   
@@ -1424,20 +1338,14 @@ function updateAvatar() {
   disableEquipmentSlots(false);
   
   // Show mastery section and update support effects
-  console.log('About to call showMasterySection');
   showMasterySection();
-  console.log('About to set mastery currentDrifter');
   STATE.mastery.currentDrifter = drifter;
   STATE.mastery.level = 1;
-  console.log('About to call updateMasteryDisplay');
   updateMasteryDisplay();
-  console.log('About to call updateSupportEffects with:', drifter);
   updateSupportEffects(drifter);
-  console.log('updateSupportEffects call completed');
 }
 
 function updateDrifterAbilities(drifter) {
-  console.log('Updating drifter abilities for:', drifter.name);
   
   // Debug panel removed
   
@@ -2504,13 +2412,11 @@ function showLoadoutCodeModal(code, title, isImport = false, clickedButton = nul
           setTimeout(() => {
             const textarea = modal.querySelector('#loadoutCodeDisplay');
             if (textarea) {
-              console.log('Setting textarea value:', code);
               textarea.value = code;
               textarea.style.color = '#ffffff';
               textarea.style.backgroundColor = '#1a1a1a';
               textarea.select();
               textarea.focus();
-              console.log('Textarea value after setting:', textarea.value);
             }
           }, 100);
         }
@@ -2678,30 +2584,18 @@ function updateMasteryDisplay() {
   if (intelligenceValue) intelligenceValue.textContent = intelligenceTotal;
 
   // Update bonus values (green numbers) - show per-level bonus
-  console.log('Drifter mastery bonuses:', drifter.masteryBonuses);
-  console.log('Drifter data:', drifter);
-  console.log('DOM elements:', { strengthBonus, agilityBonus, intelligenceBonus });
   
   if (strengthBonus) {
     const perLevelBonus = drifter.masteryBonuses?.strength || 0;
     strengthBonus.textContent = `(+${perLevelBonus.toFixed(1)})`;
-    console.log('Strength bonus:', perLevelBonus, 'Element:', strengthBonus);
-  } else {
-    console.log('strengthBonus element not found');
   }
   if (agilityBonus) {
     const perLevelBonus = drifter.masteryBonuses?.agility || 0;
     agilityBonus.textContent = `(+${perLevelBonus.toFixed(1)})`;
-    console.log('Agility bonus:', perLevelBonus, 'Element:', agilityBonus);
-  } else {
-    console.log('agilityBonus element not found');
   }
   if (intelligenceBonus) {
     const perLevelBonus = drifter.masteryBonuses?.intelligence || 0;
     intelligenceBonus.textContent = `(+${perLevelBonus.toFixed(1)})`;
-    console.log('Intelligence bonus:', perLevelBonus, 'Element:', intelligenceBonus);
-  } else {
-    console.log('intelligenceBonus element not found');
   }
 
   // Calculate derived stats based on attribute increases
@@ -2813,9 +2707,7 @@ if (masteryResetButton) {
 
 
 function updateSupportEffects(drifter) {
-  console.log('=== updateSupportEffects called with:', drifter);
   if (!supportEffects || !supportList) {
-    console.log('Support effects elements not found');
     return;
   }
   
@@ -2823,20 +2715,16 @@ function updateSupportEffects(drifter) {
   supportList.innerHTML = '';
   
   if (!drifter || !drifter.support) {
-    console.log('No drifter or support data, hiding support effects');
     supportEffects.style.display = 'none';
     updateSkillsVideo(null);
     return;
   }
   
   // Show support effects section
-  console.log('Showing support effects for:', drifter.name);
   supportEffects.style.display = 'block';
   
   // Update skills video button
-  console.log('About to call updateSkillsVideo');
   updateSkillsVideo(drifter);
-  console.log('updateSkillsVideo call completed');
   
   // Add support effects
   if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
@@ -2935,23 +2823,19 @@ if (playButton) {
 }
 
 // Initialize the application when DOM is ready
-console.log('Script loaded on GitHub Pages');
 
 // Fallback for older browsers
 if (document.readyState === 'loading') {
   window.addEventListener("DOMContentLoaded", () => {
-    console.log('DOMContentLoaded fired on GitHub Pages');
     init();
   });
 } else {
-  console.log('DOM already loaded, initializing immediately');
   init();
 }
 
 // Additional fallback
 setTimeout(() => {
   if (!STATE.drifters || STATE.drifters.length === 0) {
-    console.log('Fallback initialization triggered');
     init();
   }
 }, 1000);
