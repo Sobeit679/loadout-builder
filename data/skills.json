@@ -6528,7 +6528,7 @@
     },
     {
       "id": "bloodeye-burst-spear",
-      "name": "Bloodeye Burst Spear",
+      "name": "Bloodeye Burst",
       "type": "core-skill",
       "category": "damage",
       "tags": ["physical damage", "debuff", "aoe"],
