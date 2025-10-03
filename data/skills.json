@@ -715,7 +715,7 @@
       "name": "Storm Pulse",
       "type": "active",
       "category": "damage",
-      "tags": ["physical damage", "aoe"],
+      "tags": ["physical damage", "aoe", "debuff"],
       "mpCost": 29,
       "cooldown": "39s",
       "range": "7m",
@@ -854,7 +854,7 @@
       "name": "Reality Distortion",
       "type": "active",
       "category": "control",
-      "tags": ["slow", "aoe"],
+      "tags": ["slow", "aoe", "debuff"],
       "mpCost": 35,
       "cooldown": "30s",
       "range": "6m",
@@ -1146,7 +1146,7 @@
       "name": "Acid Blast",
       "type": "active",
       "category": "damage",
-      "tags": ["slow", "magic damage", "dot", "aoe"],
+      "tags": ["slow", "magic damage", "dot", "aoe", "debuff"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -1196,7 +1196,7 @@
       "name": "Corrosion Barrier",
       "type": "passive",
       "category": "defense",
-      "tags": ["magic damage", "slow"],
+      "tags": ["magic damage", "slow", "debuff"],
       "description": "After taking 5 instances of damage, releases acid outward, dealing [Damage Rate: 70%] Magic Damage to enemies in range, reducing their damage dealt by 25% and Movement Speed by 25% for 4s",
       "effects": [
         {
@@ -1234,7 +1234,7 @@
       "name": "Frozen Maelstrom",
       "type": "active",
       "category": "damage",
-      "tags": ["magic damage", "slow", "CC", "attack speed"],
+      "tags": ["magic damage", "slow", "CC", "attack speed", "debuff"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "10m",
@@ -1285,7 +1285,7 @@
       "name": "Fractured Ice",
       "type": "passive",
       "category": "defense",
-      "tags": ["passive", "magic damage", "slow", "resistance", "attack speed"],
+      "tags": ["passive", "magic damage", "slow", "resistance", "attack speed", "debuff"],
       "description": "After casting the skill, if damage is dealt within 5 seconds, increases Damage Resistance by 25% for 6s, while emitting cold mist around itself, dealing [Damage Rate: 80%] Magic Damage and reducing Attack Speed by 30% and movement speed by 30% per second for 4s. (Cooldown: 20s)",
       "effects": [
         {
@@ -1561,7 +1561,7 @@
       "name": "Soul Feast",
       "type": "active",
       "category": "damage",
-      "tags": ["magic damage", "slow", "immunity", "aoe"],
+      "tags": ["magic damage", "slow", "immunity", "aoe", "debuff"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -1642,7 +1642,7 @@
       "name": "Voidshape",
       "type": "passive",
       "category": "damage",
-      "tags": ["passive", "magic damage"],
+      "tags": ["passive", "magic damage", "debuff"],
       "description": "Converts Basic Attack Damage from Physical to Magic. Basic Attacks also reduce the enemy's Magic Resistance by 4% for 4s, stacking up to 10 times",
       "effects": [
         {
@@ -1669,7 +1669,7 @@
       "name": "Flamecore Rampage",
       "type": "active",
       "category": "damage",
-      "tags": ["physical damage", "attack speed", "mobility", "crit", "immunity", "aoe"],
+      "tags": ["physical damage", "attack speed", "mobility", "crit", "immunity", "aoe", "debuff"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "7m",
@@ -1793,7 +1793,7 @@
       "name": "Raven's Gaze",
       "type": "active",
       "category": "damage",
-      "tags": ["magic damage", "slow", "aoe"],
+      "tags": ["magic damage", "slow", "aoe", "debuff"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "14m",
@@ -2206,7 +2206,7 @@
       "name": "Sand Veil",
       "type": "passive",
       "category": "damage",
-      "tags": ["magic damage", "CC"],
+      "tags": ["magic damage", "CC", "debuff"],
       "description": "Creates a circular storm field around the caster for 4s when causing Forced Movement (Pull, Knockback). Deals [Damage Rate: 100%] Physical Damage to enemies in the field, inflicting Silence and a 40% chance to miss Basic Attacks for 3s. (Cooldown: 20s)",
       "effects": [
         {
@@ -3231,7 +3231,7 @@
       "name": "Toxic Matter",
       "type": "active",
       "category": "damage",
-      "tags": ["magic damage"],
+      "tags": ["magic damage", "debuff"],
       "mpCost": 18,
       "cooldown": "11s",
       "castingTime": "0.48s",
@@ -3434,7 +3434,7 @@
       "name": "Pestilence",
       "type": "active",
       "category": "damage",
-      "tags": ["magic damage", "dot", "aoe"],
+      "tags": ["magic damage", "dot", "aoe", "debuff"],
       "mpCost": 20,
       "cooldown": "14s",
       "castingTime": "instant",
@@ -4006,7 +4006,7 @@
       "name": "Sacred Flare",
       "type": "active",
       "category": "damage",
-      "tags": ["magic damage", "heal", "CC"],
+      "tags": ["magic damage", "heal", "CC", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "12m",
@@ -4231,7 +4231,7 @@
       "name": "Frost Torrent",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "channeling"],
+      "tags": ["magic damage", "slow", "channeling", "debuff"],
       "mpCost": 23,
       "cooldown": 19,
       "castingTime": "3s channel",
@@ -4244,7 +4244,7 @@
       "name": "Ice Shards",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "buff"],
+      "tags": ["magic damage", "buff", "debuff"],
       "mpCost": 23,
       "cooldown": 19,
       "castingTime": "Instant",
@@ -4257,7 +4257,7 @@
       "name": "Frozen Phase",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "stun", "CC", "aoe"],
+      "tags": ["magic damage", "stun", "CC", "aoe", "debuff"],
       "mpCost": 27,
       "cooldown": 29,
       "castingTime": "Instant",
@@ -4270,7 +4270,7 @@
       "name": "Frost Nova",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "aoe"],
+      "tags": ["magic damage", "slow", "aoe", "debuff"],
       "mpCost": 20,
       "cooldown": 1.5,
       "castingTime": "Instant",
@@ -4283,7 +4283,7 @@
       "name": "Frostbound Echo",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "shield", "aoe"],
+      "tags": ["magic damage", "slow", "shield", "aoe", "debuff"],
       "mpCost": 23,
       "cooldown": 19,
       "castingTime": "Instant",
@@ -4296,7 +4296,7 @@
       "name": "Frostbite",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "aoe", "dot"],
+      "tags": ["magic damage", "slow", "aoe", "dot", "debuff"],
       "mpCost": 25,
       "cooldown": 24,
       "castingTime": "Instant",
@@ -4309,7 +4309,7 @@
       "name": "Frost's Caller",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "dot", "immunity", "CC", "mobility"],
+      "tags": ["magic damage", "slow", "dot", "immunity", "CC", "mobility", "debuff"],
       "mpCost": 23,
       "cooldown": 19,
       "castingTime": "Instant",
@@ -4363,7 +4363,7 @@
       "name": "Ice Blast",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "stun", "CC", "slow", "attack speed"],
+      "tags": ["magic damage", "stun", "CC", "slow", "attack speed", "debuff"],
       "mpCost": 24,
       "cooldown": 21,
       "castingTime": "Instant",
@@ -4432,7 +4432,7 @@
       "name": "Frost Beam",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "channeling"],
+      "tags": ["magic damage", "slow", "channeling", "debuff"],
       "mpCost": 18,
       "cooldown": "11s",
       "castingTime": "3s channel",
@@ -4480,7 +4480,7 @@
       "name": "Frost Wall",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "stun", "CC", "aoe", "dot"],
+      "tags": ["magic damage", "slow", "stun", "CC", "aoe", "dot", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "castingTime": "Instant",
@@ -4502,7 +4502,7 @@
       "name": "Frost Roar",
       "type": "active",
       "category": "weapon",
-      "tags": ["magic damage", "slow", "attack speed", "aoe"],
+      "tags": ["magic damage", "slow", "attack speed", "aoe", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "castingTime": "Instant",
@@ -4792,7 +4792,7 @@
       "name": "Hell Salvo",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "dot", "resistance", "channeling"],
+      "tags": ["magic damage", "dot", "resistance", "channeling", "debuff"],
       "mpCost": 25,
       "cooldown": "24s",
       "castingTime": "0.96s",
@@ -4824,7 +4824,7 @@
       "name": "Core Flare",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "dot", "aoe", "cooldown"],
+      "tags": ["magic damage", "dot", "aoe", "cooldown", "debuff"],
       "mpCost": 20,
       "cooldown": "1.5s",
       "range": "18m",
@@ -4860,7 +4860,7 @@
       "name": "Scorching Surge",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "dot", "CC", "aoe"],
+      "tags": ["magic damage", "dot", "CC", "aoe", "debuff"],
       "mpCost": 24,
       "cooldown": "21s",
       "castingTime": "0.96s",
@@ -4892,7 +4892,7 @@
       "name": "Molten Blast",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "dot", "CC", "aoe", "channeling"],
+      "tags": ["magic damage", "dot", "CC", "aoe", "channeling", "debuff"],
       "mpCost": 22,
       "cooldown": "1.5s",
       "range": "10m",
@@ -4929,7 +4929,7 @@
       "name": "Molten Volley",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "dot", "aoe", "damage increase"],
+      "tags": ["magic damage", "dot", "aoe", "damage increase", "debuff"],
       "mpCost": 17,
       "cooldown": "9.7s",
       "range": "23m",
@@ -4960,7 +4960,7 @@
       "name": "Starforge Beam",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "dot", "aoe", "damage increase", "channeling", "shield"],
+      "tags": ["magic damage", "dot", "aoe", "damage increase", "channeling", "shield", "debuff"],
       "mpCost": 25,
       "cooldown": "24s",
       "castingTime": "0.96s",
@@ -5026,7 +5026,7 @@
       "name": "Evil Seed",
       "type": "active",
       "category": "basic",
-      "tags": ["magic damage", "slow", "dot", "aoe"],
+      "tags": ["magic damage", "slow", "dot", "aoe", "debuff"],
       "cooldown": "0.48s",
       "castingTime": "0.48s",
       "range": "14m",
@@ -5277,7 +5277,7 @@
       "name": "Toxin Injection",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "dot", "slow", "attack speed"],
+      "tags": ["magic damage", "dot", "slow", "attack speed", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "14m",
@@ -5308,7 +5308,7 @@
       "name": "Entangling Growth",
       "type": "active",
       "category": "core",
-      "tags": ["magic damage", "CC", "aoe"],
+      "tags": ["magic damage", "CC", "aoe", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "16m",
@@ -5388,7 +5388,7 @@
       "name": "Thorn Barrier",
       "type": "active",
       "category": "core",
-      "tags": ["buff", "aoe", "resistance", "attack speed", "heal", "slow"],
+      "tags": ["buff", "aoe", "resistance", "attack speed", "heal", "slow", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "8m",
@@ -5483,6 +5483,719 @@
         }
       ],
       "icon": "./assets/icons/skill-breeze-of-resurgence.png"
+    },
+    {
+      "id": "bleed",
+      "name": "Bleed",
+      "type": "passive",
+      "category": "damage",
+      "tags": ["passive", "physical damage", "dot", "debuff"],
+      "description": "Dealing damage inflicts [Bleed], dealing [Damage Rate: 30%] Physical Damage every second for 8s, stacking up to 6 times (stacks do not boost damage). At max stacks, triggers Hemorrhage, dealing [Damage Rate: 100%] Physical Damage + True Damage equal to 4% of the target's current HP and removes all [Bleed] stacks. Basic Attack Damage Bonuses affect the base damage and basic attack critical hits can cause the damage to crit",
+      "effects": [
+        {
+          "type": "passive",
+          "effect": "bleed_on_damage",
+          "description": "Damage dealt inflicts [Bleed]",
+          "damage_type": "physical",
+          "damage_rate": "30%",
+          "duration": "8s",
+          "max_stacks": 6
+        },
+        {
+          "type": "passive",
+          "effect": "hemorrhage_trigger",
+          "trigger": "max_stacks",
+          "damage_rate": "100%",
+          "true_damage": "4% of target's current HP",
+          "removes_stacks": true
+        }
+      ],
+      "icon": "./assets/icons/passive-bleed.png"
+    },
+    {
+      "id": "bleeding-thrust",
+      "name": "Bleeding Thrust",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "bleed", "mobility", "debuff"],
+      "mpCost": 0,
+      "cooldown": "0.96s",
+      "castingTime": "Instant",
+      "range": "7m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed]. Can cast [Bleeding Thrust] every 6s. Dashes toward an enemy, dealing [Damage Rate: 160%] Physical Damage and inflicting 2 stacks of [Bleed]",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "85%",
+          "target": "basic_attack"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1
+        },
+        {
+          "type": "mobility",
+          "effect": "dash",
+          "cooldown": "6s",
+          "damage_type": "physical",
+          "damage_rate": "160%",
+          "bleed_stacks": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-bleeding-thrust.png"
+    },
+    {
+      "id": "ricocheting-blades",
+      "name": "Ricocheting Blades",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "bleed", "slow", "debuff", "aoe"],
+      "mpCost": 0,
+      "cooldown": "0.96s",
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed]. Can cast [Ricochet] every 6s. Throws a blade at the target that deals [Damage Rate: 120%] Physical Damage, inflicts 1 stack of [Bleed] and reduces their Movement Speed by 40% for 2s. After which it bounces to 1 enemy behind up to 4 times",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "85%",
+          "target": "basic_attack"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "120%",
+          "cooldown": "6s",
+          "target": "ricochet"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1,
+          "target": "ricochet"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "value": "40%",
+          "duration": "2s",
+          "target": "ricochet"
+        },
+        {
+          "type": "aoe",
+          "effect": "bounce",
+          "max_bounces": 4
+        }
+      ],
+      "icon": "./assets/icons/skill-ricocheting-blades.png"
+    },
+    {
+      "id": "armor-breaker",
+      "name": "Armor Breaker",
+      "type": "basic-attack",
+      "category": "damage",
+      "tags": ["physical damage", "bleed", "debuff"],
+      "mpCost": 0,
+      "cooldown": "0.96s",
+      "castingTime": "Instant",
+      "range": "3.5m",
+      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed]. Can cast [Armor Breaker] every 5s. Deals [Damage Rate: 200%] Physical Damage to nearby enemies, inflicting 1 stack of [Bleed], and reducing their Armor by 32 for 4s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "85%",
+          "target": "basic_attack"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "cooldown": "5s",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1,
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "armor_reduction",
+          "value": 32,
+          "duration": "4s",
+          "target": "nearby_enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-armor-breaker.png"
+    },
+    {
+      "id": "whirling-blades",
+      "name": "Whirling Blades",
+      "type": "weapon-skill",
+      "category": "damage",
+      "tags": ["physical damage", "aoe", "bleed"],
+      "mpCost": 15,
+      "cooldown": "8.8s",
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "Throws 3 blades forward. Each blade deals [Damage Rate: 80%] Physical Damage to all enemies hit. Upon reaching max range, the blades return, dealing [Damage Rate: 80%] Physical Damage to those hit and inflicting 1 stack of [Bleed]. Additional blade hits on the same enemy beyond the first deal damage equal to 30% of the original damage",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "80%",
+          "blade_count": 3,
+          "target": "forward_enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "80%",
+          "target": "return_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1,
+          "target": "return_enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "30%",
+          "effect": "additional_hits",
+          "target": "same_enemy"
+        }
+      ],
+      "icon": "./assets/icons/skill-whirling-blades.png"
+    },
+    {
+      "id": "phase-blade",
+      "name": "Phase Blade",
+      "type": "weapon-skill",
+      "category": "mobility",
+      "tags": ["physical damage", "bleed", "stun", "cc", "mobility", "buff", "attack speed"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "Instant",
+      "range": "13m",
+      "description": "Dashes 3m backward while firing a Phase Blade forward that deals [Damage Rate: 100%] Physical Damage to the first enemy hit, inflicting 1 stack of [Bleed] and Stunning for 0.75s, while also marking them for 5s. Recast the skill within 15m while a mark exists to instantly appear behind the target, dealing [Damage Rate: 160%] Physical Damage and gaining +30% Attack Speed for 5s",
+      "effects": [
+        {
+          "type": "mobility",
+          "effect": "dash_backward",
+          "distance": "3m"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "100%",
+          "target": "first_enemy_hit"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1
+        },
+        {
+          "type": "cc",
+          "effect": "stun",
+          "duration": "0.75s"
+        },
+        {
+          "type": "debuff",
+          "effect": "mark",
+          "duration": "5s"
+        },
+        {
+          "type": "mobility",
+          "effect": "teleport_behind",
+          "range": "15m",
+          "condition": "mark_exists"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "160%",
+          "target": "marked_enemy"
+        },
+        {
+          "type": "buff",
+          "effect": "attack_speed_increase",
+          "value": "30%",
+          "duration": "5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-phase-blade.png"
+    },
+    {
+      "id": "crippling-strike",
+      "name": "Crippling Strike",
+      "type": "weapon-skill",
+      "category": "control",
+      "tags": ["physical damage", "bleed", "disarm", "buff", "attack speed"],
+      "mpCost": 19,
+      "cooldown": "12s",
+      "castingTime": "Instant",
+      "range": "4m",
+      "description": "Strike an enemy 2 times, dealing [Damage Rate: 180%] Physical Damage, applying 1 stack of [Bleed] and Disarming them for 4s. Increases Basic Attack Damage by 25% for 5s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "180%",
+          "strikes": 2
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 1
+        },
+        {
+          "type": "disarm",
+          "duration": "4s"
+        },
+        {
+          "type": "buff",
+          "effect": "basic_attack_damage_increase",
+          "value": "25%",
+          "duration": "5s"
+        }
+      ],
+      "icon": "./assets/icons/skill-crippling-strike.png"
+    },
+    {
+      "id": "smoke-grenade",
+      "name": "Smoke Grenade",
+      "type": "weapon-skill",
+      "category": "utility",
+      "tags": ["physical damage", "slow", "debuff", "aoe"],
+      "mpCost": 21,
+      "cooldown": "15s",
+      "castingTime": "Instant",
+      "range": "8m",
+      "description": "Throws a smoke grenade to create a smoke screen for 6s. Enemies inside are Slowed by 40% and have a 55% chance to miss Basic Attacks. Also deals [Damage Rate: 25%] Physical Damage every second",
+      "effects": [
+        {
+          "type": "aoe",
+          "effect": "smoke_screen",
+          "duration": "6s"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement_speed_reduction",
+          "value": "40%",
+          "target": "enemies_inside"
+        },
+        {
+          "type": "debuff",
+          "effect": "miss_chance",
+          "value": "55%",
+          "target": "enemies_inside",
+          "attack_type": "basic_attacks"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "25%",
+          "interval": "1s",
+          "target": "enemies_inside"
+        }
+      ],
+      "icon": "./assets/icons/skill-smoke-grenade.png"
+    },
+    {
+      "id": "shadow-move",
+      "name": "Shadow Move",
+      "type": "weapon-skill",
+      "category": "mobility",
+      "tags": ["stealth", "buff", "immunity", "mobility", "damage increase"],
+      "mpCost": 25,
+      "cooldown": "23s",
+      "castingTime": "Instant",
+      "range": "6m",
+      "description": "Instantly removes control effects and enters Stealth. While in Stealth, gains immunity to movement-limiting effects (Slow, Immobilize) for 2s. Also increases damage by 7% for 6s, stacking up to 2 times. Can be recast once within 6s, but doing so will not remove control effects again. Using a skill, dealing or taking damage, or direct healing breaks Stealth",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "remove_control_effects",
+          "instant": true
+        },
+        {
+          "type": "stealth",
+          "duration": "until_broken"
+        },
+        {
+          "type": "immunity",
+          "effect": "movement_limiting_effects",
+          "duration": "2s",
+          "conditions": ["slow", "immobilize"]
+        },
+        {
+          "type": "buff",
+          "effect": "damage_increase",
+          "value": "7%",
+          "duration": "6s",
+          "max_stacks": 2
+        },
+        {
+          "type": "recast",
+          "cooldown": "6s",
+          "max_uses": 1,
+          "note": "does_not_remove_control_effects"
+        },
+        {
+          "type": "stealth_break",
+          "conditions": ["use_skill", "deal_damage", "take_damage", "direct_healing"]
+        }
+      ],
+      "icon": "./assets/icons/skill-shadow-move.png"
+    },
+    {
+      "id": "rend-and-reap",
+      "name": "Rend and Reap",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "bleed", "heal", "mobility"],
+      "mpCost": 23,
+      "cooldown": "1.5s",
+      "castingTime": "Instant",
+      "range": "11m",
+      "description": "Leaps to the target and strikes, dealing [Damage Rate: 220%] Physical Damage and applying 2 stacks of [Bleed]. Recovers [Healing Rate: 132%] HP. Gains 1 charge every 20s, up to 2 charges",
+      "effects": [
+        {
+          "type": "mobility",
+          "effect": "leap",
+          "range": "11m"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "220%"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 2
+        },
+        {
+          "type": "heal",
+          "healing_rate": "132%"
+        },
+        {
+          "type": "charges",
+          "gain_interval": "20s",
+          "max_charges": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-rend-and-reap.png"
+    },
+    {
+      "id": "crimson-frenzy",
+      "name": "Crimson Frenzy",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "aoe", "bleed", "heal", "mobility", "buff"],
+      "mpCost": 20,
+      "cooldown": "19s",
+      "castingTime": "Instant",
+      "range": "8m",
+      "description": "Deals [Damage Rate: 200%] Physical Damage + True Damage equal to 10% of the target's Max HP to nearby enemies, while also inflicting 2 stacks of [Bleed]. If this skill triggers Hemorrhage, recovers 10% of Max HP and gains 40%+ Movement Speed for 3s",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "200%",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "damage",
+          "damage_type": "true",
+          "damage_rate": "10% of target's Max HP",
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 2,
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "heal",
+          "healing_rate": "10% of Max HP",
+          "trigger": "hemorrhage"
+        },
+        {
+          "type": "buff",
+          "effect": "movement_speed_increase",
+          "value": "40%",
+          "duration": "3s",
+          "trigger": "hemorrhage"
+        }
+      ],
+      "icon": "./assets/icons/skill-crimson-frenzy.png"
+    },
+    {
+      "id": "rupture-thrust",
+      "name": "Rupture Thrust",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "bleed", "mobility", "aoe", "damage increase"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "Instant",
+      "range": "9m",
+      "description": "Thrusts in the target's direction, dealing [Damage Rate: 140%] Physical Damage and inflicting 2 stacks of [Bleed]. Skill's second stage can be cast within 5s: Dash toward the target direction, dealing [Damage Rate: 225%] Physical Damage and inflicting 2 stacks of [Bleed] to all enemies hit. Deals [Damage Rate: 450%] Physical Damage against enemies with less than 40% HP",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "140%",
+          "target": "direction"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 2
+        },
+        {
+          "type": "mobility",
+          "effect": "dash",
+          "cooldown": "5s",
+          "damage_type": "physical",
+          "damage_rate": "225%",
+          "target": "all_enemies_hit"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 2,
+          "target": "all_enemies_hit"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "450%",
+          "condition": "enemy_hp_less_than_40%"
+        }
+      ],
+      "icon": "./assets/icons/skill-rupture-thrust.png"
+    },
+    {
+      "id": "soul-snare",
+      "name": "Soul Snare",
+      "type": "core-skill",
+      "category": "control",
+      "tags": ["physical damage", "buff", "cc", "debuff", "crit", "resistance", "attack speed"],
+      "mpCost": 22,
+      "cooldown": "17s",
+      "castingTime": "Instant",
+      "range": "7m",
+      "description": "Inflicts the enemy with a Soul Snare, dealing [Damage Rate: 150%] Physical Damage and linking with the target, silencing both parties for 5s. During this period, the caster gains [Soul Snare]. The link breaks if distance exceeds 12m. [Soul Snare]: Critical Rate: +30%, Damage Resistance: +50%, Attack Speed: +30%, Cannot use skills",
+      "effects": [
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%"
+        },
+        {
+          "type": "cc",
+          "effect": "silence",
+          "duration": "5s",
+          "target": "both_parties"
+        },
+        {
+          "type": "buff",
+          "effect": "soul_snare_caster",
+          "critical_rate": "+30%",
+          "damage_resistance": "+50%",
+          "attack_speed": "+30%",
+          "duration": "5s"
+        },
+        {
+          "type": "debuff",
+          "effect": "soul_snare_target",
+          "cannot_use_skills": true,
+          "duration": "5s"
+        },
+        {
+          "type": "link",
+          "effect": "breaks_if_distance_exceeds",
+          "value": "12m"
+        }
+      ],
+      "icon": "./assets/icons/skill-soul-snare.png"
+    },
+    {
+      "id": "blade-dance",
+      "name": "Blade Dance",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "bleed", "mobility", "aoe", "mp"],
+      "mpCost": 20,
+      "cooldown": "14s",
+      "castingTime": "Instant",
+      "range": "10m",
+      "description": "Dashes toward the target direction, leaving a dagger behind. Upon arrival, deals [Damage Rate: 180%] Physical Damage and drains 25 MP from nearby enemies, inflicting 2 stacks of Bleed. Can be recast within 5s to return to the dagger's location, dealing [Damage Rate: 180%] Physical Damage and draining 25 MP from nearby enemies, inflicting 2 stacks of [Bleed]",
+      "effects": [
+        {
+          "type": "mobility",
+          "effect": "dash",
+          "range": "10m",
+          "leaves_dagger": true
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "180%",
+          "target": "arrival_point"
+        },
+        {
+          "type": "mp",
+          "effect": "drain",
+          "value": 25,
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 2,
+          "target": "nearby_enemies"
+        },
+        {
+          "type": "mobility",
+          "effect": "return_to_dagger",
+          "cooldown": "5s",
+          "damage_type": "physical",
+          "damage_rate": "180%",
+          "mp_drain": 25,
+          "bleed_stacks": 2
+        }
+      ],
+      "icon": "./assets/icons/skill-blade-dance.png"
+    },
+    {
+      "id": "bloodeye-burst",
+      "name": "Bloodeye Burst",
+      "type": "core-skill",
+      "category": "damage",
+      "tags": ["physical damage", "bleed", "debuff", "mobility", "aoe"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "Instant",
+      "range": "10m",
+      "description": "Dashes forward, dealing [Damage Rate: 150%] Physical Damage to all enemies hit, inflicting 2 stacks of [Bleed], and reducing Damage Resistance by 20% for 4s. Skill's second stage can be cast within 5s: Deals [Damage Rate: 300%] Physical Damage to enemies in a frontal cone, inflicts 3 stacks of [Bleed] while also leaping backward",
+      "effects": [
+        {
+          "type": "mobility",
+          "effect": "dash_forward"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "150%",
+          "target": "all_enemies_hit"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 2,
+          "target": "all_enemies_hit"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage_resistance_reduction",
+          "value": "20%",
+          "duration": "4s",
+          "target": "all_enemies_hit"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "300%",
+          "cooldown": "5s",
+          "target": "frontal_cone_enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 3,
+          "target": "frontal_cone_enemies"
+        },
+        {
+          "type": "mobility",
+          "effect": "leap_backward"
+        }
+      ],
+      "icon": "./assets/icons/skill-bloodeye-burst.png"
+    },
+    {
+      "id": "sanguine-pounce",
+      "name": "Sanguine Pounce",
+      "type": "core-skill",
+      "category": "mobility",
+      "tags": ["physical damage", "bleed", "debuff", "mobility", "aoe", "cooldown"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "castingTime": "Instant",
+      "range": "12m",
+      "description": "Leaps to the target location, dealing [Damage Rate: 320%] Physical Damage and applying 3 stacks of [Bleed] and [Healing Reduction] to nearby enemies upon landing, lasting for 4s. Enemies hit cannot be affected by [Healing Reduction] from Sanguine Pounce for 8s. If this skill triggers Hemorrhage, the cooldown is reduced to 12 seconds. [Healing Reduction]: Cannot receive healing",
+      "effects": [
+        {
+          "type": "mobility",
+          "effect": "leap",
+          "range": "12m"
+        },
+        {
+          "type": "damage",
+          "damage_type": "physical",
+          "damage_rate": "320%"
+        },
+        {
+          "type": "debuff",
+          "effect": "bleed",
+          "stacks": 3,
+          "target": "nearby_enemies",
+          "duration": "4s"
+        },
+        {
+          "type": "debuff",
+          "effect": "healing_reduction",
+          "stacks": 3,
+          "target": "nearby_enemies",
+          "duration": "4s",
+          "description": "Cannot receive healing"
+        },
+        {
+          "type": "immunity",
+          "effect": "healing_reduction_immunity",
+          "duration": "8s",
+          "target": "enemies_hit",
+          "source": "sanguine_pounce"
+        },
+        {
+          "type": "cooldown",
+          "effect": "reduction",
+          "value": "12s",
+          "trigger": "hemorrhage"
+        }
+      ],
+      "icon": "./assets/icons/skill-sanguine-pounce.png"
     }
   ]
 }

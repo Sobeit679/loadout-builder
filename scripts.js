@@ -1805,6 +1805,10 @@ function getTagClass(tag) {
       return 'tag-dodge';
     case 'mp':
       return 'tag-mp';
+    case 'disarm':
+      return 'tag-disarm';
+    case 'debuff':
+      return 'tag-debuff';
     case 'heal':
       return 'tag-heal';
     case 'buff':

@@ -1053,6 +1053,216 @@
         "regenerate"
       ],
       "icon": "./assets/icons/weapon-spirits-call.png"
+    },
+    {
+      "id": "hemoblades",
+      "gameId": "hemoblades",
+      "name": "Hemoblades",
+      "type": "dagger",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "rare",
+      "stats": {
+        "damage": "60-90",
+        "attackSpeed": "1.5",
+        "criticalChance": "8%",
+        "agility": "+15"
+      },
+      "coreSkill": "rend-and-reap",
+      "passiveSkill": "bleed",
+      "basicAttacks": [
+        "bleeding-thrust",
+        "ricocheting-blades",
+        "armor-breaker"
+      ],
+      "weaponSkills": [
+        "whirling-blades",
+        "phase-blade",
+        "crippling-strike",
+        "smoke-grenade",
+        "shadow-move"
+      ],
+      "icon": "./assets/icons/weapon-hemoblades.png"
+    },
+    {
+      "id": "bloodfury-blades",
+      "gameId": "bloodfury-blades",
+      "name": "Bloodfury Blades",
+      "type": "dagger",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "80-110",
+        "attackSpeed": "1.6",
+        "criticalChance": "10%",
+        "agility": "+20"
+      },
+      "coreSkill": "crimson-frenzy",
+      "passiveSkill": "bleed",
+      "basicAttacks": [
+        "bleeding-thrust",
+        "ricocheting-blades",
+        "armor-breaker"
+      ],
+      "weaponSkills": [
+        "whirling-blades",
+        "phase-blade",
+        "crippling-strike",
+        "smoke-grenade",
+        "shadow-move"
+      ],
+      "icon": "./assets/icons/weapon-bloodfury-blades.png"
+    },
+    {
+      "id": "bloodpiercers",
+      "gameId": "bloodpiercers",
+      "name": "Bloodpiercers",
+      "type": "dagger",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "85-115",
+        "attackSpeed": "1.6",
+        "criticalChance": "10%",
+        "agility": "+20"
+      },
+      "coreSkill": "rupture-thrust",
+      "passiveSkill": "bleed",
+      "basicAttacks": [
+        "bleeding-thrust",
+        "ricocheting-blades",
+        "armor-breaker"
+      ],
+      "weaponSkills": [
+        "whirling-blades",
+        "phase-blade",
+        "crippling-strike",
+        "smoke-grenade",
+        "shadow-move"
+      ],
+      "icon": "./assets/icons/weapon-bloodpiercers.png"
+    },
+    {
+      "id": "soulfangs",
+      "gameId": "soulfangs",
+      "name": "Soulfangs",
+      "type": "dagger",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-120",
+        "attackSpeed": "1.7",
+        "criticalChance": "12%",
+        "agility": "+25"
+      },
+      "coreSkill": "soul-snare",
+      "passiveSkill": "bleed",
+      "basicAttacks": [
+        "bleeding-thrust",
+        "ricocheting-blades",
+        "armor-breaker"
+      ],
+      "weaponSkills": [
+        "whirling-blades",
+        "phase-blade",
+        "crippling-strike",
+        "smoke-grenade",
+        "shadow-move"
+      ],
+      "icon": "./assets/icons/weapon-soulfangs.png"
+    },
+    {
+      "id": "twilight-blades",
+      "gameId": "twilight-blades",
+      "name": "Twilight Blades",
+      "type": "dagger",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "epic",
+      "stats": {
+        "damage": "90-120",
+        "attackSpeed": "1.7",
+        "criticalChance": "12%",
+        "agility": "+25"
+      },
+      "coreSkill": "blade-dance",
+      "passiveSkill": "bleed",
+      "basicAttacks": [
+        "bleeding-thrust",
+        "ricocheting-blades",
+        "armor-breaker"
+      ],
+      "weaponSkills": [
+        "whirling-blades",
+        "phase-blade",
+        "crippling-strike",
+        "smoke-grenade",
+        "shadow-move"
+      ],
+      "icon": "./assets/icons/weapon-twilight-blades.png"
+    },
+    {
+      "id": "scarlet-hunger",
+      "gameId": "scarlet-hunger",
+      "name": "Scarlet Hunger",
+      "type": "dagger",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "100-140",
+        "attackSpeed": "1.8",
+        "criticalChance": "15%",
+        "agility": "+30"
+      },
+      "coreSkill": "bloodeye-burst",
+      "passiveSkill": "bleed",
+      "basicAttacks": [
+        "bleeding-thrust",
+        "ricocheting-blades",
+        "armor-breaker"
+      ],
+      "weaponSkills": [
+        "whirling-blades",
+        "phase-blade",
+        "crippling-strike",
+        "smoke-grenade",
+        "shadow-move"
+      ],
+      "icon": "./assets/icons/weapon-scarlet-hunger.png"
+    },
+    {
+      "id": "bloodthirst",
+      "gameId": "bloodthirst",
+      "name": "Bloodthirst",
+      "type": "dagger",
+      "weaponType": "Agility",
+      "range": "Melee",
+      "rarity": "legendary",
+      "stats": {
+        "damage": "105-145",
+        "attackSpeed": "1.8",
+        "criticalChance": "15%",
+        "agility": "+30"
+      },
+      "coreSkill": "sanguine-pounce",
+      "passiveSkill": "bleed",
+      "basicAttacks": [
+        "bleeding-thrust",
+        "ricocheting-blades",
+        "armor-breaker"
+      ],
+      "weaponSkills": [
+        "whirling-blades",
+        "phase-blade",
+        "crippling-strike",
+        "smoke-grenade",
+        "shadow-move"
+      ],
+      "icon": "./assets/icons/weapon-bloodthirst.png"
     }
   ]
 }
