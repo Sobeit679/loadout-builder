@@ -430,6 +430,16 @@ function showOverlay(title, key) {
     // Just show the overlay, content is already rendered
   } else {
     renderGear(key);
+    
+    // For weapon selection, ensure all cards are visible by default
+    if (key === 'weapon') {
+      setTimeout(() => {
+        const weaponCards = selectionGrid.querySelectorAll('.selector-card');
+        weaponCards.forEach(card => {
+          card.style.display = 'block';
+        });
+      }, 100);
+    }
   }
 }
 
