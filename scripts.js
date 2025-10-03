@@ -901,7 +901,8 @@ function updateWeaponPassive() {
   if (weapon && weapon.passiveSkill) {
     const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
     if (passiveSkill && passiveSkill.icon) {
-      weaponPassiveIcon.style.backgroundImage = `url(${passiveSkill.icon})`;
+      const passiveIconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
+      weaponPassiveIcon.style.backgroundImage = `url(${passiveIconUrl})`;
       weaponPassiveSlot.classList.remove('empty');
     } else {
       weaponPassiveIcon.style.backgroundImage = '';
@@ -928,7 +929,8 @@ function updateHelmPassive() {
   if (helm && helm.passiveSkill) {
     const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
     if (passiveSkill && passiveSkill.icon) {
-      helmPassiveIcon.style.backgroundImage = `url(${passiveSkill.icon})`;
+      const helmPassiveIconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
+      helmPassiveIcon.style.backgroundImage = `url(${helmPassiveIconUrl})`;
       helmPassiveSlot.classList.remove('empty');
     } else {
       helmPassiveIcon.style.backgroundImage = '';
@@ -1008,7 +1010,8 @@ function updateBasicAttackSkill() {
   const aIcon = aSlot.querySelector('.ability-icon');
   
   if (basicAttack && basicAttack.icon) {
-    aIcon.style.backgroundImage = `url(${basicAttack.icon})`;
+    const iconUrl = `${basicAttack.icon}?v=${Date.now()}`;
+    aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
   } else {
     aIcon.style.backgroundImage = '';
@@ -1028,7 +1031,8 @@ function updateWeaponAbilitySkill() {
   const qIcon = qSlot.querySelector('.ability-icon');
   
   if (weaponSkill && weaponSkill.icon) {
-    qIcon.style.backgroundImage = `url(${weaponSkill.icon})`;
+    const weaponSkillIconUrl = `${weaponSkill.icon}?v=${Date.now()}`;
+    qIcon.style.backgroundImage = `url(${weaponSkillIconUrl})`;
     qSlot.classList.remove('empty');
   } else {
     qIcon.style.backgroundImage = '';
@@ -1231,7 +1235,7 @@ function updateAvatar() {
     const drifterId = drifter.id || drifter.gameId;
     if (drifterId) {
       // Special case for Nyxa (typo in filename)
-      const imageName = drifterId === 'nyxa' ? 'nyxz' : drifterId;
+      const imageName = drifterId;
       // Add cache-busting parameter to force reload
       imageUrl = `./assets/icons/drifter-${imageName}.png?v=${Date.now()}`;
     } else {
