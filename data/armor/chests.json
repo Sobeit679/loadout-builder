@@ -137,6 +137,125 @@
       },
       "coreSkill": "panic",
       "icon": "./assets/icons/chest-dreadcloak.png"
+    },
+    {
+      "id": "recovery-vest",
+      "gameId": "recovery-vest",
+      "name": "Recovery Vest",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "rare",
+      "description": "A lightweight vest that provides healing capabilities for agile fighters.",
+      "stats": {
+        "agility": 6,
+        "healthRegen": "+15%",
+        "movementSpeed": "+8%",
+        "healingPower": "+12%"
+      },
+      "coreSkill": "bandage",
+      "icon": "./assets/icons/chest-recovery-vest.png"
+    },
+    {
+      "id": "mistshroud",
+      "gameId": "mistshroud",
+      "name": "Mistshroud",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A mysterious cloak that creates smoke screens and enhances stealth capabilities.",
+      "stats": {
+        "agility": 8,
+        "stealth": "+20%",
+        "attackSpeed": "+10%",
+        "evasion": "+15%"
+      },
+      "coreSkill": "smoke-screen",
+      "icon": "./assets/icons/chest-mistshroud.png"
+    },
+    {
+      "id": "retaliation-coat",
+      "gameId": "retaliation-coat",
+      "name": "Retaliation Coat",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A defensive coat that reflects damage back to attackers while providing protection.",
+      "stats": {
+        "agility": 9,
+        "damageResistance": "+18%",
+        "magicResistance": 15,
+        "reflectionDamage": "+25%"
+      },
+      "coreSkill": "reflect",
+      "icon": "./assets/icons/chest-retaliation-coat.png"
+    },
+    {
+      "id": "deathmantle",
+      "gameId": "deathmantle",
+      "name": "Deathmantle",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A deadly mantle that excels at finishing off weakened enemies.",
+      "stats": {
+        "agility": 10,
+        "criticalChance": "+12%",
+        "trueDamage": "+20%",
+        "executionDamage": "+30%"
+      },
+      "coreSkill": "finisher",
+      "icon": "./assets/icons/chest-deathmantle.png"
+    },
+    {
+      "id": "beastcallers-coat",
+      "gameId": "beastcallers-coat",
+      "name": "Beastcaller's Coat",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "description": "A primal coat that channels the power of beasts to weaken and disable enemies.",
+      "stats": {
+        "agility": 11,
+        "damageDealt": "+15%",
+        "movementSpeed": "+12%",
+        "debuffPower": "+20%"
+      },
+      "coreSkill": "snarl",
+      "icon": "./assets/icons/chest-beastcallers-coat.png"
+    },
+    {
+      "id": "rangers-hide",
+      "gameId": "rangers-hide",
+      "name": "Ranger's Hide",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "legendary",
+      "description": "A legendary hide that breaks through enemy defenses while enhancing the wearer's damage.",
+      "stats": {
+        "agility": 15,
+        "armorPenetration": "+25%",
+        "damageDealt": "+20%",
+        "criticalDamage": "+35%"
+      },
+      "coreSkill": "armor-breaker",
+      "icon": "./assets/icons/chest-rangers-hide.png"
+    },
+    {
+      "id": "heros-embrace",
+      "gameId": "heros-embrace",
+      "name": "Hero's Embrace",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "legendary",
+      "description": "A legendary chest piece that rallies allies with enhanced combat abilities.",
+      "stats": {
+        "agility": 18,
+        "auraRange": "+20%",
+        "attackSpeed": "+15%",
+        "cooldownReduction": "+12%"
+      },
+      "coreSkill": "rally",
+      "icon": "./assets/icons/chest-heros-embrace.png"
     }
   ]
 }

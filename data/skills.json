@@ -10679,6 +10679,181 @@
         }
       ],
       "icon": "./assets/icons/skill-escape.png"
+    },
+    {
+      "id": "bandage",
+      "name": "Bandage",
+      "type": "core",
+      "category": "healing",
+      "tags": ["healing", "regeneration"],
+      "mpCost": 20,
+      "cooldown": "34s",
+      "range": "6m",
+      "description": "Briefly bandage yourself, then restores [Healing Rate: 48%] Vitality every second for 4s",
+      "effects": [
+        {
+          "type": "heal_over_time",
+          "value": "48%",
+          "duration": "4s",
+          "interval": "1s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-bandage.png"
+    },
+    {
+      "id": "smoke-screen",
+      "name": "Smoke Screen",
+      "type": "core",
+      "category": "utility",
+      "tags": ["stealth", "buff", "area"],
+      "mpCost": 30,
+      "cooldown": "48s",
+      "range": "12m",
+      "description": "Creates a 12m smoke screen, lasting 6s. Enter Stealth for 6s. Every 0.5s in the smoke screen grants 1 stack of +60% Attack Speed for the next Basic Attack, lasting 6s. Stacks up to 8 times. Using a skill, dealing damage, direct healing, or leaving the smoke clears the smoke and removes stealth.",
+      "effects": [
+        {
+          "type": "area_effect",
+          "value": "12m",
+          "duration": "6s",
+          "target": "area"
+        },
+        {
+          "type": "stealth",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "buff",
+          "effect": "attack speed",
+          "value": "60%",
+          "duration": "6s",
+          "stacks": 8,
+          "stackInterval": "0.5s",
+          "target": "self",
+          "condition": "in_smoke"
+        }
+      ],
+      "icon": "./assets/icons/skill-smoke-screen.png"
+    },
+    {
+      "id": "reflect",
+      "name": "Reflect",
+      "type": "core",
+      "category": "defense",
+      "tags": ["buff", "defense", "damage"],
+      "mpCost": 25,
+      "cooldown": "39s",
+      "range": "6m",
+      "description": "Increases Damage Resistance by 30% for 6s. During this time, reflects 100% of damage taken as Magic Damage to the attacker",
+      "effects": [
+        {
+          "type": "buff",
+          "effect": "damage resistance",
+          "value": "30%",
+          "duration": "6s",
+          "target": "self"
+        },
+        {
+          "type": "reflect",
+          "value": "100%",
+          "damageType": "magic",
+          "duration": "6s",
+          "target": "attacker"
+        }
+      ],
+      "icon": "./assets/icons/skill-reflect.png"
+    },
+    {
+      "id": "finisher",
+      "name": "Finisher",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "true damage", "execution"],
+      "mpCost": 30,
+      "cooldown": "34s",
+      "range": "7m",
+      "description": "Deals [Damage Rate: 100%] True Damage to nearby enemies. Damage increases by 15% for every 10% HP the target is missing",
+      "effects": [
+        {
+          "type": "true damage",
+          "value": "100%",
+          "target": "enemies",
+          "scaling": "health_missing",
+          "scalingValue": "15%",
+          "scalingThreshold": "10%"
+        }
+      ],
+      "icon": "./assets/icons/skill-finisher.png"
+    },
+    {
+      "id": "snarl",
+      "name": "Snarl",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "slow", "debuff", "stealth_disable"],
+      "mpCost": 25,
+      "cooldown": "34s",
+      "range": "12m",
+      "description": "Snarls toward the target direction, dealing [Damage Rate: 200%] Physical Damage to enemies in range. Reduces their Movement Speed by 40%, damage dealt by 50%, and disables Stealth for 5s",
+      "effects": [
+        {
+          "type": "physical damage",
+          "value": "200%",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "movement speed reduction",
+          "value": "40%",
+          "duration": "5s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage reduction",
+          "value": "50%",
+          "duration": "5s",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "stealth disable",
+          "duration": "5s",
+          "target": "enemies"
+        }
+      ],
+      "icon": "./assets/icons/skill-snarl.png"
+    },
+    {
+      "id": "rally",
+      "name": "Rally",
+      "type": "core",
+      "category": "buff",
+      "tags": ["buff", "aura", "attack speed", "cooldown reduction"],
+      "mpCost": 30,
+      "cooldown": "29s",
+      "range": "7m",
+      "description": "Creates a Rally aura around the caster, lasting 8s. Allies within 7m gain +30% Attack Speed and +30% Cooldown Speed.",
+      "effects": [
+        {
+          "type": "aura",
+          "effect": "attack speed",
+          "value": "30%",
+          "duration": "8s",
+          "range": "7m",
+          "target": "allies"
+        },
+        {
+          "type": "aura",
+          "effect": "cooldown speed",
+          "value": "30%",
+          "duration": "8s",
+          "range": "7m",
+          "target": "allies"
+        }
+      ],
+      "icon": "./assets/icons/skill-rally.png"
     }
   ]
 }
