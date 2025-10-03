@@ -911,7 +911,7 @@ function renderGear(key) {
       if (key === 'weapon') {
         hideOverlay();
       }
-    }
+      
       populateLoadoutBoard();
     }
   );
