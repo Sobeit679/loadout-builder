@@ -605,6 +605,36 @@
       "gameId": "glacier-spark"
     },
     {
+      "id": "novice-flame-blaster",
+      "gameId": "novice-flame-blaster",
+      "name": "Novice Flame Blaster",
+      "type": "fire",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "common",
+      "stats": {
+        "damage": "60-90",
+        "attackSpeed": "1.5",
+        "criticalChance": "4%",
+        "magicPower": "+15"
+      },
+      "coreSkill": "hellfire",
+      "passiveSkill": "burst",
+      "basicAttacks": [
+        "magma-burst",
+        "scorching-shard",
+        "wildfire-shard"
+      ],
+      "weaponSkills": [
+        "inferno-blast",
+        "molten-orb",
+        "blast-jump",
+        "oil-zone",
+        "overdrive-mode"
+      ],
+      "icon": "./assets/icons/weapon-novice-flame-blaster.png"
+    },
+    {
       "id": "blazing-catalyst",
       "gameId": "blazing-catalyst",
       "name": "Blazing Catalyst",
