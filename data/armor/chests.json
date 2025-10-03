@@ -237,7 +237,7 @@
         "damageDealt": "+20%",
         "criticalDamage": "+35%"
       },
-      "coreSkill": "armor-breaker-v2",
+      "coreSkill": "armor-breaker-core",
       "icon": "./assets/icons/chest-rangers-hide.png"
     },
     {

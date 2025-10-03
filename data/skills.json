@@ -5598,7 +5598,7 @@
       "icon": "./assets/icons/skill-ricocheting-blades.png"
     },
     {
-      "id": "armor-breaker-v2",
+      "id": "armor-breaker",
       "name": "Armor Breaker",
       "type": "basic-attack",
       "category": "damage",
@@ -10854,6 +10854,39 @@
         }
       ],
       "icon": "./assets/icons/skill-rally.png"
+    },
+    {
+      "id": "armor-breaker-core",
+      "name": "Armor Breaker",
+      "type": "core",
+      "category": "damage",
+      "tags": ["damage", "debuff", "buff", "physical"],
+      "mpCost": 25,
+      "cooldown": "24s",
+      "range": "7m",
+      "description": "Deals [Damage Rate: 200%] Physical Damage to nearby enemies, reduces their Damage Resistance by 20% for 6s and increases own damage by 15% for 6s",
+      "effects": [
+        {
+          "type": "physical damage",
+          "value": "200%",
+          "target": "enemies"
+        },
+        {
+          "type": "debuff",
+          "effect": "damage resistance reduction",
+          "value": "20%",
+          "duration": "6s",
+          "target": "enemies"
+        },
+        {
+          "type": "buff",
+          "effect": "damage increase",
+          "value": "15%",
+          "duration": "6s",
+          "target": "self"
+        }
+      ],
+      "icon": "./assets/icons/skill-armor-breaker-core.png"
     }
   ]
 }
