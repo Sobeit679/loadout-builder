@@ -126,8 +126,8 @@ function renderCards(items, container, isSelected, onToggle) {
       card.style.gap = '12px';
       card.style.width = '100%';
       card.style.minWidth = '100%';
-      card.style.minHeight = '50px';
-      card.style.maxHeight = '50px';
+      card.style.minHeight = '60px';
+      card.style.maxHeight = 'none';
       card.style.overflow = 'hidden';
       card.style.gridColumn = '1 / -1';
       card.style.gridRow = 'auto';
@@ -167,12 +167,9 @@ function renderCards(items, container, isSelected, onToggle) {
       itemDesc.textContent = item.description || '';
       itemDesc.style.fontSize = '0.75rem';
       itemDesc.style.color = 'var(--text-muted)';
-      itemDesc.style.lineHeight = '1.2';
-      itemDesc.style.maxHeight = '2.4em';
-      itemDesc.style.overflow = 'hidden';
-      itemDesc.style.display = '-webkit-box';
-      itemDesc.style.webkitLineClamp = '2';
-      itemDesc.style.webkitBoxOrient = 'vertical';
+      itemDesc.style.lineHeight = '1.3';
+      itemDesc.style.wordWrap = 'break-word';
+      itemDesc.style.whiteSpace = 'normal';
       
       itemInfo.appendChild(itemName);
       itemInfo.appendChild(itemDesc);
