@@ -799,6 +799,7 @@ async function init() {
   }
   
   // Add hover effects to text buttons
+  const textButtons = document.querySelectorAll('.loadout-text-btn');
   textButtons.forEach((btn, index) => {
     
     // Add hover effect
