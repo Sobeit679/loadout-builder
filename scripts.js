@@ -391,7 +391,7 @@ function showOverlay(title, key) {
   
   // Show/hide search container based on selection type
   if (searchContainer) {
-    if (key === 'weapon') {
+    if (key === 'weapon' || key === 'chest' || key === 'boots') {
       searchContainer.style.display = 'flex';
     } else {
       searchContainer.style.display = 'none';
@@ -435,43 +435,54 @@ function handleSearch() {
   
   const searchTerm = searchInput.value.toLowerCase().trim();
   
-  // Get all weapon cards in the selection grid
-  const weaponCards = selectionGrid.querySelectorAll('.selector-card');
+  // Get all item cards in the selection grid
+  const itemCards = selectionGrid.querySelectorAll('.selector-card');
   
   // If search term is empty, show all cards and return early
   if (searchTerm === '') {
-    weaponCards.forEach(card => {
+    itemCards.forEach(card => {
       card.style.display = 'flex';
     });
     return;
   }
   
-  weaponCards.forEach(card => {
-    const weaponName = card.querySelector('.card-name')?.textContent?.toLowerCase() || '';
-    const weaponSub = card.querySelector('.card-sub')?.textContent?.toLowerCase() || '';
-    const weaponDesc = card.querySelector('.card-desc')?.textContent?.toLowerCase() || '';
+  itemCards.forEach(card => {
+    const itemName = card.querySelector('.card-name')?.textContent?.toLowerCase() || '';
+    const itemSub = card.querySelector('.card-sub')?.textContent?.toLowerCase() || '';
+    const itemDesc = card.querySelector('.card-desc')?.textContent?.toLowerCase() || '';
     
+    // Get item data to check skill tags
+    const itemId = card.dataset.itemId;
+    let item = null;
     
-    
-    // Get weapon data to check skill tags
-    const weaponId = card.dataset.itemId;
-    const weapon = STATE.gear.weapons?.find(w => w.id === weaponId);
-    
+    // Find item in appropriate gear category
+    if (STATE.gear.weapons) {
+      item = STATE.gear.weapons.find(w => w.id === itemId);
+    }
+    if (!item && STATE.gear.helmets) {
+      item = STATE.gear.helmets.find(h => h.id === itemId);
+    }
+    if (!item && STATE.gear.chests) {
+      item = STATE.gear.chests.find(c => c.id === itemId);
+    }
+    if (!item && STATE.gear.boots) {
+      item = STATE.gear.boots.find(b => b.id === itemId);
+    }
     
     let matchesSearch = false;
     
-    // Search by weapon name
-    if (weaponName.includes(searchTerm) || weaponSub.includes(searchTerm)) {
+    // Search by item name
+    if (itemName.includes(searchTerm) || itemSub.includes(searchTerm)) {
       matchesSearch = true;
     }
     
     // Search by skill tags
-    if (weapon) {
+    if (item) {
       const allSkills = [
-        ...(weapon.basicAttacks || []),
-        ...(weapon.weaponSkills || []),
-        weapon.coreSkill,
-        weapon.passiveSkill
+        ...(item.basicAttacks || []),
+        ...(item.weaponSkills || []),
+        item.coreSkill,
+        item.passiveSkill
       ].filter(Boolean);
       
       for (const skillId of allSkills) {
