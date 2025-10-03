@@ -104,6 +104,7 @@ The application includes a comprehensive search system:
 ## 🎮 Credits
 
 - **Game**: [Warborne](https://warborne.qoolandgames.com/) - All in-game assets belong to Qooland Games
+- **Image Rendering**: ElKite - For rendering in-game assets (images)
 - **Tool**: Fan-made loadout builder (not officially affiliated)
 
 ## 📄 License
