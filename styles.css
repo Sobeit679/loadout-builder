@@ -26,7 +26,7 @@
 
 /* Ensure the selector grid inside the dialog lays out fixed-width cards and scrolls nicely */
 .selection-dialog .selector-grid {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
   padding: 1rem;
   max-height: none;
@@ -653,6 +653,104 @@ main {
   padding: 2.5rem 1rem;
   border: 1px dashed var(--border);
   border-radius: calc(var(--radius) - 6px);
+}
+
+/* Support Selection Section */
+.support-selection-section {
+  position: relative;
+  z-index: 2;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.support-selection-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 1rem 0;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.support-cards-container {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.support-card {
+  background: var(--bg-elev-2);
+  border: 2px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  width: 80px;
+  height: 100px;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(134, 107, 82, 0.2);
+}
+
+.support-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(134, 107, 82, 0.4), 0 0 25px rgba(134, 107, 82, 0.3);
+}
+
+.support-card.selected {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px var(--accent-gold), 0 16px 38px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.support-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0.5rem;
+  gap: 0.25rem;
+}
+
+.support-card-portrait {
+  width: 48px;
+  height: 48px;
+  background: var(--bg);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.support-card-portrait::before {
+  content: "+";
+  font-weight: bold;
+}
+
+.support-card:not(.empty) .support-card-portrait::before {
+  content: "";
+}
+
+.support-card-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.2;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.support-card.empty .support-card-name {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .drifter-abilities {
@@ -3480,3 +3578,297 @@ main {
 .clear-search-btn:active {
   transform: scale(0.95);
 }
+
+/* Support Selection Section */
+.support-selection-section {
+  position: relative;
+  z-index: 2;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.support-selection-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 1rem 0;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.support-cards-container {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.support-card {
+  background: var(--bg-elev-2);
+  border: 2px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  width: 80px;
+  height: 100px;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(134, 107, 82, 0.2);
+}
+
+.support-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(134, 107, 82, 0.4);
+}
+
+.support-card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent), 0 8px 20px rgba(134, 107, 82, 0.4);
+}
+
+.support-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0.5rem;
+  gap: 0.25rem;
+}
+
+.support-card-portrait {
+  width: 48px;
+  height: 48px;
+  background: var(--bg);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.support-card-portrait::before {
+  content: "+";
+  font-weight: bold;
+}
+
+.support-card:not(.empty) .support-card-portrait::before {
+  content: "";
+}
+
+.support-card-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.2;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.support-card.empty .support-card-name {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Support Effects Styles */
+.support-effects {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.support-effect {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(134, 107, 82, 0.1);
+}
+
+.support-effect-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.support-effect-name {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.support-effect-slot {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.support-effect-description {
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+/* Remove focus outline and prevent text selection on support cards */
+.support-card:focus {
+  outline: none;
+}
+
+.support-card {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Support effects in drifter selection modal - only when selecting support drifters */
+.selection-overlay[data-selection-type="drifter"] .drifter-select-card.has-support-effects {
+  min-height: auto !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 1rem !important;
+  overflow: visible !important;
+}
+
+.selection-overlay[data-selection-type="drifter"] .drifter-select-card .support-effect {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: var(--bg);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  max-height: 60px;
+  overflow: hidden;
+  line-height: 1.3;
+  word-wrap: break-word;
+  width: 100%;
+  flex-shrink: 0;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 20px !important;
+  height: auto !important;
+}
+
+/* Support Effects Section */
+.support-descriptions-section {
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+.support-descriptions-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 1rem 0;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.support-descriptions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.support-description-item {
+  background: #1a1a1a;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(134, 107, 82, 0.1);
+  transition: all var(--transition);
+}
+
+.support-description-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(134, 107, 82, 0.2);
+}
+
+.support-description-text {
+  color: #767676;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  margin: 0;
+  text-align: center;
+}
+
+/* Drifter Selection Modal Styles */
+.selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  max-height: none;
+  overflow-y: auto;
+  justify-content: center;
+}
+
+.drifter-select-card {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(134, 107, 82, 0.1);
+  min-height: 200px;
+  justify-content: center;
+}
+
+.drifter-select-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(134, 107, 82, 0.3);
+}
+
+.drifter-select-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.drifter-select-card .support-effect {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: var(--bg);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  max-height: 60px;
+  overflow: hidden;
+  line-height: 1.3;
+  word-wrap: break-word;
+  width: 100%;
+  flex-shrink: 0;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 20px !important;
+  height: auto !important;
+}
+. s t a t - v a l u e   {   c o l o r :   # 7 6 7 6 7 6   ! i m p o r t a n t ;   f o n t - s i z e :   0 . 9 r e m ;   f o n t - w e i g h t :   6 0 0 ;   }  
+ 

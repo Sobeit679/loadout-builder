@@ -539,8 +539,13 @@ function renderDrifters() {
 }
 
 function showOverlay(title, key) {
-  if (!selectionOverlay) return;
+  console.log('showOverlay called with:', title, key);
+  if (!selectionOverlay) {
+    console.error('selectionOverlay not found!');
+    return;
+  }
   
+  console.log('Showing overlay...');
   selectionOverlay.style.display = 'grid';
   selectionOverlay.hidden = false;
   
@@ -717,7 +722,11 @@ function clearSearch() {
 }
 
 function renderDrifterSelection() {
-  if (!selectionGrid) return;
+  console.log('renderDrifterSelection called, currentSupportSlot:', window.currentSupportSlot);
+  if (!selectionGrid) {
+    console.log('selectionGrid not found!');
+    return;
+  }
   
   // Clear existing content
   selectionGrid.innerHTML = '';
@@ -725,7 +734,9 @@ function renderDrifterSelection() {
   // Create document fragment for better performance
   const fragment = document.createDocumentFragment();
   
+  console.log('Processing drifters, count:', STATE.drifters.length);
   STATE.drifters.forEach((drifter, index) => {
+    console.log('Processing drifter:', drifter.name, 'index:', index);
     const card = document.createElement('div');
     card.className = 'drifter-select-card';
     card.dataset.gameId = drifter.gameId;
@@ -747,7 +758,7 @@ function renderDrifterSelection() {
     name.style.fontSize = '1rem';
     
     const role = document.createElement('div');
-    role.textContent = drifter.role;
+    role.textContent = drifter.description;
     role.style.fontSize = '0.9rem';
     role.style.color = 'var(--text-muted)';
     role.style.textAlign = 'center';
@@ -757,8 +768,59 @@ function renderDrifterSelection() {
     card.appendChild(img);
     card.appendChild(role);
     
+    // Add support effects if drifter has support data
+    if (drifter.support) {
+      console.log('Adding support effects for:', drifter.name, drifter.support);
+      
+      const supportEffect = document.createElement('div');
+      supportEffect.className = 'support-effect';
+      
+      let effectText = '';
+      
+      // Handle effects array format
+      if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
+        console.log('Using effects array format');
+        effectText = drifter.support.effects.map(effect => {
+          return `${effect.name}: ${effect.value}`;
+        }).join(', ');
+      }
+      // Handle other support properties (like starfallTokenBonus)
+      else {
+        console.log('Using other support properties format');
+        const supportKeys = Object.keys(drifter.support);
+        effectText = supportKeys.map(key => {
+          const value = drifter.support[key];
+          const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+          return `${formattedKey}: ${value}`;
+        }).join(', ');
+      }
+      
+      console.log('Effect text:', effectText);
+      
+      if (effectText) {
+        supportEffect.textContent = effectText;
+        
+        card.appendChild(supportEffect);
+        // Add a class to indicate this card has support effects
+        card.classList.add('has-support-effects');
+        console.log('Support effect added to card, element:', supportEffect);
+        console.log('Card children count:', card.children.length);
+        console.log('Support effect visible:', supportEffect.offsetHeight > 0);
+        console.log('Support effect computed styles:', window.getComputedStyle(supportEffect));
+      } else {
+        console.log('No effect text generated');
+      }
+    }
+    
     // Add click handler
     card.addEventListener('click', () => {
+      // Check if this is for support card selection
+      if (window.currentSupportSlot !== undefined) {
+        addSupportDrifter(drifter, window.currentSupportSlot);
+        window.currentSupportSlot = undefined;
+        hideOverlay();
+        return;
+      }
       
       const existing = STATE.selected.drifters.findIndex((sel) => sel.gameId === drifter.gameId);
       if (existing >= 0) {
@@ -974,6 +1036,11 @@ async function init() {
   // Check for shared loadout in URL
   checkForSharedLoadout();
   
+  // Initialize support cards after a small delay to ensure DOM is ready
+  setTimeout(() => {
+    initializeSupportCards();
+    window.supportCardsInitialized = true;
+  }, 100);
   
   // Force correct positioning with inline styles
   const header = document.querySelector('.panel-header');
@@ -2402,6 +2469,7 @@ function exportLoadout(event) {
   const loadout = {
     v: '1.0', // version
     d: STATE.selected.drifters[0]?.gameId || null, // drifter
+    s: selectedSupports.map(support => support?.gameId || null), // support drifters
     g: {}, // gear
     m: {}, // mods
     l: parseInt(document.getElementById('masteryLevel')?.textContent || '1') // mastery level
@@ -2438,6 +2506,7 @@ function shareLoadout() {
   const loadout = {
     v: '1.0', // version
     d: STATE.selected.drifters[0]?.gameId || null, // drifter
+    s: selectedSupports.map(support => support?.gameId || null), // support drifters
     g: {}, // gear
     m: {}, // mods
     l: parseInt(document.getElementById('masteryLevel')?.textContent || '1') // mastery level
@@ -2493,6 +2562,28 @@ function loadLoadoutData(loadout) {
         STATE.selected.drifters = [drifter];
         updateAvatar();
       }
+    }
+    
+    // Load support drifters
+    const supportDrifters = isNewFormat ? loadout.s : loadout.supportDrifters;
+    if (supportDrifters && Array.isArray(supportDrifters)) {
+      // Clear existing support drifters
+      selectedSupports = new Array(5).fill(null);
+      
+      // Load support drifters
+      supportDrifters.forEach((supportId, index) => {
+        if (supportId && index < 5) {
+          const supportDrifter = STATE.drifters.find(d => d.gameId === supportId);
+          if (supportDrifter) {
+            selectedSupports[index] = supportDrifter;
+            addSupportDrifter(supportDrifter, index);
+          }
+        }
+      });
+    } else {
+      // Clear support drifters if none in loadout
+      selectedSupports = new Array(5).fill(null);
+      updateSupportDescriptions();
     }
     
     // Load gear
@@ -2568,6 +2659,7 @@ function saveLoadout() {
     version: '1.0',
     timestamp: new Date().toISOString(),
     drifter: STATE.selected.drifters[0] || null,
+    supportDrifters: selectedSupports.map(support => support || null),
     gear: STATE.selected.gear || {},
     mods: STATE.selected.mods || {},
     masteryLevel: parseInt(document.getElementById('masteryLevel')?.textContent || '1')
@@ -3060,6 +3152,14 @@ function updateMasteryDisplay() {
   if (tenacityPenetration) tenacityPenetration.textContent = totalTenacityPenetration;
   if (movementSpeed) movementSpeed.textContent = drifter.stats?.movementSpeed || '0 m/sec';
 
+  // Apply color directly via JavaScript as CSS is having encoding issues
+  const statElements = document.querySelectorAll('.stat-value');
+  statElements.forEach(el => {
+    el.style.color = '#767676';
+    el.style.fontSize = '0.9rem';
+    el.style.fontWeight = '600';
+  });
+
   // Update mastery level
   if (masteryLevel) masteryLevel.textContent = level;
 
@@ -3227,15 +3327,252 @@ if (playButton) {
   playButton.addEventListener('click', handlePlayButtonClick);
 }
 
+// Support card functionality
+let selectedSupports = [];
+
+function initializeSupportCards() {
+  const supportCards = document.querySelectorAll('.support-card');
+  
+  // Debug: Check if cards are found
+  console.log('Found support cards:', supportCards.length);
+  
+  if (supportCards.length === 0) {
+    console.warn('No support cards found, retrying in 200ms...');
+    setTimeout(() => {
+      initializeSupportCards();
+    }, 200);
+    return;
+  }
+  
+  supportCards.forEach((card, index) => {
+    // Ensure cards start as empty
+    card.classList.add('empty');
+    
+    // Remove any existing event listeners to prevent duplicates
+    card.replaceWith(card.cloneNode(true));
+    const newCard = document.querySelectorAll('.support-card')[index];
+    
+    // Add visual feedback on click
+    newCard.addEventListener('mousedown', () => {
+      newCard.style.transform = 'translateY(1px) scale(0.98)';
+    });
+    
+    newCard.addEventListener('mouseup', () => {
+      newCard.style.transform = '';
+    });
+    
+    newCard.addEventListener('mouseleave', () => {
+      newCard.style.transform = '';
+    });
+    
+    newCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      console.log('Support card clicked:', index, 'Empty:', newCard.classList.contains('empty'));
+      console.log('Card classes:', newCard.className);
+      
+      if (newCard.classList.contains('empty')) {
+        console.log('Opening drifter selection overlay...');
+        // Store the slot index for when a drifter is selected BEFORE showing overlay
+        window.currentSupportSlot = index;
+        console.log('Set currentSupportSlot to:', window.currentSupportSlot);
+        // Show drifter selection overlay
+        showOverlay('Select a Support Drifter', 'drifters');
+        console.log('Overlay should be open now, currentSupportSlot:', window.currentSupportSlot);
+      } else {
+        console.log('Removing drifter from slot:', index);
+        // Remove the selected drifter
+        removeSupportDrifter(index);
+      }
+    });
+  });
+  
+  console.log('Support cards initialized successfully');
+}
+
+function addSupportDrifter(drifter, slotIndex) {
+  const supportCards = document.querySelectorAll('.support-card');
+  const card = supportCards[slotIndex];
+  
+  if (!card) return;
+  
+  // Update the card
+  card.classList.remove('empty');
+  card.classList.add('selected');
+  
+  const portrait = card.querySelector('.support-card-portrait');
+  const name = card.querySelector('.support-card-name');
+  
+  // Set the portrait background
+  portrait.style.backgroundImage = `url(${drifter.portrait})`;
+  portrait.style.backgroundSize = 'cover';
+  portrait.style.backgroundPosition = 'center';
+  
+  // Set the name
+  name.textContent = drifter.name;
+  
+  // Add to selected supports array
+  selectedSupports[slotIndex] = drifter;
+  
+  // Add a subtle animation when adding
+  card.style.transform = 'scale(1.05)';
+  setTimeout(() => {
+    card.style.transform = '';
+  }, 150);
+  
+  // Update support effects display
+  updateSupportEffects();
+  
+  // Update support descriptions
+  updateSupportDescriptions();
+}
+
+function removeSupportDrifter(slotIndex) {
+  const supportCards = document.querySelectorAll('.support-card');
+  const card = supportCards[slotIndex];
+  
+  if (!card) return;
+  
+  // Add a subtle animation when removing
+  card.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    card.style.transform = '';
+  }, 150);
+  
+  // Reset the card
+  card.classList.add('empty');
+  card.classList.remove('selected');
+  
+  const portrait = card.querySelector('.support-card-portrait');
+  const name = card.querySelector('.support-card-name');
+  
+  // Clear the portrait
+  portrait.style.backgroundImage = '';
+  
+  // Reset the name
+  name.textContent = 'Empty';
+  
+  // Remove from selected supports array
+  selectedSupports[slotIndex] = null;
+  
+  // Update support effects display
+  updateSupportEffects();
+  
+  // Update support descriptions
+  updateSupportDescriptions();
+}
+
+function updateSupportEffects() {
+  const supportEffectsContainer = document.querySelector('.support-effects');
+  if (!supportEffectsContainer) return;
+  
+  // Clear existing effects
+  supportEffectsContainer.innerHTML = '';
+  
+  // Add effects for selected supports
+  selectedSupports.forEach((drifter, index) => {
+    if (drifter && drifter.support) {
+      let effectText = '';
+      
+      // Handle effects array format
+      if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
+        effectText = drifter.support.effects.map(effect => {
+          return `${effect.name}: ${effect.value}`;
+        }).join(', ');
+      }
+      // Handle other support properties (like starfallTokenBonus)
+      else {
+        const supportKeys = Object.keys(drifter.support);
+        effectText = supportKeys.map(key => {
+          const value = drifter.support[key];
+          const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+          return `${formattedKey}: ${value}`;
+        }).join(', ');
+      }
+      
+      if (effectText) {
+        const effectDiv = document.createElement('div');
+        effectDiv.className = 'support-effect';
+        
+        effectDiv.innerHTML = `
+          <div class="support-effect-header">
+            <span class="support-effect-name">${drifter.name}</span>
+            <span class="support-effect-slot">Slot ${index + 1}</span>
+          </div>
+          <div class="support-effect-description">${effectText}</div>
+        `;
+        supportEffectsContainer.appendChild(effectDiv);
+      }
+    }
+  });
+}
+
+function updateSupportDescriptions() {
+  const supportDescriptionsContainer = document.getElementById('supportDescriptionsContainer');
+  if (!supportDescriptionsContainer) return;
+  
+  // Clear existing descriptions
+  supportDescriptionsContainer.innerHTML = '';
+  
+  // Add support effects for selected supports in order
+  selectedSupports.forEach((drifter, index) => {
+    if (drifter && drifter.support) {
+      let effectText = '';
+      
+      // Handle effects array format
+      if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
+        effectText = drifter.support.effects.map(effect => {
+          return `${effect.name}: ${effect.value}`;
+        }).join(', ');
+      }
+      // Handle other support properties (like starfallTokenBonus)
+      else {
+        const supportKeys = Object.keys(drifter.support);
+        effectText = supportKeys.map(key => {
+          const value = drifter.support[key];
+          const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+          return `${formattedKey}: ${value}`;
+        }).join(', ');
+      }
+      
+      if (effectText) {
+        const descriptionItem = document.createElement('div');
+        descriptionItem.className = 'support-description-item';
+        
+        descriptionItem.innerHTML = `
+          <div class="support-description-text">${effectText}</div>
+        `;
+        
+        supportDescriptionsContainer.appendChild(descriptionItem);
+      }
+    }
+  });
+}
+
 // Initialize the application when DOM is ready
 
 // Fallback for older browsers
 if (document.readyState === 'loading') {
   window.addEventListener("DOMContentLoaded", () => {
     init();
+    // Additional fallback for support cards
+    setTimeout(() => {
+      if (document.querySelectorAll('.support-card').length > 0 && !window.supportCardsInitialized) {
+        initializeSupportCards();
+        window.supportCardsInitialized = true;
+      }
+    }, 500);
   });
 } else {
   init();
+  // Additional fallback for support cards
+  setTimeout(() => {
+    if (document.querySelectorAll('.support-card').length > 0 && !window.supportCardsInitialized) {
+      initializeSupportCards();
+      window.supportCardsInitialized = true;
+    }
+  }, 500);
 }
 
 // Additional fallback
