@@ -438,7 +438,7 @@
     gap: 1rem !important;
     width: 100% !important;
     min-width: 100% !important;
-    min-height: auto !important;
+    min-height: 0 !important;
     max-height: none !important;
     overflow: visible !important;
     grid-column: 1 !important;

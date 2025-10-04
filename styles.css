@@ -4094,10 +4094,32 @@ main {
 /* Loadout control buttons */
 .loadout-text-btn {
   cursor: pointer;
+  -ms-user-select: none;
   user-select: none;
   transition: color 0.2s ease;
 }
 
 .loadout-text-btn:hover {
   color: var(--accent);
+}
+
+/* Hidden elements - moved from inline styles */
+.drifter-info-section.hidden {
+  display: none;
+}
+
+.support-effects.hidden {
+  display: none;
+}
+
+.skills-video.hidden {
+  display: none;
+}
+
+.mastery-section.hidden {
+  display: none;
+}
+
+.search-container.hidden {
+  display: none;
 }

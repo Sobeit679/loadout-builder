@@ -519,9 +519,9 @@ function showOverlay(title, key) {
   // Show/hide search container based on selection type
   if (searchContainer) {
     if (key === 'weapon' || key === 'chest' || key === 'boots' || key === 'helm' || key === 'weaponMod' || key === 'helmMod' || key === 'chestMod' || key === 'bootsMod') {
-      searchContainer.style.display = 'flex';
+      showElement(searchContainer);
     } else {
-      searchContainer.style.display = 'none';
+      hideElement(searchContainer);
     }
   }
   
@@ -1629,7 +1629,7 @@ function updateAvatar() {
     loadoutLayout.style.backgroundImage = '';
     if (avatarText) avatarText.textContent = 'Select Drifter';
     if (avatarText) avatarText.style.display = 'grid';
-    if (drifterInfoSection) drifterInfoSection.style.display = 'none';
+    if (drifterInfoSection) hideElement(drifterInfoSection);
     clearDrifterAbilities();
     disableEquipmentSlots(true);
     hideMasterySection();
@@ -1685,7 +1685,7 @@ function updateAvatar() {
   
   
   // Update the drifter info section below header
-  if (drifterInfoSection) drifterInfoSection.style.display = 'block';
+  if (drifterInfoSection) showElement(drifterInfoSection);
   if (drifterName) drifterName.textContent = drifter.name;
   if (drifterDescription) drifterDescription.textContent = drifter.description || '';
   
@@ -2351,6 +2351,29 @@ function createGlobalTooltip() {
   return globalTooltip;
 }
 
+// Helper functions for showing/hiding elements with CSS classes
+function showElement(element) {
+  if (element) {
+    element.classList.remove('hidden');
+  }
+}
+
+function hideElement(element) {
+  if (element) {
+    element.classList.add('hidden');
+  }
+}
+
+function toggleElement(element, show) {
+  if (element) {
+    if (show) {
+      element.classList.remove('hidden');
+    } else {
+      element.classList.add('hidden');
+    }
+  }
+}
+
 function addTooltipPositioning() {
   const abilitySlots = document.querySelectorAll('.ability-slot');
   const tooltip = createGlobalTooltip();
@@ -3000,13 +3023,13 @@ function createToast() {
 // Mastery system functions
 function showMasterySection() {
   if (masterySection) {
-    masterySection.style.display = 'block';
+    showElement(masterySection);
   }
 }
 
 function hideMasterySection() {
   if (masterySection) {
-    masterySection.style.display = 'none';
+    hideElement(masterySection);
   }
 }
 
@@ -3174,13 +3197,13 @@ function updateSupportEffects(drifter) {
   supportList.innerHTML = '';
   
   if (!drifter || !drifter.support) {
-    supportEffects.style.display = 'none';
+    hideElement(supportEffects);
     updateSkillsVideo(null);
     return;
   }
   
   // Show support effects section
-  supportEffects.style.display = 'block';
+  showElement(supportEffects);
   
   // Update skills video button
   updateSkillsVideo(drifter);
@@ -3237,12 +3260,12 @@ function updateSkillsVideo(drifter) {
   if (!skillsVideo) return;
   
   if (!drifter) {
-    skillsVideo.style.display = 'none';
+    hideElement(skillsVideo);
     return;
   }
   
   // Always show the video section, but with different text based on whether there's a link
-  skillsVideo.style.display = 'block';
+  showElement(skillsVideo);
   
   const videoButton = document.getElementById('playButton');
   if (videoButton) {
