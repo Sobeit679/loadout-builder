@@ -3,7 +3,6 @@
     {
       "id": "aegis",
       "name": "Aegis",
-      "role": "Tank",
       "description": "Tank | Area Damage",
       "basicAttributes": {
         "strength": 30,
@@ -58,7 +57,6 @@
     {
       "id": "astralmagus",
       "name": "Astral Magus",
-      "role": "Mage",
       "description": "Support | Mobility",
       "basicAttributes": {
         "strength": 20,
@@ -108,7 +106,6 @@
     {
       "id": "auri",
       "name": "Auri",
-      "role": "Support",
       "description": "Tank | Support | Control",
       "basicAttributes": {
         "strength": 30,
@@ -163,7 +160,6 @@
     {
       "id": "blade",
       "name": "Blade",
-      "role": "Assassin",
       "description": "Single-Target Damage",
       "basicAttributes": {
         "strength": 12,
@@ -207,7 +203,6 @@
     {
       "id": "draknor",
       "name": "Draknor",
-      "role": "Tank",
       "description": "Tank | Control",
       "basicAttributes": {
         "strength": 30,
@@ -257,7 +252,6 @@
     {
       "id": "durion",
       "name": "Durion",
-      "role": "Tank",
       "description": "Tank | Support | Area Damage",
       "basicAttributes": {
         "strength": 35,
@@ -311,7 +305,6 @@
     {
       "id": "elektrix",
       "name": "Elektrix",
-      "role": "Mage",
       "description": "Single-Target Damage | Area Damage",
       "basicAttributes": {
         "strength": 10,
@@ -366,7 +359,6 @@
     {
       "id": "helix",
       "name": "Helix",
-      "role": "Warrior",
       "description": "Single-Target Damage | Support",
       "basicAttributes": {
         "strength": 12,
@@ -421,7 +413,6 @@
     {
       "id": "hivequeen",
       "name": "Hive Queen",
-      "role": "Support",
       "description": "Self-Sustain",
       "basicAttributes": {
         "strength": 20,
@@ -476,7 +467,6 @@
     {
       "id": "illusarch",
       "name": "Illusarch",
-      "role": "Mage",
       "description": "Single-Target Damage | Support",
       "basicAttributes": {
         "strength": 17,
@@ -526,7 +516,6 @@
     {
       "id": "izzy",
       "name": "Izzy",
-      "role": "Tank",
       "description": "Tank | Area Damage",
       "basicAttributes": {
         "strength": 35,
@@ -581,7 +570,6 @@
     {
       "id": "kyra",
       "name": "Kyra",
-      "role": "Tank",
       "description": "Tank | Control",
       "basicAttributes": {
         "strength": 30,
@@ -636,7 +624,6 @@
     {
       "id": "madbarrel",
       "name": "Mad Barrel",
-      "role": "Warrior",
       "description": "Single-Target Damage | Area Damage",
       "basicAttributes": {
         "strength": 25,
@@ -691,7 +678,6 @@
     {
       "id": "mole",
       "name": "Mole",
-      "role": "Tank",
       "description": "Gathering | Self-Sustain | Control",
       "basicAttributes": {
         "strength": 20,
@@ -743,7 +729,6 @@
     {
       "id": "moonveil",
       "name": "Moonveil",
-      "role": "Support",
       "description": "Support | Area Damage",
       "basicAttributes": {
         "strength": 23,
@@ -798,7 +783,6 @@
     {
       "id": "nyxa",
       "name": "Nyxa",
-      "role": "Mage",
       "description": "Single-Target Damage | Self-Sustain",
       "basicAttributes": {
         "strength": 15,
@@ -853,7 +837,6 @@
     {
       "id": "overdrive",
       "name": "Overdrive",
-      "role": "Warrior",
       "description": "Single-Target Damage",
       "basicAttributes": {
         "strength": 20,
@@ -908,7 +891,6 @@
     {
       "id": "raven",
       "name": "Raven",
-      "role": "Support",
       "description": "Support | Area Damage",
       "basicAttributes": {
         "strength": 20,
@@ -963,7 +945,6 @@
     {
       "id": "revelation",
       "name": "Revelation",
-      "role": "Support",
       "description": "Support",
       "basicAttributes": {
         "strength": 25,
@@ -1013,7 +994,6 @@
     {
       "id": "sanguor",
       "name": "Sanguor",
-      "role": "Assassin",
       "description": "Single-Target Damage | Area Damage | Self-Sustain",
       "basicAttributes": {
         "strength": 12,
@@ -1063,7 +1043,6 @@
     {
       "id": "shadowseer",
       "name": "Shadowseer",
-      "role": "Mage",
       "description": "Single-Target Damage",
       "basicAttributes": {
         "strength": 15,
@@ -1118,7 +1097,6 @@
     {
       "id": "sirokos",
       "name": "Sirokos",
-      "role": "Tank",
       "description": "Tank | Control",
       "basicAttributes": {
         "strength": 35,
@@ -1173,7 +1151,6 @@
     {
       "id": "solenne",
       "name": "Solenne",
-      "role": "Support",
       "description": "Support | Area Damage",
       "basicAttributes": {
         "strength": 15,
@@ -1228,7 +1205,6 @@
     {
       "id": "umbra",
       "name": "Umbra",
-      "role": "Assassin",
       "description": "Single-Target Damage | Mobility",
       "basicAttributes": {
         "strength": 15,
@@ -1283,7 +1259,6 @@
     {
       "id": "varnax",
       "name": "Varnax",
-      "role": "Tank",
       "description": "Area Damage | Control",
       "basicAttributes": {
         "strength": 15,
@@ -1338,7 +1313,6 @@
     {
       "id": "veska",
       "name": "Veska",
-      "role": "Mage",
       "description": "Area Damage | Control",
       "basicAttributes": {
         "strength": 13,
@@ -1393,7 +1367,6 @@
     {
       "id": "vire",
       "name": "Vire",
-      "role": "Support",
       "description": "Area Damage | Self-Sustain",
       "basicAttributes": {
         "strength": 22,
@@ -1447,7 +1420,6 @@
     {
       "id": "vryssia",
       "name": "Vryssia",
-      "role": "Support",
       "description": "Single-Target Damage | Self-Sustain",
       "basicAttributes": {
         "strength": 10,
@@ -1502,7 +1474,6 @@
     {
       "id": "zero",
       "name": "Zero",
-      "role": "Assassin",
       "description": "Single-Target Damage | Control",
       "basicAttributes": {
         "strength": 16,
