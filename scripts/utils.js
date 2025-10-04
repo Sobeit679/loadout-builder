@@ -21,17 +21,11 @@ export async function loadDataSets(notify) {
   const data = {};
   for (const [key, url] of Object.entries(DATA_SOURCES)) {
     try {
-      console.log(`Loading ${key} from ${url}`);
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`);
       }
       data[key] = await response.json();
-      console.log(`Successfully loaded ${key}:`, data[key]);
-      if (key === 'drifters') {
-        console.log(`Drifters array length:`, data[key].drifters?.length);
-        console.log(`First few drifters:`, data[key].drifters?.slice(0, 3));
-      }
     } catch (error) {
       console.error(`Failed to load ${key} from ${url}:`, error);
       notify?.(`Failed to load ${key}`);
@@ -41,11 +35,7 @@ export async function loadDataSets(notify) {
   }
 
   // Process and link data
-  console.log('Raw drifters data:', data.drifters);
-  console.log('Raw skills data:', data.skills);
   const drifters = processDrifters(data.drifters?.drifters || [], data.skills?.skills || []);
-  console.log('Processed drifters:', drifters);
-  console.log('First drifter mastery bonuses:', drifters[0]?.masteryBonuses);
   const weapons = processWeapons(data.weapons?.weapons || [], data.skills?.skills || []);
   const gear = {
     weapons: weapons,
@@ -72,9 +62,7 @@ export async function loadDataSets(notify) {
 
 // Data processing functions
 function processDrifters(drifters, skills) {
-  console.log('🔍 DEBUG: Processing drifters, first few:', drifters.slice(0, 3));
   const processed = drifters.map(drifter => {
-    console.log('🔍 DEBUG: Processing drifter:', drifter.name, 'id:', drifter.id);
     return {
       gameId: drifter.id,
       name: drifter.name,
@@ -92,7 +80,6 @@ function processDrifters(drifters, skills) {
       support: drifter.support || {}
     };
   });
-  console.log('🔍 DEBUG: Processed drifters, first few gameIds:', processed.slice(0, 3).map(d => ({ name: d.name, gameId: d.gameId })));
   return processed;
 }
 

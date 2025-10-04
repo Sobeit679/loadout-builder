@@ -102,358 +102,27 @@ async function loadDataSets(notify) {
 
 function renderCards(items, container, isSelected, onToggle) {
   container.innerHTML = '';
+  
   items.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'selector-card';
-    card.dataset.itemId = item.id;
-    
-    
-    if (isSelected(item)) {
-      card.classList.add('selected');
-    }
+    let card;
     
     // Check if this is a weapon mod
     if (item.type === 'weapon') {
-      // Weapon mod layout - smaller images, better alignment
-      card.style.display = 'flex';
-      card.style.alignItems = 'center';
-      card.style.padding = '8px 12px';
-      card.style.borderBottom = '1px solid var(--border)';
-      card.style.backgroundColor = 'var(--card-bg)';
-      card.style.transition = 'background-color 0.2s';
-      card.style.margin = '0';
-      card.style.borderRadius = '0';
-      card.style.gap = '12px';
-      card.style.width = '100%';
-      card.style.minWidth = '100%';
-      card.style.minHeight = '60px';
-      card.style.maxHeight = 'none';
-      card.style.overflow = 'hidden';
-      card.style.gridColumn = '1 / -1';
-      card.style.gridRow = 'auto';
-      card.style.cursor = 'pointer';
-      
-      // Weapon mod image - smaller size
-      const itemImg = document.createElement('img');
-      itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
-      itemImg.alt = item.name;
-      itemImg.className = 'item-icon';
-      itemImg.style.width = '32px';
-      itemImg.style.height = '32px';
-      itemImg.style.objectFit = 'contain';
-      itemImg.style.flexShrink = '0';
-      itemImg.style.borderRadius = '4px';
-      itemImg.style.border = '1px solid var(--border)';
-      itemImg.style.backgroundColor = 'var(--bg-elev)';
-      itemImg.onerror = () => { itemImg.style.display = 'none'; };
-      
-      // Weapon mod name and description container
-      const itemInfo = document.createElement('div');
-      itemInfo.style.display = 'flex';
-      itemInfo.style.flexDirection = 'column';
-      itemInfo.style.flex = '1';
-      itemInfo.style.minWidth = '0';
-      
-      const itemName = document.createElement('div');
-      itemName.className = 'card-name';
-      itemName.textContent = item.name;
-      itemName.style.fontSize = '0.9rem';
-      itemName.style.fontWeight = 'bold';
-      itemName.style.color = 'var(--text)';
-      itemName.style.marginBottom = '2px';
-      
-      const itemDesc = document.createElement('div');
-      itemDesc.className = 'card-sub';
-      
-      // Build description with stats
-      let descText = item.description || '';
-      if (item.stats && Object.keys(item.stats).length > 0) {
-        const statsText = Object.entries(item.stats)
-          .map(([key, value]) => {
-            // Format key names for display
-            const displayKey = key
-              .replace(/([A-Z])/g, ' $1')
-              .replace(/^./, str => str.toUpperCase())
-              .replace(/_/g, ' ');
-            return `${displayKey}: ${value}`;
-          })
-          .join(', ');
-        
-        if (descText) {
-          descText += ` | ${statsText}`;
-        } else {
-          descText = statsText;
-        }
-      }
-      
-      itemDesc.textContent = descText;
-      itemDesc.style.fontSize = '0.75rem';
-      itemDesc.style.color = 'var(--text-muted)';
-      itemDesc.style.lineHeight = '1.3';
-      itemDesc.style.wordWrap = 'break-word';
-      itemDesc.style.whiteSpace = 'normal';
-      
-      itemInfo.appendChild(itemName);
-      itemInfo.appendChild(itemDesc);
-      
-      // Add elements to card
-      card.appendChild(itemImg);
-      card.appendChild(itemInfo);
-      
+      card = createModCard(item, isSelected, onToggle);
     } else if (item.type === 'armor') {
-      // Armor mod layout - same style as weapon mods
-      card.style.display = 'flex';
-      card.style.alignItems = 'center';
-      card.style.padding = '8px 12px';
-      card.style.borderBottom = '1px solid var(--border)';
-      card.style.backgroundColor = 'var(--card-bg)';
-      card.style.transition = 'background-color 0.2s';
-      card.style.margin = '0';
-      card.style.borderRadius = '0';
-      card.style.gap = '12px';
-      card.style.width = '100%';
-      card.style.minWidth = '100%';
-      card.style.minHeight = '60px';
-      card.style.maxHeight = 'none';
-      card.style.overflow = 'hidden';
-      card.style.gridColumn = '1 / -1';
-      card.style.gridRow = 'auto';
-      card.style.cursor = 'pointer';
-      
-      // Armor mod image - smaller size
-      const itemImg = document.createElement('img');
-      itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
-      itemImg.alt = item.name;
-      itemImg.className = 'item-icon';
-      itemImg.style.width = '32px';
-      itemImg.style.height = '32px';
-      itemImg.style.objectFit = 'contain';
-      itemImg.style.flexShrink = '0';
-      itemImg.style.borderRadius = '4px';
-      itemImg.style.border = '1px solid var(--border)';
-      itemImg.style.backgroundColor = 'var(--bg-elev)';
-      itemImg.onerror = () => { itemImg.style.display = 'none'; };
-      
-      // Armor mod name and description container
-      const itemInfo = document.createElement('div');
-      itemInfo.style.display = 'flex';
-      itemInfo.style.flexDirection = 'column';
-      itemInfo.style.flex = '1';
-      itemInfo.style.minWidth = '0';
-      
-      const itemName = document.createElement('div');
-      itemName.className = 'card-name';
-      itemName.textContent = item.name;
-      itemName.style.fontSize = '0.9rem';
-      itemName.style.fontWeight = 'bold';
-      itemName.style.color = 'var(--text)';
-      itemName.style.marginBottom = '2px';
-      
-      const itemDesc = document.createElement('div');
-      itemDesc.className = 'card-sub';
-      
-      // Build description with stats
-      let descText = item.description || '';
-      if (item.stats && Object.keys(item.stats).length > 0) {
-        const statsText = Object.entries(item.stats)
-          .map(([key, value]) => {
-            // Format key names for display
-            const displayKey = key
-              .replace(/([A-Z])/g, ' $1')
-              .replace(/^./, str => str.toUpperCase())
-              .replace(/_/g, ' ');
-            return `${displayKey}: ${value}`;
-          })
-          .join(', ');
-        
-        if (descText) {
-          descText += ` | ${statsText}`;
-        } else {
-          descText = statsText;
-        }
-      }
-      
-      itemDesc.textContent = descText;
-      itemDesc.style.fontSize = '0.75rem';
-      itemDesc.style.color = 'var(--text-muted)';
-      itemDesc.style.lineHeight = '1.3';
-      itemDesc.style.wordWrap = 'break-word';
-      itemDesc.style.whiteSpace = 'normal';
-      
-      itemInfo.appendChild(itemName);
-      itemInfo.appendChild(itemDesc);
-      
-      // Add elements to card
-      card.appendChild(itemImg);
-      card.appendChild(itemInfo);
-      
+      card = createModCard(item, isSelected, onToggle);
     } else if (item.coreSkill || item.passiveSkill) {
       const skill = STATE.skills.find(s => s.id === (item.coreSkill || item.passiveSkill));
-      
-      // Simple horizontal row layout like the example
-      card.style.display = 'flex';
-      card.style.alignItems = 'center';
-      card.style.padding = '12px 16px';
-      card.style.borderBottom = '1px solid var(--border)';
-      card.style.backgroundColor = 'var(--card-bg)';
-      card.style.transition = 'background-color 0.2s';
-      card.style.margin = '0';
-      card.style.borderRadius = '0';
-      card.style.gap = '16px';
-      card.style.width = '100%';
-      card.style.minWidth = '100%';
-      card.style.minHeight = '60px';
-      card.style.maxHeight = '60px';
-      card.style.overflow = 'hidden';
-      card.style.gridColumn = '1 / -1';
-      card.style.gridRow = 'auto';
-      card.style.cursor = 'pointer';
-      
-      
-      // Weapon image
-      const itemImg = document.createElement('img');
-      itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
-      itemImg.alt = item.name;
-      itemImg.className = 'item-icon';
-      itemImg.style.width = '40px';
-      itemImg.style.height = '40px';
-      itemImg.style.objectFit = 'contain';
-      itemImg.style.flexShrink = '0';
-      itemImg.style.borderRadius = '4px';
-      itemImg.style.border = '1px solid var(--border)';
-      itemImg.style.backgroundColor = 'var(--bg-elev)';
-      itemImg.onerror = () => { itemImg.style.display = 'none'; };
-      
-      // Weapon name and type container
-      const itemInfo = document.createElement('div');
-      itemInfo.style.display = 'flex';
-      itemInfo.style.flexDirection = 'column';
-      itemInfo.style.flex = '1';
-      itemInfo.style.minWidth = '0';
-      
-      const itemName = document.createElement('div');
-      itemName.className = 'card-name';
-      itemName.textContent = item.name;
-      itemName.style.fontSize = '1rem';
-      itemName.style.fontWeight = 'bold';
-      itemName.style.color = 'var(--text)';
-      itemName.style.marginBottom = '2px';
-      
-      const itemType = document.createElement('div');
-      itemType.className = 'card-sub';
-      if (item.type) {
-        // Convert weapon type from kebab-case to display format
-        const weaponTypeDisplay = item.type
-          .split('-')
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ');
-        itemType.textContent = weaponTypeDisplay;
-      } else if (item.armorType) {
-        itemType.textContent = item.armorType;
-      }
-      itemType.style.fontSize = '0.8rem';
-      itemType.style.color = 'var(--text-muted)';
-      
-      itemInfo.appendChild(itemName);
-      itemInfo.appendChild(itemType);
+      card = createWeaponCard(item, isSelected, onToggle);
       
       // Add tooltip functionality for skill details
       if (skill) {
-        // Create skill tags exactly like ability tooltips
-        let skillTags = '';
-        if (skill.tags && skill.tags.length > 0) {
-          const allTags = skill.tags.map(tag => {
-            const tagClass = getTagClass(tag);
-            let displayTag = tag;
-            if (tag === 'cooldown_reduction') displayTag = 'cooldown';
-            else if (tag === 'control_immunity') displayTag = 'control immunity';
-            else if (tag === 'damage_immunity') displayTag = 'immunity';
-            else if (tag === 'hard_control') displayTag = 'hard control';
-            return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
-          }).join(' ');
-          skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
-        }
-        
-        const formattedDescription = skill.description.replace(/\n/g, '<br><br>');
-        
-        const tooltipContent = `
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <img src="${skill.icon}?v=${Date.now()}" alt="${skill.name}" style="width: 32px; height: 32px; border-radius: 4px; border: 1px solid var(--border);">
-            <div>
-              <div style="font-weight: bold; color: var(--text); margin-bottom: 4px;">${skill.name}</div>
-            </div>
-          </div>
-          ${skillTags}
-          <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">${formattedDescription}</div>
-        `;
-        
-        card.title = ''; // Clear default title
-        card.setAttribute('data-tooltip', tooltipContent);
+        addSkillTooltip(card, skill);
       }
-      
-      
-      // Add elements to card in simple horizontal order
-      card.appendChild(itemImg);
-      card.appendChild(itemInfo);
-      
-      // Add tooltip event listeners
-      if (skill) {
-        card.addEventListener('mouseenter', (e) => {
-          const tooltip = createGlobalTooltip();
-          tooltip.innerHTML = card.getAttribute('data-tooltip');
-          tooltip.style.display = 'block';
-          tooltip.style.opacity = '1';
-          tooltip.style.visibility = 'visible';
-          
-          // Position tooltip
-          const cardRect = card.getBoundingClientRect();
-          const tooltipRect = tooltip.getBoundingClientRect();
-          
-          let top = cardRect.top - tooltipRect.height - 10;
-          let left = cardRect.left + (cardRect.width / 2) - (tooltipRect.width / 2);
-          
-          // Keep within viewport
-          if (left < 10) left = 10;
-          if (left + tooltipRect.width > window.innerWidth - 10) {
-            left = window.innerWidth - tooltipRect.width - 10;
-          }
-          if (top < 10) {
-            top = cardRect.bottom + 10;
-          }
-          
-          tooltip.style.top = `${top}px`;
-          tooltip.style.left = `${left}px`;
-        });
-        
-        card.addEventListener('mouseleave', (e) => {
-          const tooltip = createGlobalTooltip();
-          tooltip.style.display = 'none';
-          tooltip.style.opacity = '0';
-          tooltip.style.visibility = 'hidden';
-        });
-      }
-      
     } else {
-      // Regular item rendering
-    const img = document.createElement('img');
-    img.src = item.icon || '';
-    img.alt = item.name;
-    img.onerror = () => { img.style.display = 'none'; };
-    
-    const name = document.createElement('div');
-    name.className = 'card-name';
-    name.textContent = item.name;
-    
-    const sub = document.createElement('div');
-    sub.className = 'card-sub';
-    sub.textContent = item.sub || '';
-    
-    card.appendChild(img);
-    card.appendChild(name);
-    card.appendChild(sub);
+      card = createItemCard(item, isSelected, onToggle);
     }
     
-    card.addEventListener('click', () => onToggle(item));
     container.appendChild(card);
   });
 }
@@ -492,8 +161,290 @@ const STATE = {
 };
 
 // Global tooltip element
+
+// Card creation helper functions
+function createModCard(item, isSelected, onToggle) {
+  const card = document.createElement('div');
+  card.className = 'selector-card mod-card';
+  card.dataset.itemId = item.id;
+  
+  if (isSelected(item)) {
+    card.classList.add('selected');
+  }
+  
+  // Create image
+  const itemImg = document.createElement('img');
+  itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
+  itemImg.alt = item.name;
+  itemImg.className = 'mod-card-image';
+  itemImg.onerror = () => { itemImg.style.display = 'none'; };
+  
+  // Create info container
+  const itemInfo = document.createElement('div');
+  itemInfo.className = 'mod-card-info';
+  
+  const itemName = document.createElement('div');
+  itemName.className = 'mod-card-name';
+  itemName.textContent = item.name;
+  
+  const itemDesc = document.createElement('div');
+  itemDesc.className = 'mod-card-description';
+  
+  // Build description with stats
+  let descText = item.description || '';
+  if (item.stats && Object.keys(item.stats).length > 0) {
+    const statsText = Object.entries(item.stats)
+      .map(([key, value]) => {
+        const displayKey = key
+          .replace(/([A-Z])/g, ' $1')
+          .replace(/^./, str => str.toUpperCase())
+          .replace(/_/g, ' ');
+        return `${displayKey}: ${value}`;
+      })
+      .join(', ');
+    
+    if (descText) {
+      descText += ` | ${statsText}`;
+    } else {
+      descText = statsText;
+    }
+  }
+  
+  itemDesc.textContent = descText;
+  
+  itemInfo.appendChild(itemName);
+  itemInfo.appendChild(itemDesc);
+  
+  card.appendChild(itemImg);
+  card.appendChild(itemInfo);
+  card.addEventListener('click', () => onToggle(item));
+  
+  return card;
+}
+
+function createWeaponCard(item, isSelected, onToggle) {
+  const card = document.createElement('div');
+  card.className = 'selector-card weapon-card';
+  card.dataset.itemId = item.id;
+  
+  if (isSelected(item)) {
+    card.classList.add('selected');
+  }
+  
+  // Create image
+  const itemImg = document.createElement('img');
+  itemImg.src = item.icon ? `${item.icon}?v=${Date.now()}` : '';
+  itemImg.alt = item.name;
+  itemImg.className = 'weapon-card-image';
+  itemImg.onerror = () => { itemImg.style.display = 'none'; };
+  
+  // Create info container
+  const itemInfo = document.createElement('div');
+  itemInfo.className = 'weapon-card-info';
+  
+  const itemName = document.createElement('div');
+  itemName.className = 'weapon-card-name';
+  itemName.textContent = item.name;
+  
+  const itemType = document.createElement('div');
+  itemType.className = 'weapon-card-type';
+  if (item.type) {
+    const weaponTypeDisplay = item.type
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    itemType.textContent = weaponTypeDisplay;
+  } else if (item.armorType) {
+    itemType.textContent = item.armorType;
+  }
+  
+  itemInfo.appendChild(itemName);
+  itemInfo.appendChild(itemType);
+  
+  card.appendChild(itemImg);
+  card.appendChild(itemInfo);
+  card.addEventListener('click', () => onToggle(item));
+  
+  return card;
+}
+
+function createItemCard(item, isSelected, onToggle) {
+  const card = document.createElement('div');
+  card.className = 'selector-card item-card';
+  card.dataset.itemId = item.id;
+  
+  if (isSelected(item)) {
+    card.classList.add('selected');
+  }
+  
+  const img = document.createElement('img');
+  img.src = item.icon || '';
+  img.alt = item.name;
+  img.className = 'item-card-image';
+  img.onerror = () => { img.style.display = 'none'; };
+  
+  const name = document.createElement('div');
+  name.className = 'item-card-name';
+  name.textContent = item.name;
+  
+  const sub = document.createElement('div');
+  sub.className = 'item-card-sub';
+  sub.textContent = item.sub || '';
+  
+  card.appendChild(img);
+  card.appendChild(name);
+  card.appendChild(sub);
+  card.addEventListener('click', () => onToggle(item));
+  
+  return card;
+}
+
+function createDrifterCard(drifter, index) {
+  const card = document.createElement('div');
+  card.className = 'drifter-select-card';
+  card.dataset.gameId = drifter.gameId;
+  
+  // Create card content
+  const img = document.createElement('img');
+  img.src = drifter.cardIcon || drifter.icon;
+  img.alt = drifter.name;
+  img.className = 'drifter-card-image';
+  
+  const name = document.createElement('div');
+  name.textContent = drifter.name;
+  name.style.fontWeight = 'bold';
+  name.style.textAlign = 'center';
+  name.style.marginTop = '0.5rem';
+  name.style.color = 'var(--text)';
+  name.style.fontSize = '1rem';
+  
+  const role = document.createElement('div');
+  role.textContent = drifter.description;
+  role.style.fontSize = '0.9rem';
+  role.style.color = 'var(--text-muted)';
+  role.style.textAlign = 'center';
+  role.style.marginTop = '0.25rem';
+  
+  card.appendChild(name);
+  card.appendChild(img);
+  card.appendChild(role);
+  
+  // Add support effects if drifter has support data
+  if (drifter.support) {
+    const supportEffect = document.createElement('div');
+    supportEffect.className = 'support-effect';
+    
+    let effectText = '';
+    
+    // Handle effects array format
+    if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
+      effectText = drifter.support.effects.map(effect => {
+        return `${effect.name}: ${effect.value}`;
+      }).join(', ');
+    }
+    // Handle other support properties (like starfallTokenBonus)
+    else {
+      const supportKeys = Object.keys(drifter.support);
+      effectText = supportKeys.map(key => {
+        const value = drifter.support[key];
+        const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        return `${formattedKey}: ${value}`;
+      }).join(', ');
+    }
+    
+    if (effectText) {
+      supportEffect.textContent = effectText;
+      card.appendChild(supportEffect);
+      card.classList.add('has-support-effects');
+    }
+  }
+  
+  return card;
+}
+
+function createSkillOption(skill, slotKey) {
+  const skillOption = document.createElement('div');
+  skillOption.className = 'skill-option';
+  skillOption.style.backgroundImage = `url(${skill.icon}?v=${Date.now()})`;
+  skillOption.style.border = `2px solid ${STATE.selected.gear[slotKey === 'A' ? 'basic-attack' : 'weapon-skill']?.id === skill.id ? 'var(--accent)' : 'transparent'}`;
+  
+  skillOption.addEventListener('click', () => {
+    hideSkillCascade();
+    onSelect(skill);
+  });
+  
+  return skillOption;
+}
 let globalTooltip = null;
 
+
+function addSkillTooltip(card, skill) {
+  // Create skill tags exactly like ability tooltips
+  let skillTags = '';
+  if (skill.tags && skill.tags.length > 0) {
+    const allTags = skill.tags.map(tag => {
+      const tagClass = getTagClass(tag);
+      let displayTag = tag;
+      if (tag === 'cooldown_reduction') displayTag = 'cooldown';
+      else if (tag === 'control_immunity') displayTag = 'control immunity';
+      else if (tag === 'damage_immunity') displayTag = 'immunity';
+      else if (tag === 'hard_control') displayTag = 'hard control';
+      return `<span class="ability-tag ${tagClass}">${displayTag}</span>`;
+    }).join(' ');
+    skillTags = `<div class="ability-tags" style="margin-bottom: 8px;">${allTags}</div>`;
+  }
+  
+  const formattedDescription = skill.description.replace(/\n/g, '<br><br>');
+  
+  const tooltipContent = `
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+      <img src="${skill.icon}?v=${Date.now()}" alt="${skill.name}" style="width: 32px; height: 32px; border-radius: 4px; border: 1px solid var(--border);">
+      <div>
+        <div style="font-weight: bold; color: var(--text); margin-bottom: 4px;">${skill.name}</div>
+      </div>
+    </div>
+    ${skillTags}
+    <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">${formattedDescription}</div>
+  `;
+  
+  card.title = ''; // Clear default title
+  card.setAttribute('data-tooltip', tooltipContent);
+  
+  // Add tooltip event listeners
+  card.addEventListener('mouseenter', (e) => {
+    const tooltip = createGlobalTooltip();
+    tooltip.innerHTML = card.getAttribute('data-tooltip');
+    tooltip.style.display = 'block';
+    tooltip.style.opacity = '1';
+    tooltip.style.visibility = 'visible';
+    
+    // Position tooltip
+    const cardRect = card.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+    
+    let top = cardRect.top - tooltipRect.height - 10;
+    let left = cardRect.left + (cardRect.width / 2) - (tooltipRect.width / 2);
+    
+    // Keep within viewport
+    if (left < 10) left = 10;
+    if (left + tooltipRect.width > window.innerWidth - 10) {
+      left = window.innerWidth - tooltipRect.width - 10;
+    }
+    if (top < 10) {
+      top = cardRect.bottom + 10;
+    }
+    
+    tooltip.style.top = `${top}px`;
+    tooltip.style.left = `${left}px`;
+  });
+  
+  card.addEventListener('mouseleave', (e) => {
+    const tooltip = createGlobalTooltip();
+    tooltip.style.display = 'none';
+    tooltip.style.opacity = '0';
+    tooltip.style.visibility = 'hidden';
+  });
+}
 const CARD_TEMPLATE = document.getElementById('card-template');
 const summaryEl = document.getElementById('summary');
 const abilitySlots = document.querySelectorAll('.ability-slot');
@@ -539,13 +490,10 @@ function renderDrifters() {
 }
 
 function showOverlay(title, key) {
-  console.log('showOverlay called with:', title, key);
   if (!selectionOverlay) {
     console.error('selectionOverlay not found!');
     return;
   }
-  
-  console.log('Showing overlay...');
   selectionOverlay.style.display = 'grid';
   selectionOverlay.hidden = false;
   
@@ -722,9 +670,7 @@ function clearSearch() {
 }
 
 function renderDrifterSelection() {
-  console.log('renderDrifterSelection called, currentSupportSlot:', window.currentSupportSlot);
   if (!selectionGrid) {
-    console.log('selectionGrid not found!');
     return;
   }
   
@@ -734,12 +680,19 @@ function renderDrifterSelection() {
   // Create document fragment for better performance
   const fragment = document.createDocumentFragment();
   
-  console.log('Processing drifters, count:', STATE.drifters.length);
   STATE.drifters.forEach((drifter, index) => {
-    console.log('Processing drifter:', drifter.name, 'index:', index);
     const card = document.createElement('div');
     card.className = 'drifter-select-card';
     card.dataset.gameId = drifter.gameId;
+    
+    // Check if this drifter is unavailable for support selection
+    const isAlreadySupport = isDrifterAlreadySelectedAsSupport(drifter.gameId);
+    const isMainDrifter = isDrifterMainSelected(drifter.gameId);
+    const isUnavailable = isAlreadySupport || isMainDrifter;
+    
+    if (isUnavailable) {
+      card.classList.add('unavailable');
+    }
     
     // Create card content
     const img = document.createElement('img');
@@ -768,10 +721,16 @@ function renderDrifterSelection() {
     card.appendChild(img);
     card.appendChild(role);
     
+    // Add unavailable indicator if needed
+    if (isUnavailable) {
+      const unavailableOverlay = document.createElement('div');
+      unavailableOverlay.className = 'unavailable-overlay';
+      unavailableOverlay.textContent = isAlreadySupport ? 'Already Selected' : 'Main Character';
+      card.appendChild(unavailableOverlay);
+    }
+    
     // Add support effects if drifter has support data
     if (drifter.support) {
-      console.log('Adding support effects for:', drifter.name, drifter.support);
-      
       const supportEffect = document.createElement('div');
       supportEffect.className = 'support-effect';
       
@@ -779,14 +738,12 @@ function renderDrifterSelection() {
       
       // Handle effects array format
       if (drifter.support.effects && Array.isArray(drifter.support.effects)) {
-        console.log('Using effects array format');
         effectText = drifter.support.effects.map(effect => {
           return `${effect.name}: ${effect.value}`;
         }).join(', ');
       }
       // Handle other support properties (like starfallTokenBonus)
       else {
-        console.log('Using other support properties format');
         const supportKeys = Object.keys(drifter.support);
         effectText = supportKeys.map(key => {
           const value = drifter.support[key];
@@ -795,20 +752,12 @@ function renderDrifterSelection() {
         }).join(', ');
       }
       
-      console.log('Effect text:', effectText);
-      
       if (effectText) {
         supportEffect.textContent = effectText;
         
         card.appendChild(supportEffect);
         // Add a class to indicate this card has support effects
         card.classList.add('has-support-effects');
-        console.log('Support effect added to card, element:', supportEffect);
-        console.log('Card children count:', card.children.length);
-        console.log('Support effect visible:', supportEffect.offsetHeight > 0);
-        console.log('Support effect computed styles:', window.getComputedStyle(supportEffect));
-      } else {
-        console.log('No effect text generated');
       }
     }
     
@@ -816,6 +765,16 @@ function renderDrifterSelection() {
     card.addEventListener('click', () => {
       // Check if this is for support card selection
       if (window.currentSupportSlot !== undefined) {
+        // Check if this drifter is already selected as a support
+        if (isDrifterAlreadySelectedAsSupport(drifter.gameId)) {
+          showToast('This drifter is already selected as a support!', 'error');
+          return;
+        }
+        // Check if this drifter is the main selected drifter
+        if (isDrifterMainSelected(drifter.gameId)) {
+          showToast('This drifter is already your main character!', 'error');
+          return;
+        }
         addSupportDrifter(drifter, window.currentSupportSlot);
         window.currentSupportSlot = undefined;
         hideOverlay();
@@ -1173,10 +1132,6 @@ function renderGear(key) {
           }
         }
       }
-      
-      // Debug logging
-      console.log('Item selected:', item.name, 'Key:', key, 'GearKey:', gearKey);
-      console.log('Current selection:', STATE.selected.gear[gearKey]);
       
       // Auto-fill ability slots with weapon skills (only for weapons, not mods)
       if (key !== 'weaponMod' && item.basicAttacks && item.basicAttacks.length > 0) {
@@ -1749,7 +1704,6 @@ function updateAvatar() {
 
 function updateDrifterAbilities(drifter) {
   
-  // Debug panel removed
   
   const passiveSlot = document.querySelector('.drifter-passive .ability-icon');
   const eSlot = document.querySelector('[data-key="E"] .ability-icon');
@@ -3330,14 +3284,20 @@ if (playButton) {
 // Support card functionality
 let selectedSupports = [];
 
+// Helper function to check if a drifter is already selected as a support
+function isDrifterAlreadySelectedAsSupport(gameId) {
+  return selectedSupports.some(support => support && support.gameId === gameId);
+}
+
+// Helper function to check if a drifter is the main selected drifter
+function isDrifterMainSelected(gameId) {
+  return STATE.selected.drifters.some(drifter => drifter && drifter.gameId === gameId);
+}
+
 function initializeSupportCards() {
   const supportCards = document.querySelectorAll('.support-card');
   
-  // Debug: Check if cards are found
-  console.log('Found support cards:', supportCards.length);
-  
   if (supportCards.length === 0) {
-    console.warn('No support cards found, retrying in 200ms...');
     setTimeout(() => {
       initializeSupportCards();
     }, 200);
@@ -3369,26 +3329,18 @@ function initializeSupportCards() {
       e.preventDefault();
       e.stopPropagation();
       
-      console.log('Support card clicked:', index, 'Empty:', newCard.classList.contains('empty'));
-      console.log('Card classes:', newCard.className);
-      
       if (newCard.classList.contains('empty')) {
-        console.log('Opening drifter selection overlay...');
         // Store the slot index for when a drifter is selected BEFORE showing overlay
         window.currentSupportSlot = index;
-        console.log('Set currentSupportSlot to:', window.currentSupportSlot);
         // Show drifter selection overlay
         showOverlay('Select a Support Drifter', 'drifters');
-        console.log('Overlay should be open now, currentSupportSlot:', window.currentSupportSlot);
       } else {
-        console.log('Removing drifter from slot:', index);
         // Remove the selected drifter
         removeSupportDrifter(index);
       }
     });
   });
   
-  console.log('Support cards initialized successfully');
 }
 
 function addSupportDrifter(drifter, slotIndex) {
@@ -3426,6 +3378,11 @@ function addSupportDrifter(drifter, slotIndex) {
   
   // Update support descriptions
   updateSupportDescriptions();
+  
+  // Refresh drifter selection modal if it's open to update availability indicators
+  if (selectionOverlay && selectionOverlay.style.display === 'grid') {
+    renderDrifterSelection();
+  }
 }
 
 function removeSupportDrifter(slotIndex) {
@@ -3461,6 +3418,11 @@ function removeSupportDrifter(slotIndex) {
   
   // Update support descriptions
   updateSupportDescriptions();
+  
+  // Refresh drifter selection modal if it's open to update availability indicators
+  if (selectionOverlay && selectionOverlay.style.display === 'grid') {
+    renderDrifterSelection();
+  }
 }
 
 function updateSupportEffects() {
