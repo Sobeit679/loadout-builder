@@ -4090,3 +4090,14 @@ main {
   pointer-events: none;
   border: 1px solid var(--border);
 }
+
+/* Loadout control buttons */
+.loadout-text-btn {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.loadout-text-btn:hover {
+  color: var(--accent);
+}
