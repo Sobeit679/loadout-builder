@@ -573,10 +573,11 @@ function handleSearch() {
     return;
   }
   
-  itemCards.forEach(card => {
-    const itemName = card.querySelector('.card-name')?.textContent?.toLowerCase() || '';
-    const itemSub = card.querySelector('.card-sub')?.textContent?.toLowerCase() || '';
-    const itemDesc = card.querySelector('.card-desc')?.textContent?.toLowerCase() || '';
+    itemCards.forEach(card => {
+      // Try different possible class names for item name
+      const itemName = card.querySelector('.card-name, .mod-card-name, .weapon-card-name, .item-card-name')?.textContent?.toLowerCase() || '';
+      const itemSub = card.querySelector('.card-sub, .item-card-sub')?.textContent?.toLowerCase() || '';
+      const itemDesc = card.querySelector('.card-desc, .mod-card-description, .item-card-desc')?.textContent?.toLowerCase() || '';
     
     // Get item data to check skill tags
     const itemId = card.dataset.itemId;
