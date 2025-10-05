@@ -1426,7 +1426,9 @@ function updateBootsSkill() {
 }
 
 function updateBasicAttackSkill() {
+  console.log('updateBasicAttackSkill() called');
   const basicAttack = STATE.selected.gear['basic-attack'];
+  console.log('Basic attack data:', basicAttack);
   const aSlot = document.querySelector('[data-key="A"]');
   const aIcon = aSlot.querySelector('.ability-icon');
   
@@ -1447,7 +1449,9 @@ function updateBasicAttackSkill() {
 }
 
 function updateWeaponAbilitySkill() {
+  console.log('updateWeaponAbilitySkill() called');
   const weaponSkill = STATE.selected.gear['weapon-skill'];
+  console.log('Weapon skill data:', weaponSkill);
   const qSlot = document.querySelector('[data-key="Q"]');
   const qIcon = qSlot.querySelector('.ability-icon');
   
@@ -2635,8 +2639,14 @@ function loadLoadoutData(loadout) {
     }
     
     // Update the UI
+    console.log('About to call populateLoadoutBoard()');
     populateLoadoutBoard();
+    console.log('About to call updateSupportEffects()');
     updateSupportEffects(STATE.selected.drifters[0]);
+    console.log('Import completed - checking weapon abilities:', {
+      'basic-attack': STATE.selected.gear['basic-attack'],
+      'weapon-skill': STATE.selected.gear['weapon-skill']
+    });
     
   } catch (error) {
     console.error('Error loading loadout:', error);
