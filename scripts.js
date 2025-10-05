@@ -1430,12 +1430,16 @@ function updateBasicAttackSkill() {
   const basicAttack = STATE.selected.gear['basic-attack'];
   console.log('Basic attack data:', basicAttack);
   const aSlot = document.querySelector('[data-key="A"]');
+  console.log('A slot element found:', aSlot);
   const aIcon = aSlot.querySelector('.ability-icon');
+  console.log('A icon element found:', aIcon);
   
   if (basicAttack && basicAttack.icon) {
     const iconUrl = `${basicAttack.icon}?v=${Date.now()}`;
+    console.log('Setting basic attack icon:', iconUrl);
     aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
+    console.log('Basic attack slot updated, classes:', aSlot.classList.toString());
   } else {
     aIcon.style.backgroundImage = '';
     aSlot.classList.add('empty');
@@ -1453,12 +1457,16 @@ function updateWeaponAbilitySkill() {
   const weaponSkill = STATE.selected.gear['weapon-skill'];
   console.log('Weapon skill data:', weaponSkill);
   const qSlot = document.querySelector('[data-key="Q"]');
+  console.log('Q slot element found:', qSlot);
   const qIcon = qSlot.querySelector('.ability-icon');
+  console.log('Q icon element found:', qIcon);
   
   if (weaponSkill && weaponSkill.icon) {
     const weaponSkillIconUrl = `${weaponSkill.icon}?v=${Date.now()}`;
+    console.log('Setting weapon skill icon:', weaponSkillIconUrl);
     qIcon.style.backgroundImage = `url(${weaponSkillIconUrl})`;
     qSlot.classList.remove('empty');
+    console.log('Weapon skill slot updated, classes:', qSlot.classList.toString());
   } else {
     qIcon.style.backgroundImage = '';
     qSlot.classList.add('empty');
