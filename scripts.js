@@ -1440,6 +1440,8 @@ function updateBasicAttackSkill() {
     aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
     console.log('Basic attack slot updated, classes:', aSlot.classList.toString());
+    console.log('A icon final style:', aIcon.style.cssText);
+    console.log('A icon computed style:', window.getComputedStyle(aIcon).backgroundImage);
   } else {
     aIcon.style.backgroundImage = '';
     aSlot.classList.add('empty');
@@ -1467,6 +1469,8 @@ function updateWeaponAbilitySkill() {
     qIcon.style.backgroundImage = `url(${weaponSkillIconUrl})`;
     qSlot.classList.remove('empty');
     console.log('Weapon skill slot updated, classes:', qSlot.classList.toString());
+    console.log('Q icon final style:', qIcon.style.cssText);
+    console.log('Q icon computed style:', window.getComputedStyle(qIcon).backgroundImage);
   } else {
     qIcon.style.backgroundImage = '';
     qSlot.classList.add('empty');
