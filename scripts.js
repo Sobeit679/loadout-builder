@@ -2458,6 +2458,7 @@ function exportLoadout(event) {
       // Skills use .id, other items use .gameId
       if (key === 'basic-attack' || key === 'weapon-skill') {
         loadout.g[key] = STATE.selected.gear[key].id;
+        console.log(`Exporting ${key}:`, { item: STATE.selected.gear[key], id: STATE.selected.gear[key].id });
       } else {
         loadout.g[key] = STATE.selected.gear[key].gameId;
       }
@@ -2589,14 +2590,18 @@ function loadLoadoutData(loadout) {
             item = STATE.gear['armors/chest'].find(c => c.gameId === gameId);
           } else if (key === 'armors/boots') {
             item = STATE.gear['armors/boots'].find(b => b.gameId === gameId);
-          } else if (key === 'basic-attack' || key === 'weapon-skill') {
-            // Handle weapon ability slots (A and Q)
-            item = STATE.skills.find(s => s.id === gameId);
-          }
-          
-          if (item) {
-            STATE.selected.gear[key] = item;
-          }
+            } else if (key === 'basic-attack' || key === 'weapon-skill') {
+              // Handle weapon ability slots (A and Q)
+              item = STATE.skills.find(s => s.id === gameId);
+              console.log(`Loading ${key}:`, { gameId, item });
+            }
+            
+            if (item) {
+              STATE.selected.gear[key] = item;
+              console.log(`Set STATE.selected.gear['${key}']:`, item);
+            } else {
+              console.log(`Could not find item for ${key} with id:`, gameId);
+            }
         }
       });
     }
