@@ -2455,7 +2455,12 @@ function exportLoadout(event) {
   // Only include selected gear
   Object.keys(STATE.selected.gear).forEach(key => {
     if (STATE.selected.gear[key]) {
-      loadout.g[key] = STATE.selected.gear[key].gameId;
+      // Skills use .id, other items use .gameId
+      if (key === 'basic-attack' || key === 'weapon-skill') {
+        loadout.g[key] = STATE.selected.gear[key].id;
+      } else {
+        loadout.g[key] = STATE.selected.gear[key].gameId;
+      }
     }
   });
   
@@ -2492,7 +2497,12 @@ function shareLoadout() {
   // Only include selected gear
   Object.keys(STATE.selected.gear).forEach(key => {
     if (STATE.selected.gear[key]) {
-      loadout.g[key] = STATE.selected.gear[key].gameId;
+      // Skills use .id, other items use .gameId
+      if (key === 'basic-attack' || key === 'weapon-skill') {
+        loadout.g[key] = STATE.selected.gear[key].id;
+      } else {
+        loadout.g[key] = STATE.selected.gear[key].gameId;
+      }
     }
   });
   
