@@ -7,14 +7,6 @@
       "type": "boots",
       "armorType": "Intelligence",
       "rarity": "rare",
-      "description": "Enchanted boots that channel magical energy to enhance movement and provide powerful healing abilities.",
-      "stats": {
-        "movementSpeed": "+18%",
-        "magicResistance": 12,
-        "intelligence": 6,
-        "healingBonus": "+20%",
-        "manaRegen": "+1.5/s"
-      },
       "coreSkill": "abundance",
       "icon": "./assets/icons/boots-arcaneflow-boots.png"
     },
@@ -25,13 +17,6 @@
       "type": "boots",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "Mystical boots that allow for instantaneous displacement and position swapping with allies.",
-      "stats": {
-        "movementSpeed": "+15%",
-        "magicResistance": 15,
-        "intelligence": 8,
-        "cooldownReduction": "+10%"
-      },
       "coreSkill": "displacement",
       "icon": "./assets/icons/boots-shifters-strides.png"
     },
@@ -42,13 +27,6 @@
       "type": "boots",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "Corrupted boots that leave a trail of decay, weakening enemies who follow in your path.",
-      "stats": {
-        "movementSpeed": "+20%",
-        "magicResistance": 12,
-        "intelligence": 7,
-        "debuffDuration": "+25%"
-      },
       "coreSkill": "decay",
       "icon": "./assets/icons/boots-miasma-stompers.png"
     },
@@ -59,13 +37,6 @@
       "type": "boots",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "Enchanted boots that create a path of frost, slowing and weakening enemies who dare to follow.",
-      "stats": {
-        "movementSpeed": "+18%",
-        "magicResistance": 14,
-        "intelligence": 8,
-        "slowEffectiveness": "+30%"
-      },
       "coreSkill": "frost",
       "icon": "./assets/icons/boots-frostwalker-boots.png"
     },
@@ -76,13 +47,6 @@
       "type": "boots",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "Swift boots that allow for rapid teleportation and provide healing energy with each step.",
-      "stats": {
-        "movementSpeed": "+25%",
-        "magicResistance": 10,
-        "intelligence": 9,
-        "healingBonus": "+15%"
-      },
       "coreSkill": "flash-step",
       "icon": "./assets/icons/boots-blinkstep-boots.png"
     },
@@ -93,14 +57,6 @@
       "type": "boots",
       "armorType": "Intelligence",
       "rarity": "legendary",
-      "description": "Ethereal boots that grant the wearer ghostly powers, becoming untouchable and swift.",
-      "stats": {
-        "movementSpeed": "+30%",
-        "magicResistance": 20,
-        "intelligence": 12,
-        "evasion": "+25%",
-        "immunityDuration": "+50%"
-      },
       "coreSkill": "ghost",
       "icon": "./assets/icons/boots-phantomstep-boots.png"
     },
@@ -111,14 +67,6 @@
       "type": "boots",
       "armorType": "Intelligence",
       "rarity": "legendary",
-      "description": "Berserker boots that enhance the wearer's combat prowess but at the cost of temporary vulnerability.",
-      "stats": {
-        "movementSpeed": "+35%",
-        "magicResistance": 18,
-        "intelligence": 10,
-        "damageBonus": "+25%",
-        "attackSpeed": "+20%"
-      },
       "coreSkill": "berserk",
       "icon": "./assets/icons/boots-savagefoot-boots.png"
     },
@@ -129,12 +77,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "rare",
-      "description": "Lightweight boots that allow for quick sidesteps and enhanced movement speed.",
-      "stats": {
-        "movementSpeed": "+12%",
-        "agility": 6,
-        "evasion": "+8%"
-      },
       "coreSkill": "sidestep",
       "icon": "./assets/icons/boots-rallystep-boots.png"
     },
@@ -145,13 +87,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "Boots that channel the power of wind, enhancing the combat abilities of nearby allies.",
-      "stats": {
-        "movementSpeed": "+18%",
-        "agility": 8,
-        "attackSpeed": "+10%",
-        "castingSpeed": "+8%"
-      },
       "coreSkill": "cyclone",
       "icon": "./assets/icons/boots-whirlwind-boots.png"
     },
@@ -162,13 +97,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "Silent slippers that grant the wearer stealth abilities and enhanced movement speed.",
-      "stats": {
-        "movementSpeed": "+20%",
-        "agility": 10,
-        "stealth": "+15%",
-        "criticalChance": "+5%"
-      },
       "coreSkill": "vanish",
       "icon": "./assets/icons/boots-shadeveil-slippers.png"
     },
@@ -179,13 +107,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "Boots of an assassin that allow for deadly dashes and enhanced basic attack damage.",
-      "stats": {
-        "movementSpeed": "+15%",
-        "agility": 9,
-        "criticalChance": "+8%",
-        "basicAttackDamage": "+12%"
-      },
       "coreSkill": "assassinate",
       "icon": "./assets/icons/boots-deathwalker-boots.png"
     },
@@ -196,13 +117,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "Graceful boots that allow for elegant dashes and enhanced critical strikes.",
-      "stats": {
-        "movementSpeed": "+16%",
-        "agility": 11,
-        "criticalChance": "+10%",
-        "evasion": "+12%"
-      },
       "coreSkill": "grace",
       "icon": "./assets/icons/boots-fleeting-steps.png"
     },
@@ -213,13 +127,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "Boots that enhance both movement and attack speed for rapid combat.",
-      "stats": {
-        "movementSpeed": "+22%",
-        "agility": 10,
-        "attackSpeed": "+15%",
-        "cooldownReduction": "+5%"
-      },
       "coreSkill": "attack-speed",
       "icon": "./assets/icons/boots-swiftstride-boots.png"
     },
@@ -230,13 +137,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "legendary",
-      "description": "Legendary slippers that allow for phase shifting between locations and weakening enemies.",
-      "stats": {
-        "movementSpeed": "+25%",
-        "agility": 15,
-        "magicResistance": 20,
-        "damageReduction": "+8%"
-      },
       "coreSkill": "phase-shift",
       "icon": "./assets/icons/boots-exodrift-slippers.png"
     },
@@ -247,13 +147,6 @@
       "type": "boots",
       "armorType": "Agility",
       "rarity": "legendary",
-      "description": "Legendary boots that provide escape abilities and immunity to control effects.",
-      "stats": {
-        "movementSpeed": "+30%",
-        "agility": 18,
-        "evasion": "+20%",
-        "controlImmunity": "+25%"
-      },
       "coreSkill": "escape",
       "icon": "./assets/icons/boots-evasion-striders.png"
     },
@@ -264,13 +157,6 @@
       "type": "boots",
       "armorType": "Strength",
       "rarity": "rare",
-      "description": "Heavy boots that provide vitality and healing capabilities for strength-based fighters.",
-      "stats": {
-        "strength": 6,
-        "healthRegen": "+15%",
-        "movementSpeed": "+10%",
-        "healingPower": "+18%"
-      },
       "coreSkill": "vitality",
       "icon": "./assets/icons/boots-energizer-boots.png"
     },
@@ -281,13 +167,6 @@
       "type": "boots",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "Sturdy boots that allow the wearer to lead the charge with enhanced mobility and immunity to movement impairments.",
-      "stats": {
-        "strength": 8,
-        "movementSpeed": "+20%",
-        "resistance": "+15%",
-        "leadership": "+12%"
-      },
       "coreSkill": "vanguard",
       "icon": "./assets/icons/boots-vanguards-march.png"
     },
@@ -298,13 +177,6 @@
       "type": "boots",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "Massive boots that grant titanic growth and immunity to forced movement effects.",
-      "stats": {
-        "strength": 10,
-        "maxHp": "+25%",
-        "movementSpeed": "+12%",
-        "immunity": "+20%"
-      },
       "coreSkill": "titanic-growth",
       "icon": "./assets/icons/boots-titan-walkers.png"
     },
@@ -315,13 +187,6 @@
       "type": "boots",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "Defensive boots that allow the wearer to leap to allies and provide protective shields.",
-      "stats": {
-        "strength": 9,
-        "shieldPower": "+20%",
-        "leapRange": "+15%",
-        "defense": "+18%"
-      },
       "coreSkill": "guardian",
       "icon": "./assets/icons/boots-bulwark-striders.png"
     },
@@ -332,13 +197,6 @@
       "type": "boots",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "Furious boots that grow stronger as the wearer takes damage, scaling with health loss.",
-      "stats": {
-        "strength": 11,
-        "damageScaling": "+15%",
-        "movementSpeed": "+14%",
-        "rage": "+22%"
-      },
       "coreSkill": "vengeance",
       "icon": "./assets/icons/boots-wrathstep.png"
     },
@@ -349,13 +207,6 @@
       "type": "boots",
       "armorType": "Strength",
       "rarity": "legendary",
-      "description": "Legendary boots that allow for devastating mountain crashes with double leaps and knockup effects.",
-      "stats": {
-        "strength": 15,
-        "leapDamage": "+30%",
-        "knockupPower": "+25%",
-        "damageResistance": "+20%"
-      },
       "coreSkill": "mountain-crash",
       "icon": "./assets/icons/boots-avalanche-boots.png"
     },
@@ -366,13 +217,6 @@
       "type": "boots",
       "armorType": "Strength",
       "rarity": "legendary",
-      "description": "Legendary heavy boots that enable powerful lunges with knockback and terrain stun effects.",
-      "stats": {
-        "strength": 18,
-        "lungeDamage": "+35%",
-        "knockbackPower": "+30%",
-        "stunDuration": "+25%"
-      },
       "coreSkill": "lunge",
       "icon": "./assets/icons/boots-impact-heavy-boots.png"
     }

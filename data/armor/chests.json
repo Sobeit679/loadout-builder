@@ -7,14 +7,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "rare",
-      "description": "A mystical cloak infused with healing energy that enhances restorative abilities and provides magical protection.",
-      "stats": {
-        "armor": 20,
-        "magicResistance": 15,
-        "intelligence": 8,
-        "healingBonus": "+25%",
-        "manaRegen": "+2/s"
-      },
       "coreSkill": "heal",
       "icon": "./assets/icons/chest-vigorcloak.png"
     },
@@ -25,13 +17,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "A protective robe imbued with ancient warding magic that shields the wearer and punishes attackers.",
-      "stats": {
-        "magicResistance": 20,
-        "intelligence": 10,
-        "health": 50,
-        "armor": 15
-      },
       "coreSkill": "warding",
       "icon": "./assets/icons/chest-aegis-robe.png"
     },
@@ -42,13 +27,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "A sacred garment that purifies the wearer of all ailments and grants immunity to control effects.",
-      "stats": {
-        "magicResistance": 18,
-        "intelligence": 12,
-        "cooldownReduction": "+5%",
-        "healingReceived": "+15%"
-      },
       "coreSkill": "purify",
       "icon": "./assets/icons/chest-cleansing-robe.png"
     },
@@ -59,13 +37,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "Woven with threads of divine light, capable of dispelling dark magic and weakening enemies.",
-      "stats": {
-        "magicResistance": 22,
-        "intelligence": 10,
-        "manaRegen": "+2",
-        "spellPower": "+8%"
-      },
       "coreSkill": "dispel",
       "icon": "./assets/icons/chest-exorcists-robe.png"
     },
@@ -76,13 +47,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "A mantle that pushes back foes with an unseen force, disarming and slowing them.",
-      "stats": {
-        "magicResistance": 15,
-        "intelligence": 10,
-        "health": 60,
-        "knockbackResistance": "+20%"
-      },
       "coreSkill": "repulse",
       "icon": "./assets/icons/chest-repulsor-mantle.png"
     },
@@ -93,13 +57,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "epic",
-      "description": "A robe that channels raw arcane energy, enhancing mana flow and casting speed for allies.",
-      "stats": {
-        "magicResistance": 10,
-        "intelligence": 15,
-        "mana": 100,
-        "castingSpeed": "+10%"
-      },
       "coreSkill": "mana-font",
       "icon": "./assets/icons/chest-archaneweaver.png"
     },
@@ -110,14 +67,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "legendary",
-      "description": "A legendary shroud that creates an impenetrable barrier against all threats and restores mana when damaged.",
-      "stats": {
-        "magicResistance": 25,
-        "intelligence": 15,
-        "health": 100,
-        "cooldownReduction": "+15%",
-        "manaRegen": "+3"
-      },
       "coreSkill": "barrier",
       "icon": "./assets/icons/chest-warding-shroud.png"
     },
@@ -128,13 +77,6 @@
       "type": "chest",
       "armorType": "Intelligence",
       "rarity": "legendary",
-      "description": "A terrifying cloak that strikes fear into the hearts of all who behold it, punishing those who dare to use skills nearby.",
-      "stats": {
-        "magicResistance": 20,
-        "intelligence": 18,
-        "spellPower": 20,
-        "fearResistance": "+25%"
-      },
       "coreSkill": "panic",
       "icon": "./assets/icons/chest-dreadcloak.png"
     },
@@ -145,13 +87,6 @@
       "type": "chest",
       "armorType": "Agility",
       "rarity": "rare",
-      "description": "A lightweight vest that provides healing capabilities for agile fighters.",
-      "stats": {
-        "agility": 6,
-        "healthRegen": "+15%",
-        "movementSpeed": "+8%",
-        "healingPower": "+12%"
-      },
       "coreSkill": "bandage",
       "icon": "./assets/icons/chest-recovery-vest.png"
     },
@@ -162,13 +97,6 @@
       "type": "chest",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "A mysterious cloak that creates smoke screens and enhances stealth capabilities.",
-      "stats": {
-        "agility": 8,
-        "stealth": "+20%",
-        "attackSpeed": "+10%",
-        "evasion": "+15%"
-      },
       "coreSkill": "smoke-screen",
       "icon": "./assets/icons/chest-mistshroud.png"
     },
@@ -179,13 +107,6 @@
       "type": "chest",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "A defensive coat that reflects damage back to attackers while providing protection.",
-      "stats": {
-        "agility": 9,
-        "damageResistance": "+18%",
-        "magicResistance": 15,
-        "reflectionDamage": "+25%"
-      },
       "coreSkill": "reflect",
       "icon": "./assets/icons/chest-retaliation-coat.png"
     },
@@ -196,13 +117,6 @@
       "type": "chest",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "A deadly mantle that excels at finishing off weakened enemies.",
-      "stats": {
-        "agility": 10,
-        "criticalChance": "+12%",
-        "trueDamage": "+20%",
-        "executionDamage": "+30%"
-      },
       "coreSkill": "finisher",
       "icon": "./assets/icons/chest-deathmantle.png"
     },
@@ -213,13 +127,6 @@
       "type": "chest",
       "armorType": "Agility",
       "rarity": "epic",
-      "description": "A primal coat that channels the power of beasts to weaken and disable enemies.",
-      "stats": {
-        "agility": 11,
-        "damageDealt": "+15%",
-        "movementSpeed": "+12%",
-        "debuffPower": "+20%"
-      },
       "coreSkill": "snarl",
       "icon": "./assets/icons/chest-beastcallers-coat.png"
     },
@@ -230,13 +137,6 @@
       "type": "chest",
       "armorType": "Agility",
       "rarity": "legendary",
-      "description": "A legendary hide that breaks through enemy defenses while enhancing the wearer's damage.",
-      "stats": {
-        "agility": 15,
-        "armorPenetration": "+25%",
-        "damageDealt": "+20%",
-        "criticalDamage": "+35%"
-      },
       "coreSkill": "armor-breaker-core",
       "icon": "./assets/icons/chest-rangers-hide.png"
     },
@@ -247,13 +147,6 @@
       "type": "chest",
       "armorType": "Agility",
       "rarity": "legendary",
-      "description": "A legendary chest piece that rallies allies with enhanced combat abilities.",
-      "stats": {
-        "agility": 18,
-        "auraRange": "+20%",
-        "attackSpeed": "+15%",
-        "cooldownReduction": "+12%"
-      },
       "coreSkill": "rally",
       "icon": "./assets/icons/chest-heros-embrace.png"
     },
@@ -264,15 +157,11 @@
       "type": "chest",
       "armorType": "Strength",
       "rarity": "rare",
-      "description": "A protective chest piece that allows for defensive blocking and threat management.",
-      "stats": {
-        "strength": 6,
-        "damageResistance": "+15%",
-        "threatControl": "+20%",
-        "defense": "+12%"
-      },
       "coreSkill": "block",
-      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "passiveSkills": [
+        "threat-nullifier",
+        "threat-increase"
+      ],
       "icon": "./assets/icons/chest-guardians-blessing.png"
     },
     {
@@ -282,15 +171,11 @@
       "type": "chest",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "A defensive chest piece that can root and pull enemies with grappling techniques.",
-      "stats": {
-        "strength": 8,
-        "pullPower": "+20%",
-        "immobilizeDuration": "+15%",
-        "range": "+12%"
-      },
       "coreSkill": "root-grip",
-      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "passiveSkills": [
+        "threat-nullifier",
+        "threat-increase"
+      ],
       "icon": "./assets/icons/chest-tangle-guard.png"
     },
     {
@@ -300,15 +185,11 @@
       "type": "chest",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "A powerful chest piece that enables charging abilities and team buffs.",
-      "stats": {
-        "strength": 9,
-        "auraRange": "+15%",
-        "resistance": "+18%",
-        "leadership": "+20%"
-      },
       "coreSkill": "charge",
-      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "passiveSkills": [
+        "threat-nullifier",
+        "threat-increase"
+      ],
       "icon": "./assets/icons/chest-tempest-charge.png"
     },
     {
@@ -318,15 +199,11 @@
       "type": "chest",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "A stunning chest piece that can disorient and slow enemies with dazzling effects.",
-      "stats": {
-        "strength": 10,
-        "stunDuration": "+20%",
-        "slowPower": "+18%",
-        "damageDealt": "+15%"
-      },
       "coreSkill": "stun",
-      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "passiveSkills": [
+        "threat-nullifier",
+        "threat-increase"
+      ],
       "icon": "./assets/icons/chest-dazzling-guard.png"
     },
     {
@@ -336,15 +213,11 @@
       "type": "chest",
       "armorType": "Strength",
       "rarity": "epic",
-      "description": "A legendary chest piece that provides powerful shields to allies.",
-      "stats": {
-        "strength": 11,
-        "shieldPower": "+25%",
-        "hpScaling": "+20%",
-        "protection": "+22%"
-      },
       "coreSkill": "shield",
-      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "passiveSkills": [
+        "threat-nullifier",
+        "threat-increase"
+      ],
       "icon": "./assets/icons/chest-aegis-plate.png"
     },
     {
@@ -354,15 +227,11 @@
       "type": "chest",
       "armorType": "Strength",
       "rarity": "legendary",
-      "description": "A legendary chest piece that creates converging force fields to control the battlefield.",
-      "stats": {
-        "strength": 15,
-        "forceFieldPower": "+30%",
-        "pullStrength": "+25%",
-        "controlDuration": "+20%"
-      },
       "coreSkill": "converge",
-      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "passiveSkills": [
+        "threat-nullifier",
+        "threat-increase"
+      ],
       "icon": "./assets/icons/chest-magsurge-armor.png"
     },
     {
@@ -372,15 +241,11 @@
       "type": "chest",
       "armorType": "Strength",
       "rarity": "legendary",
-      "description": "A legendary chest piece that creates vulnerability fields and enhances defensive capabilities.",
-      "stats": {
-        "strength": 18,
-        "vulnerabilityField": "+35%",
-        "damageResistance": "+25%",
-        "stealthDisable": "+30%"
-      },
       "coreSkill": "vulnerability",
-      "passiveSkills": ["threat-nullifier", "threat-increase"],
+      "passiveSkills": [
+        "threat-nullifier",
+        "threat-increase"
+      ],
       "icon": "./assets/icons/chest-wardens-shell.png"
     }
   ]
