@@ -1426,22 +1426,14 @@ function updateBootsSkill() {
 }
 
 function updateBasicAttackSkill() {
-  console.log('updateBasicAttackSkill() called');
   const basicAttack = STATE.selected.gear['basic-attack'];
-  console.log('Basic attack data:', basicAttack);
   const aSlot = document.querySelector('[data-key="A"]');
-  console.log('A slot element found:', aSlot);
   const aIcon = aSlot.querySelector('.ability-icon');
-  console.log('A icon element found:', aIcon);
   
   if (basicAttack && basicAttack.icon) {
     const iconUrl = `${basicAttack.icon}?v=${Date.now()}`;
-    console.log('Setting basic attack icon:', iconUrl);
     aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
-    console.log('Basic attack slot updated, classes:', aSlot.classList.toString());
-    console.log('A icon final style:', aIcon.style.cssText);
-    console.log('A icon computed style:', window.getComputedStyle(aIcon).backgroundImage);
   } else {
     aIcon.style.backgroundImage = '';
     aSlot.classList.add('empty');
@@ -1455,22 +1447,14 @@ function updateBasicAttackSkill() {
 }
 
 function updateWeaponAbilitySkill() {
-  console.log('updateWeaponAbilitySkill() called');
   const weaponSkill = STATE.selected.gear['weapon-skill'];
-  console.log('Weapon skill data:', weaponSkill);
   const qSlot = document.querySelector('[data-key="Q"]');
-  console.log('Q slot element found:', qSlot);
   const qIcon = qSlot.querySelector('.ability-icon');
-  console.log('Q icon element found:', qIcon);
   
   if (weaponSkill && weaponSkill.icon) {
     const weaponSkillIconUrl = `${weaponSkill.icon}?v=${Date.now()}`;
-    console.log('Setting weapon skill icon:', weaponSkillIconUrl);
     qIcon.style.backgroundImage = `url(${weaponSkillIconUrl})`;
     qSlot.classList.remove('empty');
-    console.log('Weapon skill slot updated, classes:', qSlot.classList.toString());
-    console.log('Q icon final style:', qIcon.style.cssText);
-    console.log('Q icon computed style:', window.getComputedStyle(qIcon).backgroundImage);
   } else {
     qIcon.style.backgroundImage = '';
     qSlot.classList.add('empty');
@@ -2474,7 +2458,6 @@ function exportLoadout(event) {
       // Skills use .id, other items use .gameId
       if (key === 'basic-attack' || key === 'weapon-skill') {
         loadout.g[key] = STATE.selected.gear[key].id;
-        console.log(`Exporting ${key}:`, { item: STATE.selected.gear[key], id: STATE.selected.gear[key].id });
       } else {
         loadout.g[key] = STATE.selected.gear[key].gameId;
       }
@@ -2609,14 +2592,10 @@ function loadLoadoutData(loadout) {
             } else if (key === 'basic-attack' || key === 'weapon-skill') {
               // Handle weapon ability slots (A and Q)
               item = STATE.skills.find(s => s.id === gameId);
-              console.log(`Loading ${key}:`, { gameId, item });
             }
             
             if (item) {
               STATE.selected.gear[key] = item;
-              console.log(`Set STATE.selected.gear['${key}']:`, item);
-            } else {
-              console.log(`Could not find item for ${key} with id:`, gameId);
             }
         }
       });
@@ -2651,14 +2630,8 @@ function loadLoadoutData(loadout) {
     }
     
     // Update the UI
-    console.log('About to call populateLoadoutBoard()');
     populateLoadoutBoard();
-    console.log('About to call updateSupportEffects()');
     updateSupportEffects(STATE.selected.drifters[0]);
-    console.log('Import completed - checking weapon abilities:', {
-      'basic-attack': STATE.selected.gear['basic-attack'],
-      'weapon-skill': STATE.selected.gear['weapon-skill']
-    });
     
   } catch (error) {
     console.error('Error loading loadout:', error);
