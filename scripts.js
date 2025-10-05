@@ -2579,6 +2579,9 @@ function loadLoadoutData(loadout) {
             item = STATE.gear['armors/chest'].find(c => c.gameId === gameId);
           } else if (key === 'armors/boots') {
             item = STATE.gear['armors/boots'].find(b => b.gameId === gameId);
+          } else if (key === 'basic-attack' || key === 'weapon-skill') {
+            // Handle weapon ability slots (A and Q)
+            item = STATE.skills.find(s => s.id === gameId);
           }
           
           if (item) {
