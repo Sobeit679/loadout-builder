@@ -2799,7 +2799,7 @@
       "name": "Aura and Blade",
       "type": "passive",
       "tags": ["passive", "buff", "damage", "defense"],
-      "description": "Gains [Momentum] every second while in combat, 2 stacks when dealing damage with Basic Attacks, 4 stacks on Critical Hit, 1 stack when taking Basic Attack Damage, and 2 stacks when taking Skill Damage. At 10 [Momentum] stacks, increases [Sword Momentum] by 1 level. [Momentum] lasts 20s. [Sword Momentum] grants +3% Damage, +4% Attack Speed, and +4% Damage Resistance per level, lasting 8s. Stacks up to 6 times.",
+      "description": "[Momentum]: Gains 1 stack of [Momentum] every second while in combat and 2 stacks when dealing damage with Basic Attacks, 4 stacks on Critical Hit, 1 stack when taking Basic Attack Damage, and 2 stacks when taking Skill Damage At 10 [Momentum] stacks, increases Sword Momentum by 1 level Momentum lasts 20s [Sword Momentum]: Each level grants +3% Damage, +4% Attack Speed, and +4% Damage Resistance Lasts 8s Grants up to 6 stacks, decaying over time",
       "icon": "./assets/icons/passive-aura-and-blade.png"
     },
     {
@@ -2809,9 +2809,9 @@
       "tags": ["physical damage", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "7m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Sword Slash] every 6s Charges toward an enemy to deal [Damage Rate: 180%] Physical Damage and inflict 40% Slow for 2s",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies Can cast [Sword Slash] every 6s Charges toward an enemy to deal [Damage Rate: 180%] Physical Damage and inflict 40% Slow for 2s",
       "icon": "./assets/icons/skill-sword-slash.png"
     },
     {
@@ -2821,9 +2821,9 @@
       "tags": ["physical damage", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "3.5m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Sword Cleave] every 5s Deals [Damage Rate: 220%] Physical Damage to surrounding enemies. Grants [Target-based Max HP 3%] Shield for each enemy hit, lasting 4s. Stacks up to 5 times",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies Can cast [Sword Cleave] every 5s Deals [Damage Rate: 220%] Physical Damage to surrounding enemies Grants [Target-based Max HP 3%] Shield for each enemy hit, lasting 4s Stacks up to 5 times",
       "icon": "./assets/icons/skill-sword-cleave.png"
     },
     {
@@ -2833,9 +2833,9 @@
       "tags": ["physical damage", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "20m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies. Can cast [Sword Energy] every 6s Unleashes sword energy forward, dealing [Damage Rate: 140%] Physical Damage to enemies hit. Increases Movement Speed by 25% for 2s if at least 1 enemy is hit",
+      "description": "[Basic Attack]: Deals [Damage Rate: 130%] Physical Damage to enemies Can cast [Sword Energy] every 6s Unleashes sword energy forward, dealing [Damage Rate: 140%] Physical Damage to enemies hit Increases Movement Speed by 25% for 2s if at least 1 enemy is hit",
       "icon": "./assets/icons/skill-sword-energy.png"
     },
     {
@@ -2845,9 +2845,9 @@
       "tags": ["damage", "skill"],
       "mpCost": 18,
       "cooldown": "11s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "5m",
-      "description": "Performs 4 forward slashes, each dealing [Damage Rate: 60%] Physical Damage to players ([Damage Rate: 90%] Physical Damage to mobs). The final hit unleashes sword energy forward, dealing [Damage Rate: 150%] Physical Damage to all enemies hit",
+      "description": "Performs 4 forward slashes, each dealing [Damage Rate: 60%] Physical Damage to players ([Damage Rate: 90%] Physical Damage to mobs) The final hit unleashes sword energy forward, dealing [Damage Rate: 150%] Physical Damage to all enemies hit",
       "icon": "./assets/icons/skill-vacuum-slash.png"
     },
     {
@@ -2857,9 +2857,9 @@
       "tags": ["damage", "slow", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "10m",
-      "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting 50% Slow for 3s to nearby enemies upon landing. Gains [Target-based Max HP 20%] Shield for 4s when hitting at least 1 enemy",
+      "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting 50% Slow for 3s to nearby enemies upon landing Gains [Target-based Max HP 20%] Shield for 4s when hitting at least 1 enemy",
       "icon": "./assets/icons/skill-crippling-strike-sword.png"
     },
     {
@@ -2869,9 +2869,9 @@
       "tags": ["damage", "slow", "hard control", "skill"],
       "mpCost": 18,
       "cooldown": "11s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "10m",
-      "description": "Hold the skill to charge. During charging, immune to control effects and gains +20% Damage Resistance. Deals [Damage Rate: 150%] Physical Damage to enemies in range and inflicts Stun for 0.5s. When fully charged at 1.5s, deals [Damage Rate: 200%] Physical Damage to enemies in range, inflicting Stun for 1.5s, and releases a shockwave forward that deals [Damage Rate: 150%] Physical Damage to hit enemies, applying Slow by 40% for 4s",
+      "description": "Hold the skill to charge During charging, immune to control effects and gains +20% Damage Resistance Deals [Damage Rate: 150%] Physical Damage to enemies in range and inflicts Stun for 0.5s When fully charged at 1.5s, deals [Damage Rate: 200%] Physical Damage to enemies in range, inflicting Stun for 1.5s, and releases a shockwave forward that deals [Damage Rate: 150%] Physical Damage to hit enemies, applying Slow by 40% for 4s",
       "icon": "./assets/icons/skill-power-slash.png"
     },
     {
@@ -2881,9 +2881,9 @@
       "tags": ["damage", "debuff", "buff", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "6m",
-      "description": "Begins Blocking for 3s. While Blocking, reduces Movement Speed but gains control immunity and +70% Damage Resistance. Afterward, deals [Damage Rate: 320%] Physical Damage to nearby enemies and reduces their Armor by 6450% for 4s. Block can be canceled early",
+      "description": "Begins Blocking for 3s While Blocking, reduces Movement Speed but gains control immunity and +70% Damage Resistance Afterward, deals [Damage Rate: 320%] Physical Damage to nearby enemies and reduces their Armor by 6450% for 4s Block can be canceled early",
       "icon": "./assets/icons/skill-defensive-slash.png"
     },
     {
@@ -2893,9 +2893,9 @@
       "tags": ["buff", "cleanse", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "6m",
-      "description": "Immediately removes all control effects, gains 1 stack of [Sword Momentum], increases Damage Resistance by 25%, and the Attack Speed of the next 3 Basic Attacks by 80% for 8s. Can be used while skills are disabled",
+      "description": "Immediately removes all control effects, gains 1 stack of [Sword Momentum], increases Damage Resistance by 25%, and the Attack Speed of the next 3 Basic Attacks by 80% for 8s Can be used while skills are disabled",
       "icon": "./assets/icons/skill-heart-of-steel.png"
     },
     {
@@ -2905,9 +2905,9 @@
       "tags": ["damage", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "10m",
-      "description": "Spins toward the target location, dealing [Damage Rate: 75%] Physical Damage to all players ([Damage Rate: 150%] Physical Damage to mobs) hit. At 3+ Sword Momentum stacks, creates a tornado on arrival, dealing [Damage Rate: 50%] Physical Damage every second for 5s",
+      "description": "Spins toward the target location, dealing [Damage Rate: 75%] Physical Damage to all players ([Damage Rate: 150%] Physical Damage to mobs) hit At 3+ Sword Momentum stacks, creates a tornado on arrival, dealing [Damage Rate: 50%] Physical Damage every second for 5s",
       "icon": "./assets/icons/skill-tempest-slash-sword.png"
     },
     {
