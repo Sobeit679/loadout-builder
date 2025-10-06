@@ -4,10 +4,7 @@
       "id": "overclocking-reflex",
       "name": "Overclocking Reflex",
       "type": "passive",
-      "tags": [
-        "passive",
-        "dodge"
-      ],
+      "tags": ["passive", "dodge"],
       "description": "Has a 35% chance to dodge Basic Attack damage.",
       "icon": "./assets/icons/passive-overclocking-reflex.png"
     },
@@ -15,12 +12,7 @@
       "id": "shield-bash",
       "name": "Shield Bash",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "stun",
-        "slow",
-        "CC"
-      ],
+      "tags": ["physical damage", "stun", "slow", "CC"],
       "mpCost": 18,
       "cooldown": "12s",
       "range": "3m",
@@ -31,10 +23,7 @@
       "id": "fortress",
       "name": "Fortress",
       "type": "passive",
-      "tags": [
-        "passive",
-        "resistance"
-      ],
+      "tags": ["passive", "resistance"],
       "description": "Gains 15% additional Armor and Magic Resistance. Reduces incoming damage by 8%.",
       "icon": "./assets/icons/passive-fortress.png"
     },
@@ -42,11 +31,7 @@
       "id": "meteor-storm",
       "name": "Meteor Storm",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "aoe",
-        "dot"
-      ],
+      "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 35,
       "cooldown": "25s",
       "range": "12m",
@@ -57,11 +42,7 @@
       "id": "elemental-mastery",
       "name": "Elemental Mastery",
       "type": "passive",
-      "tags": [
-        "passive",
-        "magic damage",
-        "damage increase"
-      ],
+      "tags": ["passive", "magic damage", "damage increase"],
       "description": "Increases Magic Damage by 20%. Skills have 25% chance to apply random elemental effect.",
       "icon": "./assets/icons/passive-elemental-mastery.png"
     },
@@ -86,11 +67,7 @@
       "id": "shadow-dance",
       "name": "Shadow Dance",
       "type": "passive",
-      "tags": [
-        "passive",
-        "mobility",
-        "stealth"
-      ],
+      "tags": ["passive", "mobility", "stealth"],
       "description": "Gains 30% Movement Speed. After dealing damage, has 20% chance to enter stealth for 3s.",
       "icon": "./assets/icons/passive-shadow-dance.png"
     },
@@ -98,11 +75,7 @@
       "id": "divine-blessing",
       "name": "Divine Blessing",
       "type": "active",
-      "tags": [
-        "heal",
-        "buff",
-        "damage increase"
-      ],
+      "tags": ["heal", "buff", "damage increase"],
       "mpCost": 25,
       "cooldown": "18s",
       "range": "10m",
@@ -113,11 +86,7 @@
       "id": "whirlwind-slash",
       "name": "Whirlwind Slash",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "aoe",
-        "slow"
-      ],
+      "tags": ["physical damage", "aoe", "slow"],
       "mpCost": 22,
       "cooldown": "16s",
       "range": "4m",
@@ -128,12 +97,7 @@
       "id": "berserker-rage",
       "name": "Berserker Rage",
       "type": "passive",
-      "tags": [
-        "passive",
-        "attack speed",
-        "physical damage",
-        "damage increase"
-      ],
+      "tags": ["passive", "attack speed", "physical damage", "damage increase"],
       "description": "Gains 2% Attack Speed and 1% Physical Damage for each 10% missing health. Stacks up to 10 times.",
       "icon": "./assets/icons/passive-berserker-rage.png"
     },
@@ -141,11 +105,7 @@
       "id": "shield-of-conviction",
       "name": "Shield of Conviction",
       "type": "active",
-      "tags": [
-        "shield",
-        "buff",
-        "magic damage"
-      ],
+      "tags": ["shield", "buff", "magic damage"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -156,11 +116,7 @@
       "id": "defiant-resolve",
       "name": "Defiant Resolve",
       "type": "passive",
-      "tags": [
-        "passive",
-        "immunity",
-        "damage increase"
-      ],
+      "tags": ["passive", "immunity", "damage increase"],
       "description": "Gains immunity to control effects and 20% Damage Increase for 10s after obtaining any shield effect, while the shield is active (Cooldown: 20s).",
       "icon": "./assets/icons/passive-defiant-resolve.png"
     },
@@ -186,10 +142,7 @@
       "id": "celestial-rotation",
       "name": "Celestial Rotation",
       "type": "passive",
-      "tags": [
-        "passive",
-        "cooldown"
-      ],
+      "tags": ["passive", "cooldown"],
       "description": "Reduces the cooldown of all skills (not including Tactical Item skills) by 0.3s when this skill deals damage. (Cooldown: 0.5s)",
       "icon": "./assets/icons/passive-celestial-rotation.png"
     },
@@ -216,11 +169,7 @@
       "id": "healing-guardian",
       "name": "Healing Guardian",
       "type": "passive",
-      "tags": [
-        "passive",
-        "heal",
-        "resistance"
-      ],
+      "tags": ["passive", "heal", "resistance"],
       "description": "Gains 25% Damage Resistance for 6s if HP is below 75%. Sends healing radiation waves in all directions, healing allies in range for [Healing Rate: 60%] HP. (Cooldown: 20s)",
       "icon": "./assets/icons/passive-healing-guardian.png"
     },
@@ -228,12 +177,7 @@
       "id": "tempest-slash",
       "name": "Tempest Slash",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "aoe",
-        "immunity",
-        "crit"
-      ],
+      "tags": ["physical damage", "aoe", "immunity", "crit"],
       "mpCost": 27,
       "cooldown": "28s",
       "range": "8m",
@@ -276,12 +220,7 @@
       "id": "imprisonment",
       "name": "Imprisonment",
       "type": "passive",
-      "tags": [
-        "passive",
-        "magic damage",
-        "CC",
-        "aoe"
-      ],
+      "tags": ["passive", "magic damage", "CC", "aoe"],
       "description": "When inflicting Forced Movement (Pull, Knockback) on enemies, creates a circular prison lasting 4s. Enemies touching the prison take [Damage Rate: 100%] Magic Damage and are Immobilized until the prison ends (Cooldown: 20s)",
       "icon": "./assets/icons/passive-imprisonment.png"
     },
@@ -307,11 +246,7 @@
       "id": "reflective-shield",
       "name": "Reflective Shield",
       "type": "passive",
-      "tags": [
-        "passive",
-        "resistance",
-        "magic damage"
-      ],
+      "tags": ["passive", "resistance", "magic damage"],
       "description": "Taking damage equal to 10% of Max HP within 5s after skill cast grants 25% Damage Resistance for 6s. During this time, reflect Magic Damage equal to 65% + 1.5% of Max HP to the attacker. (Cooldown: 25s)",
       "icon": "./assets/icons/passive-reflective-shield.png"
     },
@@ -319,11 +254,7 @@
       "id": "storm-pulse",
       "name": "Storm Pulse",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["physical damage", "aoe", "debuff"],
       "mpCost": 29,
       "cooldown": "39s",
       "range": "7m",
@@ -334,11 +265,7 @@
       "id": "static-overdrive",
       "name": "Static Overdrive",
       "type": "passive",
-      "tags": [
-        "passive",
-        "physical damage",
-        "aoe"
-      ],
+      "tags": ["passive", "physical damage", "aoe"],
       "description": "Basic Attacks grant 1 stack of Electric Charge. At 5 stacks, the next attack triggers EMP Blast, dealing [Damage Rate: 160%] Physical Damage to enemies in range.",
       "icon": "./assets/icons/passive-static-overdrive.png"
     },
@@ -346,10 +273,7 @@
       "id": "spiral-strike",
       "name": "Spiral Strike",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "aoe"
-      ],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 25,
       "cooldown": "15s",
       "range": "3m",
@@ -360,10 +284,7 @@
       "id": "elemental-flow",
       "name": "Elemental Flow",
       "type": "passive",
-      "tags": [
-        "passive",
-        "mp"
-      ],
+      "tags": ["passive", "mp"],
       "description": "Elemental skills have 20% reduced mana cost and 15% increased effectiveness.",
       "icon": "./assets/icons/passive-elemental-flow.png"
     },
@@ -371,10 +292,7 @@
       "id": "swarm-command",
       "name": "Swarm Command",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "aoe"
-      ],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 30,
       "cooldown": "25s",
       "range": "8m",
@@ -385,11 +303,7 @@
       "id": "hive-mind",
       "name": "Hive Mind",
       "type": "passive",
-      "tags": [
-        "passive",
-        "damage increase",
-        "mobility"
-      ],
+      "tags": ["passive", "damage increase", "mobility"],
       "description": "Summoned creatures gain 25% increased damage and move 30% faster.",
       "icon": "./assets/icons/passive-hive-mind.png"
     },
@@ -397,11 +311,7 @@
       "id": "reality-distortion",
       "name": "Reality Distortion",
       "type": "active",
-      "tags": [
-        "slow",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["slow", "aoe", "debuff"],
       "mpCost": 35,
       "cooldown": "30s",
       "range": "6m",
@@ -412,10 +322,7 @@
       "id": "illusion-mastery",
       "name": "Illusion Mastery",
       "type": "passive",
-      "tags": [
-        "passive",
-        "mp"
-      ],
+      "tags": ["passive", "mp"],
       "description": "Illusion skills last 50% longer and have 30% reduced mana cost.",
       "icon": "./assets/icons/passive-illusion-mastery.png"
     },
@@ -423,12 +330,7 @@
       "id": "genetic-cascade",
       "name": "Genetic Cascade",
       "type": "active",
-      "tags": [
-        "heal",
-        "buff",
-        "magic damage",
-        "damage increase"
-      ],
+      "tags": ["heal", "buff", "magic damage", "damage increase"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "12m",
@@ -439,12 +341,7 @@
       "id": "helical-convergence",
       "name": "Helical Convergence",
       "type": "passive",
-      "tags": [
-        "passive",
-        "magic damage",
-        "heal",
-        "aoe"
-      ],
+      "tags": ["passive", "magic damage", "heal", "aoe"],
       "description": "After dealing damage 5 times, creates two Yin Vortexes around the caster that deal [Damage Rate: 100%] Magic Damage to enemies hit and reduce healing received by 5% for 4s. Stacks up to 3 times. (Cooldown: 0.5s) After healing 5 times, creates two Yang Vortexes around self that restore [Healing Rate: 60%] HP to allies hit and increase healing received by 5% for 4s. Stacks up to 3 times. (Cooldown: 0.5s)",
       "icon": "./assets/icons/passive-helical-convergence.png"
     },
@@ -452,12 +349,7 @@
       "id": "abyssal-sovereignty",
       "name": "Abyssal Sovereignty",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal",
-        "immunity",
-        "mobility"
-      ],
+      "tags": ["magic damage", "heal", "immunity", "mobility"],
       "mpCost": 31,
       "cooldown": "48s",
       "range": "5m",
@@ -468,10 +360,7 @@
       "id": "hive-exaltation",
       "name": "Hive Exaltation",
       "type": "passive",
-      "tags": [
-        "buff",
-        "heal"
-      ],
+      "tags": ["buff", "heal"],
       "description": "Dealing damage with a skill grants 1 stack of Swarm, restoring [Healing Rate: 9%] HP every 2s for 6s (stacks do not boost healing effect). During this time, Damage Resistance increases by 5%, stacking up to 5 times. (Cooldown: 0.5s)",
       "cooldown": "0.5s",
       "icon": "./assets/icons/passive-hive-exaltation.png"
@@ -480,11 +369,7 @@
       "id": "spectral-disguise",
       "name": "Spectral Disguise",
       "type": "active",
-      "tags": [
-        "stealth",
-        "buff",
-        "resistance"
-      ],
+      "tags": ["stealth", "buff", "resistance"],
       "mpCost": 31,
       "cooldown": "48s",
       "range": "8m",
@@ -495,11 +380,7 @@
       "id": "echo-reflection",
       "name": "Echo Reflection",
       "type": "passive",
-      "tags": [
-        "passive",
-        "physical damage",
-        "crit"
-      ],
+      "tags": ["passive", "physical damage", "crit"],
       "description": "Skill and Basic Attack hits from the rear deal [Damage Rate: 60%] additional Physical Damage (Cooldown: 0.3s). Basic Attack Damage Bonuses affect damage and basic attack critical hits can cause the damage to crit",
       "cooldown": "0.3s",
       "icon": "./assets/icons/passive-echo-reflection.png"
@@ -525,11 +406,7 @@
       "id": "corrosion-barrier",
       "name": "Corrosion Barrier",
       "type": "passive",
-      "tags": [
-        "magic damage",
-        "slow",
-        "debuff"
-      ],
+      "tags": ["magic damage", "slow", "debuff"],
       "description": "After taking 5 instances of damage, releases acid outward, dealing [Damage Rate: 70%] Magic Damage to enemies in range, reducing their damage dealt by 25% and Movement Speed by 25% for 4s",
       "icon": "./assets/icons/passive-corrosion-barrier.png"
     },
@@ -570,11 +447,7 @@
       "id": "cannonade-mode",
       "name": "Cannonade Mode",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "aoe",
-        "resistance"
-      ],
+      "tags": ["physical damage", "aoe", "resistance"],
       "mpCost": 25,
       "cooldown": "9.7s",
       "range": "30m",
@@ -585,12 +458,7 @@
       "id": "resolve",
       "name": "Resolve",
       "type": "passive",
-      "tags": [
-        "passive",
-        "buff",
-        "crit",
-        "resistance"
-      ],
+      "tags": ["passive", "buff", "crit", "resistance"],
       "description": "While standing still, gain 1 stack of [Steadfast] every second [Steadfast]: +2% Critical Rate, +2% Damage Resistance for 2s. Stacks up to 15 times",
       "icon": "./assets/icons/passive-resolve.png"
     },
@@ -598,11 +466,7 @@
       "id": "moles-escape",
       "name": "Mole's Escape",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "mobility",
-        "CC"
-      ],
+      "tags": ["magic damage", "mobility", "CC"],
       "mpCost": 27,
       "cooldown": "44s",
       "range": "14m",
@@ -613,10 +477,7 @@
       "id": "survivability-resilience",
       "name": "Survivability Resilience",
       "type": "passive",
-      "tags": [
-        "passive",
-        "buff"
-      ],
+      "tags": ["passive", "buff"],
       "description": "Increases own weight limit by 200",
       "icon": "./assets/icons/passive-survivability-resilience.png"
     },
@@ -641,10 +502,7 @@
       "id": "lunar-rebirth",
       "name": "Lunar Rebirth",
       "type": "passive",
-      "tags": [
-        "passive",
-        "buff"
-      ],
+      "tags": ["passive", "buff"],
       "description": "Every 2s restores Moonveil Max MP +1%MP to other allies within 12m",
       "icon": "./assets/icons/passive-lunar-rebirth.png"
     },
@@ -669,11 +527,7 @@
       "id": "voidshape",
       "name": "Voidshape",
       "type": "passive",
-      "tags": [
-        "passive",
-        "magic damage",
-        "debuff"
-      ],
+      "tags": ["passive", "magic damage", "debuff"],
       "description": "Converts Basic Attack Damage from Physical to Magic. Basic Attacks also reduce the enemy's Magic Resistance by 4% for 4s, stacking up to 10 times",
       "icon": "./assets/icons/passive-voidshape.png"
     },
@@ -700,11 +554,7 @@
       "id": "hell-slavos-embrace",
       "name": "Hell Salvo's Embrace",
       "type": "passive",
-      "tags": [
-        "passive",
-        "buff",
-        "crit"
-      ],
+      "tags": ["passive", "buff", "crit"],
       "description": "While without Plating, gains 5 Energy per second, and gains 5 Energy on Basic Attack Crit. When Energy reaches 100, restores [Target-based Max HP 15%] Plating values. While with Plating, gains [Target-based Max HP 3%] Plating values on Basic Attack Crit. Plating restored cannot exceed [Target-based Max HP 25%]. (Trigger Interval: 1 seconds)",
       "triggerInterval": "1s",
       "icon": "./assets/icons/passive-hell-slavos-embrace.png"
@@ -713,12 +563,7 @@
       "id": "ravens-gaze",
       "name": "Raven's Gaze",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "slow",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["magic damage", "slow", "aoe", "debuff"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "14m",
@@ -729,10 +574,7 @@
       "id": "summon-raven",
       "name": "Summon Raven",
       "type": "passive",
-      "tags": [
-        "magic damage",
-        "heal"
-      ],
+      "tags": ["magic damage", "heal"],
       "description": "Skills dealing damage grant the caster Raven's Call. At 6 stacks, the next skill damage within 8s that hits an enemy target will summon ravens at the location, dealing [Damage Rate: 120%] Magic Damage to up to 5 enemies in range. This effect removes 1 stack of buffs from hit targets and restores [Healing Rate: 72%] HP to self. (Stack gain interval: 0.5; Raven's Call interval: 10s)",
       "stackGainInterval": "0.5s",
       "ravenCallInterval": "10s",
@@ -742,11 +584,7 @@
       "id": "sanctification",
       "name": "Sanctification",
       "type": "active",
-      "tags": [
-        "heal",
-        "channeling",
-        "aoe"
-      ],
+      "tags": ["heal", "channeling", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "16m",
@@ -757,11 +595,7 @@
       "id": "holy-covenant",
       "name": "Holy Covenant",
       "type": "passive",
-      "tags": [
-        "passive",
-        "heal",
-        "resistance"
-      ],
+      "tags": ["passive", "heal", "resistance"],
       "description": "When healing with skills, the target gains 5% additional Damage Resistance for 4s. Stacks up to 6 times",
       "icon": "./assets/icons/passive-holy-covenant.png"
     },
@@ -769,11 +603,7 @@
       "id": "hemophage",
       "name": "Hemophage",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal",
-        "aoe"
-      ],
+      "tags": ["magic damage", "heal", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "7m",
@@ -799,11 +629,7 @@
       "id": "shadow-cascade",
       "name": "Shadow Cascade",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "channeling",
-        "aoe"
-      ],
+      "tags": ["magic damage", "channeling", "aoe"],
       "mpCost": 29,
       "cooldown": "39s",
       "range": "20m",
@@ -814,12 +640,7 @@
       "id": "umbra-resonance",
       "name": "Umbra Resonance",
       "type": "passive",
-      "tags": [
-        "passive",
-        "buff",
-        "mobility",
-        "dot"
-      ],
+      "tags": ["passive", "buff", "mobility", "dot"],
       "description": "Gains 5% Movement Speed for 3s when inflicting an enemy with a DoT effect, stacking up to 6 times",
       "icon": "./assets/icons/passive-umbra-resonance.png"
     },
@@ -845,11 +666,7 @@
       "id": "sand-veil",
       "name": "Sand Veil",
       "type": "passive",
-      "tags": [
-        "magic damage",
-        "CC",
-        "debuff"
-      ],
+      "tags": ["magic damage", "CC", "debuff"],
       "description": "Creates a circular storm field around the caster for 4s when causing Forced Movement (Pull, Knockback). Deals [Damage Rate: 100%] Physical Damage to enemies in the field, inflicting Silence and a 40% chance to miss Basic Attacks for 3s. (Cooldown: 20s)",
       "cooldown": "20s",
       "icon": "./assets/icons/passive-sand-veil.png"
@@ -858,12 +675,7 @@
       "id": "bond-of-light",
       "name": "Bond of Light",
       "type": "active",
-      "tags": [
-        "heal",
-        "magic damage",
-        "channeling",
-        "aoe"
-      ],
+      "tags": ["heal", "magic damage", "channeling", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "10m",
@@ -874,10 +686,7 @@
       "id": "lights-echo",
       "name": "Light's Echo",
       "type": "passive",
-      "tags": [
-        "passive",
-        "buff"
-      ],
+      "tags": ["passive", "buff"],
       "description": "Other allies within 12m receive +20% healing",
       "icon": "./assets/icons/passive-lights-echo.png"
     },
@@ -903,11 +712,7 @@
       "id": "umbra-kinetics",
       "name": "Umbra Kinetics",
       "type": "passive",
-      "tags": [
-        "passive",
-        "physical damage",
-        "crit"
-      ],
+      "tags": ["passive", "physical damage", "crit"],
       "description": "Grants Basic Attacks a 30% chance to trigger a shadow strike for 6s, dealing [Damage Rate: 100%] Physical Damage (Cooldown: 0.8s). Basic Attack Damage Bonuses affect damage and basic attack critical hits can cause the damage to crit",
       "icon": "./assets/icons/passive-umbra-kinetics.png"
     },
@@ -915,10 +720,7 @@
       "id": "magma-slam",
       "name": "Magma Slam",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "CC"
-      ],
+      "tags": ["magic damage", "CC"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "10m",
@@ -929,12 +731,7 @@
       "id": "seismic-impact",
       "name": "Seismic Impact",
       "type": "passive",
-      "tags": [
-        "passive",
-        "physical damage",
-        "slow",
-        "CC"
-      ],
+      "tags": ["passive", "physical damage", "slow", "CC"],
       "description": "When inflicting Immobilize or Hard Control (Stun, Fear, Freeze, Knockup, Petrify), drops a meteor after 1s, dealing [Damage Rate: 150%] Physical Damage and 30% Slow for 3s. (Cooldown: 5s)",
       "cooldown": "5s",
       "icon": "./assets/icons/passive-seismic-impact.png"
@@ -943,10 +740,7 @@
       "id": "serpents-whisper",
       "name": "Serpent's Whisper",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "CC"
-      ],
+      "tags": ["magic damage", "CC"],
       "mpCost": 31,
       "cooldown": "48s",
       "range": "14m",
@@ -958,10 +752,7 @@
       "id": "shedskin",
       "name": "Shedskin",
       "type": "passive",
-      "tags": [
-        "magic damage",
-        "CC"
-      ],
+      "tags": ["magic damage", "CC"],
       "description": "Retains 1 HP upon taking lethal damage, transforming into a spirit serpent, cleansing all negative effects (control, DoT, and debuffs), gaining immunity to control, debuffs and damage for 2s, and +100% Movement Speed, and healing 5% HP every 0.5s. (CD: 120s)",
       "cooldown": "120s",
       "icon": "./assets/icons/passive-shedskin.png"
@@ -987,10 +778,7 @@
       "id": "blood-curse",
       "name": "Blood Curse",
       "type": "passive",
-      "tags": [
-        "magic damage",
-        "heal"
-      ],
+      "tags": ["magic damage", "heal"],
       "description": "When Skills or Basic Attacks deal direct damage, they apply Blood Curse to the target for 6s. 30% of the damage dealt to cursed targets will explode as True Damage when the curse ends, while also restoring [Healing Rate: 20%] Vitality to the caster. (Cooldown: 25s)",
       "cooldown": "25s",
       "icon": "./assets/icons/passive-blood-curse.png"
@@ -999,12 +787,7 @@
       "id": "engulfing-shadows",
       "name": "Engulfing Shadows",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "shield",
-        "stealth",
-        "aoe"
-      ],
+      "tags": ["magic damage", "shield", "stealth", "aoe"],
       "mpCost": 30,
       "cooldown": "44s",
       "description": "Enters Stealth and gains [Shadow Ward] and the skill [Phantom Bind] for 9 seconds. Shadow Ward: Grants [Target-based Max HP 25%] Shield. If Shadow Ward is dispelled, the Shadow Dive effect ends prematurely. Phantom Bind: Summon phantoms that track enemies in range, dealing [Damage Rate: 183%] Magic Damage and replenishing [Target-based Max HP 5%] Spectral Shield. Doesn't break Engulfing Shadows Stealth. Using any skill other than Phantom Bind, dealing direct healing or damage while in Stealth will break invisibility for 2 seconds before re-entering Stealth.",
@@ -1014,10 +797,7 @@
       "id": "healing-bloom-hunter",
       "name": "Healing Bloom Hunter",
       "type": "passive",
-      "tags": [
-        "stealth",
-        "heal"
-      ],
+      "tags": ["stealth", "heal"],
       "description": "Enters Stealth when standing still unhurt and not using skills for a short duration. Taking damage, using skills, or moving breaks Stealth. Warning appears when enemies are within 7 to 14 meters. Stealth is lost if an enemy remains within 7 meters for over 3 seconds. Gains 3% HP per second while in any Stealth state",
       "icon": "./assets/icons/passive-healing-bloom-hunter.png"
     },
@@ -1025,11 +805,7 @@
       "id": "null-pulse",
       "name": "Null Pulse",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "slow",
-        "CC"
-      ],
+      "tags": ["physical damage", "slow", "CC"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "9m",
@@ -1050,11 +826,7 @@
       "id": "plague-outbreak",
       "name": "Plague Outbreak",
       "type": "passive",
-      "tags": [
-        "passive",
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["passive", "magic damage", "dot"],
       "description": "[Plague]: Deals [Damage Rate: 20%] Magic Damage every 3s for 13s. Stacks up to 10 times When a target affected by [Plague] dies, deals [Damage Rate: 120%] Magic Damage to up to 5 other nearby enemies",
       "icon": "./assets/icons/passive-plague-outbreak.png"
     },
@@ -1062,10 +834,7 @@
       "id": "rot-manifest",
       "name": "Rot Manifest",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["magic damage", "dot"],
       "mpCost": 22,
       "cooldown": "17s",
       "range": "14m",
@@ -1076,10 +845,7 @@
       "id": "touch-of-plague",
       "name": "Touch of Plague",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["magic damage", "dot"],
       "cooldown": "0.48s",
       "range": "14m",
       "description": "Deals [Damage Rate: 90%] Magic Damage and applies [Plague]",
@@ -1089,10 +855,7 @@
       "id": "plague-strike",
       "name": "Plague Strike",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["magic damage", "dot"],
       "cooldown": "0.48s",
       "range": "18m",
       "description": "Releases a shockwave in target direction, dealing [Damage Rate: 100%] Magic Damage to enemies in its path and inflicting [Plague]",
@@ -1102,12 +865,7 @@
       "id": "venom-pool",
       "name": "Venom Pool",
       "type": "active",
-      "tags": [
-        "slow",
-        "magic damage",
-        "dot",
-        "aoe"
-      ],
+      "tags": ["slow", "magic damage", "dot", "aoe"],
       "cooldown": "1.9s",
       "range": "16m",
       "description": "Throws a pool of venom at the target location, lasting 3s, slowing enemies inside by 20% and inflicting [Plague] every second",
@@ -1117,10 +875,7 @@
       "id": "scourge",
       "name": "Scourge",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal"
-      ],
+      "tags": ["magic damage", "heal"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "12m",
@@ -1131,10 +886,7 @@
       "id": "plague-surge",
       "name": "Plague Surge",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["magic damage", "dot"],
       "mpCost": 17,
       "cooldown": "9.7s",
       "range": "18m",
@@ -1145,10 +897,7 @@
       "id": "spread-plague",
       "name": "Spread Plague",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["magic damage", "dot"],
       "mpCost": 10,
       "cooldown": "4.8s",
       "range": "9m",
@@ -1172,10 +921,7 @@
       "id": "toxic-matter",
       "name": "Toxic Matter",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "debuff"
-      ],
+      "tags": ["magic damage", "debuff"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "16m",
@@ -1186,10 +932,7 @@
       "id": "crippling-curse",
       "name": "Crippling Curse",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "aoe"
-      ],
+      "tags": ["magic damage", "aoe"],
       "mpCost": 22,
       "cooldown": "17s",
       "range": "12m",
@@ -1200,10 +943,7 @@
       "id": "amplify",
       "name": "Amplify",
       "type": "passive",
-      "tags": [
-        "buff",
-        "passive"
-      ],
+      "tags": ["buff", "passive"],
       "description": "When casting skills, increases Magic Damage dealt by 20% for 6s. Trigger Interval: 30s",
       "icon": "./assets/icons/passive-amplify.png"
     },
@@ -1224,11 +964,7 @@
       "id": "abundance",
       "name": "Abundance",
       "type": "active",
-      "tags": [
-        "mp",
-        "buff",
-        "mobility"
-      ],
+      "tags": ["mp", "buff", "mobility"],
       "mpCost": 0,
       "cooldown": "29s",
       "range": "6m",
@@ -1239,10 +975,7 @@
       "id": "parasitic-swarm",
       "name": "Parasitic Swarm",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["magic damage", "dot"],
       "mpCost": 25,
       "cooldown": "23s",
       "range": "14m",
@@ -1253,12 +986,7 @@
       "id": "pestilence",
       "name": "Pestilence",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["magic damage", "dot", "aoe", "debuff"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "14m",
@@ -1269,10 +997,7 @@
       "id": "hexbound-malice",
       "name": "Hexbound Malice",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "aoe"
-      ],
+      "tags": ["magic damage", "aoe"],
       "mpCost": 22,
       "cooldown": "17s",
       "range": "16m",
@@ -1283,11 +1008,7 @@
       "id": "bloom-of-malice",
       "name": "Bloom of Malice",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "aoe",
-        "dot"
-      ],
+      "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "16m",
@@ -1298,11 +1019,7 @@
       "id": "necrotic-eruption",
       "name": "Necrotic Eruption",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "aoe",
-        "dot"
-      ],
+      "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 28,
       "cooldown": "34s",
       "range": "16m",
@@ -1313,10 +1030,7 @@
       "id": "divine-ward",
       "name": "Divine Ward",
       "type": "passive",
-      "tags": [
-        "buff",
-        "passive"
-      ],
+      "tags": ["buff", "passive"],
       "description": "Increases the resistances of allies within 9m by 15%",
       "icon": "./assets/icons/passive-divine-ward.png"
     },
@@ -1324,11 +1038,7 @@
       "id": "aegisflare",
       "name": "Aegisflare",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "shield",
-        "heal"
-      ],
+      "tags": ["magic damage", "shield", "heal"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "16m",
@@ -1339,10 +1049,7 @@
       "id": "holy-feather",
       "name": "Holy Feather",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal"
-      ],
+      "tags": ["magic damage", "heal"],
       "mpCost": 0,
       "cooldown": "0.48s",
       "range": "16m",
@@ -1353,11 +1060,7 @@
       "id": "holy-smite",
       "name": "Holy Smite",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal",
-        "aoe"
-      ],
+      "tags": ["magic damage", "heal", "aoe"],
       "mpCost": 0,
       "cooldown": "0.48s",
       "range": "12m",
@@ -1381,10 +1084,7 @@
       "id": "holy-wave",
       "name": "Holy Wave",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal"
-      ],
+      "tags": ["magic damage", "heal"],
       "mpCost": 17,
       "cooldown": "9.7s",
       "range": "18m",
@@ -1395,10 +1095,7 @@
       "id": "divine-link",
       "name": "Divine Link",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal"
-      ],
+      "tags": ["magic damage", "heal"],
       "mpCost": 21,
       "cooldown": "15s",
       "range": "10m",
@@ -1409,10 +1106,7 @@
       "id": "holy-energy",
       "name": "Holy Energy",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal"
-      ],
+      "tags": ["magic damage", "heal"],
       "mpCost": 20,
       "cooldown": "13s",
       "range": "14m",
@@ -1423,12 +1117,7 @@
       "id": "holy-wall",
       "name": "Holy Wall",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "shield",
-        "stun",
-        "CC"
-      ],
+      "tags": ["magic damage", "shield", "stun", "CC"],
       "mpCost": 21,
       "cooldown": "15s",
       "range": "3m",
@@ -1439,10 +1128,7 @@
       "id": "holy-baptism",
       "name": "Holy Baptism",
       "type": "active",
-      "tags": [
-        "heal",
-        "buff"
-      ],
+      "tags": ["heal", "buff"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "14m",
@@ -1453,12 +1139,7 @@
       "id": "sacred-flare",
       "name": "Sacred Flare",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal",
-        "CC",
-        "debuff"
-      ],
+      "tags": ["magic damage", "heal", "CC", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "12m",
@@ -1469,12 +1150,7 @@
       "id": "sanctified-domain",
       "name": "Sanctified Domain",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal",
-        "buff",
-        "CC"
-      ],
+      "tags": ["magic damage", "heal", "buff", "CC"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "7m",
@@ -1485,11 +1161,7 @@
       "id": "sanctum-arc",
       "name": "Sanctum Arc",
       "type": "active",
-      "tags": [
-        "heal",
-        "magic damage",
-        "aoe"
-      ],
+      "tags": ["heal", "magic damage", "aoe"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "12m",
@@ -1517,11 +1189,7 @@
       "id": "sanctuary-skill",
       "name": "Sanctuary",
       "type": "active",
-      "tags": [
-        "heal",
-        "immunity",
-        "buff"
-      ],
+      "tags": ["heal", "immunity", "buff"],
       "mpCost": 29,
       "cooldown": "39s",
       "range": "15m",
@@ -1532,10 +1200,7 @@
       "id": "blessed-halo",
       "name": "Blessed Halo",
       "type": "active",
-      "tags": [
-        "heal",
-        "buff"
-      ],
+      "tags": ["heal", "buff"],
       "mpCost": 28,
       "cooldown": "34s",
       "range": "14m",
@@ -1546,12 +1211,7 @@
       "id": "frost-torrent",
       "name": "Frost Torrent",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "slow",
-        "channeling",
-        "debuff"
-      ],
+      "tags": ["magic damage", "slow", "channeling", "debuff"],
       "mpCost": 23,
       "cooldown": 19,
       "range": "11m",
@@ -1562,11 +1222,7 @@
       "id": "ice-shards",
       "name": "Ice Shards",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "buff",
-        "debuff"
-      ],
+      "tags": ["magic damage", "buff", "debuff"],
       "mpCost": 23,
       "cooldown": 19,
       "range": "6m",
@@ -1594,12 +1250,7 @@
       "id": "frost-nova",
       "name": "Frost Nova",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "slow",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["magic damage", "slow", "aoe", "debuff"],
       "mpCost": 20,
       "cooldown": 1.5,
       "range": "14m",
@@ -1680,10 +1331,7 @@
       "id": "frost-armor",
       "name": "Frost Armor",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "CC"
-      ],
+      "tags": ["magic damage", "CC"],
       "mpCost": 0,
       "cooldown": "0.48s",
       "range": "16m",
@@ -1694,10 +1342,7 @@
       "id": "ice-burst",
       "name": "Ice Burst",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "CC"
-      ],
+      "tags": ["magic damage", "CC"],
       "mpCost": 0,
       "cooldown": "0.48s",
       "range": "16m",
@@ -1708,11 +1353,7 @@
       "id": "frostbite-zone",
       "name": "Frostbite Zone",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "slow",
-        "aoe"
-      ],
+      "tags": ["magic damage", "slow", "aoe"],
       "mpCost": 0,
       "cooldown": "2.9s",
       "range": "16m",
@@ -1723,10 +1364,7 @@
       "id": "frost-burst",
       "name": "Frost Burst",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "aoe"
-      ],
+      "tags": ["magic damage", "aoe"],
       "mpCost": 0,
       "cooldown": "1.4s",
       "range": "16m",
@@ -1737,12 +1375,7 @@
       "id": "frost-beam",
       "name": "Frost Beam",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "slow",
-        "channeling",
-        "debuff"
-      ],
+      "tags": ["magic damage", "slow", "channeling", "debuff"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "16m",
@@ -1753,11 +1386,7 @@
       "id": "crystal-frost",
       "name": "Crystal Frost",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "CC",
-        "aoe"
-      ],
+      "tags": ["magic damage", "CC", "aoe"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "16m",
@@ -1768,12 +1397,7 @@
       "id": "frost-blink",
       "name": "Frost Blink",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "stun",
-        "CC",
-        "mobility"
-      ],
+      "tags": ["magic damage", "stun", "CC", "mobility"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "10m",
@@ -1820,12 +1444,7 @@
       "id": "burst",
       "name": "Burst",
       "type": "passive",
-      "tags": [
-        "passive",
-        "magic damage",
-        "dot",
-        "aoe"
-      ],
+      "tags": ["passive", "magic damage", "dot", "aoe"],
       "description": "Damage dealt inflicts [Burn], dealing [Damage Rate: 25%] Magic Damage every second for 8s, stacking up to 6 times (stacks do not boost damage) When [Burn] reaches max stacks, deals [Damage Rate: 80%] Magic Damage to up to 5 enemies near the carrier and removes all [Burn] stacks",
       "icon": "./assets/icons/passive-burst.png"
     },
@@ -1833,10 +1452,7 @@
       "id": "magma-burst",
       "name": "Magma Burst",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot"
-      ],
+      "tags": ["magic damage", "dot"],
       "cooldown": "0.48s",
       "range": "14m",
       "description": "Deals [Damage Rate: 120%] Magic Damage and applies 1 stack of [Burn]",
@@ -1846,11 +1462,7 @@
       "id": "scorching-shard",
       "name": "Scorching Shard",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot",
-        "aoe"
-      ],
+      "tags": ["magic damage", "dot", "aoe"],
       "cooldown": "0.48s",
       "range": "14m",
       "description": "Fires 3 Scorching Shards in the target direction. Deals [Damage Rate: 120%] Magic Damage to enemies and inflicts 1 stack of [Burn]. Additional shard hits on the same target beyond the first deal damage equal to 25% of the original damage",
@@ -1860,11 +1472,7 @@
       "id": "wildfire-shard",
       "name": "Wildfire Shard",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot",
-        "aoe"
-      ],
+      "tags": ["magic damage", "dot", "aoe"],
       "cooldown": "0.48s",
       "range": "18m",
       "description": "Fires a wildfire shard at the target location that bounces forward twice before exploding at the final position, dealing [Damage Rate: 120%] Magic Damage to enemies in range and inflicting 1 stack of [Burn]",
@@ -1874,12 +1482,7 @@
       "id": "inferno-blast",
       "name": "Inferno Blast",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot",
-        "aoe",
-        "channeling"
-      ],
+      "tags": ["magic damage", "dot", "aoe", "channeling"],
       "mpCost": 12,
       "cooldown": "5.8s",
       "range": "14m",
@@ -1890,11 +1493,7 @@
       "id": "molten-orb",
       "name": "Molten Orb",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "aoe",
-        "dot"
-      ],
+      "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "18m",
@@ -1905,12 +1504,7 @@
       "id": "blast-jump",
       "name": "Blast Jump",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot",
-        "aoe",
-        "mobility"
-      ],
+      "tags": ["magic damage", "dot", "aoe", "mobility"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "10m",
@@ -1955,11 +1549,7 @@
       "id": "hellfire",
       "name": "Hellfire",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "dot",
-        "aoe"
-      ],
+      "tags": ["magic damage", "dot", "aoe"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "14m",
@@ -2075,10 +1665,7 @@
       "id": "natural-armor",
       "name": "Natural Armor",
       "type": "passive",
-      "tags": [
-        "passive",
-        "resistance"
-      ],
+      "tags": ["passive", "resistance"],
       "description": "Gains 1 stack of Natural Armor every 5s, stacking up to 4 times. Each stack increases Damage Resistance by 8%. 1 stack is lost for each instance of damage taken",
       "icon": "./assets/icons/passive-natural-armor.png"
     },
@@ -2102,12 +1689,7 @@
       "id": "soothing-mist",
       "name": "Soothing Mist",
       "type": "active",
-      "tags": [
-        "heal",
-        "magic damage",
-        "dot",
-        "aoe"
-      ],
+      "tags": ["heal", "magic damage", "dot", "aoe"],
       "cooldown": "1.4s",
       "range": "16m",
       "description": "Releases soothing mist in the target direction, dealing [Damage Rate: 70%] Magic Damage to enemies along the path and applies 1 stack of [Recovery] to allies [Recovery]: Restores HP every second for 12s, stacking up to 3 times HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
@@ -2117,11 +1699,7 @@
       "id": "healing-seed",
       "name": "Healing Seed",
       "type": "active",
-      "tags": [
-        "heal",
-        "aoe",
-        "buff"
-      ],
+      "tags": ["heal", "aoe", "buff"],
       "cooldown": "2.4s",
       "range": "14m",
       "description": "Throws a Healing Seed at the target location that blooms, restoring [Healing Rate: 66%] HP to allies in range and applying 1 stack of [Recovery] [Recovery]: Recovers HP every second for 12s, stacking up to 3 times HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
@@ -2131,11 +1709,7 @@
       "id": "winding-vines",
       "name": "Winding Vines",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "CC",
-        "aoe"
-      ],
+      "tags": ["magic damage", "CC", "aoe"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "12m",
@@ -2146,12 +1720,7 @@
       "id": "energize",
       "name": "Energize",
       "type": "active",
-      "tags": [
-        "heal",
-        "mp",
-        "buff",
-        "aoe"
-      ],
+      "tags": ["heal", "mp", "buff", "aoe"],
       "mpCost": 0,
       "cooldown": "14s",
       "range": "8m",
@@ -2162,12 +1731,7 @@
       "id": "vitality-seed",
       "name": "Vitality Seed",
       "type": "active",
-      "tags": [
-        "heal",
-        "buff",
-        "attack speed",
-        "aoe"
-      ],
+      "tags": ["heal", "buff", "attack speed", "aoe"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "8m",
@@ -2178,11 +1742,7 @@
       "id": "freshness",
       "name": "Freshness",
       "type": "active",
-      "tags": [
-        "heal",
-        "immunity",
-        "buff"
-      ],
+      "tags": ["heal", "immunity", "buff"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "14m",
@@ -2193,10 +1753,7 @@
       "id": "regenerate",
       "name": "Regenerate",
       "type": "active",
-      "tags": [
-        "heal",
-        "buff"
-      ],
+      "tags": ["heal", "buff"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "14m",
@@ -2207,11 +1764,7 @@
       "id": "crater-surge",
       "name": "Crater Surge",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "heal",
-        "aoe"
-      ],
+      "tags": ["magic damage", "heal", "aoe"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "12m",
@@ -2239,12 +1792,7 @@
       "id": "entangling-growth",
       "name": "Entangling Growth",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "CC",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["magic damage", "CC", "aoe", "debuff"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "16m",
@@ -2255,11 +1803,7 @@
       "id": "healing-bloom",
       "name": "Healing Bloom",
       "type": "active",
-      "tags": [
-        "heal",
-        "buff",
-        "mp"
-      ],
+      "tags": ["heal", "buff", "mp"],
       "mpCost": 10,
       "cooldown": "4.8s",
       "range": "12m",
@@ -2306,12 +1850,7 @@
       "id": "divine-rootfall",
       "name": "Divine Rootfall",
       "type": "active",
-      "tags": [
-        "heal",
-        "magic damage",
-        "CC",
-        "aoe"
-      ],
+      "tags": ["heal", "magic damage", "CC", "aoe"],
       "mpCost": 31,
       "cooldown": "48s",
       "range": "14m",
@@ -2322,11 +1861,7 @@
       "id": "breeze-of-resurgence",
       "name": "Breeze of Resurgence",
       "type": "active",
-      "tags": [
-        "heal",
-        "immunity",
-        "buff"
-      ],
+      "tags": ["heal", "immunity", "buff"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "24m",
@@ -2337,12 +1872,7 @@
       "id": "bleed",
       "name": "Bleed",
       "type": "passive",
-      "tags": [
-        "passive",
-        "physical damage",
-        "dot",
-        "debuff"
-      ],
+      "tags": ["passive", "physical damage", "dot", "debuff"],
       "description": "Dealing damage inflicts [Bleed], dealing [Damage Rate: 30%] Physical Damage every second for 8s, stacking up to 6 times (stacks do not boost damage) At max stacks, triggers Hemorrhage, dealing [Damage Rate: 100%] Physical Damage + True Damage equal to 4% of the target's current HP and removes all [Bleed] stacks Basic Attack Damage Bonuses affect the base damage and basic attack critical hits can cause the damage to crit",
       "icon": "./assets/icons/passive-bleed.png"
     },
@@ -2350,12 +1880,7 @@
       "id": "bleeding-thrust",
       "name": "Bleeding Thrust",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "bleed",
-        "mobility",
-        "debuff"
-      ],
+      "tags": ["physical damage", "bleed", "mobility", "debuff"],
       "mpCost": 0,
       "cooldown": "0.96s",
       "range": "7m",
@@ -2383,11 +1908,7 @@
       "id": "armor-breaker",
       "name": "Armor Breaker",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "bleed",
-        "debuff"
-      ],
+      "tags": ["physical damage", "bleed", "debuff"],
       "mpCost": 0,
       "cooldown": "0.96s",
       "range": "3.5m",
@@ -2398,11 +1919,7 @@
       "id": "whirling-blades",
       "name": "Whirling Blades",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "aoe",
-        "bleed"
-      ],
+      "tags": ["physical damage", "aoe", "bleed"],
       "mpCost": 15,
       "cooldown": "8.8s",
       "range": "12m",
@@ -2449,12 +1966,7 @@
       "id": "smoke-grenade",
       "name": "Smoke Grenade",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "slow",
-        "debuff",
-        "aoe"
-      ],
+      "tags": ["physical damage", "slow", "debuff", "aoe"],
       "mpCost": 21,
       "cooldown": "15s",
       "range": "8m",
@@ -2482,12 +1994,7 @@
       "id": "rend-and-reap",
       "name": "Rend and Reap",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "bleed",
-        "heal",
-        "mobility"
-      ],
+      "tags": ["physical damage", "bleed", "heal", "mobility"],
       "mpCost": 23,
       "cooldown": "1.5s",
       "range": "11m",
@@ -2604,12 +2111,7 @@
       "id": "spear-scar",
       "name": "Spear Scar",
       "type": "passive",
-      "tags": [
-        "passive",
-        "attack speed",
-        "buff",
-        "shield"
-      ],
+      "tags": ["passive", "attack speed", "buff", "shield"],
       "description": "Using a weapon skill grants [Spear Scar]: The next 3 Basic Attacks gain +60% Attack Speed, +2.5m range, and +30% Basic Attack Lifesteal. This effect lasts 6s Also has a 45% chance to grant [Target-based Max HP 15%] Shield for 2s",
       "icon": "./assets/icons/passive-spear-scar.png"
     },
@@ -2617,12 +2119,7 @@
       "id": "leap-strike",
       "name": "Leap Strike",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "buff",
-        "attack speed",
-        "mobility"
-      ],
+      "tags": ["physical damage", "buff", "attack speed", "mobility"],
       "description": "[Basic Attack]: Deals [Damage Rate: 100%] Physical Damage to the target Can cast [Leap Strike] every 5s Charging toward the enemy, dealing [Damage Rate: 170%] Physical Damage and increasing Attack Speed by 20% for 4s",
       "icon": "./assets/icons/skill-leap-strike.png"
     },
@@ -2630,11 +2127,7 @@
       "id": "piercing-spear",
       "name": "Piercing Spear",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "buff",
-        "mobility"
-      ],
+      "tags": ["physical damage", "buff", "mobility"],
       "description": "[Basic Attack]: Deals [Damage Rate: 80%] Physical Damage to the target Performs a piercing spear throw toward the target after 5 Basic Attacks Deals [Damage Rate: 180%] Physical Damage to enemies along the path and increases own Movement Speed by 20% for 2s",
       "icon": "./assets/icons/skill-piercing-spear.png"
     },
@@ -2642,12 +2135,7 @@
       "id": "sweeping-strike",
       "name": "Sweeping Strike",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "buff",
-        "aoe",
-        "resistance"
-      ],
+      "tags": ["physical damage", "buff", "aoe", "resistance"],
       "description": "[Basic Attack]: Deals [Damage Rate: 100%] Physical Damage to the target Can cast [Sweeping Strike] every 5s Deals [Damage Rate: 240%] Physical Damage to enemies in range, each enemy hit increasing Damage Resistance by 6% for 4s. Stacks up to 5 times",
       "icon": "./assets/icons/skill-sweeping-strike.png"
     },
@@ -2655,10 +2143,7 @@
       "id": "lance-thrust",
       "name": "Lance Thrust",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "aoe"
-      ],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 14,
       "cooldown": "7.8s",
       "range": "7m",
@@ -2725,10 +2210,7 @@
       "id": "lance-recall",
       "name": "Lance Recall",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "mobility"
-      ],
+      "tags": ["physical damage", "mobility"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "6m",
@@ -2739,11 +2221,7 @@
       "id": "bloodeye-burst-spear",
       "name": "Bloodeye Burst",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "debuff",
-        "aoe"
-      ],
+      "tags": ["physical damage", "debuff", "aoe"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "5m",
@@ -2882,12 +2360,7 @@
       "id": "venom-arrow",
       "name": "Venom Arrow",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "magic damage",
-        "dot",
-        "debuff"
-      ],
+      "tags": ["physical damage", "magic damage", "dot", "debuff"],
       "mpCost": 0,
       "cooldown": "0.96s",
       "range": "14m",
@@ -2898,10 +2371,7 @@
       "id": "split-arrow",
       "name": "Split Arrow",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "aoe"
-      ],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 0,
       "cooldown": "0.96s",
       "range": "14m",
@@ -2912,10 +2382,7 @@
       "id": "piercing-arrow",
       "name": "Piercing Arrow",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "debuff"
-      ],
+      "tags": ["physical damage", "debuff"],
       "mpCost": 0,
       "cooldown": "0.96s",
       "range": "9m",
@@ -2926,12 +2393,7 @@
       "id": "binding-arrow",
       "name": "Binding Arrow",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "immobilize",
-        "CC",
-        "debuff"
-      ],
+      "tags": ["physical damage", "immobilize", "CC", "debuff"],
       "mpCost": 20,
       "cooldown": "1.5s",
       "range": "14m",
@@ -2942,11 +2404,7 @@
       "id": "sleeper-arrow",
       "name": "Sleeper Arrow",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "CC",
-        "mobility"
-      ],
+      "tags": ["physical damage", "CC", "mobility"],
       "mpCost": 20,
       "cooldown": "13s",
       "range": "14m",
@@ -2957,11 +2415,7 @@
       "id": "blast-arrow",
       "name": "Blast Arrow",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "buff",
-        "aoe"
-      ],
+      "tags": ["physical damage", "buff", "aoe"],
       "mpCost": 19,
       "cooldown": "12s",
       "range": "6m",
@@ -2989,12 +2443,7 @@
       "id": "frost-arrow",
       "name": "Frost Arrow",
       "type": "weapon-skill",
-      "tags": [
-        "magic damage",
-        "slow",
-        "buff",
-        "debuff"
-      ],
+      "tags": ["magic damage", "slow", "buff", "debuff"],
       "mpCost": 21,
       "cooldown": "15s",
       "range": "6m",
@@ -3039,11 +2488,7 @@
       "id": "arcbolt",
       "name": "Arcbolt",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "debuff",
-        "aoe"
-      ],
+      "tags": ["physical damage", "debuff", "aoe"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "18m",
@@ -3054,10 +2499,7 @@
       "id": "powershot",
       "name": "Powershot",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "damage increase"
-      ],
+      "tags": ["physical damage", "damage increase"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "22m",
@@ -3068,12 +2510,7 @@
       "id": "splintershot",
       "name": "Splintershot",
       "type": "core-skill",
-      "tags": [
-        "magic damage",
-        "buff",
-        "attack speed",
-        "damage increase"
-      ],
+      "tags": ["magic damage", "buff", "attack speed", "damage increase"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "6m",
@@ -3102,11 +2539,7 @@
       "id": "severance-shot",
       "name": "Severance Shot",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "debuff",
-        "aoe"
-      ],
+      "tags": ["physical damage", "debuff", "aoe"],
       "mpCost": 18,
       "cooldown": "1.5s",
       "range": "20m",
@@ -3117,10 +2550,7 @@
       "id": "reload",
       "name": "Reload",
       "type": "passive",
-      "tags": [
-        "passive",
-        "mp"
-      ],
+      "tags": ["passive", "mp"],
       "mpCost": 0,
       "cooldown": "0s",
       "range": "Self",
@@ -3131,10 +2561,7 @@
       "id": "headshot",
       "name": "Headshot",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "crit"
-      ],
+      "tags": ["physical damage", "crit"],
       "mpCost": 0,
       "cooldown": "1.1s",
       "range": "22m",
@@ -3145,10 +2572,7 @@
       "id": "ricochet",
       "name": "Ricochet",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "aoe"
-      ],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 0,
       "cooldown": "1.1s",
       "range": "22m",
@@ -3159,10 +2583,7 @@
       "id": "armor-break",
       "name": "Armor Break",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "debuff"
-      ],
+      "tags": ["physical damage", "debuff"],
       "mpCost": 0,
       "cooldown": "1.1s",
       "range": "22m",
@@ -3173,11 +2594,7 @@
       "id": "trap",
       "name": "Trap",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["physical damage", "aoe", "debuff"],
       "mpCost": 20,
       "cooldown": "1.5s",
       "range": "12m",
@@ -3188,10 +2605,7 @@
       "id": "quick-load",
       "name": "Quick Load",
       "type": "weapon-skill",
-      "tags": [
-        "mp",
-        "buff"
-      ],
+      "tags": ["mp", "buff"],
       "mpCost": 21,
       "cooldown": "1.5s",
       "range": "6m",
@@ -3202,11 +2616,7 @@
       "id": "concussion-grenade",
       "name": "Concussion Grenade",
       "type": "weapon-skill",
-      "tags": [
-        "physical damage",
-        "aoe",
-        "stun"
-      ],
+      "tags": ["physical damage", "aoe", "stun"],
       "mpCost": 22,
       "cooldown": "17s",
       "range": "10m",
@@ -3217,10 +2627,7 @@
       "id": "blinding-flash",
       "name": "Blinding Flash",
       "type": "weapon-skill",
-      "tags": [
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["aoe", "debuff"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "14m",
@@ -3231,10 +2638,7 @@
       "id": "aim",
       "name": "Aim",
       "type": "weapon-skill",
-      "tags": [
-        "buff",
-        "crit"
-      ],
+      "tags": ["buff", "crit"],
       "mpCost": 16,
       "cooldown": "4.8s",
       "range": "6m",
@@ -3245,10 +2649,7 @@
       "id": "scatterblast",
       "name": "Scatterblast",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "aoe"
-      ],
+      "tags": ["physical damage", "aoe"],
       "mpCost": 11,
       "cooldown": "1.5s",
       "range": "16m",
@@ -3259,10 +2660,7 @@
       "id": "photon-bolt",
       "name": "Photon Bolt",
       "type": "core-skill",
-      "tags": [
-        "magic damage",
-        "aoe"
-      ],
+      "tags": ["magic damage", "aoe"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "20m",
@@ -3273,10 +2671,7 @@
       "id": "snipe",
       "name": "Snipe",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "crit"
-      ],
+      "tags": ["physical damage", "crit"],
       "mpCost": 10,
       "cooldown": "1.5s",
       "range": "18m",
@@ -3287,12 +2682,7 @@
       "id": "toxic-shroud",
       "name": "Toxic Shroud",
       "type": "core-skill",
-      "tags": [
-        "magic damage",
-        "dot",
-        "aoe",
-        "debuff"
-      ],
+      "tags": ["magic damage", "dot", "aoe", "debuff"],
       "mpCost": 11,
       "cooldown": "4s",
       "range": "20m",
@@ -3303,10 +2693,7 @@
       "id": "rapid-fire",
       "name": "Rapid Fire",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "channeling"
-      ],
+      "tags": ["physical damage", "channeling"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "22m",
@@ -3336,10 +2723,7 @@
       "id": "photon-activation",
       "name": "Photon Activation",
       "type": "core-skill",
-      "tags": [
-        "buff",
-        "mp"
-      ],
+      "tags": ["buff", "mp"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "6m",
@@ -3350,11 +2734,7 @@
       "id": "deadshot",
       "name": "Deadshot",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "crit",
-        "aoe"
-      ],
+      "tags": ["physical damage", "crit", "aoe"],
       "mpCost": 25,
       "cooldown": "9.7s",
       "range": "30m",
@@ -3365,11 +2745,7 @@
       "id": "guardian",
       "name": "Guardian",
       "type": "passive",
-      "tags": [
-        "passive",
-        "damage resistance",
-        "control resistance"
-      ],
+      "tags": ["passive", "damage resistance", "control resistance"],
       "description": "Using a weapon skill increases Damage Resistance by 30% and Control Resistance by 35 for 6s",
       "icon": "./assets/icons/passive-guardian.png"
     },
@@ -3377,10 +2753,7 @@
       "id": "swing",
       "name": "Swing",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.1s",
       "range": "5m",
@@ -3391,12 +2764,7 @@
       "id": "smash",
       "name": "Smash",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "healing",
-        "buff",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "healing", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.1s",
       "range": "3.5m",
@@ -3407,11 +2775,7 @@
       "id": "crushing-smash",
       "name": "Crushing Smash",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "slow",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "slow", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.1s",
       "range": "7m",
@@ -3422,11 +2786,7 @@
       "id": "frenzied-smash",
       "name": "Frenzied Smash",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "hard control",
-        "skill"
-      ],
+      "tags": ["physical damage", "hard control", "skill"],
       "mpCost": 15,
       "cooldown": "8.8s",
       "range": "3m",
@@ -3437,11 +2797,7 @@
       "id": "binding-smash",
       "name": "Binding Smash",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "immobilize",
-        "skill"
-      ],
+      "tags": ["physical damage", "immobilize", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "10m",
@@ -3452,10 +2808,7 @@
       "id": "guardian-field",
       "name": "Guardian Field",
       "type": "active",
-      "tags": [
-        "buff",
-        "skill"
-      ],
+      "tags": ["buff", "skill"],
       "mpCost": 17,
       "cooldown": "9.7s",
       "range": "12m",
@@ -3466,11 +2819,7 @@
       "id": "field-of-silence",
       "name": "Field of Silence",
       "type": "active",
-      "tags": [
-        "magic damage",
-        "silence",
-        "skill"
-      ],
+      "tags": ["magic damage", "silence", "skill"],
       "mpCost": 15,
       "cooldown": "8.8s",
       "range": "4m",
@@ -3481,11 +2830,7 @@
       "id": "vengeful-thunder",
       "name": "Vengeful Thunder",
       "type": "active",
-      "tags": [
-        "physical damage",
-        "buff",
-        "skill"
-      ],
+      "tags": ["physical damage", "buff", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "9m",
@@ -3496,11 +2841,7 @@
       "id": "unyielding-smash",
       "name": "Unyielding Smash",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "shield",
-        "skill"
-      ],
+      "tags": ["physical damage", "shield", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "10m",
@@ -3511,10 +2852,7 @@
       "id": "shield-slam",
       "name": "Shield Slam",
       "type": "core-skill",
-      "tags": [
-        "buff",
-        "skill"
-      ],
+      "tags": ["buff", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "3m",
@@ -3525,12 +2863,7 @@
       "id": "grappling-strike",
       "name": "Grappling Strike",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "hard control",
-        "pull",
-        "skill"
-      ],
+      "tags": ["physical damage", "hard control", "pull", "skill"],
       "mpCost": 22,
       "cooldown": "17s",
       "range": "18m",
@@ -3541,12 +2874,7 @@
       "id": "void-slam",
       "name": "Void Slam",
       "type": "core-skill",
-      "tags": [
-        "magic damage",
-        "dispel",
-        "silence",
-        "skill"
-      ],
+      "tags": ["magic damage", "dispel", "silence", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "6m",
@@ -3557,12 +2885,7 @@
       "id": "pulverizing-slam",
       "name": "Pulverizing Slam",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "slow",
-        "pull",
-        "skill"
-      ],
+      "tags": ["physical damage", "slow", "pull", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "4m",
@@ -3573,11 +2896,7 @@
       "id": "thunderclap-impact",
       "name": "Thunderclap Impact",
       "type": "core-skill",
-      "tags": [
-        "physical damage",
-        "debuff",
-        "skill"
-      ],
+      "tags": ["physical damage", "debuff", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "12m",
@@ -3605,12 +2924,7 @@
       "id": "bloodthirst",
       "name": "Bloodthirst",
       "type": "passive",
-      "tags": [
-        "passive",
-        "lifesteal",
-        "attack speed",
-        "movement speed"
-      ],
+      "tags": ["passive", "lifesteal", "attack speed", "movement speed"],
       "description": "Applies Bloodthirst Mark to up to 5 nearby enemies in a 15m frontal area every 12s, lasting 12s Weapon skills against marked targets restore 6% of missing HP, deal +5% extra damage, while also granting +10% Attack Speed and +8% Movement Speed for 4s Stacks up to 3 times Consumes Bloodthirst Mark when triggered",
       "icon": "./assets/icons/passive-bloodthirst.png"
     },
@@ -3618,11 +2932,7 @@
       "id": "jump-slash",
       "name": "Jump Slash",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "debuff",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "debuff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
       "range": "7m",
@@ -3633,10 +2943,7 @@
       "id": "cleaving-strike",
       "name": "Cleaving Strike",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
       "range": "3.5m",
@@ -3647,11 +2954,7 @@
       "id": "cyclone-slash",
       "name": "Cyclone Slash",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "debuff",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "debuff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
       "range": "3.5m",
@@ -3662,10 +2965,7 @@
       "id": "tempest-strike",
       "name": "Tempest Strike",
       "type": "active",
-      "tags": [
-        "damage",
-        "skill"
-      ],
+      "tags": ["damage", "skill"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "6m",
@@ -3676,12 +2976,7 @@
       "id": "rock-smash",
       "name": "Rock Smash",
       "type": "active",
-      "tags": [
-        "damage",
-        "slow",
-        "hard control",
-        "skill"
-      ],
+      "tags": ["damage", "slow", "hard control", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "6m",
@@ -3692,11 +2987,7 @@
       "id": "primal-rush",
       "name": "Primal Rush",
       "type": "active",
-      "tags": [
-        "damage",
-        "knockback",
-        "skill"
-      ],
+      "tags": ["damage", "knockback", "skill"],
       "mpCost": 19,
       "cooldown": "12s",
       "range": "10m",
@@ -3724,10 +3015,7 @@
       "id": "rage",
       "name": "Rage",
       "type": "active",
-      "tags": [
-        "buff",
-        "skill"
-      ],
+      "tags": ["buff", "skill"],
       "mpCost": 25,
       "cooldown": "23s",
       "range": "6m",
@@ -3738,10 +3026,7 @@
       "id": "whirlwind-slash",
       "name": "Whirlwind Slash",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "skill"
-      ],
+      "tags": ["damage", "skill"],
       "mpCost": 25,
       "cooldown": "22s",
       "range": "4m",
@@ -3752,12 +3037,7 @@
       "id": "vortex-toss",
       "name": "Vortex Toss",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "knockback",
-        "debuff",
-        "skill"
-      ],
+      "tags": ["damage", "knockback", "debuff", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "18m",
@@ -3768,11 +3048,7 @@
       "id": "bonecrusher-leap",
       "name": "Bonecrusher Leap",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "buff",
-        "skill"
-      ],
+      "tags": ["damage", "buff", "skill"],
       "mpCost": 22,
       "cooldown": "17s",
       "range": "10m",
@@ -3783,10 +3059,7 @@
       "id": "execution",
       "name": "Execution",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "skill"
-      ],
+      "tags": ["damage", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "6m",
@@ -3797,11 +3070,7 @@
       "id": "runic-rebound",
       "name": "Runic Rebound",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "healing",
-        "skill"
-      ],
+      "tags": ["damage", "healing", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "14m",
@@ -3812,12 +3081,7 @@
       "id": "twinstorm",
       "name": "Twinstorm",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "debuff",
-        "hard control",
-        "skill"
-      ],
+      "tags": ["damage", "debuff", "hard control", "skill"],
       "mpCost": 24,
       "cooldown": "21s",
       "range": "12m",
@@ -3828,12 +3092,7 @@
       "id": "bladewheel-throw",
       "name": "Bladewheel Throw",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "slow",
-        "debuff",
-        "skill"
-      ],
+      "tags": ["damage", "slow", "debuff", "skill"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "10m",
@@ -3844,12 +3103,7 @@
       "id": "aura-and-blade",
       "name": "Aura and Blade",
       "type": "passive",
-      "tags": [
-        "passive",
-        "buff",
-        "damage",
-        "defense"
-      ],
+      "tags": ["passive", "buff", "damage", "defense"],
       "description": "[Momentum]: Gains 1 stack of [Momentum] every second while in combat and 2 stacks when dealing damage with Basic Attacks, 4 stacks on Critical Hit, 1 stack when taking Basic Attack Damage, and 2 stacks when taking Skill Damage At 10 [Momentum] stacks, increases Sword Momentum by 1 level Momentum lasts 20s [Sword Momentum]: Each level grants +3% Damage, +4% Attack Speed, and +4% Damage Resistance Lasts 8s Grants up to 6 stacks, decaying over time",
       "icon": "./assets/icons/passive-aura-and-blade.png"
     },
@@ -3857,11 +3111,7 @@
       "id": "sword-slash",
       "name": "Sword Slash",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "buff",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
       "range": "7m",
@@ -3872,11 +3122,7 @@
       "id": "sword-cleave",
       "name": "Sword Cleave",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "buff",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
       "range": "3.5m",
@@ -3887,11 +3133,7 @@
       "id": "sword-energy",
       "name": "Sword Energy",
       "type": "basic-attack",
-      "tags": [
-        "physical damage",
-        "buff",
-        "basic attack"
-      ],
+      "tags": ["physical damage", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.2s",
       "range": "20m",
@@ -3902,10 +3144,7 @@
       "id": "vacuum-slash",
       "name": "Vacuum Slash",
       "type": "active",
-      "tags": [
-        "damage",
-        "skill"
-      ],
+      "tags": ["damage", "skill"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "5m",
@@ -3916,11 +3155,7 @@
       "id": "crippling-strike-sword",
       "name": "Crippling Strike",
       "type": "active",
-      "tags": [
-        "damage",
-        "slow",
-        "skill"
-      ],
+      "tags": ["damage", "slow", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "10m",
@@ -3931,12 +3166,7 @@
       "id": "power-slash",
       "name": "Power Slash",
       "type": "active",
-      "tags": [
-        "damage",
-        "slow",
-        "hard control",
-        "skill"
-      ],
+      "tags": ["damage", "slow", "hard control", "skill"],
       "mpCost": 18,
       "cooldown": "11s",
       "range": "10m",
@@ -3947,12 +3177,7 @@
       "id": "defensive-slash",
       "name": "Defensive Slash",
       "type": "active",
-      "tags": [
-        "damage",
-        "debuff",
-        "buff",
-        "skill"
-      ],
+      "tags": ["damage", "debuff", "buff", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "6m",
@@ -3963,11 +3188,7 @@
       "id": "heart-of-steel",
       "name": "Heart of Steel",
       "type": "active",
-      "tags": [
-        "buff",
-        "cleanse",
-        "skill"
-      ],
+      "tags": ["buff", "cleanse", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
       "range": "6m",
@@ -3978,10 +3199,7 @@
       "id": "tempest-slash",
       "name": "Tempest Slash",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "skill"
-      ],
+      "tags": ["damage", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "10m",
@@ -3992,11 +3210,7 @@
       "id": "titans-stride",
       "name": "Titan's Stride",
       "type": "core-skill",
-      "tags": [
-        "slow",
-        "debuff",
-        "skill"
-      ],
+      "tags": ["slow", "debuff", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "6m",
@@ -4024,12 +3238,7 @@
       "id": "force-pierce",
       "name": "Force Pierce",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "slow",
-        "silence",
-        "skill"
-      ],
+      "tags": ["damage", "slow", "silence", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "20m",
@@ -4040,12 +3249,7 @@
       "id": "overload-slash",
       "name": "Overload Slash",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "debuff",
-        "hard control",
-        "skill"
-      ],
+      "tags": ["damage", "debuff", "hard control", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "12m",
@@ -4056,11 +3260,7 @@
       "id": "thousandfold-strike",
       "name": "Thousandfold Strike",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "hard control",
-        "skill"
-      ],
+      "tags": ["damage", "hard control", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
       "range": "12m",
@@ -4071,11 +3271,7 @@
       "id": "obliteration",
       "name": "Obliteration",
       "type": "core-skill",
-      "tags": [
-        "damage",
-        "debuff",
-        "skill"
-      ],
+      "tags": ["damage", "debuff", "skill"],
       "mpCost": 27,
       "cooldown": "29s",
       "range": "12m",
@@ -4086,11 +3282,7 @@
       "id": "displacement",
       "name": "Displacement",
       "type": "core",
-      "tags": [
-        "movement",
-        "teleport",
-        "shield"
-      ],
+      "tags": ["movement", "teleport", "shield"],
       "mpCost": 25,
       "cooldown": "29s",
       "range": "16m",
@@ -4101,11 +3293,7 @@
       "id": "decay",
       "name": "Decay",
       "type": "core",
-      "tags": [
-        "debuff",
-        "buff",
-        "movement speed"
-      ],
+      "tags": ["debuff", "buff", "movement speed"],
       "mpCost": 20,
       "cooldown": "29s",
       "range": "6m",
@@ -4116,11 +3304,7 @@
       "id": "frost",
       "name": "Frost",
       "type": "core",
-      "tags": [
-        "slow",
-        "buff",
-        "movement speed"
-      ],
+      "tags": ["slow", "buff", "movement speed"],
       "mpCost": 20,
       "cooldown": "29s",
       "range": "6m",
@@ -4131,11 +3315,7 @@
       "id": "flash-step",
       "name": "Flash Step",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed",
-        "heal"
-      ],
+      "tags": ["buff", "movement speed", "heal"],
       "mpCost": 20,
       "cooldown": "24s",
       "range": "12m",
@@ -4146,11 +3326,7 @@
       "id": "ghost",
       "name": "Ghost",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed",
-        "immunity"
-      ],
+      "tags": ["buff", "movement speed", "immunity"],
       "mpCost": 30,
       "cooldown": "39s",
       "range": "6m",
@@ -4161,12 +3337,7 @@
       "id": "berserk",
       "name": "Berserk",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed",
-        "damage",
-        "debuff"
-      ],
+      "tags": ["buff", "movement speed", "damage", "debuff"],
       "mpCost": 20,
       "cooldown": "29s",
       "range": "6m",
@@ -4177,12 +3348,7 @@
       "id": "warding",
       "name": "Warding",
       "type": "core",
-      "tags": [
-        "buff",
-        "debuff",
-        "armor",
-        "movement speed"
-      ],
+      "tags": ["buff", "debuff", "armor", "movement speed"],
       "mpCost": 25,
       "cooldown": "29s",
       "range": "6m",
@@ -4193,11 +3359,7 @@
       "id": "purify",
       "name": "Purify",
       "type": "core",
-      "tags": [
-        "cleanse",
-        "heal",
-        "immunity"
-      ],
+      "tags": ["cleanse", "heal", "immunity"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "6m",
@@ -4208,11 +3370,7 @@
       "id": "dispel",
       "name": "Dispel",
       "type": "core",
-      "tags": [
-        "damage",
-        "dispel",
-        "debuff"
-      ],
+      "tags": ["damage", "dispel", "debuff"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "16m",
@@ -4223,11 +3381,7 @@
       "id": "repulse",
       "name": "Repulse",
       "type": "core",
-      "tags": [
-        "damage",
-        "knockback",
-        "disarm"
-      ],
+      "tags": ["damage", "knockback", "disarm"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "6m",
@@ -4238,11 +3392,7 @@
       "id": "mana-font",
       "name": "Mana Font",
       "type": "core",
-      "tags": [
-        "mp",
-        "buff",
-        "mana regen"
-      ],
+      "tags": ["mp", "buff", "mana regen"],
       "mpCost": 0,
       "cooldown": "34s",
       "range": "7m",
@@ -4253,10 +3403,7 @@
       "id": "barrier",
       "name": "Barrier",
       "type": "core",
-      "tags": [
-        "shield",
-        "buff"
-      ],
+      "tags": ["shield", "buff"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "6m",
@@ -4267,11 +3414,7 @@
       "id": "panic",
       "name": "Panic",
       "type": "core",
-      "tags": [
-        "damage",
-        "hard control",
-        "fear"
-      ],
+      "tags": ["damage", "hard control", "fear"],
       "mpCost": 40,
       "cooldown": "48s",
       "range": "6m",
@@ -4282,12 +3425,7 @@
       "id": "grievous-wounds",
       "name": "Grievous Wounds",
       "type": "passive",
-      "tags": [
-        "damage",
-        "debuff",
-        "magic",
-        "aoe"
-      ],
+      "tags": ["damage", "debuff", "magic", "aoe"],
       "cooldown": "25s",
       "description": "When the skill damages an enemy, it triggers an explosion at their location, dealing [Damage Rate: 180%] Magic Damage to enemies in range and reducing their healing received by 40% for 6s",
       "triggerInterval": "25s",
@@ -4297,12 +3435,7 @@
       "id": "miasma",
       "name": "Miasma",
       "type": "passive",
-      "tags": [
-        "damage",
-        "debuff",
-        "magic",
-        "aoe"
-      ],
+      "tags": ["damage", "debuff", "magic", "aoe"],
       "cooldown": "30s",
       "description": "When skills deal direct damage, creates a miasma lasting 6s. Enemies within 5m take [Damage Rate: 55%] Magic Damage every second and have their Magic Resistance reduced by 84",
       "icon": "./assets/icons/passive-miasma.png"
@@ -4311,11 +3444,7 @@
       "id": "swift-aid",
       "name": "Swift Aid",
       "type": "passive",
-      "tags": [
-        "shield",
-        "heal",
-        "support"
-      ],
+      "tags": ["shield", "heal", "support"],
       "cooldown": "20s",
       "description": "When healing, grants target a [Target-based Max HP 20%] shield for 6s",
       "triggerInterval": "20s",
@@ -4325,11 +3454,7 @@
       "id": "overflow",
       "name": "Overflow",
       "type": "passive",
-      "tags": [
-        "mp",
-        "mana regen",
-        "buff"
-      ],
+      "tags": ["mp", "mana regen", "buff"],
       "cooldown": "45s",
       "description": "When casting skills with MP below 40%, gains 15 MP every second for 8s",
       "triggerInterval": "45s",
@@ -4339,11 +3464,7 @@
       "id": "last-stand",
       "name": "Last Stand",
       "type": "passive",
-      "tags": [
-        "healing",
-        "cleanse",
-        "support"
-      ],
+      "tags": ["healing", "cleanse", "support"],
       "cooldown": "45s",
       "description": "When damage taken within 3s exceeds 35% of max HP, creates a healing wave that restores [Healing Rate: 240%] HP to nearby allies and removes control effects",
       "triggerInterval": "45s",
@@ -4353,11 +3474,7 @@
       "id": "repulsion",
       "name": "Repulsion",
       "type": "passive",
-      "tags": [
-        "damage",
-        "shield",
-        "knockback"
-      ],
+      "tags": ["damage", "shield", "knockback"],
       "cooldown": "45s",
       "description": "When taking damage at below 40% HP, gains a [Target-based Max HP 25%] shield and generates a repulsion field lasting 6s. Enemies touching the field take [Damage Rate: 100%] Magic Damage and are knocked back 7m",
       "triggerInterval": "45s",
@@ -4367,10 +3484,7 @@
       "id": "sidestep",
       "name": "Sidestep",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed"
-      ],
+      "tags": ["buff", "movement speed"],
       "mpCost": 20,
       "cooldown": "29s",
       "range": "9m",
@@ -4381,11 +3495,7 @@
       "id": "cyclone",
       "name": "Cyclone",
       "type": "core",
-      "tags": [
-        "buff",
-        "attack speed",
-        "movement speed"
-      ],
+      "tags": ["buff", "attack speed", "movement speed"],
       "mpCost": 25,
       "cooldown": "29s",
       "range": "7m",
@@ -4396,11 +3506,7 @@
       "id": "vanish",
       "name": "Vanish",
       "type": "core",
-      "tags": [
-        "stealth",
-        "buff",
-        "movement speed"
-      ],
+      "tags": ["stealth", "buff", "movement speed"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "6m",
@@ -4411,11 +3517,7 @@
       "id": "assassinate",
       "name": "Assassinate",
       "type": "core",
-      "tags": [
-        "damage",
-        "buff",
-        "physical"
-      ],
+      "tags": ["damage", "buff", "physical"],
       "mpCost": 25,
       "cooldown": "1.5s",
       "range": "11m",
@@ -4428,11 +3530,7 @@
       "id": "grace",
       "name": "Grace",
       "type": "core",
-      "tags": [
-        "buff",
-        "critical",
-        "movement"
-      ],
+      "tags": ["buff", "critical", "movement"],
       "mpCost": 20,
       "cooldown": "24s",
       "range": "6m",
@@ -4444,11 +3542,7 @@
       "id": "attack-speed",
       "name": "Attack Speed",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed",
-        "attack speed"
-      ],
+      "tags": ["buff", "movement speed", "attack speed"],
       "mpCost": 25,
       "cooldown": "29s",
       "range": "6m",
@@ -4459,11 +3553,7 @@
       "id": "phase-shift",
       "name": "Phase Shift",
       "type": "core",
-      "tags": [
-        "damage",
-        "debuff",
-        "movement"
-      ],
+      "tags": ["damage", "debuff", "movement"],
       "mpCost": 30,
       "cooldown": "17s",
       "range": "10m",
@@ -4475,11 +3565,7 @@
       "id": "escape",
       "name": "Escape",
       "type": "core",
-      "tags": [
-        "buff",
-        "cleanse",
-        "immunity"
-      ],
+      "tags": ["buff", "cleanse", "immunity"],
       "mpCost": 25,
       "cooldown": "19s",
       "range": "14m",
@@ -4490,10 +3576,7 @@
       "id": "bandage",
       "name": "Bandage",
       "type": "core",
-      "tags": [
-        "healing",
-        "regeneration"
-      ],
+      "tags": ["healing", "regeneration"],
       "mpCost": 20,
       "cooldown": "34s",
       "range": "6m",
@@ -4504,11 +3587,7 @@
       "id": "smoke-screen",
       "name": "Smoke Screen",
       "type": "core",
-      "tags": [
-        "stealth",
-        "buff",
-        "area"
-      ],
+      "tags": ["stealth", "buff", "area"],
       "mpCost": 30,
       "cooldown": "48s",
       "range": "12m",
@@ -4519,11 +3598,7 @@
       "id": "reflect",
       "name": "Reflect",
       "type": "core",
-      "tags": [
-        "buff",
-        "defense",
-        "damage"
-      ],
+      "tags": ["buff", "defense", "damage"],
       "mpCost": 25,
       "cooldown": "39s",
       "range": "6m",
@@ -4534,11 +3609,7 @@
       "id": "finisher",
       "name": "Finisher",
       "type": "core",
-      "tags": [
-        "damage",
-        "true damage",
-        "execution"
-      ],
+      "tags": ["damage", "true damage", "execution"],
       "mpCost": 30,
       "cooldown": "34s",
       "range": "7m",
@@ -4549,12 +3620,7 @@
       "id": "snarl",
       "name": "Snarl",
       "type": "core",
-      "tags": [
-        "damage",
-        "slow",
-        "debuff",
-        "stealth_disable"
-      ],
+      "tags": ["damage", "slow", "debuff", "stealth_disable"],
       "mpCost": 25,
       "cooldown": "34s",
       "range": "12m",
@@ -4565,12 +3631,7 @@
       "id": "rally",
       "name": "Rally",
       "type": "core",
-      "tags": [
-        "buff",
-        "aura",
-        "attack speed",
-        "cooldown reduction"
-      ],
+      "tags": ["buff", "aura", "attack speed", "cooldown reduction"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "7m",
@@ -4581,12 +3642,7 @@
       "id": "armor-breaker-core",
       "name": "Armor Breaker",
       "type": "core",
-      "tags": [
-        "damage",
-        "debuff",
-        "buff",
-        "physical"
-      ],
+      "tags": ["damage", "debuff", "buff", "physical"],
       "mpCost": 25,
       "cooldown": "24s",
       "range": "7m",
@@ -4597,10 +3653,7 @@
       "id": "life-flash",
       "name": "Life Flash",
       "type": "passive",
-      "tags": [
-        "healing",
-        "healing over time"
-      ],
+      "tags": ["healing", "healing over time"],
       "cooldown": "60s",
       "description": "When taking damage at below 30% HP, immediately restores [Healing Rate: 48%] HP every second for 5s",
       "triggerInterval": "60s",
@@ -4610,10 +3663,7 @@
       "id": "dodge",
       "name": "Dodge",
       "type": "passive",
-      "tags": [
-        "buff",
-        "evasion"
-      ],
+      "tags": ["buff", "evasion"],
       "cooldown": "25s",
       "description": "When taking damage from Basic Attacks, immediately gains +50% Dodge Enhancement for 8s",
       "triggerInterval": "25s",
@@ -4623,11 +3673,7 @@
       "id": "fade-out",
       "name": "Fade Out",
       "type": "passive",
-      "tags": [
-        "stealth",
-        "buff",
-        "movement speed"
-      ],
+      "tags": ["stealth", "buff", "movement speed"],
       "cooldown": "60s",
       "description": "When taking damage at below 30% HP, instantly enters Stealth and increases Movement Speed by 30% for 5s. After 1.5 seconds in Stealth, using a skill, dealing damage, or direct healing will break Stealth.",
       "triggerInterval": "60s",
@@ -4637,11 +3683,7 @@
       "id": "electrified-strike",
       "name": "Electrified Strike",
       "type": "passive",
-      "tags": [
-        "damage",
-        "chain lightning",
-        "physical"
-      ],
+      "tags": ["damage", "chain lightning", "physical"],
       "cooldown": "30s",
       "description": "When using Basic Attack, the next 5 Basic Attacks (including the triggering one) within 8s cast additional Chain Lightning onto enemies. Upon hitting, it automatically ricochets to the nearest target, up to 5 times, dealing [Damage Rate: 60%] Physical Damage per hit. (Trigger Interval: 0.6 seconds) Damage is influenced by Basic Attack damage boost and can crit based on Basic Attack critical rate",
       "triggerInterval": "30s",
@@ -4651,11 +3693,7 @@
       "id": "break-free",
       "name": "Break Free",
       "type": "passive",
-      "tags": [
-        "buff",
-        "cleanse",
-        "immunity"
-      ],
+      "tags": ["buff", "cleanse", "immunity"],
       "cooldown": "45s",
       "description": "When affected by hard control effects (Stun, Fear, Freeze, Knockup, Petrify, Sleep), Silence, or Immobilize: Instantly removes all control effects and debuffs, and grants immunity to control effects and Silence, and increases Speed by 25% for 3s",
       "triggerInterval": "45s",
@@ -4665,11 +3703,7 @@
       "id": "defiance",
       "name": "Defiance",
       "type": "passive",
-      "tags": [
-        "buff",
-        "healing over time",
-        "immunity"
-      ],
+      "tags": ["buff", "healing over time", "immunity"],
       "cooldown": "120s",
       "description": "When taking damage and HP is below 20%, immediately gains an effect that prevents HP from falling below 1 and regenerates [Healing Rate: 36%] HP per second for 4s. Cannot be dispelled",
       "triggerInterval": "120s",
@@ -4679,11 +3713,7 @@
       "id": "vitality",
       "name": "Vitality",
       "type": "core",
-      "tags": [
-        "healing over time",
-        "movement speed",
-        "regeneration"
-      ],
+      "tags": ["healing over time", "movement speed", "regeneration"],
       "mpCost": 20,
       "cooldown": "29s",
       "range": "6m",
@@ -4694,12 +3724,7 @@
       "id": "vanguard",
       "name": "Vanguard",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed",
-        "cleanse",
-        "immunity"
-      ],
+      "tags": ["buff", "movement speed", "cleanse", "immunity"],
       "mpCost": 25,
       "cooldown": "29s",
       "range": "6m",
@@ -4710,12 +3735,7 @@
       "id": "titanic-growth",
       "name": "Titanic Growth",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed",
-        "hp",
-        "immunity"
-      ],
+      "tags": ["buff", "movement speed", "hp", "immunity"],
       "mpCost": 30,
       "cooldown": "44s",
       "range": "6m",
@@ -4726,12 +3746,7 @@
       "id": "vengeance",
       "name": "Vengeance",
       "type": "core",
-      "tags": [
-        "buff",
-        "movement speed",
-        "damage",
-        "scaling"
-      ],
+      "tags": ["buff", "movement speed", "damage", "scaling"],
       "mpCost": 25,
       "cooldown": "29s",
       "range": "6m",
@@ -4742,12 +3757,7 @@
       "id": "mountain-crash",
       "name": "Mountain Crash",
       "type": "core",
-      "tags": [
-        "damage",
-        "hard control",
-        "knockup",
-        "movement"
-      ],
+      "tags": ["damage", "hard control", "knockup", "movement"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "9m",
@@ -4758,12 +3768,7 @@
       "id": "lunge",
       "name": "Lunge",
       "type": "core",
-      "tags": [
-        "damage",
-        "knockback",
-        "movement",
-        "stun"
-      ],
+      "tags": ["damage", "knockback", "movement", "stun"],
       "mpCost": 25,
       "cooldown": "39s",
       "range": "14m",
@@ -4774,11 +3779,7 @@
       "id": "threat-nullifier",
       "name": "Threat Nullifier",
       "type": "passive",
-      "tags": [
-        "threat",
-        "damage",
-        "mob"
-      ],
+      "tags": ["threat", "damage", "mob"],
       "cooldown": "0s",
       "description": "Does not generate additional Threat. Deals 25% additional damage to mobs.",
       "icon": "./assets/icons/passive-threat-nullifier.png"
@@ -4787,11 +3788,7 @@
       "id": "threat-increase",
       "name": "Threat Increase",
       "type": "passive",
-      "tags": [
-        "threat",
-        "damage",
-        "mob"
-      ],
+      "tags": ["threat", "damage", "mob"],
       "cooldown": "0s",
       "description": "Increases threat by 1000% and deals 25% additional damage to mobs.",
       "icon": "./assets/icons/passive-threat-increase.png"
@@ -4800,11 +3797,7 @@
       "id": "block",
       "name": "Block",
       "type": "core",
-      "tags": [
-        "buff",
-        "defense",
-        "channeling"
-      ],
+      "tags": ["buff", "defense", "channeling"],
       "mpCost": 20,
       "cooldown": "34s",
       "range": "6m",
@@ -4815,12 +3808,7 @@
       "id": "root-grip",
       "name": "Root Grip",
       "type": "core",
-      "tags": [
-        "damage",
-        "pull",
-        "immobilize",
-        "physical"
-      ],
+      "tags": ["damage", "pull", "immobilize", "physical"],
       "mpCost": 25,
       "cooldown": "34s",
       "range": "16m",
@@ -4831,12 +3819,7 @@
       "id": "charge",
       "name": "Charge",
       "type": "core",
-      "tags": [
-        "buff",
-        "resistance",
-        "immunity",
-        "aura"
-      ],
+      "tags": ["buff", "resistance", "immunity", "aura"],
       "mpCost": 30,
       "cooldown": "34s",
       "range": "7m",
@@ -4847,12 +3830,7 @@
       "id": "stun",
       "name": "Stun",
       "type": "core",
-      "tags": [
-        "damage",
-        "slow",
-        "hard control",
-        "physical"
-      ],
+      "tags": ["damage", "slow", "hard control", "physical"],
       "mpCost": 25,
       "cooldown": "29s",
       "range": "7m",
@@ -4863,11 +3841,7 @@
       "id": "shield",
       "name": "Shield",
       "type": "core",
-      "tags": [
-        "shield",
-        "hp",
-        "scaling"
-      ],
+      "tags": ["shield", "hp", "scaling"],
       "mpCost": 25,
       "cooldown": "34s",
       "range": "7m",
@@ -4878,12 +3852,7 @@
       "id": "converge",
       "name": "Converge",
       "type": "core",
-      "tags": [
-        "damage",
-        "hard control",
-        "pull",
-        "slow"
-      ],
+      "tags": ["damage", "hard control", "pull", "slow"],
       "mpCost": 30,
       "cooldown": "29s",
       "range": "7m",
@@ -4894,12 +3863,7 @@
       "id": "vulnerability",
       "name": "Vulnerability",
       "type": "core",
-      "tags": [
-        "debuff",
-        "buff",
-        "area",
-        "stealth disable"
-      ],
+      "tags": ["debuff", "buff", "area", "stealth disable"],
       "mpCost": 25,
       "cooldown": "39s",
       "range": "7m",
@@ -4910,10 +3874,7 @@
       "id": "enrage",
       "name": "Enrage",
       "type": "passive",
-      "tags": [
-        "buff",
-        "physical damage"
-      ],
+      "tags": ["buff", "physical damage"],
       "cooldown": "30s",
       "description": "When dealing direct damage with Basic Attacks, increases Physical Damage by 20% for 6s",
       "triggerInterval": "30s",
@@ -4923,10 +3884,7 @@
       "id": "hardened-guard",
       "name": "Hardened Guard",
       "type": "passive",
-      "tags": [
-        "buff",
-        "block"
-      ],
+      "tags": ["buff", "block"],
       "cooldown": "25s",
       "description": "Taking damage from 3 basic attacks within 5s grants 136 Block for 6s",
       "triggerInterval": "25s",
@@ -4936,11 +3894,7 @@
       "id": "emp-blast",
       "name": "EMP Blast",
       "type": "passive",
-      "tags": [
-        "damage",
-        "debuff",
-        "hard control"
-      ],
+      "tags": ["damage", "debuff", "hard control"],
       "cooldown": "30s",
       "description": "When dealing direct Basic Attack Damage, triggers an EMP blast at the current position. After 1s, deals [Damage Rate: 250%] Physical Damage to enemies within 6m, Stuns them for 1s and reduces their damage dealt by 20% for 6s",
       "triggerInterval": "30s",
@@ -4950,10 +3904,7 @@
       "id": "scale-armor",
       "name": "Scale Armor",
       "type": "passive",
-      "tags": [
-        "shield",
-        "hard control"
-      ],
+      "tags": ["shield", "hard control"],
       "cooldown": "30s",
       "description": "When affected by hard control effects (Stun, Fear, Freeze, Knockup, Petrify): Gains a [Target-based Max HP 25%] shield for 6s",
       "triggerInterval": "30s",
@@ -4963,11 +3914,7 @@
       "id": "flame-star",
       "name": "Flame Star",
       "type": "passive",
-      "tags": [
-        "damage",
-        "debuff",
-        "magic"
-      ],
+      "tags": ["damage", "debuff", "magic"],
       "cooldown": "30s",
       "description": "When dealing direct Basic Attack Damage, creates a Flame Star around the caster, lasting 6s. Reduces enemies' Magic Resistance by 135 within 7m, and deals [Damage Rate: 50%] Magic Damage every second",
       "triggerInterval": "30s",
@@ -4977,10 +3924,7 @@
       "id": "iron-wall",
       "name": "Iron Wall",
       "type": "passive",
-      "tags": [
-        "buff",
-        "damage resistance"
-      ],
+      "tags": ["buff", "damage resistance"],
       "cooldown": "60s",
       "description": "When taking damage at below 30% HP, increases Damage Resistance by 50% for 6s",
       "triggerInterval": "60s",
@@ -4990,11 +3934,7 @@
       "id": "forward-guard",
       "name": "Forward Guard",
       "type": "passive",
-      "tags": [
-        "buff",
-        "cleanse",
-        "immunity"
-      ],
+      "tags": ["buff", "cleanse", "immunity"],
       "cooldown": "30s",
       "description": "When affected by Immobilize or Forced Movement (Knockback, Pull): Immediately removes all Immobilize, Slow and Forced Movement effects, and increases Damage Resistance by 25%, grants immunity to Slow, Immobilize, and Forced Movement for 8s",
       "triggerInterval": "30s",
@@ -5004,11 +3944,7 @@
       "id": "sandstorm",
       "name": "Sandstorm",
       "type": "passive",
-      "tags": [
-        "slow",
-        "disarm",
-        "area"
-      ],
+      "tags": ["slow", "disarm", "area"],
       "cooldown": "30s",
       "description": "When dealing direct Basic Attack Damage, creates a sandstorm around the caster, lasting 6s. Enemies within 6m are slowed by 40% and disarmed",
       "triggerInterval": "30s",
@@ -5016,3 +3952,6 @@
     }
   ]
 }
+
+
+
