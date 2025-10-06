@@ -1593,7 +1593,7 @@
       "mpCost": 23,
       "cooldown": "19s",
       "range": "14m",
-      "description": "Inflicts natural toxins on the target, dealing [Damage Rate: 80%] Magic Damage every second while reducing Attack Speed by 30% and Movement Speed by 30% for 4s. The toxin's duration is refreshed whenever the target takes damage from the caster's Weapon Skills.",
+      "description": "Inflicts natural toxins on the target, dealing [Damage Rate: 80%] Magic Damage every second while reducing Attack Speed by 30% and Movement Speed by 30% for 4s. The toxin's duration is refreshed whenever the target takes damage from the caster's Weapon Skills",
       "icon": "./assets/icons/skill-toxin-injection.png"
     },
     {
@@ -1604,7 +1604,7 @@
       "mpCost": 23,
       "cooldown": "19s",
       "range": "16m",
-      "description": "Launches Entangling Root Beetles toward the target. Upon hitting an enemy, they bounce to other enemies within 7 meters up to 9 times, with a maximum of 3 hits on the same target. Each hit deals [Damage Rate: 120%] Magic Damage, inflicts Stun for 1s; and reduces damage dealt by 20% for 9s.",
+      "description": "Launches Entangling Root Beetles toward the target. Upon hitting an enemy, they bounce to other enemies within 7 meters up to 9 times, with a maximum of 3 hits on the same target Each hit deals [Damage Rate: 120%] Magic Damage, inflicts Stun for 1s; and reduces damage dealt by 20% for 9s",
       "icon": "./assets/icons/skill-entangling-growth.png"
     },
     {
@@ -1626,7 +1626,7 @@
       "mpCost": 25,
       "cooldown": "24s",
       "range": "12m",
-      "description": "Creates a Rain of Serenity at the target location for 8s. Allies in the rain gain 25% Damage Resistance and recover [Healing Rate: 30%] HP every second, while enemies take [Damage Rate: 50%] Magic Damage every second.",
+      "description": "Creates a Rain of Serenity at the target location for 8s. Allies in the rain gain 25% Damage Resistance and recover [Healing Rate: 30%] HP every second, while enemies take [Damage Rate: 50%] Magic Damage every second",
       "icon": "./assets/icons/skill-rain-of-serenity.png"
     },
     {
@@ -1637,7 +1637,7 @@
       "mpCost": 23,
       "cooldown": "19s",
       "range": "8m",
-      "description": "Grants Thorn Barrier to up to 5 nearby allies. Thorn Barrier increases Damage Resistance by 20%, Attack Speed by 25%, and Casting Speed by 40% for 6s. When taking direct damage, recovers [Healing Rate: 66%] HP up to 6 times; also Slows the attacker by 25% for 3s.",
+      "description": "Grants Thorn Barrier to up to 5 nearby allies Thorn Barrier increases Damage Resistance by 20%, Attack Speed by 25%, and Casting Speed by 40% for 6s When taking direct damage, recovers [Healing Rate: 66%] HP up to 6 times; also Slows the attacker by 25% for 3s",
       "icon": "./assets/icons/skill-thorn-barrier.png"
     },
     {
