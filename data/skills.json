@@ -28,17 +28,6 @@
       "icon": "./assets/icons/passive-fortress.png"
     },
     {
-      "id": "meteor-storm",
-      "name": "Meteor Storm",
-      "type": "active",
-      "tags": ["magic damage", "aoe", "dot"],
-      "mpCost": 35,
-      "cooldown": "25s",
-      "range": "12m",
-      "description": "Calls down meteors in target area. Deals X[Damage Rate: 120%] Magic Damage to enemies in 6m radius. Applies Burn for 5s.",
-      "icon": "./assets/icons/skill-meteor-storm.png"
-    },
-    {
       "id": "elemental-mastery",
       "name": "Elemental Mastery",
       "type": "passive",
