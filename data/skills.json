@@ -1667,7 +1667,7 @@
       "name": "Bleed",
       "type": "passive",
       "tags": ["passive", "physical damage", "dot", "debuff"],
-      "description": "Dealing damage inflicts [Bleed], dealing [Damage Rate: 30%] Physical Damage every second for 8s, stacking up to 6 times (stacks do not boost damage). At max stacks, triggers Hemorrhage, dealing [Damage Rate: 100%] Physical Damage + True Damage equal to 4% of the target's current HP and removes all [Bleed] stacks. Basic Attack Damage Bonuses affect the base damage and basic attack critical hits can cause the damage to crit",
+      "description": "Dealing damage inflicts [Bleed], dealing [Damage Rate: 30%] Physical Damage every second for 8s, stacking up to 6 times (stacks do not boost damage) At max stacks, triggers Hemorrhage, dealing [Damage Rate: 100%] Physical Damage + True Damage equal to 4% of the target's current HP and removes all [Bleed] stacks Basic Attack Damage Bonuses affect the base damage and basic attack critical hits can cause the damage to crit",
       "icon": "./assets/icons/passive-bleed.png"
     },
     {
@@ -1679,7 +1679,7 @@
       "cooldown": "0.96s",
       "castingTime": "Instant",
       "range": "7m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed]. Can cast [Bleeding Thrust] every 6s. Dashes toward an enemy, dealing [Damage Rate: 160%] Physical Damage and inflicting 2 stacks of [Bleed]",
+      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed] Can cast [Bleeding Thrust] every 6s Dashes toward an enemy, dealing [Damage Rate: 160%] Physical Damage and inflicting 2 stacks of [Bleed]",
       "icon": "./assets/icons/skill-bleeding-thrust.png"
     },
     {
@@ -1691,7 +1691,7 @@
       "cooldown": "0.96s",
       "castingTime": "Instant",
       "range": "12m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed]. Can cast [Ricochet] every 6s. Throws a blade at the target that deals [Damage Rate: 120%] Physical Damage, inflicts 1 stack of [Bleed] and reduces their Movement Speed by 40% for 2s. After which it bounces to 1 enemy behind up to 4 times",
+      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed] Can cast [Ricochet] every 6s Throws a blade at the target that deals [Damage Rate: 120%] Physical Damage, inflicts 1 stack of [Bleed] and reduces their Movement Speed by 40% for 2s. After which it bounces to 1 enemy behind up to 4 times",
       "icon": "./assets/icons/skill-ricocheting-blades.png"
     },
     {
@@ -1703,7 +1703,7 @@
       "cooldown": "0.96s",
       "castingTime": "Instant",
       "range": "3.5m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed]. Can cast [Armor Breaker] every 5s. Deals [Damage Rate: 200%] Physical Damage to nearby enemies, inflicting 1 stack of [Bleed], and reducing their Armor by 32 for 4s",
+      "description": "[Basic Attack]: Deals [Damage Rate: 85%] Physical Damage and applies 1 stack of [Bleed] Can cast [Armor Breaker] every 5s Deals [Damage Rate: 200%] Physical Damage to nearby enemies, inflicting 1 stack of [Bleed], and reducing their Armor by 32 for 4s",
       "icon": "./assets/icons/skill-armor-breaker.png"
     },
     {
@@ -1715,7 +1715,7 @@
       "cooldown": "8.8s",
       "castingTime": "Instant",
       "range": "12m",
-      "description": "Throws 3 blades forward. Each blade deals [Damage Rate: 80%] Physical Damage to all enemies hit. Upon reaching max range, the blades return, dealing [Damage Rate: 80%] Physical Damage to those hit and inflicting 1 stack of [Bleed]. Additional blade hits on the same enemy beyond the first deal damage equal to 30% of the original damage",
+      "description": "Throws 3 blades forward Each blade deals [Damage Rate: 80%] Physical Damage to all enemies hit Upon reaching max range, the blades return, dealing [Damage Rate: 80%] Physical Damage to those hit and inflicting 1 stack of [Bleed] Additional blade hits on the same enemy beyond the first deal damage equal to 30% of the original damage",
       "icon": "./assets/icons/skill-whirling-blades.png"
     },
     {
@@ -1727,7 +1727,7 @@
       "cooldown": "14s",
       "castingTime": "Instant",
       "range": "13m",
-      "description": "Dashes 3m backward while firing a Phase Blade forward that deals [Damage Rate: 100%] Physical Damage to the first enemy hit, inflicting 1 stack of [Bleed] and Stunning for 0.75s, while also marking them for 5s. Recast the skill within 15m while a mark exists to instantly appear behind the target, dealing [Damage Rate: 160%] Physical Damage and gaining +30% Attack Speed for 5s",
+      "description": "Dashes 3m backward while firing a Phase Blade forward that deals [Damage Rate: 100%] Physical Damage to the first enemy hit, inflicting 1 stack of [Bleed] and Stunning for 0.75s, while also marking them for 5s Recast the skill within 15m while a mark exists to instantly appear behind the target, dealing [Damage Rate: 160%] Physical Damage and gaining +30% Attack Speed for 5s",
       "icon": "./assets/icons/skill-phase-blade.png"
     },
     {
@@ -1739,7 +1739,7 @@
       "cooldown": "12s",
       "castingTime": "Instant",
       "range": "4m",
-      "description": "Strike an enemy 2 times, dealing [Damage Rate: 180%] Physical Damage, applying 1 stack of [Bleed] and Disarming them for 4s. Increases Basic Attack Damage by 25% for 5s",
+      "description": "Strike an enemy 2 times, dealing [Damage Rate: 180%] Physical Damage, applying 1 stack of [Bleed] and Disarming them for 4s Increases Basic Attack Damage by 25% for 5s",
       "icon": "./assets/icons/skill-crippling-strike-dagger.png"
     },
     {
@@ -1751,7 +1751,7 @@
       "cooldown": "15s",
       "castingTime": "Instant",
       "range": "8m",
-      "description": "Throws a smoke grenade to create a smoke screen for 6s. Enemies inside are Slowed by 40% and have a 55% chance to miss Basic Attacks. Also deals [Damage Rate: 25%] Physical Damage every second",
+      "description": "Throws a smoke grenade to create a smoke screen for 6s Enemies inside are Slowed by 40% and have a 55% chance to miss Basic Attacks. Also deals [Damage Rate: 25%] Physical Damage every second",
       "icon": "./assets/icons/skill-smoke-grenade.png"
     },
     {
@@ -1763,7 +1763,7 @@
       "cooldown": "23s",
       "castingTime": "Instant",
       "range": "6m",
-      "description": "Instantly removes control effects and enters Stealth. While in Stealth, gains immunity to movement-limiting effects (Slow, Immobilize) for 2s. Also increases damage by 7% for 6s, stacking up to 2 times. Can be recast once within 6s, but doing so will not remove control effects again. Using a skill, dealing or taking damage, or direct healing breaks Stealth",
+      "description": "Instantly removes control effects and enters Stealth. While in Stealth, gains immunity to movement-limiting effects (Slow, Immobilize) for 2s. Also increases damage by 7% for 6s, stacking up to 2 times Can be recast once within 6s, but doing so will not remove control effects again Using a skill, dealing or taking damage, or direct healing breaks Stealth",
       "icon": "./assets/icons/skill-shadow-move.png"
     },
     {
@@ -1775,7 +1775,7 @@
       "cooldown": "1.5s",
       "castingTime": "Instant",
       "range": "11m",
-      "description": "Leaps to the target and strikes, dealing [Damage Rate: 220%] Physical Damage and applying 2 stacks of [Bleed]. Recovers [Healing Rate: 132%] HP. Gains 1 charge every 20s, up to 2 charges",
+      "description": "Leaps to the target and strikes, dealing [Damage Rate: 220%] Physical Damage and applying 2 stacks of [Bleed] Recovers [Healing Rate: 132%] HP Gains 1 charge every 20s, up to 2 charges",
       "icon": "./assets/icons/skill-rend-and-reap.png"
     },
     {
