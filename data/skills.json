@@ -1855,7 +1855,7 @@
       "name": "Spear Scar",
       "type": "passive",
       "tags": ["passive", "attack speed", "buff", "shield"],
-      "description": "Using a weapon skill grants [Spear Scar]: The next 3 Basic Attacks gain +60% Attack Speed, +2.5m range, and +30% Basic Attack Lifesteal. This effect lasts 6s. Also has a 45% chance to grant [Target-based Max HP 15%] Shield for 2s",
+      "description": "Using a weapon skill grants [Spear Scar]: The next 3 Basic Attacks gain +60% Attack Speed, +2.5m range, and +30% Basic Attack Lifesteal. This effect lasts 6s Also has a 45% chance to grant [Target-based Max HP 15%] Shield for 2s",
       "icon": "./assets/icons/passive-spear-scar.png"
     },
     {
@@ -1863,7 +1863,7 @@
       "name": "Leap Strike",
       "type": "basic-attack",
       "tags": ["physical damage", "buff", "attack speed", "mobility"],
-      "description": "Deals [Damage Rate: 100%] Physical Damage to the target. Can cast [Leap Strike] every 5s, charging toward the enemy, dealing [Damage Rate: 170%] Physical Damage and increasing Attack Speed by 20% for 4s.",
+      "description": "[Basic Attack]: Deals [Damage Rate: 100%] Physical Damage to the target Can cast [Leap Strike] every 5s Charging toward the enemy, dealing [Damage Rate: 170%] Physical Damage and increasing Attack Speed by 20% for 4s",
       "icon": "./assets/icons/skill-leap-strike.png"
     },
     {
@@ -1871,7 +1871,7 @@
       "name": "Piercing Spear",
       "type": "basic-attack",
       "tags": ["physical damage", "buff", "mobility"],
-      "description": "Deals [Damage Rate: 80%] Physical Damage to the target. Performs a piercing spear throw toward the target after 5 Basic Attacks, dealing [Damage Rate: 180%] Physical Damage to enemies along the path and increases own Movement Speed by 20% for 2s.",
+      "description": "[Basic Attack]: Deals [Damage Rate: 80%] Physical Damage to the target Performs a piercing spear throw toward the target after 5 Basic Attacks Deals [Damage Rate: 180%] Physical Damage to enemies along the path and increases own Movement Speed by 20% for 2s",
       "icon": "./assets/icons/skill-piercing-spear.png"
     },
     {
@@ -1879,7 +1879,7 @@
       "name": "Sweeping Strike",
       "type": "basic-attack",
       "tags": ["physical damage", "buff", "aoe", "resistance"],
-      "description": "Deals [Damage Rate: 100%] Physical Damage to the target. Can cast [Sweeping Strike] every 5s, dealing [Damage Rate: 240%] Physical Damage to enemies in range, each enemy hit increasing Damage Resistance by 6% for 4s. Stacks up to 5 times.",
+      "description": "[Basic Attack]: Deals [Damage Rate: 100%] Physical Damage to the target Can cast [Sweeping Strike] every 5s Deals [Damage Rate: 240%] Physical Damage to enemies in range, each enemy hit increasing Damage Resistance by 6% for 4s. Stacks up to 5 times",
       "icon": "./assets/icons/skill-sweeping-strike.png"
     },
     {
@@ -1903,7 +1903,7 @@
       "cooldown": "1.5s",
       "castingTime": "Instant",
       "range": "12m",
-      "description": "Throws a Lance Impale at the target location, dealing [Damage Rate: 160%] Physical Damage to enemies in range and slowing them by 25% for 3s. The lance remains at the target location for 6s. Moving to the lance's position retrieves it, granting +20% Movement Speed and +20% Attack Speed for 4s. Gains 1 charge every 12s, up to 2 charges.",
+      "description": "Throws a Lance Impale at the target location, dealing [Damage Rate: 160%] Physical Damage to enemies in range and slowing them by 25% for 3s. The lance remains at the target location for 6s. Moving to the lance's position retrieves it, granting +20% Movement Speed and +20% Attack Speed for 4s Gains 1 charge every 12s, up to 2 charges",
       "icon": "./assets/icons/skill-lance-impale.png"
     },
     {
@@ -1915,7 +1915,7 @@
       "cooldown": "14s",
       "castingTime": "4s",
       "range": "4m",
-      "description": "Channels for 4s, gaining Control Immunity and +60% Damage Resistance. While channeling, reflects 80% Physical Damage back to attackers when taking damage. Deals [Damage Rate: 40%] Physical Damage to nearby enemies every 0.5s. Recast again while channeling to charge forward, dealing [Damage Rate: 150%] Physical Damage to enemies hit and reducing their Armor by 64 for 4s",
+      "description": "Channels for 4s, gaining Control Immunity and +60% Damage Resistance. While channeling, reflects 80% Physical Damage back to attackers when taking damage. Deals [Damage Rate: 40%] Physical Damage to nearby enemies every 0.5s Recast again while channeling to charge forward, dealing [Damage Rate: 150%] Physical Damage to enemies hit and reducing their Armor by 64 for 4s",
       "icon": "./assets/icons/skill-warding-flourish.png"
     },
     {
@@ -1927,7 +1927,7 @@
       "cooldown": "14s",
       "castingTime": "Instant",
       "range": "10m",
-      "description": "Deals [Damage Rate: 150%] Physical Damage to enemies in front and inflicts Knockup for 1s. Can be recast within 6s to slam down, dealing [Damage Rate: 150%] Physical Damage to enemies in range and reducing their Movement Speed by 45% for 3s.",
+      "description": "Deals [Damage Rate: 150%] Physical Damage to enemies in front and inflicts Knockup for 1s Can be recast within 6s to slam down, dealing [Damage Rate: 150%] Physical Damage to enemies in range and reducing their Movement Speed by 45% for 3s",
       "icon": "./assets/icons/skill-skyward-lance.png"
     },
     {
@@ -1939,7 +1939,7 @@
       "cooldown": "14s",
       "castingTime": "Instant",
       "range": "6m",
-      "description": "Instantly removes Control effects, deals [Damage Rate: 280%] Physical Damage to enemies in front, and leaps back 8m. Increases Movement Speed by 30% for 4s. Can be used while skills are disabled.",
+      "description": "Instantly removes Control effects, deals [Damage Rate: 280%] Physical Damage to enemies in front, and leaps back 8m. Increases Movement Speed by 30% for 4s. Can be used while skills are disabled",
       "icon": "./assets/icons/skill-lance-recall.png"
     },
     {
