@@ -174,7 +174,7 @@
       "icon": "./assets/icons/passive-healing-guardian.png"
     },
     {
-      "id": "tempest-slash",
+      "id": "tempest-slash-blade",
       "name": "Tempest Slash",
       "type": "active",
       "tags": ["physical damage", "aoe", "immunity", "crit"],
