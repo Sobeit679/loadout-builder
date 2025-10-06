@@ -1431,7 +1431,7 @@
       "mpCost": 20,
       "cooldown": "1.5s",
       "range": "18m",
-      "description": "Launches 3 Core Flare orbs at the target location. Each nova deals [Damage Rate: 180%] Magic Damage to enemies along the way. Inflicts 1 stack of [Burn] and 1 stack of [Scorch]. Additional nova hits on the same target deal damage equal to 30% of the original damage. Gains 1 charge every 15s, up to 3 charges.",
+      "description": "Launches 3 Core Flare orbs at the target location. Each nova deals [Damage Rate: 180%] Magic Damage to enemies along the way and inflicts 1 stack of [Burn] and 1 stack of [Scorch]. Additional nova hits on the same target deal damage equal to 30% of the original damage Gains 1 charge every 15s, up to 3 charges [Scorch]: Reduces healing received by 5% for 4s. Stacks up to 3 times",
       "icon": "./assets/icons/skill-core-flare.png"
     },
     {
@@ -1443,7 +1443,7 @@
       "cooldown": "21s",
       "castingTime": "0.96s",
       "range": "17m",
-      "description": "Launches three scorching surges at the target location. After 1s, the flames erupt, each dealing [Damage Rate: 240%] Magic Damage and inflicting 1 stack of [Burn] and Knockup for 1s to enemies in range. Damage reduces to 50% for enemies that take damage from more than one scorching surge",
+      "description": "Launches three scorching surges at the target location After 1s, the flames erupt, each dealing [Damage Rate: 240%] Magic Damage and inflicting 1 stack of [Burn] and Knockup for 1s to enemies in range Damage reduces to 50% for enemies that take damage from more than one scorching surge",
       "icon": "./assets/icons/skill-scorching-surge.png"
     },
     {
@@ -1454,7 +1454,7 @@
       "mpCost": 22,
       "cooldown": "1.5s",
       "range": "10m",
-      "description": "Fires a Molten Blast in target direction that explodes on impact with the first target, dealing [Damage Rate: 150%] Magic Damage and inflicting 1 stack of [Burn]. Can be charged. At 2s charge time, the Molten Blast becomes empowered, dealing [Damage Rate: 300%] Magic Damage, inflicting 2 stacks of [Burn], and applying Knockback to enemies within the explosion range by 8m. Gains 1 charge every 18s, up to 2 charges",
+      "description": "Fires a Molten Blast in target direction that explodes on impact with the first target, dealing [Damage Rate: 150%] Magic Damage and inflicting 1 stack of [Burn] Can be charged. At 2s charge time, the Molten Blast becomes empowered, dealing [Damage Rate: 300%] Magic Damage, inflicting 2 stacks of [Burn], and applying Knockback to enemies within the explosion range by 8m Gains 1 charge every 18s, up to 2 charges",
       "icon": "./assets/icons/skill-molten-blast.png"
     },
     {
@@ -1465,7 +1465,7 @@
       "mpCost": 17,
       "cooldown": "9.7s",
       "range": "23m",
-      "description": "Enter Molten Volley Mode for 20s. Cannot move while active but can cancel manually. Basic Attack replaced: Fires magma at the target location that rolls forward after impact, dealing [Damage Rate: 165%] Magic Damage to enemies along the way and inflicting 1 stack of [Burn]. Damage increases by 8% after each enemy hit, up to 40%",
+      "description": "Enter Molten Volley Mode for 20s. Cannot move while active but can cancel manually Basic Attack replaced: Fires magma at the target location that rolls forward after impact, dealing [Damage Rate: 165%] Magic Damage to enemies along the way and inflicting 1 stack of [Burn]. Damage increases by 8% after each enemy hit, up to 40%",
       "icon": "./assets/icons/skill-molten-volley.png"
     },
     {
@@ -1477,7 +1477,7 @@
       "cooldown": "24s",
       "castingTime": "0.96s",
       "range": "20m",
-      "description": "Channels a starforge beam for 4s. Deals [Damage Rate: 85%] Magic Damage to enemies in range every 0.5s, inflicting 1 stack of [Burn] and [Scorch]. Each hit increases damage by 10%, up to 50%. Cannot be interrupted during channeling and grants a [Target-based Max HP 25%] shield. [Scorch]: Reduces healing received by 5% for 4s. Stacks up to 3 times",
+      "description": "Channels a starforge beam for 4s. Deals [Damage Rate: 85%] Magic Damage to enemies in range every 0.5s, inflicting 1 stack of [Burn] and [Scorch] Each hit increases damage by 10%, up to 50% Cannot be interrupted during channeling and grants a [Target-based Max HP 25%] shield [Scorch]: Reduces healing received by 5% for 4s. Stacks up to 3 times",
       "icon": "./assets/icons/skill-starforge-beam.png"
     },
     {
