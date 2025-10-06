@@ -2433,9 +2433,9 @@
       "tags": ["physical damage", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.1s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "5m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies. Can cast [Swing] every 4s Deals [Damage Rate: 240%] Physical Damage to all players ([Damage Rate: 480%] Physical Damage to mobs) in a frontal cone",
+      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies Can cast [Swing] every 4s Deals [Damage Rate: 240%] Physical Damage to all players ([Damage Rate: 480%] Physical Damage to mobs) in a frontal cone",
       "icon": "./assets/icons/skill-swing.png"
     },
     {
@@ -2445,9 +2445,9 @@
       "tags": ["physical damage", "healing", "buff", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.1s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "3.5m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies. Can cast [Smash] every 7s Deals [Damage Rate: 150%] Physical Damage to enemies in range and restores [Healing Rate: 90%] HP to nearby allies. Increases Damage Resistance by 15% for 6s",
+      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies Can cast [Smash] every 7s Deals [Damage Rate: 150%] Physical Damage to enemies in range and restores [Healing Rate: 90%] HP to nearby allies Increases Damage Resistance by 15% for 6s",
       "icon": "./assets/icons/skill-smash.png"
     },
     {
@@ -2457,9 +2457,9 @@
       "tags": ["physical damage", "slow", "basic attack"],
       "mpCost": 0,
       "cooldown": "1.1s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "7m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies. Can cast [Crushing Smash] every 6s Charges toward target, dealing [Damage Rate: 160%] Physical Damage to enemies in range and inflicting Slow 35% for 3s",
+      "description": "[Basic Attack]: Deals [Damage Rate: 120%] Physical Damage to enemies Can cast [Crushing Smash] every 6s Charges toward target, dealing [Damage Rate: 160%] Physical Damage to enemies in range and inflicting Slow 35% for 3s",
       "icon": "./assets/icons/skill-crushing-smash.png"
     },
     {
@@ -2469,9 +2469,9 @@
       "tags": ["physical damage", "hard control", "skill"],
       "mpCost": 15,
       "cooldown": "8.8s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "3m",
-      "description": "Smashes the ground 4 times. The first three hits deal [Damage Rate: 120%] Physical Damage to players ([Damage Rate: 180%] Physical Damage to mobs). The final hit deals [Damage Rate: 200%] Physical Damage to players ([Damage Rate: 300%] Physical Damage to mobs) and Knocks Up for 0.5s",
+      "description": "Smashes the ground 4 times The first three hits deal [Damage Rate: 120%] Physical Damage to players ([Damage Rate: 180%] Physical Damage to mobs) The final hit deals [Damage Rate: 200%] Physical Damage to players ([Damage Rate: 300%] Physical Damage to mobs) and Knocks Up for 0.5s",
       "icon": "./assets/icons/skill-frenzied-smash.png"
     },
     {
@@ -2481,7 +2481,7 @@
       "tags": ["physical damage", "immobilize", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "10m",
       "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting Immobilize for 2.5s to enemies in the area",
       "icon": "./assets/icons/skill-binding-smash.png"
@@ -2493,9 +2493,9 @@
       "tags": ["buff", "skill"],
       "mpCost": 17,
       "cooldown": "9.7s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "12m",
-      "description": "Creates a Guardian Field at the target location that increases allies' Max HP by 25% and grants Immunity to Forced Movement (Pull, Knockback) and Hard Control (Stun, Fear, Freeze, Knockup, Petrify, Sleep). Lasts 5s",
+      "description": "Creates a Guardian Field at the target location that increases allies' Max HP by 25% and grants Immunity to Forced Movement (Pull, Knockback) and Hard Control (Stun, Fear, Freeze, Knockup, Petrify, Sleep) Lasts 5s",
       "icon": "./assets/icons/skill-guardian-field.png"
     },
     {
@@ -2505,9 +2505,9 @@
       "tags": ["magic damage", "silence", "skill"],
       "mpCost": 15,
       "cooldown": "8.8s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "4m",
-      "description": "Deals [Damage Rate: 200%] Magic Damage to enemies in range and creates a Field of Silence, lasting 4s. Enemies in the field are Slowed by 25% and Silenced. Once they leave the area, they become immune to the field's Silence for 6s",
+      "description": "Deals [Damage Rate: 200%] Magic Damage to enemies in range and creates a Field of Silence, lasting 4s Enemies in the field are Slowed by 25% and Silenced Once they leave the area, they become immune to the field's Silence for 6s",
       "icon": "./assets/icons/skill-field-of-silence.png"
     },
     {
@@ -2517,9 +2517,9 @@
       "tags": ["physical damage", "buff", "skill"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "9m",
-      "description": "Activates [Vengeful Thunder] on self or an ally. [Vengeful Thunder]: Increases own Damage Resistance by 25% for 8s. While active, when taking damage or dealing direct damage with Basic Attack, calls down lightning at the target location, dealing [Damage Rate: 51%] Physical Damage to enemies in range (Internal Cooldown: 0.8s)",
+      "description": "Activates [Vengeful Thunder] on self or an ally [Vengeful Thunder]: Increases own Damage Resistance by 25% for 8s While active, when taking damage or dealing direct damage with Basic Attack, calls down lightning at the target location, dealing [Damage Rate: 51%] Physical Damage to enemies in range (Internal Cooldown: 0.8s)",
       "icon": "./assets/icons/skill-vengeful-thunder.png"
     },
     {
@@ -2529,9 +2529,9 @@
       "tags": ["physical damage", "shield", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "10m",
-      "description": "Leaps to the target location, dealing [Damage Rate: 250%] Physical Damage to all players ([Damage Rate: 375%] Physical Damage to mobs) in range. Grants [Target-based Max HP 6%] Shield for each enemy hit, lasting 6s. Stacks up to 5 times.",
+      "description": "Leaps to the target location, dealing [Damage Rate: 250%] Physical Damage to all players ([Damage Rate: 375%] Physical Damage to mobs) in range Grants [Target-based Max HP 6%] Shield for each enemy hit, lasting 6s Stacks up to 5 times",
       "icon": "./assets/icons/skill-unyielding-smash.png"
     },
     {
