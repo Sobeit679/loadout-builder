@@ -908,9 +908,8 @@
       "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 27,
       "cooldown": "29s",
-      "castingTime": "3s",
       "range": "16m",
-      "description": "Plants a Bloom of Malice seed before channeling energy to it for 3s. The seed grows gradually until blooming (press skill again to bloom early). When blooming, deals 360% Magic Damage to nearby enemies, inflicts random amounts of [Plague] stacks lasting 12s, and reduces Max HP by 2.5% (stacks up to 10 times). Effects increase with growth time ([Plague] stacks 1\u20132 \u2192 3\u201310 / Max HP reduction stacks 1 \u2192 10).",
+      "description": "Plants a Bloom of Malice seed before channeling energy to it for 3s. The seed grows gradually until blooming (press skill again to bloom early). When blooming, deals [Damage Rate: 360%] Magic Damage to nearby enemies, inflicts random amounts of [Plague] stacks lasting 12s, and reduces Max HP by 2.5% (stacks up to 10 times) Effects increase with growth time ([Plague] stacks 1\u20132 \u2192 3\u201310 / Max HP reduction stacks 1 \u2192 10).",
       "icon": "./assets/icons/skill-bloom-of-malice.png"
     },
     {
@@ -920,9 +919,8 @@
       "tags": ["magic damage", "aoe", "dot"],
       "mpCost": 28,
       "cooldown": "34s",
-      "castingTime": "instant",
       "range": "16m",
-      "description": "Deploys a Necrotic Eruption device at the target location. Every 2 seconds, it generates Death Clouds at random locations within the device's area (the device's range gradually expands), creating a total of 5 Death Clouds. Each Death Cloud lasts for 10s. Death Clouds deal 40% Magic Damage to enemies in range every second, inflicting [Plague], and reducing Healing Effect by 5% for 12s, stacking up to 5 times.",
+      "description": "Deploys a Necrotic Eruption device at the target location. Every 2 seconds, it generates Death Clouds at random locations within the device's area (the device's range gradually expands), creating a total of 5 Death Clouds. Each Death Cloud lasts for 10s. Death Clouds deal [Damage Rate: 40%] Magic Damage to enemies in range every second, inflicting [Plague], and reducing Healing Effect by 5% for 12s, stacking up to 5 times",
       "icon": "./assets/icons/skill-necrotic-eruption.png"
     },
     {
@@ -940,9 +938,8 @@
       "tags": ["magic damage", "shield", "heal"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "instant",
       "range": "16m",
-      "description": "Grants a shield of 25% of target's Max HP to the caster or an ally for 4s. When the shield breaks, deals 250% Magic Damage to nearby enemies.",
+      "description": "Grants a shield of [Target-based Max HP 25%] to the caster or an ally for 4s When the shield breaks, deals [Damage Rate: 250%] Magic Damage to nearby enemies",
       "icon": "./assets/icons/skill-aegisflare.png"
     },
     {
@@ -954,7 +951,7 @@
       "cooldown": "0.48s",
       "castingTime": "0.48s",
       "range": "16m",
-      "description": "Deals 90% Magic Damage. Can cast every 5s. Deals 150% Magic Damage to the target and heals 90% HP for up to 3 allies within 16m who have the lowest HP.",
+      "description": "[Normal Skill]: Deals [Damage Rate: 90%] Magic Damage Can cast [Holy Feather] every 5s Deals [Damage Rate: 150%] Magic Damage to the target and heals [Healing Rate: 90%] HP for up to 3 allies within 16m who have the lowest HP",
       "icon": "./assets/icons/skill-holy-feather.png"
     },
     {
@@ -966,7 +963,7 @@
       "cooldown": "0.48s",
       "castingTime": "1.1s",
       "range": "12m",
-      "description": "Calls down holy smite at the target location, dealing 80% Magic Damage to all players (160% Magic Damage to mobs). Heals the caster for 57% HP if hitting at least one enemy.",
+      "description": "Calls down holy smite at the target location, dealing [Damage Rate: 80%] Magic Damage to all players ([Damage Rate: 160%] Magic Damage to mobs). Heals the caster for [Healing Rate: 57%] HP if hitting at least one enemy",
       "icon": "./assets/icons/skill-holy-smite.png"
     },
     {
@@ -978,7 +975,7 @@
       "cooldown": "0.48s",
       "castingTime": "1.4s",
       "range": "14m",
-      "description": "Performs Holy Heal at the target location, restoring 108% HP to allies in range.",
+      "description": "Performs Holy Heal at the target location, restoring [Healing Rate: 108%] HP to allies in range",
       "icon": "./assets/icons/skill-holy-heal.png"
     },
     {
@@ -988,9 +985,8 @@
       "tags": ["magic damage", "heal"],
       "mpCost": 17,
       "cooldown": "9.7s",
-      "castingTime": "instant",
       "range": "18m",
-      "description": "Projects a holy wave in the target direction, dealing 200% Magic Damage to all players (300% Magic Damage to mobs) in its path. The wave automatically returns when reaching max range, healing up to 5 nearby allies for 90% HP.",
+      "description": "Projects a holy wave in the target direction, dealing [Damage Rate: 200%] Magic Damage to all players ([Damage Rate: 300%] Magic Damage to mobs) in its path. The wave automatically returns when reaching max range, healing up to 5 nearby allies for [Healing Rate: 90%] HP",
       "icon": "./assets/icons/skill-holy-wave.png"
     },
     {
@@ -1000,9 +996,8 @@
       "tags": ["magic damage", "heal"],
       "mpCost": 21,
       "cooldown": "15s",
-      "castingTime": "6s",
       "range": "10m",
-      "description": "Channels divine link on target for 6s, also granting the caster 15% of target's Max HP Shield for 4s. Can move slowly while channeling. When targeting an ally, heals them for 120% HP every second. When targeting an enemy, deals 100% Magic Damage every second.",
+      "description": "Channels divine link on target for 6s, also granting the caster [Target-based Max HP 15%] Shield for 4s. Can move slowly while channeling When targeting an ally, heals them for [Healing Rate: 120%] HP every second When targeting an enemy, deals [Damage Rate: 100%] Magic Damage every second",
       "icon": "./assets/icons/skill-divine-link.png"
     },
     {
@@ -1012,9 +1007,8 @@
       "tags": ["magic damage", "heal"],
       "mpCost": 20,
       "cooldown": "13s",
-      "castingTime": "instant",
       "range": "14m",
-      "description": "Projects holy energy at the target location. On impact, restores 90% HP and grants a 20% of target's Max HP shield for 4s to allies in range.",
+      "description": "Projects holy energy at the target location. On impact, restores [Healing Rate: 90%] HP and grants a [Target-based Max HP 20%] shield for 4s to allies in range",
       "icon": "./assets/icons/skill-holy-energy.png"
     },
     {
@@ -1024,9 +1018,8 @@
       "tags": ["magic damage", "shield", "stun", "CC"],
       "mpCost": 21,
       "cooldown": "15s",
-      "castingTime": "instant",
       "range": "3m",
-      "description": "Creates multiple holy walls in front. Enemies who touch them take 150% Magic Damage and are stunned for 1.5s, while the caster gains a 15% of target's Max HP shield for 6s.",
+      "description": "Creates multiple holy walls in front. Enemies who touch them take [Damage Rate: 150%] Magic Damage and are stunned for 1.5s, while the caster gains a [Target-based Max HP 15%] shield for 6s",
       "icon": "./assets/icons/skill-holy-wall.png"
     },
     {
@@ -1036,9 +1029,8 @@
       "tags": ["heal", "buff"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "instant",
       "range": "14m",
-      "description": "Cleanses all Slow and Immobilize effects and 2 Debuff effects from the caster and up to 20 nearby allies and restores 120% HP. Also prevents the next 3 Immobilize and Immune to Slow effects within 4s.",
+      "description": "Cleanses all Slow and Immobilize effects and 2 Debuff effects from the caster and up to 20 nearby allies and restores [Healing Rate: 120%] HP. Also prevents the next 3 Immobilize and Immune to Slow effects within 4s",
       "icon": "./assets/icons/skill-holy-baptism.png"
     },
     {
