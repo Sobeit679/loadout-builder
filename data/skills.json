@@ -1063,7 +1063,7 @@
       "mpCost": 23,
       "cooldown": "19s",
       "range": "12m",
-      "description": "Launches a Holy Chain that bounces to the nearest ally within 9 meters after hitting an ally, restoring [Healing Rate: 120%] HP with each hit. It deals [Damage Rate: 100%] Magic Damage to up to 5 enemies in range, with damage reduced to 20% for subsequent explosions. The chain can bounce up to 9 times, and each target can be hit a maximum of 3 times",
+      "description": "Launches a Holy Chain that bounces to the nearest ally within 9 meters after hitting an ally, restoring [Healing Rate: 120%] HP with each hit. It deals [Damage Rate: 100%] Magic Damage to up to 5 enemies in range, with damage reduced to 20% for subsequent explosions The chain can bounce up to 9 times, and each target can be hit a maximum of 3 times",
       "icon": "./assets/icons/skill-sanctum-arc.png"
     },
     {
@@ -1728,7 +1728,7 @@
       "icon": "./assets/icons/skill-phase-blade.png"
     },
     {
-      "id": "crippling-strike",
+      "id": "crippling-strike-dagger",
       "name": "Crippling Strike",
       "type": "weapon-skill",
       "tags": ["physical damage", "bleed", "disarm", "buff", "attack speed"],
@@ -1737,7 +1737,7 @@
       "castingTime": "Instant",
       "range": "4m",
       "description": "Strike an enemy 2 times, dealing [Damage Rate: 180%] Physical Damage, applying 1 stack of [Bleed] and Disarming them for 4s. Increases Basic Attack Damage by 25% for 5s",
-      "icon": "./assets/icons/skill-crippling-strike.png"
+      "icon": "./assets/icons/skill-crippling-strike-dagger.png"
     },
     {
       "id": "smoke-grenade",
@@ -1824,7 +1824,7 @@
       "icon": "./assets/icons/skill-blade-dance.png"
     },
     {
-      "id": "bloodeye-burst",
+      "id": "bloodeye-burst-dagger",
       "name": "Bloodeye Burst",
       "type": "core-skill",
       "tags": ["physical damage", "bleed", "debuff", "mobility", "aoe"],
@@ -1833,7 +1833,7 @@
       "castingTime": "Instant",
       "range": "10m",
       "description": "Dashes forward, dealing [Damage Rate: 150%] Physical Damage to all enemies hit, inflicting 2 stacks of [Bleed], and reducing Damage Resistance by 20% for 4s. Skill's second stage can be cast within 5s: Deals [Damage Rate: 300%] Physical Damage to enemies in a frontal cone, inflicts 3 stacks of [Bleed] while also leaping backward",
-      "icon": "./assets/icons/skill-bloodeye-burst.png"
+      "icon": "./assets/icons/skill-bloodeye-burst-dagger.png"
     },
     {
       "id": "sanguine-pounce",
@@ -2848,7 +2848,7 @@
       "icon": "./assets/icons/skill-vacuum-slash.png"
     },
     {
-      "id": "crippling-strike",
+      "id": "crippling-strike-sword",
       "name": "Crippling Strike",
       "type": "active",
       "tags": ["damage", "slow", "skill"],
