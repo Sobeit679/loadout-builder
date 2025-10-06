@@ -7,6 +7,13 @@
       "type": "helmet",
       "armorType": "Intelligence",
       "rarity": "epic",
+      "description": "A mystical hood woven from ethereal winds that amplifies magical prowess and enhances spellcasting abilities.",
+      "stats": {
+        "magicResistance": 18,
+        "intelligence": 10,
+        "manaRegen": "+3/s",
+        "castingSpeed": "+15%"
+      },
       "passiveSkill": "amplify",
       "icon": "./assets/icons/helmet-breezeweaver-hood.png"
     },
@@ -17,6 +24,13 @@
       "type": "helmet",
       "armorType": "Intelligence",
       "rarity": "epic",
+      "description": "A hood infused with crimson energy that causes devastating explosions when dealing damage to enemies.",
+      "stats": {
+        "magicResistance": 20,
+        "intelligence": 12,
+        "spellPower": "+15%",
+        "criticalChance": "+8%"
+      },
       "passiveSkill": "grievous-wounds",
       "icon": "./assets/icons/helm-crimson-breeze.png"
     },
@@ -27,6 +41,13 @@
       "type": "helmet",
       "armorType": "Intelligence",
       "rarity": "epic",
+      "description": "A hood connected to the earth's energy that creates a toxic miasma when dealing damage to enemies.",
+      "stats": {
+        "magicResistance": 18,
+        "intelligence": 10,
+        "manaRegen": "+2/s",
+        "debuffDuration": "+20%"
+      },
       "passiveSkill": "miasma",
       "icon": "./assets/icons/helm-earth-vein-hood.png"
     },
@@ -37,6 +58,13 @@
       "type": "helmet",
       "armorType": "Intelligence",
       "rarity": "epic",
+      "description": "A blessed hood that enhances healing abilities and provides protective shields to those you heal.",
+      "stats": {
+        "magicResistance": 15,
+        "intelligence": 11,
+        "healingBonus": "+25%",
+        "cooldownReduction": "+10%"
+      },
       "passiveSkill": "swift-aid",
       "icon": "./assets/icons/helm-healers-hood.png"
     },
@@ -47,6 +75,13 @@
       "type": "helmet",
       "armorType": "Intelligence",
       "rarity": "epic",
+      "description": "A hood that channels overflowing magical energy, providing mana regeneration when casting skills with low MP.",
+      "stats": {
+        "magicResistance": 16,
+        "intelligence": 13,
+        "mana": 80,
+        "manaRegen": "+4/s"
+      },
       "passiveSkill": "overflow",
       "icon": "./assets/icons/helm-mystic-surge.png"
     },
@@ -57,6 +92,13 @@
       "type": "helmet",
       "armorType": "Intelligence",
       "rarity": "legendary",
+      "description": "A legendary hood that provides a final burst of healing and cleansing when taking critical damage.",
+      "stats": {
+        "magicResistance": 25,
+        "intelligence": 15,
+        "health": 100,
+        "healingReceived": "+20%"
+      },
       "passiveSkill": "last-stand",
       "icon": "./assets/icons/helm-twilight-mantle.png"
     },
@@ -67,6 +109,13 @@
       "type": "helmet",
       "armorType": "Intelligence",
       "rarity": "legendary",
+      "description": "A sacred hood that creates a repulsion field when taking damage at low health, protecting the wearer and punishing attackers.",
+      "stats": {
+        "magicResistance": 22,
+        "intelligence": 18,
+        "health": 120,
+        "damageReduction": "+12%"
+      },
       "passiveSkill": "repulsion",
       "icon": "./assets/icons/helm-sanctum-shroud.png"
     },
@@ -77,6 +126,13 @@
       "type": "helmet",
       "armorType": "Agility",
       "rarity": "rare",
+      "description": "A lightweight mantle that provides life-saving healing when critically wounded.",
+      "stats": {
+        "agility": 6,
+        "healthRegen": "+12%",
+        "healingPower": "+15%",
+        "survivability": "+10%"
+      },
       "passiveSkill": "life-flash",
       "icon": "./assets/icons/helm-vital-mantle.png"
     },
@@ -87,6 +143,13 @@
       "type": "helmet",
       "armorType": "Agility",
       "rarity": "epic",
+      "description": "A protective shroud that enhances evasion against basic attacks.",
+      "stats": {
+        "agility": 8,
+        "evasion": "+20%",
+        "dodgeChance": "+15%",
+        "defense": "+12%"
+      },
       "passiveSkill": "dodge",
       "icon": "./assets/icons/helm-purifiers-shroud.png"
     },
@@ -97,6 +160,13 @@
       "type": "helmet",
       "armorType": "Agility",
       "rarity": "epic",
+      "description": "A shadowy helm that channels rage into enhanced combat abilities.",
+      "stats": {
+        "agility": 9,
+        "criticalChance": "+12%",
+        "attackSpeed": "+18%",
+        "damageDealt": "+10%"
+      },
       "passiveSkill": "rage",
       "icon": "./assets/icons/helm-wrathveil-shade.png"
     },
@@ -107,6 +177,13 @@
       "type": "helmet",
       "armorType": "Agility",
       "rarity": "epic",
+      "description": "A mysterious mask that allows the wearer to fade into stealth when critically wounded.",
+      "stats": {
+        "agility": 10,
+        "stealth": "+25%",
+        "movementSpeed": "+15%",
+        "evasion": "+18%"
+      },
       "passiveSkill": "fade-out",
       "icon": "./assets/icons/helm-shadeveil-mask.png"
     },
@@ -117,6 +194,13 @@
       "type": "helmet",
       "armorType": "Agility",
       "rarity": "epic",
+      "description": "A hood that channels electrical energy through basic attacks.",
+      "stats": {
+        "agility": 11,
+        "lightningDamage": "+20%",
+        "chainLightning": "+15%",
+        "criticalChance": "+8%"
+      },
       "passiveSkill": "electrified-strike",
       "icon": "./assets/icons/helm-stormcallers-hood.png"
     },
@@ -127,6 +211,13 @@
       "type": "helmet",
       "armorType": "Agility",
       "rarity": "legendary",
+      "description": "A legendary helm that grants immunity to control effects and enhanced mobility.",
+      "stats": {
+        "agility": 15,
+        "controlImmunity": "+30%",
+        "movementSpeed": "+20%",
+        "resistance": "+25%"
+      },
       "passiveSkill": "break-free",
       "icon": "./assets/icons/helm-folly-helm.png"
     },
@@ -137,6 +228,13 @@
       "type": "helmet",
       "armorType": "Agility",
       "rarity": "legendary",
+      "description": "A legendary veil that prevents death and provides powerful regeneration.",
+      "stats": {
+        "agility": 18,
+        "healthLock": "+100%",
+        "healingPower": "+25%",
+        "survivability": "+35%"
+      },
       "passiveSkill": "defiance",
       "icon": "./assets/icons/helm-ironwill-veil.png"
     },
@@ -147,6 +245,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "rare",
+      "description": "A fierce helm that channels rage into enhanced physical damage.",
+      "stats": {
+        "strength": 6,
+        "physicalDamage": "+15%",
+        "rage": "+20%",
+        "attackPower": "+12%"
+      },
       "passiveSkill": "enrage",
       "icon": "./assets/icons/helm-furors-helm.png"
     },
@@ -157,6 +262,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "epic",
+      "description": "A defensive helm that hardens when taking multiple attacks, providing block protection.",
+      "stats": {
+        "strength": 8,
+        "block": "+25%",
+        "defense": "+18%",
+        "resistance": "+15%"
+      },
       "passiveSkill": "hardened-guard",
       "icon": "./assets/icons/helm-riposte-helm.png"
     },
@@ -167,6 +279,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "epic",
+      "description": "A brutal helm that triggers devastating EMP blasts when dealing damage.",
+      "stats": {
+        "strength": 9,
+        "empPower": "+20%",
+        "stunDuration": "+15%",
+        "damageDealt": "+18%"
+      },
       "passiveSkill": "emp-blast",
       "icon": "./assets/icons/helm-savage-helm.png"
     },
@@ -177,6 +296,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "epic",
+      "description": "A scaly helm that provides protective armor when affected by control effects.",
+      "stats": {
+        "strength": 10,
+        "shieldPower": "+22%",
+        "controlResistance": "+20%",
+        "protection": "+18%"
+      },
       "passiveSkill": "scale-armor",
       "icon": "./assets/icons/helm-reptilian-helm.png"
     },
@@ -187,6 +313,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "epic",
+      "description": "A fiery helm that creates flame stars and reduces enemy magic resistance.",
+      "stats": {
+        "strength": 11,
+        "flamePower": "+25%",
+        "magicPenetration": "+20%",
+        "burnDamage": "+18%"
+      },
       "passiveSkill": "flame-star",
       "icon": "./assets/icons/helm-hellfire-visor.png"
     },
@@ -197,6 +330,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "epic",
+      "description": "A heavily armored helm that provides massive damage resistance when critically wounded.",
+      "stats": {
+        "strength": 12,
+        "damageResistance": "+30%",
+        "armor": "+25%",
+        "survivability": "+22%"
+      },
       "passiveSkill": "iron-wall",
       "icon": "./assets/icons/helm-ironclad-helm.png"
     },
@@ -207,6 +347,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "legendary",
+      "description": "A legendary helm that provides forward guard protection against control effects.",
+      "stats": {
+        "strength": 15,
+        "controlImmunity": "+35%",
+        "damageResistance": "+25%",
+        "wardenPower": "+30%"
+      },
       "passiveSkill": "forward-guard",
       "icon": "./assets/icons/helm-wardens-gaze.png"
     },
@@ -217,6 +364,13 @@
       "type": "helmet",
       "armorType": "Strength",
       "rarity": "epic",
+      "description": "A mysterious mask that creates sandstorms and disables enemy weapons.",
+      "stats": {
+        "strength": 13,
+        "sandstormPower": "+28%",
+        "disarmDuration": "+20%",
+        "slowPower": "+22%"
+      },
       "passiveSkill": "sandstorm",
       "icon": "./assets/icons/helm-stormveil-mask.png"
     }

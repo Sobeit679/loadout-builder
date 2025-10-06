@@ -1978,7 +1978,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],
@@ -2002,7 +2002,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],
@@ -2016,7 +2016,7 @@
       "weaponType": "Strength",
       "range": "Melee",
       "rarity": "epic",
-      "coreSkill": "titans-stride",
+      "coreSkill": "titan-s-stride",
       "passiveSkill": "aura-and-blade",
       "basicAttacks": [
         "sword-slash",
@@ -2026,7 +2026,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],
@@ -2050,7 +2050,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],
@@ -2074,7 +2074,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],
@@ -2098,7 +2098,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],
@@ -2122,7 +2122,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],
@@ -2146,7 +2146,7 @@
       "weaponSkills": [
         "vacuum-slash",
         "crippling-strike",
-        "power-slash",
+        "power-flash",
         "defensive-slash",
         "heart-of-steel"
       ],

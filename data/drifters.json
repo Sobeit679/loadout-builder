@@ -184,7 +184,7 @@
         "movementSpeed": "5.5 m/sec"
       },
       "skills": {
-        "core": "tempest-slash",
+        "core": "tempest-slash-blade",
         "passive": "cyclone-reap"
       },
       "support": {
