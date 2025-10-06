@@ -831,7 +831,7 @@
       "cooldown": "17s",
       "castingTime": "0.48s",
       "range": "12m",
-      "description": "Curses a circular area. After a brief delay, deals [Damage Rate: 250%] Magic Damage to up to 10 enemies in range, dispelling all Buffs, shields, and HoT effects, and inflicting [Crippled] for 6s",
+      "description": "Curses a circular area. After a brief delay, deals [Damage Rate: 250%] Magic Damage to up to 10 enemies in range, dispelling all Buffs, shields, and HoT effects, and inflicting [Crippled] for 6s. [Crippled]: Cannot use movement skills or gain buffs, shields, or HoT effects. Movement Speed Bonus: -50%",
       "icon": "./assets/icons/skill-crippling-curse.png"
     },
     {
@@ -875,7 +875,7 @@
       "cooldown": "23s",
       "castingTime": "0.48s",
       "range": "14m",
-      "description": "Infects an enemy with [Parasites]. [Parasites]: Parasites last 12s and deal 50% True Damage whenever the target takes direct damage (minimum interval 0.8s). When dispelled, deals 350% Magic Damage.",
+      "description": "Infects an enemy with [Parasites] [Parasites]: Parasites last 12s and deal [Damage Rate: 50%] True Damage whenever the target takes direct damage (minimum interval 0.8s). When dispelled, deals [Damage Rate: 350%] Magic Damage",
       "icon": "./assets/icons/skill-parasitic-swarm.png"
     },
     {
@@ -885,9 +885,8 @@
       "tags": ["magic damage", "dot", "aoe", "debuff"],
       "mpCost": 20,
       "cooldown": "14s",
-      "castingTime": "instant",
       "range": "14m",
-      "description": "Infects any target with Pestilence Source for 8s. Every second, deals 65% Magic Damage to the infected and nearby enemies. Inflicts 1 stack of [Plague] and reduces damage dealt by 5% to enemies except the carrier for 4s, stacking up to 5 times.",
+      "description": "Infects any target with Pestilence Source for 8s. Every second, deals [Damage Rate: 65%] Magic Damage to the infected and nearby enemies. Inflicts 1 stack of [Plague] and reduces damage dealt by 5% to enemies except the carrier for 4s, stacking up to 5 times",
       "icon": "./assets/icons/skill-pestilence.png"
     },
     {
@@ -899,7 +898,7 @@
       "cooldown": "17s",
       "castingTime": "0.48s",
       "range": "16m",
-      "description": "Inflict 2 stacks of [Plague] as well as [Hexbound Malice] to enemies in range, lasting 9s. [Hexbound Malice]: Each active skill used consumes 10 extra MP and inflicts 200% Magic Damage.",
+      "description": "Inflict 2 stacks of [Plague] as well as [Hexbound Malice] to enemies in range, lasting 9s [Hexbound Malice]: Each active skill used consumes 10 extra MP and inflicts [Damage Rate: 200%] Magic Damage",
       "icon": "./assets/icons/skill-hexbound-malice.png"
     },
     {
