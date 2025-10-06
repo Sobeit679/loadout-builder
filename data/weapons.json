@@ -922,7 +922,7 @@
       "weaponSkills": [
         "whirling-blades",
         "phase-blade",
-        "crippling-strike",
+        "crippling-strike-dagger",
         "smoke-grenade",
         "shadow-move"
       ],
@@ -946,7 +946,7 @@
       "weaponSkills": [
         "whirling-blades",
         "phase-blade",
-        "crippling-strike",
+        "crippling-strike-dagger",
         "smoke-grenade",
         "shadow-move"
       ],
@@ -970,7 +970,7 @@
       "weaponSkills": [
         "whirling-blades",
         "phase-blade",
-        "crippling-strike",
+        "crippling-strike-dagger",
         "smoke-grenade",
         "shadow-move"
       ],
@@ -994,7 +994,7 @@
       "weaponSkills": [
         "whirling-blades",
         "phase-blade",
-        "crippling-strike",
+        "crippling-strike-dagger",
         "smoke-grenade",
         "shadow-move"
       ],
@@ -1018,7 +1018,7 @@
       "weaponSkills": [
         "whirling-blades",
         "phase-blade",
-        "crippling-strike",
+        "crippling-strike-dagger",
         "smoke-grenade",
         "shadow-move"
       ],
@@ -1032,7 +1032,7 @@
       "weaponType": "Agility",
       "range": "Melee",
       "rarity": "legendary",
-      "coreSkill": "bloodeye-burst",
+      "coreSkill": "bloodeye-burst-dagger",
       "passiveSkill": "bleed",
       "basicAttacks": [
         "bleeding-thrust",
@@ -1042,7 +1042,7 @@
       "weaponSkills": [
         "whirling-blades",
         "phase-blade",
-        "crippling-strike",
+        "crippling-strike-dagger",
         "smoke-grenade",
         "shadow-move"
       ],
@@ -1066,7 +1066,7 @@
       "weaponSkills": [
         "whirling-blades",
         "phase-blade",
-        "crippling-strike",
+        "crippling-strike-dagger",
         "smoke-grenade",
         "shadow-move"
       ],
@@ -1977,7 +1977,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
@@ -2001,7 +2001,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
@@ -2025,7 +2025,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
@@ -2049,7 +2049,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
@@ -2073,7 +2073,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
@@ -2097,7 +2097,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
@@ -2121,7 +2121,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
@@ -2145,7 +2145,7 @@
       ],
       "weaponSkills": [
         "vacuum-slash",
-        "crippling-strike",
+        "crippling-strike-sword",
         "power-flash",
         "defensive-slash",
         "heart-of-steel"
