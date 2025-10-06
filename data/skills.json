@@ -1787,7 +1787,7 @@
       "cooldown": "19s",
       "castingTime": "Instant",
       "range": "8m",
-      "description": "Deals [Damage Rate: 200%] Physical Damage + True Damage equal to 10% of the target's Max HP to nearby enemies, while also inflicting 2 stacks of [Bleed]. If this skill triggers Hemorrhage, recovers 10% of Max HP and gains 40%+ Movement Speed for 3s",
+      "description": "Deals [Damage Rate: 200%] Physical Damage + True Damage equal to 10% of the target's Max HP to nearby enemies, while also inflicting 2 stacks of [Bleed] If this skill triggers Hemorrhage, recovers 10% of Max HP and gains 40%+ Movement Speed for 3s",
       "icon": "./assets/icons/skill-crimson-frenzy.png"
     },
     {
@@ -1799,7 +1799,7 @@
       "cooldown": "24s",
       "castingTime": "Instant",
       "range": "9m",
-      "description": "Thrusts in the target's direction, dealing [Damage Rate: 140%] Physical Damage and inflicting 2 stacks of [Bleed]. Skill's second stage can be cast within 5s: Dash toward the target direction, dealing [Damage Rate: 225%] Physical Damage and inflicting 2 stacks of [Bleed] to all enemies hit. Deals [Damage Rate: 450%] Physical Damage against enemies with less than 40% HP",
+      "description": "Thrusts in the target's direction, dealing [Damage Rate: 140%] Physical Damage and inflicting 2 stacks of [Bleed] Skill's second stage can be cast within 5s: Dash toward the target direction, dealing [Damage Rate: 225%] Physical Damage and inflicting 2 stacks of [Bleed] to all enemies hit. Deals [Damage Rate: 450%] Physical Damage against enemies with less than 40% HP",
       "icon": "./assets/icons/skill-rupture-thrust.png"
     },
     {
@@ -1811,7 +1811,7 @@
       "cooldown": "17s",
       "castingTime": "Instant",
       "range": "7m",
-      "description": "Inflicts the enemy with a Soul Snare, dealing [Damage Rate: 150%] Physical Damage and linking with the target, silencing both parties for 5s. During this period, the caster gains [Soul Snare]. The link breaks if distance exceeds 12m. [Soul Snare]: Critical Rate: +30%, Damage Resistance: +50%, Attack Speed: +30%, Cannot use skills",
+      "description": "Inflicts the enemy with a Soul Snare, dealing [Damage Rate: 150%] Physical Damage and linking with the target, silencing both parties for 5s. During this period, the caster gains [Soul Snare]. The link breaks if distance exceeds 12m [Soul Snare] Critical Rate: +30% Damage Resistance: +50% Attack Speed: +30% Cannot use skills",
       "icon": "./assets/icons/skill-soul-snare.png"
     },
     {
@@ -1823,7 +1823,7 @@
       "cooldown": "14s",
       "castingTime": "Instant",
       "range": "10m",
-      "description": "Dashes toward the target direction, leaving a dagger behind. Upon arrival, deals [Damage Rate: 180%] Physical Damage and drains 25 MP from nearby enemies, inflicting 2 stacks of Bleed. Can be recast within 5s to return to the dagger's location, dealing [Damage Rate: 180%] Physical Damage and draining 25 MP from nearby enemies, inflicting 2 stacks of [Bleed]",
+      "description": "Dashes toward the target direction, leaving a dagger behind. Upon arrival, deals [Damage Rate: 180%] Physical Damage and drains 25 MP from nearby enemies, inflicting 2 stacks of Bleed Can be recast within 5s to return to the dagger's location, dealing [Damage Rate: 180%] Physical Damage and draining 25 MP from nearby enemies, inflicting 2 stacks of [Bleed]",
       "icon": "./assets/icons/skill-blade-dance.png"
     },
     {
@@ -1835,7 +1835,7 @@
       "cooldown": "24s",
       "castingTime": "Instant",
       "range": "10m",
-      "description": "Dashes forward, dealing [Damage Rate: 150%] Physical Damage to all enemies hit, inflicting 2 stacks of [Bleed], and reducing Damage Resistance by 20% for 4s. Skill's second stage can be cast within 5s: Deals [Damage Rate: 300%] Physical Damage to enemies in a frontal cone, inflicts 3 stacks of [Bleed] while also leaping backward",
+      "description": "Dashes forward, dealing [Damage Rate: 150%] Physical Damage to all enemies hit, inflicting 2 stacks of [Bleed], and reducing Damage Resistance by 20% for 4s Skill's second stage can be cast within 5s: Deals [Damage Rate: 300%] Physical Damage to enemies in a frontal cone, inflicts 3 stacks of [Bleed] while also leaping backward",
       "icon": "./assets/icons/skill-bloodeye-burst-dagger.png"
     },
     {
@@ -1847,7 +1847,7 @@
       "cooldown": "24s",
       "castingTime": "Instant",
       "range": "12m",
-      "description": "Leaps to the target location, dealing [Damage Rate: 320%] Physical Damage and applying 3 stacks of [Bleed] and [Healing Reduction] to nearby enemies upon landing, lasting for 4s. Enemies hit cannot be affected by [Healing Reduction] from Sanguine Pounce for 8s. If this skill triggers Hemorrhage, the cooldown is reduced to 12 seconds. [Healing Reduction]: Cannot receive healing",
+      "description": "Leaps to the target location, dealing [Damage Rate: 320%] Physical Damage and applying 3 stacks of [Bleed] and [Healing Reduction] to nearby enemies upon landing, lasting for 4s Enemies hit cannot be affected by [Healing Reduction] from Sanguine Pounce for 8s If this skill triggers Hemorrhage, the cooldown is reduced to 12 seconds [Healing Reduction]: Cannot receive healing",
       "icon": "./assets/icons/skill-sanguine-pounce.png"
     },
     {
