@@ -2031,7 +2031,7 @@
       "name": "Target Mark",
       "type": "passive",
       "tags": ["passive", "physical damage", "slow", "mobility", "buff", "crit", "debuff"],
-      "description": "When using weapon skills or Basic Attacks to deal damage, apply an additional [Target Mark] to the target for 8s. [Target Mark] is activated and fires a tracking arrow when stacked to 5 layers, dealing [Damage Rate: 90%] Physical Damage to the target, applying Slow by 25% for 2s, granting +25% Movement Speed for 2s, and increasing the range of the next 3 Basic Attacks by 3m for 6s. Damage is affected by Basic Attack Damage Boost and can Crit based on Basic Attack Crit Rate. Removes [Target Mark] after triggering.",
+      "description": "When using weapon skills or Basic Attacks to deal damage, an additional [Target Mark] is applied to the target Each [Target Mark] lasts for 8 seconds [Target Mark] is activated when stacked to 5 layers on a target Fires a tracking arrow Deals [Damage Rate: 90%] Physical Damage to the target Applies Slow by 25% for 2 seconds to the target Grants the user +25% Movement Speed for 2 seconds Increases the range of the next 3 Basic Attacks by 3 meters for 6 seconds Damage is affected by Basic Attack Damage Boost Damage can Crit based on Basic Attack Crit Rate [Target Mark] is removed from the target after triggering its effects",
       "icon": "./assets/icons/passive-target-mark.png"
     },
     {
@@ -2043,7 +2043,7 @@
       "cooldown": "0.96s",
       "castingTime": "Instant",
       "range": "14m",
-      "description": "[Basic Attack]: Deals [Damage Rate: 80%] Physical Damage to the target. Every 6th Basic Attack becomes [Venom Arrow], dealing [Damage Rate: 100%] Physical Damage and inflicts [Venom]. [Venom]: Deals [Damage Rate: 15%] Magic Damage every second for 6s. Stacks up to 3 times.",
+      "description": "[Basic Attack]: Deals [Damage Rate: 80%] Physical Damage to the target Every 6th Basic Attack becomes [Venom Arrow] Deals [Damage Rate: 100%] Physical Damage and inflicts [Venom] [Venom] Deals [Damage Rate: 15%] Magic Damage every second for 6s Stacks up to 3 times",
       "icon": "./assets/icons/skill-venom-arrow.png"
     },
     {
@@ -2055,7 +2055,7 @@
       "cooldown": "0.96s",
       "castingTime": "Instant",
       "range": "14m",
-      "description": "Replaces Basic Attack with [Split Arrow]. Deals [Damage Rate: 80%] Physical Damage to up to 5 enemies in a frontal cone.",
+      "description": "Replaces Basic Attack with [Split Arrow] Deals [Damage Rate: 80%] Physical Damage to up to 5 enemies in a frontal cone",
       "icon": "./assets/icons/skill-split-arrow.png"
     },
     {
@@ -2067,7 +2067,7 @@
       "cooldown": "0.96s",
       "castingTime": "Instant",
       "range": "9m",
-      "description": "Replaces Basic Attack with [Piercing Arrow]. Fires an arrow forward, dealing [Damage Rate: 200%] Physical Damage and reducing Armor by 5333% for 4s to all enemies hit. Range increases with charge time.",
+      "description": "Replaces Basic Attack with [Piercing Arrow] Fires an arrow forward, dealing [Damage Rate: 200%] Physical Damage and reducing Armor by 4837% for 4s to all enemies hit Range increases with charge time",
       "icon": "./assets/icons/skill-piercing-arrow.png"
     },
     {
@@ -2079,7 +2079,7 @@
       "cooldown": "1.5s",
       "castingTime": "Instant",
       "range": "14m",
-      "description": "Fires three binding arrows forward. The first player hit by each takes [Damage Rate: 100%] Physical Damage ([Damage Rate: 150%] Physical Damage to mobs) and is Immobilized for 1.5s. Gains 1 charge every 14s, up to 2 charges.",
+      "description": "Fires three binding arrows forward The first player hit by each takes [Damage Rate: 100%] Physical Damage ([Damage Rate: 150%] Physical Damage to mobs) and is Immobilized for 1.5s Gains 1 charge every 14s, up to 2 charges",
       "icon": "./assets/icons/skill-binding-arrow.png"
     },
     {
@@ -2091,7 +2091,7 @@
       "cooldown": "13s",
       "castingTime": "Instant",
       "range": "14m",
-      "description": "Fires a Sleeper Arrow forward and leaps 14m backward. Deals [Damage Rate: 200%] Physical Damage to the first enemy hit and inflicts Sleep for 5s.",
+      "description": "Fires a Sleeper Arrow forward and leaps 14m backward Deals [Damage Rate: 200%] Physical Damage to the first enemy hit and inflicts Sleep for 5s",
       "icon": "./assets/icons/skill-sleeper-arrow.png"
     },
     {
@@ -2103,7 +2103,7 @@
       "cooldown": "12s",
       "castingTime": "Instant",
       "range": "6m",
-      "description": "Gains 10 explosive arrows for 12s. When Basic Attacks or skill arrows hit enemies, deal [Damage Rate: 40%] Physical Damage to up to 5 nearby enemies. Explosive Arrow only inflicts [Target Mark] on the target.",
+      "description": "Gains 10 explosive arrows for 12s When Basic Attacks or skill arrows hit enemies, deal [Damage Rate: 40%] Physical Damage to up to 5 nearby enemies Explosive Arrow only inflicts [Target Mark] on the target",
       "icon": "./assets/icons/skill-blast-arrow.png"
     },
     {
@@ -2115,7 +2115,7 @@
       "cooldown": "14s",
       "castingTime": "Instant",
       "range": "16m",
-      "description": "Fires a silencing arrow forward. The first enemy hit takes [Damage Rate: 100%] Physical Damage. After 2s, the arrow inflicts [Damage Rate: 180%] additional Magic Damage and applies Silence for 4s to enemies within 5m.",
+      "description": "Fires a silencing arrow forward The first enemy hit takes [Damage Rate: 100%] Physical Damage After 2s, the arrow inflicts [Damage Rate: 180%] additional Magic Damage and applies Silence for 4s to enemies within 5m",
       "icon": "./assets/icons/skill-silencing-arrow.png"
     },
     {
@@ -2127,7 +2127,7 @@
       "cooldown": "15s",
       "castingTime": "Instant",
       "range": "6m",
-      "description": "Gains 10 frost arrows for 12s. Basic Attacks and skill arrows deal [Damage Rate: 50%] additional Magic Damage and inflict 40% Slow for 2s on hit.",
+      "description": "Gains 10 frost arrows for 12s Basic Attacks and skill arrows deal [Damage Rate: 50%] additional Magic Damage and inflict 40% Slow for 2s on hit",
       "icon": "./assets/icons/skill-frost-arrow.png"
     },
     {
@@ -2139,7 +2139,7 @@
       "cooldown": "1.5s",
       "castingTime": "Instant",
       "range": "14m",
-      "description": "Rains arrows down at the target location, dealing [Damage Rate: 180%] Physical Damage to players ([Damage Rate: 270%] Physical Damage to mobs) and inflicting 30% Slow for 3s. Gains 1 charge every 12s, up to 3 charges.",
+      "description": "Rains arrows down at the target location, dealing [Damage Rate: 180%] Physical Damage to players ([Damage Rate: 270%] Physical Damage to mobs) and inflicting 30% Slow for 3s Gains 1 charge every 12s, up to 3 charges",
       "icon": "./assets/icons/skill-barrage.png"
     },
     {
