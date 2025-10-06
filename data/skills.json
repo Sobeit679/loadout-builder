@@ -1307,7 +1307,7 @@
       "name": "Burst",
       "type": "passive",
       "tags": ["passive", "magic damage", "dot", "aoe"],
-      "description": "Damage dealt by the carrier inflicts a status effect called [Burn]. [Burn] deals 25% Magic Damage every second for 8 seconds. [Burn] can stack up to 6 times, but these stacks do not boost the damage of the individual [Burn] effect. When [Burn] reaches its maximum stacks (6 stacks), it triggers an additional effect: it deals 80% Magic Damage to up to 5 enemies near the carrier and then removes all existing [Burn] stacks from the target.",
+      "description": "Damage dealt inflicts [Burn], dealing [Damage Rate: 25%] Magic Damage every second for 8s, stacking up to 6 times (stacks do not boost damage) When [Burn] reaches max stacks, deals [Damage Rate: 80%] Magic Damage to up to 5 enemies near the carrier and removes all [Burn] stacks",
       "icon": "./assets/icons/passive-burst.png"
     },
     {
@@ -1318,7 +1318,7 @@
       "cooldown": "0.48s",
       "castingTime": "1.1s",
       "range": "14m",
-      "description": "Deals [Damage Rate: 120%] Magic Damage and applies 1 stack of [Burn].",
+      "description": "Deals [Damage Rate: 120%] Magic Damage and applies 1 stack of [Burn]",
       "icon": "./assets/icons/skill-magma-burst.png"
     },
     {
@@ -1329,7 +1329,7 @@
       "cooldown": "0.48s",
       "castingTime": "1.1s",
       "range": "14m",
-      "description": "Fires 3 Scorching Shards in the target direction. Deals [Damage Rate: 120%] Magic Damage to enemies and inflicts 1 stack of [Burn]. Additional shard hits on the same target beyond the first deal damage equal to 25% of the original damage.",
+      "description": "Fires 3 Scorching Shards in the target direction. Deals [Damage Rate: 120%] Magic Damage to enemies and inflicts 1 stack of [Burn]. Additional shard hits on the same target beyond the first deal damage equal to 25% of the original damage",
       "icon": "./assets/icons/skill-scorching-shard.png"
     },
     {
@@ -1351,7 +1351,7 @@
       "mpCost": 12,
       "cooldown": "5.8s",
       "range": "14m",
-      "description": "Continuously channels flames in target direction for 3s, dealing [Damage Rate: 50%] Magic Damage ([Damage Rate: 75%] to mobs) and inflicting [Burn] to all enemies in range every 0.5s. Can rotate but cannot move while channeling",
+      "description": "Continuously channels flames in target direction for 3s, dealing [Damage Rate: 50%] Magic Damage ([Damage Rate: 75%] to mobs) and inflicting [Burn] to all enemies in range every 0.5s Can rotate but cannot move while channeling",
       "icon": "./assets/icons/skill-inferno-blast.png"
     },
     {
@@ -1385,7 +1385,7 @@
       "mpCost": 23,
       "cooldown": "19s",
       "range": "6m",
-      "description": "Spreads an Oil Zone in front of the caster, lasting 8s, inflicting [Oil Coated] on enemies entering the area. [Oil Coated]: Slows enemies by 50% for 4s. If [Burn] is applied while under this effect, [Oil Coated] immediately changes to [Volatile Burn], and the target cannot obtain [Oil Coated] again for 6s. [Volatile Burn]: Fears enemies and deals [Damage Rate: 56%] Magic Damage every 0.5s for 1.5s.",
+      "description": "Spreads an Oil Zone in front of the caster, lasting 8s, inflicting [Oil Coated] on enemies entering the area [Oil Coated]: Slows enemies by 50% for 4s. If [Burn] is applied while under this effect, [Oil Coated] immediately changes to [Volatile Burn], and the target cannot obtain [Oil Coated] again for 6s [Volatile Burn]: Fears enemies and deals [Damage Rate: 56%] Magic Damage every 0.5s for 1.5s",
       "icon": "./assets/icons/skill-oil-zone.png"
     },
     {
