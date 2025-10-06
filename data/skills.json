@@ -1485,7 +1485,7 @@
       "name": "Natural Armor",
       "type": "passive",
       "tags": ["passive", "resistance"],
-      "description": "Gains 1 stack of Natural Armor every 5s, stacking up to 4 times. Each stack increases Damage Resistance by 8%. 1 stack is lost for each instance of damage taken.",
+      "description": "Gains 1 stack of Natural Armor every 5s, stacking up to 4 times. Each stack increases Damage Resistance by 8%. 1 stack is lost for each instance of damage taken",
       "icon": "./assets/icons/passive-natural-armor.png"
     },
     {
@@ -1496,7 +1496,7 @@
       "cooldown": "0.48s",
       "castingTime": "0.48s",
       "range": "14m",
-      "description": "[Normal Skill]: Deals [Damage Rate: 80%] Magic Damage. Throws an [Evil Seed] after 5 Basic Attacks. Throws an Evil Seed at the target location, creating a thorn zone that lasts 5s. The zone deals [Damage Rate: 40%] Magic Damage every second to up to 5 enemies and reduces their Movement Speed by 25%",
+      "description": "[Normal Skill]: Deals [Damage Rate: 80%] Magic Damage Throws an [Evil Seed] after 5 Basic Attacks Throws an Evil Seed at the target location, creating a thorn zone that lasts 5s. The zone deals [Damage Rate: 40%] Magic Damage every second to up to 5 enemies and reduces their Movement Speed by 25%",
       "icon": "./assets/icons/skill-evil-seed.png"
     },
     {
@@ -1506,7 +1506,7 @@
       "tags": ["heal", "magic damage", "dot", "aoe"],
       "cooldown": "1.4s",
       "range": "16m",
-      "description": "Releases soothing mist in the target direction, dealing [Damage Rate: 70%] Magic Damage to enemies along the path and applies 1 stack of [Recovery] to allies. [Recovery]: Restores HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "description": "Releases soothing mist in the target direction, dealing [Damage Rate: 70%] Magic Damage to enemies along the path and applies 1 stack of [Recovery] to allies [Recovery]: Restores HP every second for 12s, stacking up to 3 times HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
       "icon": "./assets/icons/skill-soothing-mist.png"
     },
     {
@@ -1516,7 +1516,7 @@
       "tags": ["heal", "aoe", "buff"],
       "cooldown": "2.4s",
       "range": "14m",
-      "description": "Throws a Healing Seed at the target location that blooms, restoring [Healing Rate: 66%] HP to allies in range and applying 1 stack of [Recovery]. [Recovery]: Recovers HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "description": "Throws a Healing Seed at the target location that blooms, restoring [Healing Rate: 66%] HP to allies in range and applying 1 stack of [Recovery] [Recovery]: Recovers HP every second for 12s, stacking up to 3 times HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
       "icon": "./assets/icons/skill-healing-seed.png"
     },
     {
@@ -1549,7 +1549,7 @@
       "mpCost": 20,
       "cooldown": "14s",
       "range": "8m",
-      "description": "Applies Vitality Seeds to up to 5 nearby allies, healing for [Healing Rate: 96%] HP and applying 1 stack of [Recovery]. Vitality Seeds increase Attack Speed by 25% and Casting Speed by 40% for 6s. [Recovery]: Restores HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "description": "Applies Vitality Seeds to up to 5 nearby allies, healing for [Healing Rate: 96%] HP and applying 1 stack of [Recovery] Vitality Seeds increase Attack Speed by 25% and Casting Speed by 40% for 6s [Recovery]: Restores HP every second for 12s, stacking up to 3 times HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
       "icon": "./assets/icons/skill-vitality-seed.png"
     },
     {
@@ -1560,7 +1560,7 @@
       "mpCost": 23,
       "cooldown": "19s",
       "range": "14m",
-      "description": "Cleanses all Hard Control (Stun, Fear, Freeze, Knockup, Petrify, Sleep), Silence, and 2 DoT effects on the caster and up to 20 nearby allies. Also heals for [Healing Rate: 72%] HP, applies 1 stack of [Recovery], and prevents the next 3 Hard Control or Silence effects. The effect lasts 4s. Can be used while skills are disabled. [Recovery]: Restores HP every second for 12s, stacking up to 3 times. HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
+      "description": "Cleanses all Hard Control (Stun, Fear, Freeze, Knockup, Petrify, Sleep), Silence, and 2 DoT effects on the caster and up to 20 nearby allies. Also heals for [Healing Rate: 72%] HP, applies 1 stack of [Recovery], and prevents the next 3 Hard Control or Silence effects. The effect lasts 4s. Can be used while skills are disabled [Recovery]: Restores HP every second for 12s, stacking up to 3 times HP recovery at 1 | 2 | 3 stacks: [Healing Rate: 12%] | [Healing Rate: 18%] | [Healing Rate: 24%]",
       "icon": "./assets/icons/skill-freshness.png"
     },
     {
@@ -1571,7 +1571,7 @@
       "mpCost": 20,
       "cooldown": "14s",
       "range": "14m",
-      "description": "Releases restorative energy at the target location, healing allies. Healing amount increases based on target's [Recovery] stacks. [Recovery] stacks: 0 | 1 | 2 | 3. Recovers HP: [Healing Rate: 90%] | [Healing Rate: 114%] | [Healing Rate: 138%] | [Healing Rate: 162%]",
+      "description": "Releases restorative energy at the target location, healing allies. Healing amount increases based on target's [Recovery] stacks [Recovery] stacks: 0 | 1 | 2 | 3 Recovers HP: [Healing Rate: 90%] | [Healing Rate: 114%] | [Healing Rate: 138%] | [Healing Rate: 162%]",
       "icon": "./assets/icons/skill-regenerate.png"
     },
     {
