@@ -2541,9 +2541,9 @@
       "tags": ["buff", "skill"],
       "mpCost": 23,
       "cooldown": "19s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "3m",
-      "description": "Initiates a Raise Shield status for 20s. During this status, gains immunity to control effects and +50% Damage Resistance, with an increased hit box. Can re-cast the skill during this period to deal [Damage Rate: 300%] Physical Damage to enemies in range and apply 50% Slow for 3s. The large shield will break after taking [Target-based Max HP 30%] damage, immediately ending the Raise Shield status.",
+      "description": "Enters Raise Shield status for 20s During this time, gains immunity to control effects and +50% Damage Resistance, with an increased hit box Can re-cast the skill during this period to deal [Damage Rate: 300%] Physical Damage to enemies in range and apply 50% Slow for 3s The large shield will break after taking [Target-based Max HP 30%] damage, immediately ending the Raise Shield status",
       "icon": "./assets/icons/skill-shield-slam.png"
     },
     {
@@ -2553,9 +2553,9 @@
       "tags": ["physical damage", "hard control", "pull", "skill"],
       "mpCost": 22,
       "cooldown": "17s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "18m",
-      "description": "Launches a mechanical hook forward. The first enemy hit is Stunned (ignores Control Resistance) for 1.5s, takes [Damage Rate: 450%] Physical Damage, and is Pulled to the caster",
+      "description": "Launches a mechanical hook forward The first enemy hit is Stunned (ignores Control Resistance) for 1.5s, takes [Damage Rate: 450%] Physical Damage, and is Pulled to the caster",
       "icon": "./assets/icons/skill-grappling-strike.png"
     },
     {
@@ -2565,7 +2565,7 @@
       "tags": ["magic damage", "dispel", "silence", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "6m",
       "description": "Slams the ground, dealing [Damage Rate: 300%] Magic Damage to up to 15 nearby enemies, dispelling all Buffs from them, reducing their damage output by 50% for 8s, and Silencing them for 3s",
       "icon": "./assets/icons/skill-void-slam.png"
@@ -2577,9 +2577,9 @@
       "tags": ["physical damage", "slow", "pull", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "4m",
-      "description": "Hold the skill to charge, up to 3s; damage range increases gradually with charge time and reaches max at 2s. Cannot be interrupted during charging. Every 0.5s during charging, deals [Damage Rate: 80%] Physical Damage to enemies in range. Upon releasing the skill button, if fully charged, pulls enemies in range toward the caster, dealing [Damage Rate: 250%] Physical Damage and applying 40% Slow for 3s. If not fully charged, only deals damage and applies Slow.",
+      "description": "Hold the skill to charge, up to 3s; damage range increases gradually with charge time and reaches max at 2s Cannot be interrupted during charging Every 0.5s during charging, deals [Damage Rate: 80%] Physical Damage to enemies in range Upon releasing the skill button, if fully charged, pulls enemies in range toward the caster, dealing [Damage Rate: 250%] Physical Damage and applying 40% Slow for 3s If not fully charged, only deals damage and applies Slow",
       "icon": "./assets/icons/skill-pulverizing-slam.png"
     },
     {
@@ -2589,9 +2589,9 @@
       "tags": ["physical damage", "debuff", "skill"],
       "mpCost": 25,
       "cooldown": "24s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "12m",
-      "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting 1.5s Knockup on enemies hit. Creates a thunderstorm field that lasts 6s. Enemies within 7m have their Damage Resistance reduced by 15% and take [Damage Rate: 70%] Physical Damage every second.",
+      "description": "Leaps to the target location, dealing [Damage Rate: 200%] Physical Damage and inflicting 1.5s Knockup on enemies hit Creates a thunderstorm field that lasts 6s Enemies within 7m have their Damage Resistance reduced by 15% and take [Damage Rate: 70%] Physical Damage every second",
       "icon": "./assets/icons/skill-thunderclap-impact.png"
     },
     {
@@ -2601,9 +2601,9 @@
       "tags": ["magic damage", "slow", "hard control", "pull", "skill"],
       "mpCost": 27,
       "cooldown": "29s",
-      "castingTime": "0s",
+      "castingTime": "Instant",
       "range": "20m",
-      "description": "Fires two heavy rounds that create a gravity vortex where they meet. Enemies in the vortex are Slowed by 25% Deals [Damage Rate: 300%] Magic Damage to enemies in the vortex after 1.5s, pulling them to the center and Stunning for 1s",
+      "description": "Fires two heavy rounds that create a gravity vortex where they meet Enemies in the vortex are Slowed by 25% Deals [Damage Rate: 300%] Magic Damage to enemies in the vortex after 1.5s, pulling them to the center and Stunning for 1s",
       "icon": "./assets/icons/skill-void-devour.png"
     },
     {
