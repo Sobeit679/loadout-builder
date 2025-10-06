@@ -1127,7 +1127,7 @@
       "id": "frozen-phase",
       "name": "Frozen Phase",
       "type": "active",
-      "tags": ["magic damage", "stun", "CC", "aoe", "debuff"],
+      "tags": ["magic damage", "slow", "CC", "aoe", "debuff"],
       "mpCost": 27,
       "cooldown": 29,
       "castingTime": "Instant",
@@ -1142,9 +1142,8 @@
       "tags": ["magic damage", "slow", "aoe", "debuff"],
       "mpCost": 20,
       "cooldown": 1.5,
-      "castingTime": "Instant",
       "range": "14m",
-      "description": "Places a Frost Nova at the target location, lasting 15s. When triggered by an enemy, deals [Damage Rate: 250%] Magic Damage and reduces Movement Speed by 35% and 15% reduced healing for 6s. Gains 1 charge every 15s, up to 3 charges",
+      "description": "Places a Frost Nova at the target location, lasting 15s. When triggered by an enemy, deals [Damage Rate: 250%] Magic Damage and reduces Movement Speed by 35% and 15% reduced healing for 6s Gains 1 charge every 15s, up to 3 charges",
       "icon": "./assets/icons/skill-frost-nova.png"
     },
     {
@@ -1156,7 +1155,7 @@
       "cooldown": 19,
       "castingTime": "Instant",
       "range": "14m",
-      "description": "Fires an ice bolt at the target, dealing [Damage Rate: 160%] Magic Damage, slowing by 30% and inflicting [Frigid] for 4s. The bolt then bounces up to 9 times within 9m to random enemies. Bounces to the caster if there are no enemies in range, granting [Target-based Max HP 10%] Shield value for 4s. While the shield is active, inflict [Frost] onto any attacker that hits with basic attacks. [Frost]: Reduces Attack Speed and Movement Speed by 30% for 4s. [Frigid]: At 3 stacks, Freezes for 1.5s",
+      "description": "Fires an ice bolt at the target, dealing [Damage Rate: 160%] Magic Damage, slowing by 30% and inflicting [Frigid] for 4s. The bolt then bounces up to 9 times within 9m to random enemies Bounces to the caster if there are no enemies in range, granting [Target-based Max HP 10%] Shield value for 4s. While the shield is active, inflict [Frost] onto any attacker that hits with basic attacks [Frost] Reduces Attack Speed and Movement Speed by 30% for 4s [Frigid] At 3 stacks, Freezes for 1.5s",
       "icon": "./assets/icons/skill-frostbound-echo.png"
     },
     {
@@ -1180,19 +1179,19 @@
       "cooldown": 19,
       "castingTime": "Instant",
       "range": "6m",
-      "description": "Empowers with extreme cold energy for 20s, granting immunity to Slow and Immobilize effects, and obtaining the [Frost Slash] and [Frost Drift] skills. --[Frost Slash]--: Fires an ice blade forward, dealing [Damage Rate: 120%] Magic Damage to enemies along the path and applying 1 stack of [Hypothermia] and 30% Slow for 4s. After firing two ice blades, the third ice blade's damage increases to [Damage Rate: 145%] Magic Damage. When [Hypothermia] reaches 6 stacks, the target gains [Deep Frost]. [Deep Frost]: Cannot perform Basic Attacks or Move. Lasts 1.5s. --[Frost Drift]--: Instantly removes control effects and leaps in the target direction",
+      "description": "Empowers with extreme cold energy for 20s, granting immunity to Slow and Immobilize effects, and obtaining the [Frost Slash] and [Frost Drift] skills --[Frost Slash]-- Fires an ice blade forward, dealing [Damage Rate: 120%] Magic Damage to enemies along the path and applying 1 stack of [Hypothermia] and 30% Slow for 4s. After firing two ice blades, the third ice blade's damage increases to [Damage Rate: 145%] Magic Damage When [Hypothermia] reaches 6 stacks, the target gains [Deep Frost] [Deep Frost]: Cannot perform Basic Attacks or Move. Lasts 1.5s --[Frost Drift]-- Instantly removes control effects and leaps in the target direction",
       "icon": "./assets/icons/skill-frosts-caller.png"
     },
     {
       "id": "ice-blast",
       "name": "Ice Blast",
       "type": "active",
-      "tags": ["magic damage", "stun", "CC", "slow", "attack speed", "debuff"],
+      "tags": ["magic damage", "slow", "CC", "aoe", "debuff"],
       "mpCost": 24,
       "cooldown": 21,
       "castingTime": "Instant",
       "range": "14m",
-      "description": "Creates a frost crystal at the target location that forms after 0.7s, dealing [Damage Rate: 75%] Magic Damage and Freezing enemies for 1.5s. After 1s, the crystal shatters, dealing [Damage Rate: 400%] Magic Damage, and reducing Movement Speed by 40% and Attack Speed by 40% for 6s",
+      "description": "Creates a frost crystal at the target location that forms after 0.7s, dealing [Damage Rate: 75%] Magic Damage and Freezing enemies for 1.5s After 1s, the crystal shatters, dealing [Damage Rate: 400%] Magic Damage, and reducing Movement Speed by 40% and Attack Speed by 40% for 6s",
       "icon": "./assets/icons/skill-ice-blast.png"
     },
     {
