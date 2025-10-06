@@ -1085,7 +1085,7 @@
       "mpCost": 29,
       "cooldown": "39s",
       "range": "15m",
-      "description": "Cleanses an ally or the caster of all Slow and Immobilize effects, heals [Healing Rate: 360%] HP and grants Sanctuary for 5s. Sanctuary grants immunity to Slow and Immobilize, and prevents HP from falling below 1. Each 10% of missing HP increases healing received by 5%. Sanctuary cannot be dispelled",
+      "description": "Cleanses an ally or the caster of all Slow and Immobilize effects, heals [Healing Rate: 360%] HP and grants Sanctuary for 5s Sanctuary grants immunity to Slow and Immobilize, and prevents HP from falling below 1. Each 10% of missing HP increases healing received by 5% Sanctuary cannot be dispelled",
       "icon": "./assets/icons/skill-sanctuary.png"
     },
     {
@@ -1108,7 +1108,7 @@
       "cooldown": 19,
       "castingTime": "3s channel",
       "range": "11m",
-      "description": "Channels for 3s, releasing frost winds in the target direction that deal [Damage Rate: 100%] Magic Damage to players ([Damage Rate: 200%] Magic Damage to mobs) every 0.5s and reduce Movement Speed by 30% for 3s. Can move slowly while channeling.",
+      "description": "Channels for 3s, releasing frost winds in the target direction that deal [Damage Rate: 100%] Magic Damage to players ([Damage Rate: 200%] Magic Damage to mobs) every 0.5s and reduce Movement Speed by 30% for 3s. Can move slowly while channeling",
       "icon": "./assets/icons/skill-frost-torrent.png"
     },
     {
@@ -1198,9 +1198,13 @@
     {
       "id": "frost-armor",
       "name": "Frost Armor",
-      "type": "passive",
-      "tags": ["passive", "resistance"],
-      "description": "Passive skill that provides defensive benefits to Frost weapons",
+      "type": "active",
+      "tags": ["magic damage", "CC"],
+      "mpCost": 0,
+      "cooldown": "0.48s",
+      "castingTime": "0.96s",
+      "range": "16m",
+      "description": "Grants a [Target-based Max HP 20%] shield for 6s. When the shield breaks, deals [Damage Rate: 200%] Magic Damage to nearby enemies and inflicts [Frostbite] for 4s",
       "icon": "./assets/icons/passive-frost-armor.png"
     },
     {
@@ -1212,7 +1216,7 @@
       "cooldown": "0.48s",
       "castingTime": "0.96s",
       "range": "16m",
-      "description": "[Normal Skill]: Deals [Damage Rate: 90%] Magic Damage. Can cast [Ice Burst] every 5s. Deals [Damage Rate: 150%] Magic Damage to the enemy and Immobilizes them for 1.5s.",
+      "description": "[Normal Skill]: Deals [Damage Rate: 90%] Magic Damage. Can cast [Ice Burst] every 5s. Deals [Damage Rate: 150%] Magic Damage to the enemy and Immobilizes them for 1.5s",
       "icon": "./assets/icons/skill-ice-burst.png"
     },
     {
@@ -1224,7 +1228,7 @@
       "cooldown": "2.9s",
       "castingTime": "Instant",
       "range": "16m",
-      "description": "Creates a zone of deep frost in the target direction, dealing [Damage Rate: 130%] Magic Damage to enemies in range and Slowing them by 25% for 4s.",
+      "description": "Creates a zone of deep frost in the target direction, dealing [Damage Rate: 130%] Magic Damage to enemies in range and Slowing them by 25% for 4s",
       "icon": "./assets/icons/skill-frostbite-zone.png"
     },
     {
@@ -1236,7 +1240,7 @@
       "cooldown": "1.4s",
       "castingTime": "Instant",
       "range": "16m",
-      "description": "Creates three Frost Bursts that fly toward the target direction after a brief delay, each dealing [Damage Rate: 110%] Magic Damage to enemies hit. Additional frost shards beyond the first deal damage equal to 25% of the original damage.",
+      "description": "Creates three Frost Bursts that fly toward the target direction after a brief delay, each dealing [Damage Rate: 110%] Magic Damage to enemies hit. Additional frost shards beyond the first deal damage equal to 25% of the original damage",
       "icon": "./assets/icons/skill-frost-burst.png"
     },
     {
@@ -1248,7 +1252,7 @@
       "cooldown": "11s",
       "castingTime": "3s channel",
       "range": "16m",
-      "description": "Channels for 3s, continuously firing a frost beam in the target direction that deals [Damage Rate: 60%] Magic Damage to players ([Damage Rate: 120%] Magic Damage to mobs) every 0.5s to those hit and inflicts [Frost Beam Slow] for 3s, stacking up to 5 times.",
+      "description": "Channels for 3s, continuously firing a frost beam in the target direction that deals [Damage Rate: 60%] Magic Damage to players ([Damage Rate: 120%] Magic Damage to mobs) every 0.5s to those hit and inflicts [Frost Beam Slow] for 3s, stacking up to 5 times",
       "icon": "./assets/icons/skill-frost-beam.png"
     },
     {
@@ -1272,7 +1276,7 @@
       "cooldown": "11s",
       "castingTime": "Instant",
       "range": "10m",
-      "description": "Deals [Damage Rate: 200%] Magic Damage to nearby enemies and Freezes them for 0.5s, then blinks in the target direction.",
+      "description": "Deals [Damage Rate: 200%] Magic Damage to nearby enemies and Freezes them for 0.5s, then blinks in the target direction",
       "icon": "./assets/icons/skill-frost-blink.png"
     },
     {
@@ -1296,7 +1300,7 @@
       "cooldown": "19s",
       "castingTime": "Instant",
       "range": "14m",
-      "description": "Unleashes a freezing roar in the target direction, dealing [Damage Rate: 150%] Magic Damage and knocking enemies back 14m. Reduces Movement Speed by 30% and Attack Speed by 30% for 4s.",
+      "description": "Unleashes a freezing roar in the target direction, dealing [Damage Rate: 150%] Magic Damage and knocking enemies back 14m. Reduces Movement Speed by 30% and Attack Speed by 30% for 4s",
       "icon": "./assets/icons/skill-frost-roar.png"
     },
     {
