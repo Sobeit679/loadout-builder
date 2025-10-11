@@ -2,15 +2,23 @@
 
 A modern, interactive character loadout builder for Warborne. Build and customize your drifter's equipment, skills, and abilities with an intuitive interface.
 
+## 🌐 Live Demo
+
+**Try the loadout builder now**: [https://sobeit679.github.io/loadout-builder/](https://sobeit679.github.io/loadout-builder/)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Try%20Now-brightgreen?style=for-the-badge)](https://sobeit679.github.io/loadout-builder/)
+
 ## ✨ Features
 
 ### 🎯 Core Functionality
+
 - **Drifter Selection**: Choose from various drifters with unique abilities and stats
 - **Equipment System**: Equip weapons, armor (helm, chest, boots), and modifications
 - **Skill Management**: View and manage core skills, passive skills, and weapon abilities
 - **Real-time Stats**: View detailed stats and bonuses with mastery system
 
 ### 🔍 Advanced Features
+
 - **Smart Search**: Search equipment and mods by name, skill tags, descriptions, and stats
 - **Slot-Specific Mods**: Chest and boots mods with unique effects
 - **Mod System**: 30+ weapon mods and 26+ armor mods with detailed descriptions
@@ -19,6 +27,7 @@ A modern, interactive character loadout builder for Warborne. Build and customiz
 - **Custom Tooltips**: Hover over equipment for detailed information
 
 ### 📱 User Experience
+
 - **Responsive Design**: Works on desktop and mobile devices
 - **Intuitive Interface**: Clean, modern UI with easy navigation
 - **Real-time Updates**: Instant feedback when changing equipment
@@ -49,9 +58,11 @@ The application uses a modular JSON data structure:
 ## 🛡️ Armor System
 
 ### Universal Mods (20)
+
 Available for all armor slots with defensive and utility effects
 
 ### Slot-Specific Mods
+
 - **Chest Mods (3)**: Intimidate, Charge Up, Pain Relief
 - **Boots Mods (3)**: Protection, Deception, Divine Blessing
 
