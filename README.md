@@ -48,24 +48,6 @@ The application uses a modular JSON data structure:
 | `data/mods/weapon-mods.json` | Weapon modifications | 30+ mods with unique effects |
 | `data/mods/armor-mods.json` | Armor modifications | 26+ mods (universal + slot-specific) |
 
-## 🎮 Weapon Types
-
-- **Daggers**: Fast, agile weapons with critical hit bonuses
-- **Maces**: Heavy weapons with crowd control effects
-- **Axes**: Balanced weapons with area damage
-- **Swords**: Versatile weapons with defensive capabilities
-
-## 🛡️ Armor System
-
-### Universal Mods (20)
-
-Available for all armor slots with defensive and utility effects
-
-### Slot-Specific Mods
-
-- **Chest Mods (3)**: Intimidate, Charge Up, Pain Relief
-- **Boots Mods (3)**: Protection, Deception, Divine Blessing
-
 ## 🚀 Quick Start
 
 1. **Select a Drifter**: Choose your character from the drifter selection
