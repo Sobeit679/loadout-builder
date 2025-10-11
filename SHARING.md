@@ -134,7 +134,7 @@ Try the loadout builder: **[https://sobeit679.github.io/loadout-builder/](https:
 I recently built a loadout builder tool and wanted to share the process and results.
 
 ## What I Built
-[Description of your tool]
+Warborne Above Ashes loadout builder/character planner
 
 ## Live Demo
 Try it out: https://sobeit679.github.io/loadout-builder/
@@ -143,50 +143,6 @@ Try it out: https://sobeit679.github.io/loadout-builder/
 - HTML/CSS/JavaScript
 - JSON data management
 - GitHub Pages hosting
-
-[Continue with technical details...]
-```
-
-## Analytics Setup
-
-Consider adding Google Analytics to track usage:
-
-1. Go to [Google Analytics](https://analytics.google.com/)
-2. Create a new property
-3. Add the tracking code to your `index.html`
-4. Monitor user engagement and popular features
-
-## Feedback Collection
-
-### GitHub Issues
-
-Encourage users to report bugs and request features through GitHub Issues.
-
-### Contact Form
-
-Consider adding a simple contact form for feedback.
-
-## SEO Optimization
-
-Add these meta tags to your `index.html`:
-
-```html
-<meta name="description" content="Interactive loadout builder for character optimization. Build and compare different skill combinations, weapons, and armor.">
-<meta name="keywords" content="loadout builder, character builder, game tools, optimization">
-<meta property="og:title" content="Loadout Builder">
-<meta property="og:description" content="Build and optimize your character builds with this interactive tool">
-<meta property="og:url" content="https://sobeit679.github.io/loadout-builder/">
-<meta property="og:type" content="website">
-```
-
-## Regular Updates
-
-Keep users engaged by:
-
-- Posting updates on social media
-- Adding new features based on feedback
-- Sharing interesting builds from the community
-- Writing blog posts about new features
 
 ---
 
