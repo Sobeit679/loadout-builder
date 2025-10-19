@@ -3367,6 +3367,14 @@
       "icon": "./assets/icons/skill-cleanse.png"
     },
     {
+      "id": "hasty-defense",
+      "name": "Hasty Defense",
+      "type": "passive",
+      "tags": ["passive", "buff", "defense", "armor", "damage resistance"],
+      "description": "If damage taken within 3s exceeds 20% of max HP, immediately gains +512 Armor and +30% Damage Resistance for 6s. The effect is removed after taking 8 Direct Damage hits. Trigger Interval: 40s",
+      "icon": "./assets/icons/skill-hasty-defense.png"
+    },
+    {
       "id": "dispel",
       "name": "Dispel",
       "type": "core",

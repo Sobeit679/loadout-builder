@@ -51,6 +51,16 @@
       "icon": "./assets/icons/helm-mystic-surge.png"
     },
     {
+      "id": "swiftguard-hood",
+      "gameId": "swiftguard-hood",
+      "name": "Swiftguard Hood",
+      "type": "helmet",
+      "armorType": "Intelligence",
+      "rarity": "epic",
+      "passiveSkill": "hasty-defense",
+      "icon": "./assets/icons/helm-swiftguard-hood.png"
+    },
+    {
       "id": "twilight-mantle",
       "gameId": "twilight-mantle",
       "name": "Twilight Mantle",
