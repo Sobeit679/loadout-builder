@@ -3356,6 +3356,17 @@
       "icon": "./assets/icons/skill-purify.png"
     },
     {
+      "id": "cleanse",
+      "name": "Cleanse",
+      "type": "core",
+      "tags": ["healing", "buff", "cleanse", "skill"],
+      "mpCost": 25,
+      "cooldown": "27s",
+      "range": "9m",
+      "description": "Removes 5 stacks of debuffs and Damage over Time effects from allies within 9m, heals for [Healing Rate: 40%] HP per second, and grants immunity to debuffs and Damage over Time effects for 4s.",
+      "icon": "./assets/icons/skill-cleanse.png"
+    },
+    {
       "id": "dispel",
       "name": "Dispel",
       "type": "core",

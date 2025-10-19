@@ -4123,3 +4123,40 @@ main {
 .search-container.hidden {
   display: none;
 }
+
+/* Ensure consistent image sizing in selection modal */
+.selector-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.selector-card.item-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.selector-card.weapon-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.selector-card.mod-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}

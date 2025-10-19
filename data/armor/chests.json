@@ -151,6 +151,16 @@
       "icon": "./assets/icons/chest-heros-embrace.png"
     },
     {
+      "id": "coat-of-purification",
+      "gameId": "coat-of-purification",
+      "name": "Coat of Purification",
+      "type": "chest",
+      "armorType": "Agility",
+      "rarity": "epic",
+      "coreSkill": "cleanse",
+      "icon": "./assets/icons/chest-coat-of-purification.png"
+    },
+    {
       "id": "guardians-blessing",
       "gameId": "guardians-blessing",
       "name": "Guardian's Blessing",
