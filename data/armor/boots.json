@@ -219,6 +219,16 @@
       "rarity": "legendary",
       "coreSkill": "lunge",
       "icon": "./assets/icons/boots-impact-heavy-boots.png"
+    },
+    {
+      "id": "shadowmarch-boots",
+      "gameId": "shadowmarch-boots",
+      "name": "Shadowmarch Boots",
+      "type": "boots",
+      "armorType": "Strength",
+      "rarity": "legendary",
+      "coreSkill": "dark-domain",
+      "icon": "./assets/icons/boots-shadowmarch-boots.png"
     }
   ]
 }

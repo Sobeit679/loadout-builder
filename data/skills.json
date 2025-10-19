@@ -3416,6 +3416,16 @@
       "icon": "./assets/icons/skill-awaken-the-wild.png"
     },
     {
+      "id": "dark-domain",
+      "name": "Dark Domain",
+      "type": "core",
+      "tags": ["slow", "debuff", "dispel", "mobility"],
+      "cooldown": "27s",
+      "range": "12m",
+      "description": "Leaves behind a Shadow Realm and sprints toward the target direction. Enemies entering the Shadow Realm are dispelled of 5 stacks of buffs, apply Slow 40%, reduce Damage Boost by 40%, for 6s. Immune to control effects while casting the skill",
+      "icon": "./assets/icons/skill-dark-domain.png"
+    },
+    {
       "id": "dispel",
       "name": "Dispel",
       "type": "core",
