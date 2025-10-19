@@ -3413,7 +3413,7 @@
       "type": "passive",
       "tags": ["passive", "buff", "healing", "damage boost"],
       "description": "When enemies die within 20 meters of self and Rorg, self and Rorg will restore 59[Healing Rate: 60%] HP and gain Damage Boost 5%, lasting 15s, up to 5 stacks. (Internal Cooldown: 0.5 seconds)",
-      "icon": "./assets/icons/skill-awaken-the-wild.png"
+      "icon": "./assets/icons/passive-awaken-the-wild.png"
     },
     {
       "id": "dark-domain",
