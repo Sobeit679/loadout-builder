@@ -3375,6 +3375,47 @@
       "icon": "./assets/icons/skill-hasty-defense.png"
     },
     {
+      "id": "dark-sun-rises",
+      "name": "Dark Sun Rises",
+      "type": "core",
+      "tags": ["damage", "debuff", "hard-control", "summon"],
+      "mpCost": 30,
+      "cooldown": "41s",
+      "range": "14m",
+      "description": "Summons Black Sun, lasting 15s. Every 3 seconds, the Black Sun deals [Damage Rate: 120%] Magic Damage to enemies in range, inflicts [Charm] for 1s, and reduces their Magic Resistance by 53 for 5s. This effect can stack up to 5 times. [Charm]: Moves slowly toward the caster, unable to use Skills or Move during this time. The Black Sun is destroyed after taking 6 instances of Basic Attack Damage",
+      "icon": "./assets/icons/skill-dark-sun-rises.png"
+    },
+    {
+      "id": "paladin-force",
+      "name": "Paladin Force",
+      "type": "core",
+      "tags": ["buff", "cleanse", "immunity", "healing", "damage"],
+      "mpCost": 23,
+      "cooldown": "18s",
+      "range": "6m",
+      "description": "Grants Paladin Force, cleansing all DoT and slow effects, and granting immunity to DoT and debuffs for 20s, along with the [Divine Zeal] and [Guardian Shield] skills. [Divine Zeal]: Strike 1 - Rushes forward, dealing [Damage Rate: 120%] Magic Damage. Strike 2 - Deals [Damage Rate: 140%] Magic Damage to enemies in range and slows them by 40% for 2s. Strike 3 - Deals [Damage Rate: 160%] Magic Damage to nearby enemies, heals allies around you for [Healing Rate: 72%] HP, increases their Damage Resistance by 20%, Control Resistance by 20, for 4s. [Guardian Shield]: Channels for 4s, becoming Unstoppable. Increases Damage Resistance of allies in range by 45% and restores [Healing Rate: 90%] HP per second. After channeling, deals [Damage Rate: 300%] Magic Damage and stuns enemies for 2s. Each time damage is taken during channeling, final damage and stun duration increase by 10% (max 50%). Can be canceled early.",
+      "icon": "./assets/icons/skill-paladin-force.png"
+    },
+    {
+      "id": "rorg-advance",
+      "name": "Rorg! Advance!",
+      "type": "core",
+      "tags": ["damage", "hard-control", "summon"],
+      "mpCost": 30,
+      "cooldown": "36s",
+      "range": "10m",
+      "description": "Summons Rorg at the target location, dealing 197[Damage Rate: 200%] Physical Damage to enemies in the area and knocking them up for 1.2s. At the same time, this skill will be replaced with [Fight side by side]. Rorg exists for 60s and has the following skills: [Swing] - Deals 118[Damage Rate: 120%] Physical Damage to enemies in a frontal cone. [Pound] - Use every 4 Swing, dealing 148[Damage Rate: 150%] Physical Damage to enemies in a rectangular area in front of you, and slowing them by 30% for 4s. [Fight side by side] - Recall Rorg to your side, dealing 148[Damage Rate: 150%] Physical Damage to enemies in the area upon landing, and applying Knockup for 1s. It also inspires you and Rorg, enhancing Attack Speed by 30% and Basic Attack Lifesteal by 30%, lasting for 6s.",
+      "icon": "./assets/icons/skill-rorg-advance.png"
+    },
+    {
+      "id": "awaken-the-wild",
+      "name": "Awaken the Wild",
+      "type": "passive",
+      "tags": ["passive", "buff", "healing", "damage boost"],
+      "description": "When enemies die within 20 meters of self and Rorg, self and Rorg will restore 59[Healing Rate: 60%] HP and gain Damage Boost 5%, lasting 15s, up to 5 stacks. (Internal Cooldown: 0.5 seconds)",
+      "icon": "./assets/icons/skill-awaken-the-wild.png"
+    },
+    {
       "id": "dispel",
       "name": "Dispel",
       "type": "core",

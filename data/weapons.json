@@ -337,6 +337,30 @@
       "icon": "./assets/icons/weapon-celestial-redeemer.png"
     },
     {
+      "id": "twilights-end",
+      "gameId": "twilights-end",
+      "name": "Twilight's End",
+      "type": "holy-staff",
+      "weaponType": "Intelligence",
+      "range": "Ranged",
+      "rarity": "legendary",
+      "coreSkill": "dark-sun-rises",
+      "passiveSkill": "divine-ward",
+      "basicAttacks": [
+        "holy-feather",
+        "holy-smite",
+        "holy-heal"
+      ],
+      "weaponSkills": [
+        "holy-wave",
+        "divine-link",
+        "holy-energy",
+        "holy-wall",
+        "holy-baptism"
+      ],
+      "icon": "./assets/icons/weapon-twilights-end.png"
+    },
+    {
       "id": "glacier-prism",
       "name": "Glacier Prism",
       "type": "frost",
@@ -1791,6 +1815,30 @@
         "vengeful-thunder"
       ],
       "icon": "./assets/icons/weapon-abyssal-conduit.png"
+    },
+    {
+      "id": "paladin-mace",
+      "gameId": "paladin-mace",
+      "name": "Paladin Mace",
+      "type": "mace",
+      "weaponType": "Strength",
+      "range": "Melee",
+      "rarity": "legendary",
+      "coreSkill": "paladin-force",
+      "passiveSkill": "guardian",
+      "basicAttacks": [
+        "swing",
+        "smash",
+        "crushing-smash"
+      ],
+      "weaponSkills": [
+        "frenzied-smash",
+        "binding-smash",
+        "guardian-field",
+        "field-of-silence",
+        "vengeful-thunder"
+      ],
+      "icon": "./assets/icons/weapon-paladin-mace.png"
     },
     {
       "id": "berserkers-fury",

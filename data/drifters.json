@@ -1524,6 +1524,60 @@
         "agility": 2,
         "intelligence": 0.9
       }
+    },
+    {
+      "id": "tayana",
+      "name": "Tayana",
+      "description": "Summoner | Physical Damage",
+      "basicAttributes": {
+        "strength": 34,
+        "agility": 20,
+        "intelligence": 16
+      },
+      "masteryBonuses": {
+        "strength": 1.9,
+        "agility": 1.6,
+        "intelligence": 0.6
+      },
+      "stats": {
+        "maxHpBonus": "8.7%",
+        "attackSpeedBonus": "3.7%",
+        "criticalRate": "1%",
+        "castingSpeedBonus": "4.9%",
+        "skillCooldownRateBonus": "0.99%",
+        "damageBonusPvE": "3.4%",
+        "physicalDamageBonus": "5.1%",
+        "magicDamageBonus": "4.1%",
+        "healingBonus": "4.1%",
+        "tenacityPenetration": 3,
+        "armor": 3,
+        "magicResistance": 2.4,
+        "block": 17,
+        "controlResistance": 3.4,
+        "movementSpeed": "5.5 m/sec"
+      },
+      "skills": {
+        "core": "rorg-advance",
+        "passive": "awaken-the-wild"
+      },
+      "support": {
+        "effects": [
+          {
+            "name": "Damage Resistance",
+            "value": "+3.24%",
+            "type": "positive"
+          },
+          {
+            "name": "Damage Boost",
+            "value": "-1.08%",
+            "type": "negative"
+          }
+        ]
+      },
+      "icon": "./assets/icons/drifter-tayana.png",
+      "portrait": "./assets/icons/drifter-tayana-portrait.png",
+      "cardIcon": "./assets/icons/drifter-card-tayana.png",
+      "youtubeLink": ""
     }
   ]
 }
