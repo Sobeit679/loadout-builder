@@ -1301,6 +1301,7 @@ function updateWeaponSkill() {
   const weapon = STATE.selected.gear['weapons'];
   const wSlot = document.querySelector('[data-key="W"]');
   const wIcon = wSlot.querySelector('.ability-icon');
+  const wName = wSlot.querySelector('.skill-name');
   
   // Handle weapon core skill
   if (weapon && weapon.coreSkill) {
@@ -1309,23 +1310,28 @@ function updateWeaponSkill() {
       const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
       wIcon.style.backgroundImage = `url(${iconUrl})`;
       wSlot.classList.remove('empty');
+      if (wName) wName.textContent = coreSkill.name || '';
     } else {
       wIcon.style.backgroundImage = '';
       wSlot.classList.add('empty');
+      if (wName) wName.textContent = '';
     }
   } else if (weapon && weapon.skill && weapon.skill.icon) {
     // Fallback for old weapon format
     const iconUrl = `${weapon.skill.icon}?v=${Date.now()}`;
     wIcon.style.backgroundImage = `url(${iconUrl})`;
     wSlot.classList.remove('empty');
+    if (wName) wName.textContent = weapon.skill.name || '';
   } else if (weapon && weapon.skillIcon) {
     // Fallback for old weapon format
     const iconUrl = `${weapon.skillIcon}?v=${Date.now()}`;
     wIcon.style.backgroundImage = `url(${iconUrl})`;
     wSlot.classList.remove('empty');
+    if (wName) wName.textContent = weapon.name || '';
   } else {
     wIcon.style.backgroundImage = '';
     wSlot.classList.add('empty');
+    if (wName) wName.textContent = '';
   }
   
   // Update weapon tooltip
@@ -1395,6 +1401,7 @@ function updateChestSkill() {
   const chest = STATE.selected.gear['armors/chest'];
   const dSlot = document.querySelector('[data-key="D"]');
   const dIcon = dSlot.querySelector('.ability-icon');
+  const dName = dSlot.querySelector('.skill-name');
   
   // Handle chest core skill
   if (chest && chest.coreSkill) {
@@ -1403,13 +1410,16 @@ function updateChestSkill() {
       const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
       dIcon.style.backgroundImage = `url(${iconUrl})`;
       dSlot.classList.remove('empty');
+      if (dName) dName.textContent = coreSkill.name || '';
     } else {
       dIcon.style.backgroundImage = '';
       dSlot.classList.add('empty');
+      if (dName) dName.textContent = '';
     }
   } else {
     dIcon.style.backgroundImage = '';
     dSlot.classList.add('empty');
+    if (dName) dName.textContent = '';
   }
   
   // Update chest skill tooltip
@@ -1423,6 +1433,7 @@ function updateBootsSkill() {
   const boots = STATE.selected.gear['armors/boots'];
   const fSlot = document.querySelector('[data-key="F"]');
   const fIcon = fSlot.querySelector('.ability-icon');
+  const fName = fSlot.querySelector('.skill-name');
   
   // Handle boots core skill
   if (boots && boots.coreSkill) {
@@ -1431,13 +1442,16 @@ function updateBootsSkill() {
       const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
       fIcon.style.backgroundImage = `url(${iconUrl})`;
       fSlot.classList.remove('empty');
+      if (fName) fName.textContent = coreSkill.name || '';
     } else {
       fIcon.style.backgroundImage = '';
       fSlot.classList.add('empty');
+      if (fName) fName.textContent = '';
     }
   } else {
     fIcon.style.backgroundImage = '';
     fSlot.classList.add('empty');
+    if (fName) fName.textContent = '';
   }
   
   // Update boots skill tooltip
@@ -1451,14 +1465,17 @@ function updateBasicAttackSkill() {
   const basicAttack = STATE.selected.gear['basic-attack'];
   const aSlot = document.querySelector('[data-key="A"]');
   const aIcon = aSlot.querySelector('.ability-icon');
+  const aName = aSlot.querySelector('.skill-name');
   
   if (basicAttack && basicAttack.icon) {
     const iconUrl = `${basicAttack.icon}?v=${Date.now()}`;
     aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
+    if (aName) aName.textContent = basicAttack.name || '';
   } else {
     aIcon.style.backgroundImage = '';
     aSlot.classList.add('empty');
+    if (aName) aName.textContent = '';
   }
   
   // Update tooltip
@@ -1472,14 +1489,17 @@ function updateWeaponAbilitySkill() {
   const weaponSkill = STATE.selected.gear['weapon-skill'];
   const qSlot = document.querySelector('[data-key="Q"]');
   const qIcon = qSlot.querySelector('.ability-icon');
+  const qName = qSlot.querySelector('.skill-name');
   
   if (weaponSkill && weaponSkill.icon) {
     const weaponSkillIconUrl = `${weaponSkill.icon}?v=${Date.now()}`;
     qIcon.style.backgroundImage = `url(${weaponSkillIconUrl})`;
     qSlot.classList.remove('empty');
+    if (qName) qName.textContent = weaponSkill.name || '';
   } else {
     qIcon.style.backgroundImage = '';
     qSlot.classList.add('empty');
+    if (qName) qName.textContent = '';
   }
   
   // Update tooltip
@@ -2620,6 +2640,43 @@ function populateItemNames(container) {
       nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; word-wrap: break-word; max-width: 100%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.2;';
     } else if (nameElement) {
       nameElement.textContent = '';
+    }
+  });
+  
+  // Also populate skill names for ability slots
+  const abilitySlots = container.querySelectorAll('.ability-slot');
+  abilitySlots.forEach(slot => {
+    const skillName = slot.querySelector('.skill-name');
+    if (!skillName) return;
+    
+    const slotKey = slot.dataset.key;
+    let skill = null;
+    
+    if (slotKey === 'A') {
+      skill = STATE.selected.gear['basic-attack'];
+    } else if (slotKey === 'Q') {
+      skill = STATE.selected.gear['weapon-skill'];
+    } else if (slotKey === 'W') {
+      const weapon = STATE.selected.gear['weapons'];
+      if (weapon && weapon.coreSkill) {
+        skill = STATE.skills.find(s => s.id === weapon.coreSkill);
+      }
+    } else if (slotKey === 'D') {
+      const chest = STATE.selected.gear['armors/chest'];
+      if (chest && chest.coreSkill) {
+        skill = STATE.skills.find(s => s.id === chest.coreSkill);
+      }
+    } else if (slotKey === 'F') {
+      const boots = STATE.selected.gear['armors/boots'];
+      if (boots && boots.coreSkill) {
+        skill = STATE.skills.find(s => s.id === boots.coreSkill);
+      }
+    }
+    
+    if (skill && skill.name) {
+      skillName.textContent = skill.name;
+    } else {
+      skillName.textContent = '';
     }
   });
 }
