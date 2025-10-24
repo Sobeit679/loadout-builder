@@ -2717,7 +2717,7 @@ function populateItemNames(container) {
     if (skill && skill.name) {
       skillName.textContent = skill.name;
       // Apply proper inline styles for image export - same as equipment names
-      skillName.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+      skillName.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
     } else {
       skillName.textContent = '';
     }
@@ -2733,7 +2733,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
       if (passiveSkill) {
         drifterPassiveLabel.textContent = passiveSkill.name;
-        drifterPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+        drifterPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       }
     }
   }
@@ -2746,7 +2746,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
       if (passiveSkill) {
         weaponPassiveLabel.textContent = passiveSkill.name;
-        weaponPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+        weaponPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       }
     }
   }
@@ -2759,7 +2759,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
       if (passiveSkill) {
         helmPassiveLabel.textContent = passiveSkill.name;
-        helmPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+        helmPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       }
     }
   }
