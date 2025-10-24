@@ -1346,6 +1346,7 @@ function updateWeaponPassive() {
   const weapon = STATE.selected.gear['weapons'];
   const weaponPassiveSlot = document.querySelector('[data-key="weapon-passive"]');
   const weaponPassiveIcon = weaponPassiveSlot.querySelector('.ability-icon');
+  const weaponPassiveLabel = document.getElementById('weaponPassiveLabel');
   
   // Handle weapon passive skill
   if (weapon && weapon.passiveSkill) {
@@ -1354,13 +1355,16 @@ function updateWeaponPassive() {
       const passiveIconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
       weaponPassiveIcon.style.backgroundImage = `url(${passiveIconUrl})`;
       weaponPassiveSlot.classList.remove('empty');
+      if (weaponPassiveLabel) weaponPassiveLabel.textContent = passiveSkill.name || 'Weapon Passive';
     } else {
       weaponPassiveIcon.style.backgroundImage = '';
       weaponPassiveSlot.classList.add('empty');
+      if (weaponPassiveLabel) weaponPassiveLabel.textContent = 'Weapon Passive';
     }
   } else {
     weaponPassiveIcon.style.backgroundImage = '';
     weaponPassiveSlot.classList.add('empty');
+    if (weaponPassiveLabel) weaponPassiveLabel.textContent = 'Weapon Passive';
   }
   
   // Update weapon passive tooltip
@@ -1374,6 +1378,7 @@ function updateHelmPassive() {
   const helm = STATE.selected.gear['armors/head'];
   const helmPassiveSlot = document.querySelector('[data-key="helm-passive"]');
   const helmPassiveIcon = helmPassiveSlot.querySelector('.ability-icon');
+  const helmPassiveLabel = document.getElementById('helmPassiveLabel');
   
   // Handle helm passive skill
   if (helm && helm.passiveSkill) {
@@ -1382,13 +1387,16 @@ function updateHelmPassive() {
       const helmPassiveIconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
       helmPassiveIcon.style.backgroundImage = `url(${helmPassiveIconUrl})`;
       helmPassiveSlot.classList.remove('empty');
+      if (helmPassiveLabel) helmPassiveLabel.textContent = passiveSkill.name || 'Helm Passive';
     } else {
       helmPassiveIcon.style.backgroundImage = '';
       helmPassiveSlot.classList.add('empty');
+      if (helmPassiveLabel) helmPassiveLabel.textContent = 'Helm Passive';
     }
   } else {
     helmPassiveIcon.style.backgroundImage = '';
     helmPassiveSlot.classList.add('empty');
+    if (helmPassiveLabel) helmPassiveLabel.textContent = 'Helm Passive';
   }
   
   // Update helm passive tooltip
@@ -1757,6 +1765,10 @@ function updateDrifterAbilities(drifter) {
   const eContainer = eSlot.closest('.ability-slot-container');
   const eName = eContainer ? eContainer.querySelector('.skill-name') : null;
   
+  // Get passive skill labels
+  const drifterPassiveLabel = document.getElementById('drifterPassiveLabel');
+  const weaponPassiveLabel = document.getElementById('weaponPassiveLabel');
+  const helmPassiveLabel = document.getElementById('helmPassiveLabel');
   
   // Get skill data
   const passiveSkillId = drifter.skills?.passive;
@@ -1770,9 +1782,11 @@ function updateDrifterAbilities(drifter) {
     const iconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
     passiveSlot.style.backgroundImage = `url(${iconUrl})`;
     passiveSlot.parentElement.classList.remove('empty');
+    if (drifterPassiveLabel) drifterPassiveLabel.textContent = passiveSkill.name || 'Drifter Passive';
   } else {
     passiveSlot.style.backgroundImage = '';
     passiveSlot.parentElement.classList.add('empty');
+    if (drifterPassiveLabel) drifterPassiveLabel.textContent = 'Drifter Passive';
   }
   
   // Handle active skill in E slot - look up by ID from skills data
@@ -1788,9 +1802,16 @@ function updateDrifterAbilities(drifter) {
     if (eName) eName.textContent = '';
   }
   
+  // Update weapon passive
+  updateWeaponPassive();
+  
+  // Update helm passive
+  updateHelmPassive();
+  
   // Update tooltips
   updateAbilityTooltips(drifter);
 }
+
 
 function updateAbilityTooltips(drifter) {
   // Get skill data from STATE.skills
