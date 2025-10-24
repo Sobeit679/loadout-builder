@@ -1216,6 +1216,7 @@ function populateLoadoutBoard() {
       const img = document.createElement('img');
       img.src = item.icon;
       img.alt = item.name || 'Icon';
+      img.style.order = '1';
       card.appendChild(img);
     }
     
@@ -1223,12 +1224,13 @@ function populateLoadoutBoard() {
     card.style.display = 'flex';
     card.style.flexDirection = 'column';
     card.style.alignItems = 'center';
-    card.style.justifyContent = 'center';
+    card.style.justifyContent = 'flex-start';
+    card.style.padding = '5px';
     
     // Add item name element
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 5px; word-wrap: break-word; max-width: 80px; width: 100%; display: block;';
+    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; max-width: 80px; width: 100%; display: block; order: 2;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
