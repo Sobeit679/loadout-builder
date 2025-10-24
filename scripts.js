@@ -2490,7 +2490,7 @@ function importLoadout(event) {
 }
 
 function shareToDiscord(event) {
-  // Create Discord-friendly build text
+  // Create Discord-friendly build text (text-only)
   const drifter = STATE.selected.drifters[0];
   if (!drifter) {
     showToast('Please select a drifter first', 'error');
@@ -2499,13 +2499,10 @@ function shareToDiscord(event) {
 
   let buildText = `**${drifter.name} Build**\n\n`;
   
-  // Add drifter info with image
+  // Add drifter info
   buildText += `**Drifter:** ${drifter.name}\n`;
-  if (drifter.portrait) {
-    buildText += `![${drifter.name}](${window.location.origin}/assets/icons/${drifter.portrait})\n`;
-  }
   
-  // Add support drifters with images
+  // Add support drifters
   if (selectedSupports.length > 0) {
     const supportNames = selectedSupports
       .filter(support => support)
@@ -2513,49 +2510,27 @@ function shareToDiscord(event) {
       .join(', ');
     if (supportNames) {
       buildText += `**Supports:** ${supportNames}\n`;
-      // Add support images
-      selectedSupports.filter(support => support && support.portrait).forEach(support => {
-        buildText += `![${support.name}](${window.location.origin}/assets/icons/${support.portrait})\n`;
-      });
     }
   }
   
   buildText += `\n**Equipment:**\n`;
   
-  // Add weapon with image
+  // Add weapon
   const weapon = STATE.selected.gear['weapons'];
   if (weapon) {
     buildText += `• **Weapon:** ${weapon.name}\n`;
-    if (weapon.icon) {
-      buildText += `![${weapon.name}](${window.location.origin}/assets/icons/${weapon.icon})\n`;
-    }
   }
   
-  // Add armor pieces with images
+  // Add armor pieces
   const helm = STATE.selected.gear['armors/head'];
   const chest = STATE.selected.gear['armors/chest'];
   const boots = STATE.selected.gear['armors/boots'];
   
-  if (helm) {
-    buildText += `• **Helm:** ${helm.name}\n`;
-    if (helm.icon) {
-      buildText += `![${helm.name}](${window.location.origin}/assets/icons/${helm.icon})\n`;
-    }
-  }
-  if (chest) {
-    buildText += `• **Chest:** ${chest.name}\n`;
-    if (chest.icon) {
-      buildText += `![${chest.name}](${window.location.origin}/assets/icons/${chest.icon})\n`;
-    }
-  }
-  if (boots) {
-    buildText += `• **Boots:** ${boots.name}\n`;
-    if (boots.icon) {
-      buildText += `![${boots.name}](${window.location.origin}/assets/icons/${boots.icon})\n`;
-    }
-  }
+  if (helm) buildText += `• **Helm:** ${helm.name}\n`;
+  if (chest) buildText += `• **Chest:** ${chest.name}\n`;
+  if (boots) buildText += `• **Boots:** ${boots.name}\n`;
   
-  // Add mods with images
+  // Add mods
   const weaponMod = STATE.selected.mods.weaponMod;
   const helmMod = STATE.selected.mods.helmMod;
   const chestMod = STATE.selected.mods.chestMod;
@@ -2563,56 +2538,26 @@ function shareToDiscord(event) {
   
   if (weaponMod || helmMod || chestMod || bootsMod) {
     buildText += `\n**Mods:**\n`;
-    if (weaponMod) {
-      buildText += `• **Weapon Mod:** ${weaponMod.name}\n`;
-      if (weaponMod.icon) {
-        buildText += `![${weaponMod.name}](${window.location.origin}/assets/icons/${weaponMod.icon})\n`;
-      }
-    }
-    if (helmMod) {
-      buildText += `• **Helm Mod:** ${helmMod.name}\n`;
-      if (helmMod.icon) {
-        buildText += `![${helmMod.name}](${window.location.origin}/assets/icons/${helmMod.icon})\n`;
-      }
-    }
-    if (chestMod) {
-      buildText += `• **Chest Mod:** ${chestMod.name}\n`;
-      if (chestMod.icon) {
-        buildText += `![${chestMod.name}](${window.location.origin}/assets/icons/${chestMod.icon})\n`;
-      }
-    }
-    if (bootsMod) {
-      buildText += `• **Boots Mod:** ${bootsMod.name}\n`;
-      if (bootsMod.icon) {
-        buildText += `![${bootsMod.name}](${window.location.origin}/assets/icons/${bootsMod.icon})\n`;
-      }
-    }
+    if (weaponMod) buildText += `• **Weapon Mod:** ${weaponMod.name}\n`;
+    if (helmMod) buildText += `• **Helm Mod:** ${helmMod.name}\n`;
+    if (chestMod) buildText += `• **Chest Mod:** ${chestMod.name}\n`;
+    if (bootsMod) buildText += `• **Boots Mod:** ${bootsMod.name}\n`;
   }
   
-  // Add skills with images
+  // Add skills
   const basicAttack = STATE.selected.gear['basic-attack'];
   const weaponSkill = STATE.selected.gear['weapon-skill'];
   
   if (basicAttack || weaponSkill) {
     buildText += `\n**Skills:**\n`;
-    if (basicAttack) {
-      buildText += `• **Basic Attack:** ${basicAttack.name}\n`;
-      if (basicAttack.icon) {
-        buildText += `![${basicAttack.name}](${window.location.origin}/assets/icons/${basicAttack.icon})\n`;
-      }
-    }
-    if (weaponSkill) {
-      buildText += `• **Weapon Skill:** ${weaponSkill.name}\n`;
-      if (weaponSkill.icon) {
-        buildText += `![${weaponSkill.name}](${window.location.origin}/assets/icons/${weaponSkill.icon})\n`;
-      }
-    }
+    if (basicAttack) buildText += `• **Basic Attack:** ${basicAttack.name}\n`;
+    if (weaponSkill) buildText += `• **Weapon Skill:** ${weaponSkill.name}\n`;
   }
   
   buildText += `\n*Generated with Warborne Loadout Builder*`;
   
-  // Show modal with Discord-friendly text
-  showDiscordShareModal(buildText, event.target, true);
+  // Show modal with Discord-friendly text (text-only by default)
+  showDiscordShareModal(buildText, event.target, false);
 }
 
 function shareLoadout() {
