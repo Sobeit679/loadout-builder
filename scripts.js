@@ -2594,10 +2594,10 @@ function generateBuildImage(event) {
   container.style.position = 'absolute';
   container.style.top = '-9999px';
   container.style.left = '-9999px';
-  container.style.width = '1000px'; // Increased width to prevent cutoff
   container.style.background = '#2a2a2a';
   container.style.padding = '20px';
   container.style.borderRadius = '8px';
+  // Let the content determine the width naturally
   
   // Clone the sections we want
   const loadoutClone = loadoutSection.cloneNode(true);
@@ -2615,9 +2615,8 @@ function generateBuildImage(event) {
     backgroundColor: '#2a2a2a',
     scale: 2,
     useCORS: true,
-    allowTaint: true,
-    width: 1000, // Match container width
-    height: container.offsetHeight
+    allowTaint: true
+    // Let html2canvas determine the natural dimensions
   }).then(canvas => {
     // Create download link
     const link = document.createElement('a');
