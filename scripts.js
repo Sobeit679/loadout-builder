@@ -1219,11 +1219,12 @@ function populateLoadoutBoard() {
       card.appendChild(img);
     }
     
-    // Add item name
-    const nameElement = card.querySelector('.item-name');
-    if (nameElement) {
-      nameElement.textContent = item.name || '';
-    }
+    // Add item name element
+    const nameElement = document.createElement('div');
+    nameElement.className = 'item-name';
+    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 5px; word-wrap: break-word; max-width: 80px;';
+    nameElement.textContent = item.name || '';
+    card.appendChild(nameElement);
 
     // Add custom tooltip functionality
     slot.removeAttribute('title'); // Remove default tooltip
