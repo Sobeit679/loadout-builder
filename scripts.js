@@ -1754,6 +1754,8 @@ function updateDrifterAbilities(drifter) {
   
   const passiveSlot = document.querySelector('.drifter-passive .ability-icon');
   const eSlot = document.querySelector('[data-key="E"] .ability-icon');
+  const eContainer = eSlot.closest('.ability-slot-container');
+  const eName = eContainer ? eContainer.querySelector('.skill-name') : null;
   
   
   // Get skill data
@@ -1779,9 +1781,11 @@ function updateDrifterAbilities(drifter) {
     const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
     eSlot.style.backgroundImage = `url(${iconUrl})`;
     eSlot.parentElement.classList.remove('empty');
+    if (eName) eName.textContent = coreSkill.name || '';
   } else {
     eSlot.style.backgroundImage = '';
     eSlot.parentElement.classList.add('empty');
+    if (eName) eName.textContent = '';
   }
   
   // Update tooltips
@@ -2666,6 +2670,11 @@ function populateItemNames(container) {
       const weapon = STATE.selected.gear['weapons'];
       if (weapon && weapon.coreSkill) {
         skill = STATE.skills.find(s => s.id === weapon.coreSkill);
+      }
+    } else if (slotKey === 'E') {
+      const drifter = STATE.selected.drifters[0];
+      if (drifter && drifter.skills?.core) {
+        skill = STATE.skills.find(s => s.id === drifter.skills.core);
       }
     } else if (slotKey === 'D') {
       const chest = STATE.selected.gear['armors/chest'];
