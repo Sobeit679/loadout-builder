@@ -1302,7 +1302,7 @@ function updateWeaponSkill() {
   const wSlot = document.querySelector('[data-key="W"]');
   const wIcon = wSlot.querySelector('.ability-icon');
   const wContainer = wSlot.closest('.ability-slot-container');
-  const wName = wContainer.querySelector('.skill-name');
+  const wName = wContainer ? wContainer.querySelector('.skill-name') : null;
   
   // Handle weapon core skill
   if (weapon && weapon.coreSkill) {
@@ -1403,7 +1403,7 @@ function updateChestSkill() {
   const dSlot = document.querySelector('[data-key="D"]');
   const dIcon = dSlot.querySelector('.ability-icon');
   const dContainer = dSlot.closest('.ability-slot-container');
-  const dName = dContainer.querySelector('.skill-name');
+  const dName = dContainer ? dContainer.querySelector('.skill-name') : null;
   
   // Handle chest core skill
   if (chest && chest.coreSkill) {
@@ -1436,7 +1436,7 @@ function updateBootsSkill() {
   const fSlot = document.querySelector('[data-key="F"]');
   const fIcon = fSlot.querySelector('.ability-icon');
   const fContainer = fSlot.closest('.ability-slot-container');
-  const fName = fContainer.querySelector('.skill-name');
+  const fName = fContainer ? fContainer.querySelector('.skill-name') : null;
   
   // Handle boots core skill
   if (boots && boots.coreSkill) {
@@ -1469,7 +1469,7 @@ function updateBasicAttackSkill() {
   const aSlot = document.querySelector('[data-key="A"]');
   const aIcon = aSlot.querySelector('.ability-icon');
   const aContainer = aSlot.closest('.ability-slot-container');
-  const aName = aContainer.querySelector('.skill-name');
+  const aName = aContainer ? aContainer.querySelector('.skill-name') : null;
   
   if (basicAttack && basicAttack.icon) {
     const iconUrl = `${basicAttack.icon}?v=${Date.now()}`;
@@ -1494,7 +1494,7 @@ function updateWeaponAbilitySkill() {
   const qSlot = document.querySelector('[data-key="Q"]');
   const qIcon = qSlot.querySelector('.ability-icon');
   const qContainer = qSlot.closest('.ability-slot-container');
-  const qName = qContainer.querySelector('.skill-name');
+  const qName = qContainer ? qContainer.querySelector('.skill-name') : null;
   
   if (weaponSkill && weaponSkill.icon) {
     const weaponSkillIconUrl = `${weaponSkill.icon}?v=${Date.now()}`;
