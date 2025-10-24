@@ -2716,9 +2716,8 @@ function populateItemNames(container) {
     
     if (skill && skill.name) {
       skillName.textContent = skill.name;
-      // Ensure skill names get proper CSS styling for image export
-      skillName.className = 'skill-name';
-      skillName.style.cssText = '';
+      // Apply proper inline styles for image export - same as equipment names
+      skillName.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
     } else {
       skillName.textContent = '';
     }
@@ -2734,8 +2733,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
       if (passiveSkill) {
         drifterPassiveLabel.textContent = passiveSkill.name;
-        drifterPassiveLabel.className = 'ability-label';
-        drifterPassiveLabel.style.cssText = '';
+        drifterPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
       }
     }
   }
@@ -2748,8 +2746,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
       if (passiveSkill) {
         weaponPassiveLabel.textContent = passiveSkill.name;
-        weaponPassiveLabel.className = 'ability-label';
-        weaponPassiveLabel.style.cssText = '';
+        weaponPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
       }
     }
   }
@@ -2762,8 +2759,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
       if (passiveSkill) {
         helmPassiveLabel.textContent = passiveSkill.name;
-        helmPassiveLabel.className = 'ability-label';
-        helmPassiveLabel.style.cssText = '';
+        helmPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
       }
     }
   }
