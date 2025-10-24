@@ -1218,10 +1218,10 @@ function populateLoadoutBoard() {
       card.appendChild(img);
     }
     
-    // Add item name element as overlay - positioned absolutely within the 80x80px card
+    // Add item name element as overlay - styled like support card names
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 10px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 2px; border-radius: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.1;';
+    nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; background: rgba(0,0,0,0.8); padding: 2px 4px; border-radius: 2px; word-wrap: break-word; max-width: 100%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.2;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
@@ -2601,8 +2601,8 @@ function populateItemNames(container) {
     const nameElement = card.querySelector('.item-name');
     if (nameElement && item) {
       nameElement.textContent = item.name || '';
-      // Ensure consistent overlay styling for html2canvas
-      nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 10px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 2px; border-radius: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.1;';
+      // Ensure consistent overlay styling for html2canvas - styled like support card names
+      nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; background: rgba(0,0,0,0.8); padding: 2px 4px; border-radius: 2px; word-wrap: break-word; max-width: 100%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.2;';
     } else if (nameElement) {
       nameElement.textContent = '';
     }
