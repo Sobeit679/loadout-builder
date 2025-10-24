@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100px; /* Minimum height for consistent spacing */
-  width: 80px; /* Fixed width to accommodate skill names */
+  width: 120px; /* Increased width to accommodate longer skill names */
 }
 
 .skill-name {
@@ -26,8 +26,8 @@
   max-width: 100% !important;
   min-height: 2.4rem; /* Minimum height for consistent spacing */
   line-height: 1.2 !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible; /* Allow text to be fully visible */
+  text-overflow: unset; /* Don't truncate text */
   white-space: normal; /* Allow text wrapping */
   display: flex;
   align-items: center;

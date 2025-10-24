@@ -2745,9 +2745,10 @@ function populateItemNames(container) {
       console.log(`Setting skill name for ${slotKey}:`, skill.name);
       // Format skill name to add spaces before capital letters
       const formattedName = skill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+      console.log(`Formatted name for ${slotKey}:`, formattedName);
       skillName.textContent = formattedName;
       // Apply proper inline styles for image export - same as equipment names
-      skillName.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
+      skillName.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: visible !important; text-overflow: unset !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
     } else {
       console.log(`No skill found for ${slotKey}:`, skill);
       skillName.textContent = '';
