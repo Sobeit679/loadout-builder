@@ -1219,10 +1219,16 @@ function populateLoadoutBoard() {
       card.appendChild(img);
     }
     
+    // Set card to flex column layout
+    card.style.display = 'flex';
+    card.style.flexDirection = 'column';
+    card.style.alignItems = 'center';
+    card.style.justifyContent = 'center';
+    
     // Add item name element
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 5px; word-wrap: break-word; max-width: 80px;';
+    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 5px; word-wrap: break-word; max-width: 80px; width: 100%; display: block;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
