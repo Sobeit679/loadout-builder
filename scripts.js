@@ -2594,7 +2594,7 @@ function generateBuildImage(event) {
   container.style.position = 'absolute';
   container.style.top = '-9999px';
   container.style.left = '-9999px';
-  container.style.width = '800px';
+  container.style.width = '1000px'; // Increased width to prevent cutoff
   container.style.background = '#2a2a2a';
   container.style.padding = '20px';
   container.style.borderRadius = '8px';
@@ -2602,6 +2602,9 @@ function generateBuildImage(event) {
   // Clone the sections we want
   const loadoutClone = loadoutSection.cloneNode(true);
   const abilityClone = abilityBar.cloneNode(true);
+  
+  // Ensure item names are populated in the cloned elements
+  populateItemNames(loadoutClone);
   
   container.appendChild(loadoutClone);
   container.appendChild(abilityClone);
@@ -2613,7 +2616,7 @@ function generateBuildImage(event) {
     scale: 2,
     useCORS: true,
     allowTaint: true,
-    width: 800,
+    width: 1000, // Match container width
     height: container.offsetHeight
   }).then(canvas => {
     // Create download link
@@ -2634,6 +2637,44 @@ function generateBuildImage(event) {
     console.error('Error generating image:', error);
     showToast('Failed to generate image', 'error');
     document.body.removeChild(container);
+  });
+}
+
+function populateItemNames(container) {
+  // Get all slot cards in the container
+  const slotCards = container.querySelectorAll('.slot-card');
+  
+  slotCards.forEach(card => {
+    const slot = card.closest('.slot');
+    const slotKey = slot.dataset.slot;
+    
+    // Find the corresponding item
+    let item = null;
+    if (slotKey === 'weapon') {
+      item = STATE.selected.gear['weapons'];
+    } else if (slotKey === 'helm') {
+      item = STATE.selected.gear['armors/head'];
+    } else if (slotKey === 'chest') {
+      item = STATE.selected.gear['armors/chest'];
+    } else if (slotKey === 'boots') {
+      item = STATE.selected.gear['armors/boots'];
+    } else if (slotKey === 'weaponMod') {
+      item = STATE.selected.mods.weaponMod;
+    } else if (slotKey === 'helmMod') {
+      item = STATE.selected.mods.helmMod;
+    } else if (slotKey === 'chestMod') {
+      item = STATE.selected.mods.chestMod;
+    } else if (slotKey === 'bootsMod') {
+      item = STATE.selected.mods.bootsMod;
+    }
+    
+    // Update the name element
+    const nameElement = card.querySelector('.item-name');
+    if (nameElement && item) {
+      nameElement.textContent = item.name || '';
+    } else if (nameElement) {
+      nameElement.textContent = '';
+    }
   });
 }
 
