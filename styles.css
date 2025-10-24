@@ -1,17 +1,19 @@
 /* Ability Bar Styling */
 .ability-bar {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: center;
   align-items: flex-start;
   margin: 1rem 0;
+  flex-wrap: wrap;
 }
 
 .ability-slot-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 60px; /* Fixed height to prevent layout shifts */
+  height: 100px; /* Fixed total height: 2.4rem (skill name) + 5px (margin) + 60px (ability slot) */
+  width: 80px; /* Fixed width to accommodate skill names */
 }
 
 .skill-name {
@@ -22,11 +24,14 @@
   margin-bottom: 5px !important;
   word-wrap: break-word !important;
   max-width: 100% !important;
-  min-height: 1.2rem; /* Fixed height to prevent layout shifts */
+  height: 2.4rem; /* Fixed height for all skill names */
   line-height: 1.2 !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ability-slot {
