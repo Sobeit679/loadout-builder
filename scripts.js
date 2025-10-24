@@ -2592,6 +2592,11 @@ function generateBuildImage(event) {
   // Ensure item names are populated in the cloned elements
   populateItemNames(loadoutClone);
   
+  // Populate passive skill names
+  if (passiveClone) {
+    populatePassiveSkillNames(passiveClone);
+  }
+  
   // Add sections in the desired order:
   // 1. Loadout (equipment)
   container.appendChild(loadoutClone);
@@ -2711,10 +2716,57 @@ function populateItemNames(container) {
     
     if (skill && skill.name) {
       skillName.textContent = skill.name;
+      // Ensure skill names get proper CSS styling for image export
+      skillName.className = 'skill-name';
+      skillName.style.cssText = '';
     } else {
       skillName.textContent = '';
     }
   });
+}
+
+function populatePassiveSkillNames(container) {
+  // Populate drifter passive skill name
+  const drifterPassiveLabel = container.querySelector('#drifterPassiveLabel');
+  if (drifterPassiveLabel) {
+    const drifter = STATE.selected.drifters[0];
+    if (drifter && drifter.skills?.passive) {
+      const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
+      if (passiveSkill) {
+        drifterPassiveLabel.textContent = passiveSkill.name;
+        drifterPassiveLabel.className = 'ability-label';
+        drifterPassiveLabel.style.cssText = '';
+      }
+    }
+  }
+  
+  // Populate weapon passive skill name
+  const weaponPassiveLabel = container.querySelector('#weaponPassiveLabel');
+  if (weaponPassiveLabel) {
+    const weapon = STATE.selected.gear['weapons'];
+    if (weapon && weapon.passiveSkill) {
+      const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
+      if (passiveSkill) {
+        weaponPassiveLabel.textContent = passiveSkill.name;
+        weaponPassiveLabel.className = 'ability-label';
+        weaponPassiveLabel.style.cssText = '';
+      }
+    }
+  }
+  
+  // Populate helm passive skill name
+  const helmPassiveLabel = container.querySelector('#helmPassiveLabel');
+  if (helmPassiveLabel) {
+    const helm = STATE.selected.gear['armors/head'];
+    if (helm && helm.passiveSkill) {
+      const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
+      if (passiveSkill) {
+        helmPassiveLabel.textContent = passiveSkill.name;
+        helmPassiveLabel.className = 'ability-label';
+        helmPassiveLabel.style.cssText = '';
+      }
+    }
+  }
 }
 
 
