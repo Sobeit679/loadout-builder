@@ -2520,6 +2520,7 @@ function generateBuildImage(event) {
   const abilityBar = document.querySelector('.ability-bar');
   const passiveSkills = document.querySelector('.drifter-abilities');
   const supportSection = document.querySelector('.support-selection-section');
+  const supportEffects = document.querySelector('.support-effects');
   
   // Create a container that includes all sections
   const container = document.createElement('div');
@@ -2536,14 +2537,22 @@ function generateBuildImage(event) {
   const abilityClone = abilityBar.cloneNode(true);
   const passiveClone = passiveSkills ? passiveSkills.cloneNode(true) : null;
   const supportClone = supportSection ? supportSection.cloneNode(true) : null;
+  const supportEffectsClone = supportEffects ? supportEffects.cloneNode(true) : null;
   
   // Ensure item names are populated in the cloned elements
   populateItemNames(loadoutClone);
   
+  // Add sections in the desired order:
+  // 1. Loadout (equipment)
   container.appendChild(loadoutClone);
+  // 2. Ability slots
   if (abilityClone) container.appendChild(abilityClone);
+  // 3. Passives
   if (passiveClone) container.appendChild(passiveClone);
+  // 4. Select supports
   if (supportClone) container.appendChild(supportClone);
+  // 5. Support effects
+  if (supportEffectsClone) container.appendChild(supportEffectsClone);
   document.body.appendChild(container);
   
   // Generate the image
