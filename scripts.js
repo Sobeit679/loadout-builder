@@ -990,6 +990,11 @@ async function init() {
     discordShareBtn.addEventListener('click', shareToDiscord);
   }
   
+  const buildCardBtn = document.getElementById('buildCardBtn');
+  if (buildCardBtn) {
+    buildCardBtn.addEventListener('click', generateBuildCard);
+  }
+  
   // Search functionality
   if (searchInput) {
     searchInput.addEventListener('input', handleSearch);
@@ -2558,6 +2563,116 @@ function shareToDiscord(event) {
   
   // Show modal with Discord-friendly text (text-only by default)
   showDiscordShareModal(buildText, event.target, false);
+}
+
+function generateBuildCard(event) {
+  const drifter = STATE.selected.drifters[0];
+  if (!drifter) {
+    showToast('Please select a drifter first', 'error');
+    return;
+  }
+
+  showToast('Generating build card...', 'info');
+  
+  // Get the template and clone it
+  const template = document.getElementById('build-card-template');
+  const cardClone = template.cloneNode(true);
+  cardClone.style.display = 'block';
+  cardClone.style.position = 'absolute';
+  cardClone.style.top = '0';
+  cardClone.style.left = '0';
+  cardClone.style.zIndex = '10000';
+  
+  // Populate the card with current build data
+  populateBuildCard(cardClone, drifter);
+  
+  // Add to DOM temporarily
+  document.body.appendChild(cardClone);
+  
+  // Generate the image
+  html2canvas(cardClone.querySelector('.build-card'), {
+    backgroundColor: null,
+    scale: 2,
+    useCORS: true,
+    allowTaint: true,
+    width: 800,
+    height: 600
+  }).then(canvas => {
+    // Create download link
+    const link = document.createElement('a');
+    link.download = `${drifter.name}-build-card.png`;
+    link.href = canvas.toDataURL();
+    
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Clean up
+    document.body.removeChild(cardClone);
+    
+    showToast('Build card downloaded!', 'success');
+  }).catch(error => {
+    console.error('Error generating build card:', error);
+    showToast('Failed to generate build card', 'error');
+    document.body.removeChild(cardClone);
+  });
+}
+
+function populateBuildCard(card, drifter) {
+  // Set title
+  const title = card.querySelector('.build-title');
+  if (title) {
+    title.textContent = `${drifter.name} Build`;
+  }
+  
+  // Set drifter info
+  const drifterName = card.querySelector('.drifter-name');
+  const drifterClass = card.querySelector('.drifter-class');
+  if (drifterName) drifterName.textContent = drifter.name;
+  if (drifterClass) drifterClass.textContent = drifter.class || 'Drifter';
+  
+  // Set equipment
+  const weapon = STATE.selected.gear['weapons'];
+  const helm = STATE.selected.gear['armors/head'];
+  const chest = STATE.selected.gear['armors/chest'];
+  const boots = STATE.selected.gear['armors/boots'];
+  
+  const weaponName = card.querySelector('.weapon-name');
+  const helmName = card.querySelector('.helm-name');
+  const chestName = card.querySelector('.chest-name');
+  const bootsName = card.querySelector('.boots-name');
+  
+  if (weaponName) weaponName.textContent = weapon ? weapon.name : '-';
+  if (helmName) helmName.textContent = helm ? helm.name : '-';
+  if (chestName) chestName.textContent = chest ? chest.name : '-';
+  if (bootsName) bootsName.textContent = boots ? boots.name : '-';
+  
+  // Set mods
+  const weaponMod = STATE.selected.mods.weaponMod;
+  const helmMod = STATE.selected.mods.helmMod;
+  const chestMod = STATE.selected.mods.chestMod;
+  const bootsMod = STATE.selected.mods.bootsMod;
+  
+  const weaponModName = card.querySelector('.weapon-mod-name');
+  const helmModName = card.querySelector('.helm-mod-name');
+  const chestModName = card.querySelector('.chest-mod-name');
+  const bootsModName = card.querySelector('.boots-mod-name');
+  
+  if (weaponModName) weaponModName.textContent = weaponMod ? weaponMod.name : '-';
+  if (helmModName) helmModName.textContent = helmMod ? helmMod.name : '-';
+  if (chestModName) chestModName.textContent = chestMod ? chestMod.name : '-';
+  if (bootsModName) bootsModName.textContent = bootsMod ? bootsMod.name : '-';
+  
+  // Set skills
+  const basicAttack = STATE.selected.gear['basic-attack'];
+  const weaponSkill = STATE.selected.gear['weapon-skill'];
+  
+  const basicAttackName = card.querySelector('.basic-attack-name');
+  const weaponSkillName = card.querySelector('.weapon-skill-name');
+  
+  if (basicAttackName) basicAttackName.textContent = basicAttack ? basicAttack.name : '-';
+  if (weaponSkillName) weaponSkillName.textContent = weaponSkill ? weaponSkill.name : '-';
 }
 
 

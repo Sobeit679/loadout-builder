@@ -25,6 +25,7 @@
           <span class="loadout-text-btn" id="exportLoadoutBtn" title="Export Loadout">Export</span>
           <span class="loadout-text-btn" id="importLoadoutBtn" title="Import Loadout">Import</span>
           <span class="loadout-text-btn" id="discordShareBtn" title="Share to Discord">Discord</span>
+          <span class="loadout-text-btn" id="buildCardBtn" title="Generate Build Card">Card</span>
         </div>
       </header>
 
@@ -341,6 +342,193 @@
     </article>
   </template>
 
+  <!-- Build Card Template (Hidden) -->
+  <div id="build-card-template" style="display: none; position: absolute; top: -9999px; left: -9999px;">
+    <div class="build-card" style="
+      width: 800px;
+      height: 600px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border: 3px solid #4a9eff;
+      border-radius: 20px;
+      padding: 30px;
+      font-family: 'Arial', sans-serif;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    ">
+      <!-- Background Pattern -->
+      <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"10\" height=\"10\" patternUnits=\"userSpaceOnUse\"><path d=\"M 10 0 L 0 0 0 10\" fill=\"none\" stroke=\"%234a9eff\" stroke-width=\"0.5\" opacity=\"0.1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grid)\"/></svg>');
+        opacity: 0.3;
+        z-index: 0;
+      "></div>
+      
+      <!-- Header -->
+      <div class="build-card-header" style="
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #4a9eff;
+        padding-bottom: 20px;
+      ">
+        <h1 class="build-title" style="
+          font-size: 36px;
+          font-weight: bold;
+          margin: 0 0 10px 0;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+          background: linear-gradient(45deg, #4a9eff, #00d4ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        "></h1>
+        <div class="build-subtitle" style="
+          font-size: 18px;
+          color: #b8c5d6;
+          margin: 0;
+        ">Warborne Loadout Builder</div>
+      </div>
+      
+      <!-- Content Grid -->
+      <div class="build-card-content" style="
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        height: 400px;
+      ">
+        <!-- Left Column -->
+        <div class="build-left" style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Drifter Info -->
+          <div class="drifter-section" style="
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid #4a9eff;
+            border-radius: 10px;
+            padding: 15px;
+          ">
+            <h3 style="margin: 0 0 10px 0; color: #4a9eff; font-size: 16px;">DRIFTER</h3>
+            <div class="drifter-info" style="display: flex; align-items: center; gap: 15px;">
+              <div class="drifter-portrait" style="
+                width: 60px;
+                height: 60px;
+                background: #2a3f5f;
+                border: 2px solid #4a9eff;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+              ">👤</div>
+              <div>
+                <div class="drifter-name" style="font-size: 18px; font-weight: bold; margin-bottom: 5px;"></div>
+                <div class="drifter-class" style="font-size: 14px; color: #b8c5d6;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Equipment -->
+          <div class="equipment-section" style="
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid #4a9eff;
+            border-radius: 10px;
+            padding: 15px;
+          ">
+            <h3 style="margin: 0 0 15px 0; color: #4a9eff; font-size: 16px;">EQUIPMENT</h3>
+            <div class="equipment-grid" style="display: grid; gap: 10px;">
+              <div class="equipment-item weapon" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">⚔️</div>
+                <span class="weapon-name" style="font-size: 14px;">-</span>
+              </div>
+              <div class="equipment-item helm" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">⛑️</div>
+                <span class="helm-name" style="font-size: 14px;">-</span>
+              </div>
+              <div class="equipment-item chest" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">🛡️</div>
+                <span class="chest-name" style="font-size: 14px;">-</span>
+              </div>
+              <div class="equipment-item boots" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">👢</div>
+                <span class="boots-name" style="font-size: 14px;">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Column -->
+        <div class="build-right" style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Mods -->
+          <div class="mods-section" style="
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid #4a9eff;
+            border-radius: 10px;
+            padding: 15px;
+          ">
+            <h3 style="margin: 0 0 15px 0; color: #4a9eff; font-size: 16px;">MODS</h3>
+            <div class="mods-grid" style="display: grid; gap: 10px;">
+              <div class="mod-item weapon-mod" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">🔧</div>
+                <span class="weapon-mod-name" style="font-size: 14px;">-</span>
+              </div>
+              <div class="mod-item helm-mod" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">🔧</div>
+                <span class="helm-mod-name" style="font-size: 14px;">-</span>
+              </div>
+              <div class="mod-item chest-mod" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">🔧</div>
+                <span class="chest-mod-name" style="font-size: 14px;">-</span>
+              </div>
+              <div class="mod-item boots-mod" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">🔧</div>
+                <span class="boots-mod-name" style="font-size: 14px;">-</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Skills -->
+          <div class="skills-section" style="
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid #4a9eff;
+            border-radius: 10px;
+            padding: 15px;
+          ">
+            <h3 style="margin: 0 0 15px 0; color: #4a9eff; font-size: 16px;">SKILLS</h3>
+            <div class="skills-grid" style="display: grid; gap: 10px;">
+              <div class="skill-item basic-attack" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">⚡</div>
+                <span class="basic-attack-name" style="font-size: 14px;">-</span>
+              </div>
+              <div class="skill-item weapon-skill" style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 30px; height: 30px; background: #2a3f5f; border: 1px solid #4a9eff; border-radius: 5px; display: flex; align-items: center; justify-content: center;">🔥</div>
+                <span class="weapon-skill-name" style="font-size: 14px;">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer -->
+      <div class="build-card-footer" style="
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+        font-size: 12px;
+        color: #b8c5d6;
+        opacity: 0.7;
+      ">
+        Generated with Warborne Loadout Builder
+      </div>
+    </div>
+  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="./scripts.js?v=117"></script>
 </body>
 </html>
