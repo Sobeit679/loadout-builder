@@ -985,6 +985,11 @@ async function init() {
     importLoadoutBtn.addEventListener('click', importLoadout);
   }
   
+  const discordShareBtn = document.getElementById('discordShareBtn');
+  if (discordShareBtn) {
+    discordShareBtn.addEventListener('click', shareToDiscord);
+  }
+  
   // Search functionality
   if (searchInput) {
     searchInput.addEventListener('input', handleSearch);
@@ -2484,6 +2489,132 @@ function importLoadout(event) {
   showLoadoutCodeModal('', 'Import Loadout', true, event.target);
 }
 
+function shareToDiscord(event) {
+  // Create Discord-friendly build text
+  const drifter = STATE.selected.drifters[0];
+  if (!drifter) {
+    showToast('Please select a drifter first', 'error');
+    return;
+  }
+
+  let buildText = `**${drifter.name} Build**\n\n`;
+  
+  // Add drifter info with image
+  buildText += `**Drifter:** ${drifter.name}\n`;
+  if (drifter.portrait) {
+    buildText += `![${drifter.name}](${window.location.origin}/assets/icons/${drifter.portrait})\n`;
+  }
+  
+  // Add support drifters with images
+  if (selectedSupports.length > 0) {
+    const supportNames = selectedSupports
+      .filter(support => support)
+      .map(support => support.name)
+      .join(', ');
+    if (supportNames) {
+      buildText += `**Supports:** ${supportNames}\n`;
+      // Add support images
+      selectedSupports.filter(support => support && support.portrait).forEach(support => {
+        buildText += `![${support.name}](${window.location.origin}/assets/icons/${support.portrait})\n`;
+      });
+    }
+  }
+  
+  buildText += `\n**Equipment:**\n`;
+  
+  // Add weapon with image
+  const weapon = STATE.selected.gear['weapons'];
+  if (weapon) {
+    buildText += `• **Weapon:** ${weapon.name}\n`;
+    if (weapon.icon) {
+      buildText += `![${weapon.name}](${window.location.origin}/assets/icons/${weapon.icon})\n`;
+    }
+  }
+  
+  // Add armor pieces with images
+  const helm = STATE.selected.gear['armors/head'];
+  const chest = STATE.selected.gear['armors/chest'];
+  const boots = STATE.selected.gear['armors/boots'];
+  
+  if (helm) {
+    buildText += `• **Helm:** ${helm.name}\n`;
+    if (helm.icon) {
+      buildText += `![${helm.name}](${window.location.origin}/assets/icons/${helm.icon})\n`;
+    }
+  }
+  if (chest) {
+    buildText += `• **Chest:** ${chest.name}\n`;
+    if (chest.icon) {
+      buildText += `![${chest.name}](${window.location.origin}/assets/icons/${chest.icon})\n`;
+    }
+  }
+  if (boots) {
+    buildText += `• **Boots:** ${boots.name}\n`;
+    if (boots.icon) {
+      buildText += `![${boots.name}](${window.location.origin}/assets/icons/${boots.icon})\n`;
+    }
+  }
+  
+  // Add mods with images
+  const weaponMod = STATE.selected.mods.weaponMod;
+  const helmMod = STATE.selected.mods.helmMod;
+  const chestMod = STATE.selected.mods.chestMod;
+  const bootsMod = STATE.selected.mods.bootsMod;
+  
+  if (weaponMod || helmMod || chestMod || bootsMod) {
+    buildText += `\n**Mods:**\n`;
+    if (weaponMod) {
+      buildText += `• **Weapon Mod:** ${weaponMod.name}\n`;
+      if (weaponMod.icon) {
+        buildText += `![${weaponMod.name}](${window.location.origin}/assets/icons/${weaponMod.icon})\n`;
+      }
+    }
+    if (helmMod) {
+      buildText += `• **Helm Mod:** ${helmMod.name}\n`;
+      if (helmMod.icon) {
+        buildText += `![${helmMod.name}](${window.location.origin}/assets/icons/${helmMod.icon})\n`;
+      }
+    }
+    if (chestMod) {
+      buildText += `• **Chest Mod:** ${chestMod.name}\n`;
+      if (chestMod.icon) {
+        buildText += `![${chestMod.name}](${window.location.origin}/assets/icons/${chestMod.icon})\n`;
+      }
+    }
+    if (bootsMod) {
+      buildText += `• **Boots Mod:** ${bootsMod.name}\n`;
+      if (bootsMod.icon) {
+        buildText += `![${bootsMod.name}](${window.location.origin}/assets/icons/${bootsMod.icon})\n`;
+      }
+    }
+  }
+  
+  // Add skills with images
+  const basicAttack = STATE.selected.gear['basic-attack'];
+  const weaponSkill = STATE.selected.gear['weapon-skill'];
+  
+  if (basicAttack || weaponSkill) {
+    buildText += `\n**Skills:**\n`;
+    if (basicAttack) {
+      buildText += `• **Basic Attack:** ${basicAttack.name}\n`;
+      if (basicAttack.icon) {
+        buildText += `![${basicAttack.name}](${window.location.origin}/assets/icons/${basicAttack.icon})\n`;
+      }
+    }
+    if (weaponSkill) {
+      buildText += `• **Weapon Skill:** ${weaponSkill.name}\n`;
+      if (weaponSkill.icon) {
+        buildText += `![${weaponSkill.name}](${window.location.origin}/assets/icons/${weaponSkill.icon})\n`;
+      }
+    }
+  }
+  
+  buildText += `\n*Generated with Warborne Loadout Builder*`;
+  
+  // Show modal with Discord-friendly text
+  showDiscordShareModal(buildText, event.target, true);
+}
+
 function shareLoadout() {
   // Create compact loadout object with only essential data
   const loadout = {
@@ -2916,6 +3047,336 @@ function copyLoadoutCode() {
     textarea.select();
     document.execCommand('copy');
     showToast('Loadout code copied to clipboard!', 'success');
+  }
+}
+
+function showDiscordShareModal(buildText, clickedButton = null, hasImages = false) {
+  // Create modal with proper z-index and background
+  const modal = document.createElement('div');
+  modal.className = 'loadout-modal';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+  
+  modal.innerHTML = `
+    <div class="loadout-modal-content" style="
+      max-width: 600px; 
+      width: 90vw; 
+      background: var(--bg-elev-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 10001;
+    ">
+      <div class="loadout-modal-header" style="
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+        <h3 class="loadout-modal-title" style="margin: 0; color: #ffffff; font-size: 1.1em;">Share to Discord</h3>
+        <button class="loadout-modal-close" onclick="this.closest('.loadout-modal').remove()" style="
+          background: none;
+          border: none;
+          color: #ffffff;
+          font-size: 1.5em;
+          cursor: pointer;
+          padding: 0;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 4px;
+        " onmouseover="this.style.backgroundColor='var(--border)'" onmouseout="this.style.backgroundColor='transparent'">×</button>
+      </div>
+      <div style="padding: 20px;">
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 0.9em; color: #ffffff;">Share Format:</label>
+          <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+            <label style="display: flex; align-items: center; color: #ffffff; cursor: pointer;">
+              <input type="radio" name="discordFormat" value="text" checked style="margin-right: 8px;">
+              Text Only (Recommended)
+            </label>
+            <label style="display: flex; align-items: center; color: #ffffff; cursor: pointer;">
+              <input type="radio" name="discordFormat" value="images" style="margin-right: 8px;">
+              With Images (Requires Public Hosting)
+            </label>
+          </div>
+        </div>
+        <label for="discordBuildText" style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 0.9em; color: #ffffff;">Copy this text to share your build in Discord:</label>
+        <textarea id="discordBuildText" readonly 
+          style="width: 100%; height: 300px; padding: 10px; border: 1px solid #666; 
+                 background: #1a1a1a; color: #ffffff !important; border-radius: 4px; 
+                 font-family: monospace; resize: vertical; font-size: 0.8em;
+                 box-sizing: border-box; cursor: text; outline: none; white-space: pre-wrap;">${buildText}</textarea>
+      </div>
+      <div class="loadout-modal-actions" style="
+        padding: 0 20px 20px;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      ">
+        <button class="loadout-modal-btn" onclick="copyDiscordBuild()" style="
+          padding: 8px 16px;
+          border: 1px solid var(--accent);
+          background: var(--accent);
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+        ">Copy to Clipboard</button>
+        <button class="loadout-modal-btn secondary" onclick="this.closest('.loadout-modal').remove()" style="
+          padding: 8px 16px;
+          border: 1px solid var(--border);
+          background: var(--bg-elev-2);
+          color: #ffffff;
+          border-radius: 4px;
+          cursor: pointer;
+        ">Close</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Add event listeners for format switching
+  const formatRadios = modal.querySelectorAll('input[name="discordFormat"]');
+  const textarea = modal.querySelector('#discordBuildText');
+  
+  formatRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'text') {
+        // Generate text-only version
+        generateTextOnlyBuild(textarea);
+      } else if (radio.value === 'images') {
+        // Generate version with images
+        generateImageBuild(textarea);
+      }
+    });
+  });
+  
+  // Focus and select text
+  setTimeout(() => {
+    if (textarea) {
+      textarea.value = buildText;
+      textarea.style.color = '#ffffff';
+      textarea.style.backgroundColor = '#1a1a1a';
+      textarea.select();
+      textarea.focus();
+    }
+  }, 100);
+}
+
+function copyDiscordBuild() {
+  const textarea = document.querySelector('#discordBuildText');
+  if (textarea) {
+    textarea.select();
+    document.execCommand('copy');
+    showToast('Build text copied to clipboard!', 'success');
+  }
+}
+
+function generateTextOnlyBuild(textarea) {
+  const drifter = STATE.selected.drifters[0];
+  if (!drifter) return;
+
+  let buildText = `**${drifter.name} Build**\n\n`;
+  
+  // Add drifter info
+  buildText += `**Drifter:** ${drifter.name}\n`;
+  
+  // Add support drifters
+  if (selectedSupports.length > 0) {
+    const supportNames = selectedSupports
+      .filter(support => support)
+      .map(support => support.name)
+      .join(', ');
+    if (supportNames) {
+      buildText += `**Supports:** ${supportNames}\n`;
+    }
+  }
+  
+  buildText += `\n**Equipment:**\n`;
+  
+  // Add weapon
+  const weapon = STATE.selected.gear['weapons'];
+  if (weapon) {
+    buildText += `• **Weapon:** ${weapon.name}\n`;
+  }
+  
+  // Add armor pieces
+  const helm = STATE.selected.gear['armors/head'];
+  const chest = STATE.selected.gear['armors/chest'];
+  const boots = STATE.selected.gear['armors/boots'];
+  
+  if (helm) buildText += `• **Helm:** ${helm.name}\n`;
+  if (chest) buildText += `• **Chest:** ${chest.name}\n`;
+  if (boots) buildText += `• **Boots:** ${boots.name}\n`;
+  
+  // Add mods
+  const weaponMod = STATE.selected.mods.weaponMod;
+  const helmMod = STATE.selected.mods.helmMod;
+  const chestMod = STATE.selected.mods.chestMod;
+  const bootsMod = STATE.selected.mods.bootsMod;
+  
+  if (weaponMod || helmMod || chestMod || bootsMod) {
+    buildText += `\n**Mods:**\n`;
+    if (weaponMod) buildText += `• **Weapon Mod:** ${weaponMod.name}\n`;
+    if (helmMod) buildText += `• **Helm Mod:** ${helmMod.name}\n`;
+    if (chestMod) buildText += `• **Chest Mod:** ${chestMod.name}\n`;
+    if (bootsMod) buildText += `• **Boots Mod:** ${bootsMod.name}\n`;
+  }
+  
+  // Add skills
+  const basicAttack = STATE.selected.gear['basic-attack'];
+  const weaponSkill = STATE.selected.gear['weapon-skill'];
+  
+  if (basicAttack || weaponSkill) {
+    buildText += `\n**Skills:**\n`;
+    if (basicAttack) buildText += `• **Basic Attack:** ${basicAttack.name}\n`;
+    if (weaponSkill) buildText += `• **Weapon Skill:** ${weaponSkill.name}\n`;
+  }
+  
+  buildText += `\n*Generated with Warborne Loadout Builder*`;
+  
+  if (textarea) {
+    textarea.value = buildText;
+    textarea.select();
+  }
+}
+
+function generateImageBuild(textarea) {
+  const drifter = STATE.selected.drifters[0];
+  if (!drifter) return;
+
+  let buildText = `**${drifter.name} Build**\n\n`;
+  
+  // Add drifter info with image
+  buildText += `**Drifter:** ${drifter.name}\n`;
+  if (drifter.portrait) {
+    buildText += `![${drifter.name}](${window.location.origin}/assets/icons/${drifter.portrait})\n`;
+  }
+  
+  // Add support drifters with images
+  if (selectedSupports.length > 0) {
+    const supportNames = selectedSupports
+      .filter(support => support)
+      .map(support => support.name)
+      .join(', ');
+    if (supportNames) {
+      buildText += `**Supports:** ${supportNames}\n`;
+      // Add support images
+      selectedSupports.filter(support => support && support.portrait).forEach(support => {
+        buildText += `![${support.name}](${window.location.origin}/assets/icons/${support.portrait})\n`;
+      });
+    }
+  }
+  
+  buildText += `\n**Equipment:**\n`;
+  
+  // Add weapon with image
+  const weapon = STATE.selected.gear['weapons'];
+  if (weapon) {
+    buildText += `• **Weapon:** ${weapon.name}\n`;
+    if (weapon.icon) {
+      buildText += `![${weapon.name}](${window.location.origin}/assets/icons/${weapon.icon})\n`;
+    }
+  }
+  
+  // Add armor pieces with images
+  const helm = STATE.selected.gear['armors/head'];
+  const chest = STATE.selected.gear['armors/chest'];
+  const boots = STATE.selected.gear['armors/boots'];
+  
+  if (helm) {
+    buildText += `• **Helm:** ${helm.name}\n`;
+    if (helm.icon) {
+      buildText += `![${helm.name}](${window.location.origin}/assets/icons/${helm.icon})\n`;
+    }
+  }
+  if (chest) {
+    buildText += `• **Chest:** ${chest.name}\n`;
+    if (chest.icon) {
+      buildText += `![${chest.name}](${window.location.origin}/assets/icons/${chest.icon})\n`;
+    }
+  }
+  if (boots) {
+    buildText += `• **Boots:** ${boots.name}\n`;
+    if (boots.icon) {
+      buildText += `![${boots.name}](${window.location.origin}/assets/icons/${boots.icon})\n`;
+    }
+  }
+  
+  // Add mods with images
+  const weaponMod = STATE.selected.mods.weaponMod;
+  const helmMod = STATE.selected.mods.helmMod;
+  const chestMod = STATE.selected.mods.chestMod;
+  const bootsMod = STATE.selected.mods.bootsMod;
+  
+  if (weaponMod || helmMod || chestMod || bootsMod) {
+    buildText += `\n**Mods:**\n`;
+    if (weaponMod) {
+      buildText += `• **Weapon Mod:** ${weaponMod.name}\n`;
+      if (weaponMod.icon) {
+        buildText += `![${weaponMod.name}](${window.location.origin}/assets/icons/${weaponMod.icon})\n`;
+      }
+    }
+    if (helmMod) {
+      buildText += `• **Helm Mod:** ${helmMod.name}\n`;
+      if (helmMod.icon) {
+        buildText += `![${helmMod.name}](${window.location.origin}/assets/icons/${helmMod.icon})\n`;
+      }
+    }
+    if (chestMod) {
+      buildText += `• **Chest Mod:** ${chestMod.name}\n`;
+      if (chestMod.icon) {
+        buildText += `![${chestMod.name}](${window.location.origin}/assets/icons/${chestMod.icon})\n`;
+      }
+    }
+    if (bootsMod) {
+      buildText += `• **Boots Mod:** ${bootsMod.name}\n`;
+      if (bootsMod.icon) {
+        buildText += `![${bootsMod.name}](${window.location.origin}/assets/icons/${bootsMod.icon})\n`;
+      }
+    }
+  }
+  
+  // Add skills with images
+  const basicAttack = STATE.selected.gear['basic-attack'];
+  const weaponSkill = STATE.selected.gear['weapon-skill'];
+  
+  if (basicAttack || weaponSkill) {
+    buildText += `\n**Skills:**\n`;
+    if (basicAttack) {
+      buildText += `• **Basic Attack:** ${basicAttack.name}\n`;
+      if (basicAttack.icon) {
+        buildText += `![${basicAttack.name}](${window.location.origin}/assets/icons/${basicAttack.icon})\n`;
+      }
+    }
+    if (weaponSkill) {
+      buildText += `• **Weapon Skill:** ${weaponSkill.name}\n`;
+      if (weaponSkill.icon) {
+        buildText += `![${weaponSkill.name}](${window.location.origin}/assets/icons/${weaponSkill.icon})\n`;
+      }
+    }
+  }
+  
+  buildText += `\n*Generated with Warborne Loadout Builder*`;
+  
+  if (textarea) {
+    textarea.value = buildText;
+    textarea.select();
   }
 }
 
