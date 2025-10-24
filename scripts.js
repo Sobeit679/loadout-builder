@@ -2580,6 +2580,8 @@ function generateBuildImage(event) {
   container.style.background = '#2a2a2a';
   container.style.padding = '20px';
   container.style.borderRadius = '8px';
+  container.style.width = 'auto';
+  container.style.height = 'auto';
   // Let the content determine the width naturally
   
   // Clone all the sections we want
@@ -2589,29 +2591,26 @@ function generateBuildImage(event) {
   const supportClone = supportSection ? supportSection.cloneNode(true) : null;
   const supportEffectsClone = supportEffects ? supportEffects.cloneNode(true) : null;
   
-  // Ensure item names are populated in the cloned elements
-  populateItemNames(loadoutClone);
+  // Add sections to container first so CSS can be applied
+  container.appendChild(loadoutClone);
+  if (abilityClone) container.appendChild(abilityClone);
+  if (passiveClone) container.appendChild(passiveClone);
+  if (supportClone) container.appendChild(supportClone);
+  if (supportEffectsClone) container.appendChild(supportEffectsClone);
   
-  // Populate passive skill names
+  // Add container to document so CSS is applied
+  document.body.appendChild(container);
+  
+  // Now populate names after CSS is available
+  populateItemNames(loadoutClone);
   if (passiveClone) {
     populatePassiveSkillNames(passiveClone);
   }
   
-  // Add sections in the desired order:
-  // 1. Loadout (equipment)
-  container.appendChild(loadoutClone);
-  // 2. Ability slots
-  if (abilityClone) container.appendChild(abilityClone);
-  // 3. Passives
-  if (passiveClone) container.appendChild(passiveClone);
-  // 4. Select supports
-  if (supportClone) container.appendChild(supportClone);
-  // 5. Support effects
-  if (supportEffectsClone) container.appendChild(supportEffectsClone);
-  document.body.appendChild(container);
-  
-  // Generate the image
-  html2canvas(container, {
+  // Small delay to ensure CSS is fully applied
+  setTimeout(() => {
+    // Generate the image
+    html2canvas(container, {
     backgroundColor: '#2a2a2a',
     scale: 2,
     useCORS: true,
@@ -2637,6 +2636,7 @@ function generateBuildImage(event) {
     showToast('Failed to generate image', 'error');
     document.body.removeChild(container);
   });
+  }, 100); // 100ms delay to ensure CSS is applied
 }
 
 function populateItemNames(container) {
