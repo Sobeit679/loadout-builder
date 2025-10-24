@@ -2666,8 +2666,8 @@ function populateItemNames(container) {
     const nameElement = card.querySelector('.item-name');
     if (nameElement && item) {
       nameElement.textContent = item.name || '';
-      // Let CSS handle the styling - remove inline styles that override our CSS
-      nameElement.style.cssText = '';
+      // Restore proper overlay styling for equipment names
+      nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; word-wrap: break-word; max-width: 100%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.2;';
     } else if (nameElement) {
       nameElement.textContent = '';
     }

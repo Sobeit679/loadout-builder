@@ -114,25 +114,20 @@
   box-shadow: none !important;
 }
 
-/* Item Names Styling */
+/* Item Names Styling - Only for equipment names, not skill names */
 .item-name {
+  /* Equipment names use inline styles for overlay positioning */
+  /* This CSS only provides fallback styling */
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--text);
   text-align: center;
-  margin-bottom: 5px;
   word-wrap: break-word;
   max-width: 100%;
-  min-height: 2.4rem;
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.2rem;
-  hyphens: auto;
+  white-space: nowrap;
   border: none !important;
   background: none !important;
   box-shadow: none !important;
