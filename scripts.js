@@ -1211,28 +1211,22 @@ function populateLoadoutBoard() {
     card.classList.remove('empty');
     card.innerHTML = '';
 
-    // Set card to relative positioning for overlay
+    // Keep original card styling but add relative positioning
     card.style.position = 'relative';
-    card.style.display = 'block';
-    card.style.padding = '0';
-    card.style.width = '100%';
-    card.style.height = 'auto';
+    card.style.overflow = 'visible';
 
     // Handle item icons
     if (item.icon) {
       const img = document.createElement('img');
       img.src = item.icon;
       img.alt = item.name || 'Icon';
-      img.style.width = '100%';
-      img.style.height = 'auto';
-      img.style.display = 'block';
       card.appendChild(img);
     }
     
     // Add item name element as overlay
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 2px 6px; border-radius: 3px; white-space: nowrap; max-width: 90%; overflow: hidden; text-overflow: ellipsis;';
+    nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 4px; border-radius: 2px; white-space: nowrap; max-width: 85%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
@@ -2683,7 +2677,7 @@ function populateItemNames(container) {
     if (nameElement && item) {
       nameElement.textContent = item.name || '';
       // Ensure consistent overlay styling for html2canvas
-      nameElement.style.cssText = 'position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 2px 6px; border-radius: 3px; white-space: nowrap; max-width: 90%; overflow: hidden; text-overflow: ellipsis;';
+      nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 4px; border-radius: 2px; white-space: nowrap; max-width: 85%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none;';
     } else if (nameElement) {
       nameElement.textContent = '';
     }
