@@ -1230,7 +1230,7 @@ function populateLoadoutBoard() {
     // Add item name element
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; max-width: 80px; width: 100%; display: block; order: 2;';
+    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 70px; display: block; order: 2; margin-left: auto; margin-right: auto;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
@@ -2680,6 +2680,8 @@ function populateItemNames(container) {
     const nameElement = card.querySelector('.item-name');
     if (nameElement && item) {
       nameElement.textContent = item.name || '';
+      // Ensure consistent styling for html2canvas
+      nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 70px; display: block; order: 2; margin-left: auto; margin-right: auto;';
     } else if (nameElement) {
       nameElement.textContent = '';
     }
