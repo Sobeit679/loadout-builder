@@ -2515,11 +2515,13 @@ function generateBuildImage(event) {
 
   showToast('Generating build image...', 'info');
   
-  // Target the main loadout section up to skills (excluding mastery section)
+  // Target all the sections we want to include in the image
   const loadoutSection = document.querySelector('.loadout-layout');
   const abilityBar = document.querySelector('.ability-bar');
+  const passiveSkills = document.querySelector('.drifter-abilities');
+  const supportSection = document.querySelector('.support-selection-section');
   
-  // Create a container that includes loadout + ability bar
+  // Create a container that includes all sections
   const container = document.createElement('div');
   container.style.position = 'absolute';
   container.style.top = '-9999px';
@@ -2529,15 +2531,19 @@ function generateBuildImage(event) {
   container.style.borderRadius = '8px';
   // Let the content determine the width naturally
   
-  // Clone the sections we want
+  // Clone all the sections we want
   const loadoutClone = loadoutSection.cloneNode(true);
   const abilityClone = abilityBar.cloneNode(true);
+  const passiveClone = passiveSkills ? passiveSkills.cloneNode(true) : null;
+  const supportClone = supportSection ? supportSection.cloneNode(true) : null;
   
   // Ensure item names are populated in the cloned elements
   populateItemNames(loadoutClone);
   
   container.appendChild(loadoutClone);
-  container.appendChild(abilityClone);
+  if (abilityClone) container.appendChild(abilityClone);
+  if (passiveClone) container.appendChild(passiveClone);
+  if (supportClone) container.appendChild(supportClone);
   document.body.appendChild(container);
   
   // Generate the image
