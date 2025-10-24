@@ -2715,10 +2715,12 @@ function populateItemNames(container) {
     }
     
     if (skill && skill.name) {
+      console.log(`Setting skill name for ${slotKey}:`, skill.name);
       skillName.textContent = skill.name;
       // Apply proper inline styles for image export - same as equipment names
       skillName.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
     } else {
+      console.log(`No skill found for ${slotKey}:`, skill);
       skillName.textContent = '';
     }
   });
@@ -2732,8 +2734,11 @@ function populatePassiveSkillNames(container) {
     if (drifter && drifter.skills?.passive) {
       const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
       if (passiveSkill) {
+        console.log('Setting drifter passive name:', passiveSkill.name);
         drifterPassiveLabel.textContent = passiveSkill.name;
         drifterPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
+      } else {
+        console.log('No drifter passive skill found');
       }
     }
   }
