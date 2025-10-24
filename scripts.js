@@ -1211,26 +1211,30 @@ function populateLoadoutBoard() {
     card.classList.remove('empty');
     card.innerHTML = '';
 
+    // Set card to flex column layout FIRST
+    card.style.display = 'flex';
+    card.style.flexDirection = 'column';
+    card.style.alignItems = 'center';
+    card.style.justifyContent = 'flex-start';
+    card.style.padding = '5px';
+    card.style.width = '100%';
+    card.style.height = 'auto';
+
     // Handle item icons
     if (item.icon) {
       const img = document.createElement('img');
       img.src = item.icon;
       img.alt = item.name || 'Icon';
       img.style.order = '1';
+      img.style.maxWidth = '100%';
+      img.style.height = 'auto';
       card.appendChild(img);
     }
-    
-    // Set card to flex column layout
-    card.style.display = 'flex';
-    card.style.flexDirection = 'column';
-    card.style.alignItems = 'center';
-    card.style.justifyContent = 'flex-start';
-    card.style.padding = '5px';
     
     // Add item name element
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 70px; display: block; order: 2; margin-left: auto; margin-right: auto;';
+    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 100%; display: block; order: 2;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
@@ -2681,7 +2685,7 @@ function populateItemNames(container) {
     if (nameElement && item) {
       nameElement.textContent = item.name || '';
       // Ensure consistent styling for html2canvas
-      nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 70px; display: block; order: 2; margin-left: auto; margin-right: auto;';
+      nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 100%; display: block; order: 2;';
     } else if (nameElement) {
       nameElement.textContent = '';
     }
