@@ -990,6 +990,11 @@ async function init() {
     discordShareBtn.addEventListener('click', shareToDiscord);
   }
   
+  const generateImageBtn = document.getElementById('generateImageBtn');
+  if (generateImageBtn) {
+    generateImageBtn.addEventListener('click', generateBuildImage);
+  }
+  
   // Search functionality
   if (searchInput) {
     searchInput.addEventListener('input', handleSearch);
@@ -2558,6 +2563,45 @@ function shareToDiscord(event) {
   
   // Show modal with Discord-friendly text (text-only by default)
   showDiscordShareModal(buildText, event.target, false);
+}
+
+function generateBuildImage(event) {
+  const drifter = STATE.selected.drifters[0];
+  if (!drifter) {
+    showToast('Please select a drifter first', 'error');
+    return;
+  }
+
+  showToast('Generating build image...', 'info');
+  
+  // Target the main loadout section for the screenshot
+  const loadoutSection = document.querySelector('.panel');
+  
+  html2canvas(loadoutSection, {
+    backgroundColor: null,
+    scale: 2, // Higher resolution
+    useCORS: true,
+    allowTaint: true,
+    scrollX: 0,
+    scrollY: 0,
+    width: loadoutSection.offsetWidth,
+    height: loadoutSection.offsetHeight
+  }).then(canvas => {
+    // Create download link
+    const link = document.createElement('a');
+    link.download = `${drifter.name}-build.png`;
+    link.href = canvas.toDataURL();
+    
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    showToast('Build image downloaded!', 'success');
+  }).catch(error => {
+    console.error('Error generating image:', error);
+    showToast('Failed to generate image', 'error');
+  });
 }
 
 function shareLoadout() {
