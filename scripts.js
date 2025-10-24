@@ -2717,7 +2717,7 @@ function populateItemNames(container) {
     if (skill && skill.name) {
       skillName.textContent = skill.name;
       // Apply proper inline styles for image export - same as equipment names
-      skillName.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+      skillName.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
     } else {
       skillName.textContent = '';
     }
@@ -2733,7 +2733,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
       if (passiveSkill) {
         drifterPassiveLabel.textContent = passiveSkill.name;
-        drifterPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+        drifterPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
       }
     }
   }
@@ -2746,7 +2746,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
       if (passiveSkill) {
         weaponPassiveLabel.textContent = passiveSkill.name;
-        weaponPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+        weaponPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
       }
     }
   }
@@ -2759,7 +2759,7 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
       if (passiveSkill) {
         helmPassiveLabel.textContent = passiveSkill.name;
-        helmPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
+        helmPassiveLabel.style.cssText = 'font-size: 0.7rem; font-weight: 600; color: #ffffff; text-align: center; margin-bottom: 5px; word-wrap: break-word; max-width: 100%; min-height: 2.4rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal; display: flex; align-items: center; justify-content: center; padding: 0.2rem; hyphens: auto; border: none; background: none; box-shadow: none;';
       }
     }
   }
