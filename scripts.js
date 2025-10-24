@@ -1211,9 +1211,8 @@ function populateLoadoutBoard() {
     card.classList.remove('empty');
     card.innerHTML = '';
 
-    // Keep original card styling but add relative positioning
-    card.style.position = 'relative';
-    card.style.overflow = 'visible';
+    // Keep original card styling - don't override the grid layout
+    // The CSS already sets position: relative, so we can use absolute positioning
 
     // Handle item icons
     if (item.icon) {
@@ -1223,10 +1222,10 @@ function populateLoadoutBoard() {
       card.appendChild(img);
     }
     
-    // Add item name element as overlay
+    // Add item name element as overlay - positioned absolutely within the 80x80px card
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 4px; border-radius: 2px; white-space: nowrap; max-width: 85%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none;';
+    nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 10px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 2px; border-radius: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.1;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
@@ -2677,7 +2676,7 @@ function populateItemNames(container) {
     if (nameElement && item) {
       nameElement.textContent = item.name || '';
       // Ensure consistent overlay styling for html2canvas
-      nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 4px; border-radius: 2px; white-space: nowrap; max-width: 85%; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none;';
+      nameElement.style.cssText = 'position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 10px; color: #fff; text-align: center; background: rgba(0,0,0,0.8); padding: 1px 2px; border-radius: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 10; pointer-events: none; line-height: 1.1;';
     } else if (nameElement) {
       nameElement.textContent = '';
     }
