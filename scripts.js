@@ -1311,7 +1311,10 @@ function updateWeaponSkill() {
       const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
       wIcon.style.backgroundImage = `url(${iconUrl})`;
       wSlot.classList.remove('empty');
-      if (wName) wName.textContent = coreSkill.name || '';
+      if (wName) {
+        const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+        wName.textContent = formattedName;
+      }
     } else {
       wIcon.style.backgroundImage = '';
       wSlot.classList.add('empty');
@@ -1355,7 +1358,10 @@ function updateWeaponPassive() {
       const passiveIconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
       weaponPassiveIcon.style.backgroundImage = `url(${passiveIconUrl})`;
       weaponPassiveSlot.classList.remove('empty');
-      if (weaponPassiveLabel) weaponPassiveLabel.textContent = passiveSkill.name || 'Weapon Passive';
+      if (weaponPassiveLabel) {
+        const formattedName = passiveSkill.name ? passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : 'Weapon Passive';
+        weaponPassiveLabel.textContent = formattedName;
+      }
     } else {
       weaponPassiveIcon.style.backgroundImage = '';
       weaponPassiveSlot.classList.add('empty');
@@ -1387,7 +1393,10 @@ function updateHelmPassive() {
       const helmPassiveIconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
       helmPassiveIcon.style.backgroundImage = `url(${helmPassiveIconUrl})`;
       helmPassiveSlot.classList.remove('empty');
-      if (helmPassiveLabel) helmPassiveLabel.textContent = passiveSkill.name || 'Helm Passive';
+      if (helmPassiveLabel) {
+        const formattedName = passiveSkill.name ? passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : 'Helm Passive';
+        helmPassiveLabel.textContent = formattedName;
+      }
     } else {
       helmPassiveIcon.style.backgroundImage = '';
       helmPassiveSlot.classList.add('empty');
@@ -1420,7 +1429,10 @@ function updateChestSkill() {
       const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
       dIcon.style.backgroundImage = `url(${iconUrl})`;
       dSlot.classList.remove('empty');
-      if (dName) dName.textContent = coreSkill.name || '';
+      if (dName) {
+        const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+        dName.textContent = formattedName;
+      }
     } else {
       dIcon.style.backgroundImage = '';
       dSlot.classList.add('empty');
@@ -1453,7 +1465,10 @@ function updateBootsSkill() {
       const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
       fIcon.style.backgroundImage = `url(${iconUrl})`;
       fSlot.classList.remove('empty');
-      if (fName) fName.textContent = coreSkill.name || '';
+      if (fName) {
+        const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+        fName.textContent = formattedName;
+      }
     } else {
       fIcon.style.backgroundImage = '';
       fSlot.classList.add('empty');
@@ -1483,7 +1498,10 @@ function updateBasicAttackSkill() {
     const iconUrl = `${basicAttack.icon}?v=${Date.now()}`;
     aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
-    if (aName) aName.textContent = basicAttack.name || '';
+    if (aName) {
+      const formattedName = basicAttack.name ? basicAttack.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+      aName.textContent = formattedName;
+    }
   } else {
     aIcon.style.backgroundImage = '';
     aSlot.classList.add('empty');
@@ -1508,7 +1526,10 @@ function updateWeaponAbilitySkill() {
     const weaponSkillIconUrl = `${weaponSkill.icon}?v=${Date.now()}`;
     qIcon.style.backgroundImage = `url(${weaponSkillIconUrl})`;
     qSlot.classList.remove('empty');
-    if (qName) qName.textContent = weaponSkill.name || '';
+    if (qName) {
+      const formattedName = weaponSkill.name ? weaponSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+      qName.textContent = formattedName;
+    }
   } else {
     qIcon.style.backgroundImage = '';
     qSlot.classList.add('empty');
@@ -1782,7 +1803,10 @@ function updateDrifterAbilities(drifter) {
     const iconUrl = `${passiveSkill.icon}?v=${Date.now()}`;
     passiveSlot.style.backgroundImage = `url(${iconUrl})`;
     passiveSlot.parentElement.classList.remove('empty');
-    if (drifterPassiveLabel) drifterPassiveLabel.textContent = passiveSkill.name || 'Drifter Passive';
+    if (drifterPassiveLabel) {
+      const formattedName = passiveSkill.name ? passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : 'Drifter Passive';
+      drifterPassiveLabel.textContent = formattedName;
+    }
   } else {
     passiveSlot.style.backgroundImage = '';
     passiveSlot.parentElement.classList.add('empty');
@@ -1795,7 +1819,10 @@ function updateDrifterAbilities(drifter) {
     const iconUrl = `${coreSkill.icon}?v=${Date.now()}`;
     eSlot.style.backgroundImage = `url(${iconUrl})`;
     eSlot.parentElement.classList.remove('empty');
-    if (eName) eName.textContent = coreSkill.name || '';
+    if (eName) {
+      const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+      eName.textContent = formattedName;
+    }
   } else {
     eSlot.style.backgroundImage = '';
     eSlot.parentElement.classList.add('empty');
@@ -2716,7 +2743,9 @@ function populateItemNames(container) {
     
     if (skill && skill.name) {
       console.log(`Setting skill name for ${slotKey}:`, skill.name);
-      skillName.textContent = skill.name;
+      // Format skill name to add spaces before capital letters
+      const formattedName = skill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+      skillName.textContent = formattedName;
       // Apply proper inline styles for image export - same as equipment names
       skillName.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
     } else {
@@ -2735,7 +2764,9 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
       if (passiveSkill) {
         console.log('Setting drifter passive name:', passiveSkill.name);
-        drifterPassiveLabel.textContent = passiveSkill.name;
+        // Format skill name to add spaces before capital letters
+        const formattedName = passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+        drifterPassiveLabel.textContent = formattedName;
         drifterPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       } else {
         console.log('No drifter passive skill found');
@@ -2750,7 +2781,9 @@ function populatePassiveSkillNames(container) {
     if (weapon && weapon.passiveSkill) {
       const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
       if (passiveSkill) {
-        weaponPassiveLabel.textContent = passiveSkill.name;
+        // Format skill name to add spaces before capital letters
+        const formattedName = passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+        weaponPassiveLabel.textContent = formattedName;
         weaponPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       }
     }
@@ -2763,7 +2796,9 @@ function populatePassiveSkillNames(container) {
     if (helm && helm.passiveSkill) {
       const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
       if (passiveSkill) {
-        helmPassiveLabel.textContent = passiveSkill.name;
+        // Format skill name to add spaces before capital letters
+        const formattedName = passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+        helmPassiveLabel.textContent = formattedName;
         helmPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       }
     }
