@@ -1312,7 +1312,8 @@ function updateWeaponSkill() {
       wIcon.style.backgroundImage = `url(${iconUrl})`;
       wSlot.classList.remove('empty');
       if (wName) {
-        const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = coreSkill.name ? coreSkill.name.replace(/ /g, '\u00A0') : '';
         wName.textContent = formattedName;
       }
     } else {
@@ -1359,7 +1360,8 @@ function updateWeaponPassive() {
       weaponPassiveIcon.style.backgroundImage = `url(${passiveIconUrl})`;
       weaponPassiveSlot.classList.remove('empty');
       if (weaponPassiveLabel) {
-        const formattedName = passiveSkill.name ? passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : 'Weapon Passive';
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = passiveSkill.name ? passiveSkill.name.replace(/ /g, '\u00A0') : 'Weapon Passive';
         weaponPassiveLabel.textContent = formattedName;
       }
     } else {
@@ -1394,7 +1396,8 @@ function updateHelmPassive() {
       helmPassiveIcon.style.backgroundImage = `url(${helmPassiveIconUrl})`;
       helmPassiveSlot.classList.remove('empty');
       if (helmPassiveLabel) {
-        const formattedName = passiveSkill.name ? passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : 'Helm Passive';
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = passiveSkill.name ? passiveSkill.name.replace(/ /g, '\u00A0') : 'Helm Passive';
         helmPassiveLabel.textContent = formattedName;
       }
     } else {
@@ -1430,7 +1433,8 @@ function updateChestSkill() {
       dIcon.style.backgroundImage = `url(${iconUrl})`;
       dSlot.classList.remove('empty');
       if (dName) {
-        const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = coreSkill.name ? coreSkill.name.replace(/ /g, '\u00A0') : '';
         dName.textContent = formattedName;
       }
     } else {
@@ -1466,7 +1470,8 @@ function updateBootsSkill() {
       fIcon.style.backgroundImage = `url(${iconUrl})`;
       fSlot.classList.remove('empty');
       if (fName) {
-        const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = coreSkill.name ? coreSkill.name.replace(/ /g, '\u00A0') : '';
         fName.textContent = formattedName;
       }
     } else {
@@ -1500,7 +1505,8 @@ function updateBasicAttackSkill() {
     aSlot.classList.remove('empty');
     if (aName) {
       console.log('Basic attack name from JSON:', basicAttack.name);
-      const formattedName = basicAttack.name ? basicAttack.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+      // Use non-breaking spaces to ensure visibility
+      const formattedName = basicAttack.name ? basicAttack.name.replace(/ /g, '\u00A0') : '';
       console.log('Formatted basic attack name:', formattedName);
       aName.textContent = formattedName;
       console.log('Actual textContent after setting:', aName.textContent);
@@ -1530,7 +1536,8 @@ function updateWeaponAbilitySkill() {
     qIcon.style.backgroundImage = `url(${weaponSkillIconUrl})`;
     qSlot.classList.remove('empty');
     if (qName) {
-      const formattedName = weaponSkill.name ? weaponSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+      // Use non-breaking spaces to ensure visibility
+      const formattedName = weaponSkill.name ? weaponSkill.name.replace(/ /g, '\u00A0') : '';
       qName.textContent = formattedName;
     }
   } else {
@@ -1807,7 +1814,8 @@ function updateDrifterAbilities(drifter) {
     passiveSlot.style.backgroundImage = `url(${iconUrl})`;
     passiveSlot.parentElement.classList.remove('empty');
     if (drifterPassiveLabel) {
-      const formattedName = passiveSkill.name ? passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : 'Drifter Passive';
+      // Use non-breaking spaces to ensure visibility
+      const formattedName = passiveSkill.name ? passiveSkill.name.replace(/ /g, '\u00A0') : 'Drifter Passive';
       drifterPassiveLabel.textContent = formattedName;
     }
   } else {
@@ -1823,7 +1831,8 @@ function updateDrifterAbilities(drifter) {
     eSlot.style.backgroundImage = `url(${iconUrl})`;
     eSlot.parentElement.classList.remove('empty');
     if (eName) {
-      const formattedName = coreSkill.name ? coreSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+      // Use non-breaking spaces to ensure visibility
+      const formattedName = coreSkill.name ? coreSkill.name.replace(/ /g, '\u00A0') : '';
       eName.textContent = formattedName;
     }
   } else {
@@ -2746,8 +2755,8 @@ function populateItemNames(container) {
     
     if (skill && skill.name) {
       console.log(`Setting skill name for ${slotKey}:`, skill.name);
-      // Format skill name to add spaces before capital letters
-      const formattedName = skill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+      // Use non-breaking spaces to ensure visibility
+      const formattedName = skill.name.replace(/ /g, '\u00A0');
       console.log(`Formatted name for ${slotKey}:`, formattedName);
       skillName.textContent = formattedName;
       // Apply proper inline styles for image export - same as equipment names
@@ -2768,8 +2777,8 @@ function populatePassiveSkillNames(container) {
       const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
       if (passiveSkill) {
         console.log('Setting drifter passive name:', passiveSkill.name);
-        // Format skill name to add spaces before capital letters
-        const formattedName = passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = passiveSkill.name.replace(/ /g, '\u00A0');
         drifterPassiveLabel.textContent = formattedName;
         drifterPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       } else {
@@ -2785,8 +2794,8 @@ function populatePassiveSkillNames(container) {
     if (weapon && weapon.passiveSkill) {
       const passiveSkill = STATE.skills.find(s => s.id === weapon.passiveSkill);
       if (passiveSkill) {
-        // Format skill name to add spaces before capital letters
-        const formattedName = passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = passiveSkill.name.replace(/ /g, '\u00A0');
         weaponPassiveLabel.textContent = formattedName;
         weaponPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       }
@@ -2800,8 +2809,8 @@ function populatePassiveSkillNames(container) {
     if (helm && helm.passiveSkill) {
       const passiveSkill = STATE.skills.find(s => s.id === helm.passiveSkill);
       if (passiveSkill) {
-        // Format skill name to add spaces before capital letters
-        const formattedName = passiveSkill.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+        // Use non-breaking spaces to ensure visibility
+        const formattedName = passiveSkill.name.replace(/ /g, '\u00A0');
         helmPassiveLabel.textContent = formattedName;
         helmPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       }
