@@ -1301,7 +1301,8 @@ function updateWeaponSkill() {
   const weapon = STATE.selected.gear['weapons'];
   const wSlot = document.querySelector('[data-key="W"]');
   const wIcon = wSlot.querySelector('.ability-icon');
-  const wName = wSlot.querySelector('.skill-name');
+  const wContainer = wSlot.closest('.ability-slot-container');
+  const wName = wContainer.querySelector('.skill-name');
   
   // Handle weapon core skill
   if (weapon && weapon.coreSkill) {
@@ -1401,7 +1402,8 @@ function updateChestSkill() {
   const chest = STATE.selected.gear['armors/chest'];
   const dSlot = document.querySelector('[data-key="D"]');
   const dIcon = dSlot.querySelector('.ability-icon');
-  const dName = dSlot.querySelector('.skill-name');
+  const dContainer = dSlot.closest('.ability-slot-container');
+  const dName = dContainer.querySelector('.skill-name');
   
   // Handle chest core skill
   if (chest && chest.coreSkill) {
@@ -1433,7 +1435,8 @@ function updateBootsSkill() {
   const boots = STATE.selected.gear['armors/boots'];
   const fSlot = document.querySelector('[data-key="F"]');
   const fIcon = fSlot.querySelector('.ability-icon');
-  const fName = fSlot.querySelector('.skill-name');
+  const fContainer = fSlot.closest('.ability-slot-container');
+  const fName = fContainer.querySelector('.skill-name');
   
   // Handle boots core skill
   if (boots && boots.coreSkill) {
@@ -1465,7 +1468,8 @@ function updateBasicAttackSkill() {
   const basicAttack = STATE.selected.gear['basic-attack'];
   const aSlot = document.querySelector('[data-key="A"]');
   const aIcon = aSlot.querySelector('.ability-icon');
-  const aName = aSlot.querySelector('.skill-name');
+  const aContainer = aSlot.closest('.ability-slot-container');
+  const aName = aContainer.querySelector('.skill-name');
   
   if (basicAttack && basicAttack.icon) {
     const iconUrl = `${basicAttack.icon}?v=${Date.now()}`;
@@ -1489,7 +1493,8 @@ function updateWeaponAbilitySkill() {
   const weaponSkill = STATE.selected.gear['weapon-skill'];
   const qSlot = document.querySelector('[data-key="Q"]');
   const qIcon = qSlot.querySelector('.ability-icon');
-  const qName = qSlot.querySelector('.skill-name');
+  const qContainer = qSlot.closest('.ability-slot-container');
+  const qName = qContainer.querySelector('.skill-name');
   
   if (weaponSkill && weaponSkill.icon) {
     const weaponSkillIconUrl = `${weaponSkill.icon}?v=${Date.now()}`;
@@ -2646,7 +2651,8 @@ function populateItemNames(container) {
   // Also populate skill names for ability slots
   const abilitySlots = container.querySelectorAll('.ability-slot');
   abilitySlots.forEach(slot => {
-    const skillName = slot.querySelector('.skill-name');
+    const container = slot.closest('.ability-slot-container');
+    const skillName = container ? container.querySelector('.skill-name') : null;
     if (!skillName) return;
     
     const slotKey = slot.dataset.key;
