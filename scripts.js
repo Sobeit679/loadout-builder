@@ -1211,12 +1211,10 @@ function populateLoadoutBoard() {
     card.classList.remove('empty');
     card.innerHTML = '';
 
-    // Set card to flex column layout FIRST
-    card.style.display = 'flex';
-    card.style.flexDirection = 'column';
-    card.style.alignItems = 'center';
-    card.style.justifyContent = 'flex-start';
-    card.style.padding = '5px';
+    // Set card to relative positioning for overlay
+    card.style.position = 'relative';
+    card.style.display = 'block';
+    card.style.padding = '0';
     card.style.width = '100%';
     card.style.height = 'auto';
 
@@ -1225,16 +1223,16 @@ function populateLoadoutBoard() {
       const img = document.createElement('img');
       img.src = item.icon;
       img.alt = item.name || 'Icon';
-      img.style.order = '1';
-      img.style.maxWidth = '100%';
+      img.style.width = '100%';
       img.style.height = 'auto';
+      img.style.display = 'block';
       card.appendChild(img);
     }
     
-    // Add item name element
+    // Add item name element as overlay
     const nameElement = document.createElement('div');
     nameElement.className = 'item-name';
-    nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 100%; display: block; order: 2;';
+    nameElement.style.cssText = 'position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 2px 6px; border-radius: 3px; white-space: nowrap; max-width: 90%; overflow: hidden; text-overflow: ellipsis;';
     nameElement.textContent = item.name || '';
     card.appendChild(nameElement);
 
@@ -2684,8 +2682,8 @@ function populateItemNames(container) {
     const nameElement = card.querySelector('.item-name');
     if (nameElement && item) {
       nameElement.textContent = item.name || '';
-      // Ensure consistent styling for html2canvas
-      nameElement.style.cssText = 'font-size: 12px; color: #ccc; text-align: center; margin-top: 8px; word-wrap: break-word; width: 100%; display: block; order: 2;';
+      // Ensure consistent overlay styling for html2canvas
+      nameElement.style.cssText = 'position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 2px 6px; border-radius: 3px; white-space: nowrap; max-width: 90%; overflow: hidden; text-overflow: ellipsis;';
     } else if (nameElement) {
       nameElement.textContent = '';
     }
