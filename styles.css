@@ -1,7 +1,7 @@
 /* Ability Bar Styling */
 .ability-bar {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
   justify-content: center;
   align-items: flex-start;
   margin: 1rem 0;
@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100px; /* Minimum height for consistent spacing */
-  width: 120px; /* Increased width to accommodate longer skill names */
+  width: 100px; /* Width to accommodate skill names without excessive spacing */
 }
 
 .skill-name {

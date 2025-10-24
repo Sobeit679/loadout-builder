@@ -1499,8 +1499,11 @@ function updateBasicAttackSkill() {
     aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
     if (aName) {
+      console.log('Basic attack name from JSON:', basicAttack.name);
       const formattedName = basicAttack.name ? basicAttack.name.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
+      console.log('Formatted basic attack name:', formattedName);
       aName.textContent = formattedName;
+      console.log('Actual textContent after setting:', aName.textContent);
     }
   } else {
     aIcon.style.backgroundImage = '';
