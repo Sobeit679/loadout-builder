@@ -5,7 +5,9 @@
   justify-content: center;
   align-items: flex-start;
   margin: 1rem 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  min-width: 600px; /* Ensure all 6 slots fit on one line */
 }
 
 .ability-slot-container {
@@ -13,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100px; /* Minimum height for consistent spacing */
-  width: 100px; /* Width to accommodate skill names without excessive spacing */
+  width: 90px; /* Width to accommodate skill names while keeping all slots on one line */
 }
 
 .skill-name {
