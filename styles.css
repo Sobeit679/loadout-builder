@@ -74,6 +74,46 @@
   right: 4px;
 }
 
+/* Passive Skills Styling */
+.drifter-abilities {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+
+.passive-slot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80px;
+  width: 80px;
+}
+
+.ability-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  max-width: 100%;
+  min-height: 2.4rem;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  hyphens: auto;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
 .selection-overlay {
   position: fixed;
   inset: 0;
