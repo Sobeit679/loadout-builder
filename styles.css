@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100px; /* Fixed total height: 2.4rem (skill name) + 5px (margin) + 60px (ability slot) */
+  min-height: 100px; /* Minimum height for consistent spacing */
   width: 80px; /* Fixed width to accommodate skill names */
 }
 
@@ -24,14 +24,16 @@
   margin-bottom: 5px !important;
   word-wrap: break-word !important;
   max-width: 100% !important;
-  height: 2.4rem; /* Fixed height for all skill names */
+  min-height: 2.4rem; /* Minimum height for consistent spacing */
   line-height: 1.2 !important;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal; /* Allow text wrapping */
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.2rem;
+  hyphens: auto; /* Enable hyphenation for long words */
 }
 
 .ability-slot {
