@@ -1504,12 +1504,9 @@ function updateBasicAttackSkill() {
     aIcon.style.backgroundImage = `url(${iconUrl})`;
     aSlot.classList.remove('empty');
     if (aName) {
-      console.log('Basic attack name from JSON:', basicAttack.name);
       // Use non-breaking spaces to ensure visibility
       const formattedName = basicAttack.name ? basicAttack.name.replace(/ /g, '\u00A0') : '';
-      console.log('Formatted basic attack name:', formattedName);
       aName.textContent = formattedName;
-      console.log('Actual textContent after setting:', aName.textContent);
     }
   } else {
     aIcon.style.backgroundImage = '';
@@ -1554,10 +1551,12 @@ function updateWeaponAbilitySkill() {
 }
 
 function showBasicAttackSelection() {
+  
   const weapon = STATE.selected.gear['weapons'];
   if (!weapon || !weapon.basicAttacks) {
     return;
   }
+  
   
   // Get the basic attack skills
   const basicAttackSkills = weapon.basicAttacks.map(skillId => 
@@ -1568,6 +1567,7 @@ function showBasicAttackSelection() {
     return;
   }
   
+  
   // Create a vertical cascade of skill images
   showSkillCascade('A', basicAttackSkills, (skill) => {
     STATE.selected.gear['basic-attack'] = skill;
@@ -1576,10 +1576,12 @@ function showBasicAttackSelection() {
 }
 
 function showWeaponSkillSelection() {
+  
   const weapon = STATE.selected.gear['weapons'];
   if (!weapon || !weapon.weaponSkills) {
     return;
   }
+  
   
   // Get the weapon skills
   const weaponSkills = weapon.weaponSkills.map(skillId => 
@@ -1590,6 +1592,7 @@ function showWeaponSkillSelection() {
     return;
   }
   
+  
   // Create a vertical cascade of skill images
   showSkillCascade('Q', weaponSkills, (skill) => {
     STATE.selected.gear['weapon-skill'] = skill;
@@ -1598,59 +1601,57 @@ function showWeaponSkillSelection() {
 }
 
 function showSkillCascade(slotKey, skills, onSelect) {
+  // Find the slot element
   const slot = document.querySelector(`[data-key="${slotKey}"]`);
   if (!slot) return;
   
-  // Check if cascade is already open for this slot
-  const existingCascade = slot.querySelector('.skill-cascade');
-  if (existingCascade) {
-    hideSkillCascade();
-    return;
-  }
-  
-  // Remove any existing cascades from other slots
+  // Remove any existing cascades
   hideSkillCascade();
   
-  // Hide any existing tooltips when cascade opens
-  const tooltip = createGlobalTooltip();
-  tooltip.style.display = 'none';
-  tooltip.style.opacity = '0';
-  tooltip.style.visibility = 'hidden';
+  // Get slot position to position cascade above it
+  const slotRect = slot.getBoundingClientRect();
+  const slotCenterX = slotRect.left + slotRect.width / 2;
+  const slotTop = slotRect.top;
   
-  // Create cascade container
+  // Calculate position, ensuring it doesn't go off-screen
+  const cascadeHeight = 80 * skills.length + 20; // Height based on number of skills
+  const topPosition = Math.max(20, slotTop - cascadeHeight - 10); // Position above slot
+  const leftPosition = Math.max(20, Math.min(window.innerWidth - 100, slotCenterX)); // Keep within viewport
+  
+  // Create a compact vertical cascade like the original
   const cascade = document.createElement('div');
-  cascade.className = 'skill-cascade';
+  cascade.className = 'skill-cascade-new';
   cascade.style.cssText = `
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    z-index: 1000;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 4px;
-    min-width: 60px;
+    position: fixed !important;
+    top: ${topPosition}px !important;
+    left: ${leftPosition}px !important;
+    transform: translateX(-50%) !important;
+    z-index: 99999999 !important;
+    background: transparent !important;
+    border: 2px solid var(--accent) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    width: 76px !important;
   `;
   
-  // Add skill images
-  skills.forEach(skill => {
+  // Add skill options in vertical column
+  skills.forEach((skill, index) => {
     const skillOption = document.createElement('div');
-    skillOption.className = 'skill-option';
     skillOption.style.cssText = `
-      width: 50px;
-      height: 50px;
-      background-image: url(${skill.icon}?v=${Date.now()});
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      border: 2px solid ${STATE.selected.gear[slotKey === 'A' ? 'basic-attack' : 'weapon-skill']?.id === skill.id ? 'var(--accent)' : 'transparent'};
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      width: 60px !important;
+      height: 60px !important;
+      background-image: url(${skill.icon}?v=${Date.now()}) !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      border: 2px solid ${STATE.selected.gear[slotKey === 'A' ? 'basic-attack' : 'weapon-skill']?.id === skill.id ? 'var(--accent)' : 'transparent'} !important;
+      border-radius: 4px !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
     `;
     
     // Add hover effect
@@ -1673,32 +1674,27 @@ function showSkillCascade(slotKey, skills, onSelect) {
       hideSkillCascade();
     });
     
-    // No tooltip on cascade skills to prevent interference
-    
     cascade.appendChild(skillOption);
   });
   
-  // Position the cascade relative to the slot
-  slot.style.position = 'relative';
-  slot.appendChild(cascade);
+  // Add to body
+  document.body.appendChild(cascade);
   
-  // Add click outside to close
-  const closeCascade = (e) => {
-    if (!cascade.contains(e.target) && e.target !== slot) {
+  // Add click outside handler
+  const clickOutsideHandler = (event) => {
+    if (!cascade.contains(event.target) && !slot.contains(event.target)) {
       hideSkillCascade();
-      document.removeEventListener('click', closeCascade);
+      document.removeEventListener('click', clickOutsideHandler);
     }
   };
   
-  // Delay adding the click listener to avoid immediate closure
   setTimeout(() => {
-    document.addEventListener('click', closeCascade);
-  }, 10);
+    document.addEventListener('click', clickOutsideHandler);
+  }, 100);
 }
 
 function hideSkillCascade() {
-  const existingCascades = document.querySelectorAll('.skill-cascade');
-  existingCascades.forEach(cascade => cascade.remove());
+  document.querySelectorAll('.skill-cascade, .skill-cascade-new').forEach(cascade => cascade.remove());
 }
 
 function updateAvatar() {
@@ -2754,15 +2750,12 @@ function populateItemNames(container) {
     }
     
     if (skill && skill.name) {
-      console.log(`Setting skill name for ${slotKey}:`, skill.name);
       // Use non-breaking spaces to ensure visibility
       const formattedName = skill.name.replace(/ /g, '\u00A0');
-      console.log(`Formatted name for ${slotKey}:`, formattedName);
       skillName.textContent = formattedName;
       // Apply proper inline styles for image export - same as equipment names
       skillName.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: visible !important; text-overflow: unset !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
     } else {
-      console.log(`No skill found for ${slotKey}:`, skill);
       skillName.textContent = '';
     }
   });
@@ -2776,13 +2769,11 @@ function populatePassiveSkillNames(container) {
     if (drifter && drifter.skills?.passive) {
       const passiveSkill = STATE.skills.find(s => s.id === drifter.skills.passive);
       if (passiveSkill) {
-        console.log('Setting drifter passive name:', passiveSkill.name);
         // Use non-breaking spaces to ensure visibility
         const formattedName = passiveSkill.name.replace(/ /g, '\u00A0');
         drifterPassiveLabel.textContent = formattedName;
         drifterPassiveLabel.style.cssText = 'font-size: 0.7rem !important; font-weight: 600 !important; color: #ffffff !important; text-align: center !important; margin-bottom: 5px !important; word-wrap: break-word !important; max-width: 100% !important; min-height: 2.4rem !important; line-height: 1.2 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.2rem !important; hyphens: auto !important; border: none !important; background: none !important; box-shadow: none !important;';
       } else {
-        console.log('No drifter passive skill found');
       }
     }
   }

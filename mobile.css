@@ -28,6 +28,7 @@
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    overflow: visible !important; /* Allow skill cascades to extend beyond panel bounds */
   }
   
   /* Mobile layout: equipment left, mods right, drifter center */
@@ -283,6 +284,7 @@
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
+    overflow-y: visible !important; /* Allow cascades to extend above the bar */
   }
   
   /* Force smaller ability slots on mobile */
@@ -307,6 +309,24 @@
     background-size: contain !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+  }
+  
+  /* Mobile skill cascade positioning */
+  body.mobile-device .skill-cascade {
+    position: absolute !important;
+    bottom: 55px !important; /* Position above the 45px mobile ability slot with more space */
+    left: 50% !important; /* Center horizontally */
+    transform: translateX(-50%) !important; /* Center horizontally */
+    z-index: 10000 !important; /* Higher z-index to ensure visibility */
+    width: 61px !important; /* Match mobile ability slot width + padding */
+    min-width: 61px !important; /* Match mobile ability slot width + padding */
+    max-height: 200px !important; /* Limit height for mobile */
+    overflow-y: auto !important; /* Allow scrolling if too many skills */
+  }
+  
+  body.mobile-device .skill-option {
+    width: 45px !important;
+    height: 45px !important;
   }
   
   /* Mobile modal constraints */

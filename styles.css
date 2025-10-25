@@ -1,3 +1,31 @@
+/* Loadout Layout - Lower z-index to allow cascades to appear above */
+.loadout-layout {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+/* Equipment Slots - Lower z-index to allow cascades to appear above */
+.slot-row {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+.slot {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+.slot-card {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+/* Empty slot - Lower z-index to allow cascades to appear above */
+.slot-card.empty {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
 /* Ability Bar Styling */
 .ability-bar {
   display: flex;
@@ -7,7 +35,10 @@
   margin: 1rem 0;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: visible; /* Allow cascades to extend above the bar */
   min-width: 600px; /* Ensure all 6 slots fit on one line */
+  z-index: 1 !important; /* Lower z-index to not interfere with cascades */
+  position: relative !important;
 }
 
 .ability-slot-container {
@@ -16,6 +47,45 @@
   align-items: center;
   min-height: 100px; /* Minimum height for consistent spacing */
   width: 90px; /* Width to accommodate skill names while keeping all slots on one line */
+  position: relative; /* Ensure cascades can be positioned relative to this container */
+  overflow: visible; /* Allow cascades to extend beyond container bounds */
+  z-index: 1; /* Lower z-index to allow cascades to appear above */
+}
+
+/* Skill Cascade Styling */
+.skill-cascade {
+  position: absolute !important;
+  bottom: 70px !important; /* Position above the ability slot with more space */
+  left: 50% !important;
+  transform: translateX(-50%) !important; /* Center horizontally */
+  z-index: 9999999 !important; /* High z-index to appear above everything */
+  width: 76px !important; /* Width to accommodate 60px skill options + padding */
+  min-width: 76px !important;
+  max-height: 250px !important; /* Limit height to prevent overflow */
+  overflow-y: auto !important; /* Allow scrolling if too many skills */
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  padding: 8px !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 2px solid var(--accent) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.skill-option {
+  width: 60px !important;
+  height: 60px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
 }
 
 .skill-name {
@@ -36,6 +106,8 @@
   justify-content: center;
   padding: 0.2rem;
   hyphens: auto; /* Enable hyphenation for long words */
+  z-index: 1 !important; /* Lower z-index to not interfere with cascades */
+  position: relative !important;
 }
 
 .ability-slot {
@@ -51,6 +123,7 @@
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease;
+  z-index: 1; /* Lower z-index to allow cascades to appear above */
 }
 
 .ability-slot:hover {
@@ -74,6 +147,50 @@
   position: absolute;
   bottom: 4px;
   right: 4px;
+}
+
+/* Skill Cascade Styling */
+.skill-cascade {
+  position: absolute !important;
+  bottom: 60px !important; /* Position above the 60px ability slot */
+  left: 50% !important; /* Center horizontally */
+  transform: translateX(-50%) !important; /* Center horizontally */
+  z-index: 9999999 !important; /* Even higher z-index to ensure visibility above all elements */
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  width: 76px !important; /* Match ability slot width + padding */
+  min-width: 76px !important; /* Match ability slot width + padding */
+  max-height: 300px !important; /* Limit height to prevent going off-screen */
+  overflow-y: auto !important; /* Allow scrolling if too many skills */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.skill-option {
+  width: 60px !important;
+  height: 60px !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border: 2px solid transparent !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.skill-option:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
 }
 
 /* Passive Skills Styling */
@@ -394,7 +511,7 @@ main {
   flex-direction: column;
   min-height: 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow skill cascades to extend beyond panel bounds */
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -494,7 +611,7 @@ main {
 
 .slot-row {
   position: relative;
-  z-index: 2;
+  z-index: 1; /* Lower z-index to not interfere with skill cascades */
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-auto-rows: 1fr;
@@ -598,7 +715,7 @@ main {
 
 .loadout-avatar {
   position: relative;
-  z-index: 2;
+  z-index: 1; /* Lower z-index to not interfere with skill cascades */
   width: 100%;
   min-height: 400px;
 }
@@ -627,7 +744,7 @@ main {
   font-weight: 600;
   color: var(--text);
   text-align: center; display: flex; justify-content: center; align-items: center;
-  z-index: 3;
+  z-index: 1; /* Lower z-index to not interfere with skill cascades */
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
@@ -641,7 +758,7 @@ main {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.4);
   text-align: center; display: flex; justify-content: center; align-items: center;
-  z-index: 3;
+  z-index: 1; /* Lower z-index to not interfere with skill cascades */
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
@@ -654,7 +771,7 @@ main {
   font-size: 1.2rem;
   font-weight: 600;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1; /* Lower z-index to not interfere with skill cascades */
 }
 
 .avatar-text.hidden {
